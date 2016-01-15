@@ -1,0 +1,12 @@
+body { padding-top: 70px; }
+
+.social-buttons {
+	margin-left: auto;
+	margin-right: 0;
+	width: 75px;
+}
+
+.social-buttons > a {
+	margin-right: 15px;
+	color: #ffff00;
+}
