@@ -3,12 +3,13 @@
 	<head>
 		<meta charset="<?php echo get_bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
 		<noscript><link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/noscript.css"></noscript>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<title><?php echo get_bloginfo(); ?></title>
+		<title><?php echo get_bloginfo(); if ( wp_title( '', FALSE ) !== '' ): ?> -<?php wp_title( '' ); endif; ?></title>
 	</head>
 	<body>
 		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
