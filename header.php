@@ -52,3 +52,6 @@
 			</div>
 		</nav>
 		<div class="container">
+			<div class="page-header">
+				<h1><?php wp_title( '' ); ?></h1>
+			</div>
