@@ -22,16 +22,6 @@ if ( ! empty( $page_ancestors ) ):
 </div>
 <?php
 
-$page_children = get_pages( 'child_of=' . get_the_ID() );
-
-if ( count( $page_children ) ): ?>
-<div class="btn-group-vertical form-group" role="group" aria-label="...">
-	<?php foreach ( $page_children as $page_id ): ?>
-	<a class="btn btn-default" href="<?php echo the_permalink( $page_id ); ?>" role="button"><?php echo esc_html( get_the_title( $page_id ) ); ?></a>
-	<?php endforeach; ?>
-</div>
-<?php endif;
-
 the_content();
 
 get_footer();
