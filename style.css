@@ -25,16 +25,15 @@ body > .container { width: 75%; }
 	right: 0px;
 	z-index: 9999;
 	width: 40px;
-	max-height: 150px;
 	background-color: #00af00;
 	color: #ff0;
-	transition: width 100ms;
+	border-bottom-left-radius: 10px;
+	transition: all 100ms;
 }
 
 .sidebar:hover {
 	width: 200px;
 	height: 100%;
-	max-height: none;
 }
 
 .sidebar > .widget-area { display: none; }
