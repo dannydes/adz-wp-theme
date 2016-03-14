@@ -52,7 +52,7 @@ add_filter( 'nav_menu_css_class', 'adz_menu_css_class', 10, 2 );
 function adz_enqueue_scripts() {
 	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/static/bootstrap/css/bootstrap.min.css', '', '3' );
 	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' );
-	wp_enqueue_style( 'base-css', get_template_directory_uri() . '/style.css', '', '0.1' );
+	wp_enqueue_style( 'base-css', get_template_directory_uri() . '/style.css', '', '0.4' );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/static/bootstrap/js/bootstrap.min.js', 'jquery', '3', TRUE );
 }
 
@@ -126,7 +126,7 @@ add_filter( 'excerpt_length', 'adz_custom_excerpt_length', 999 );
 function adz_excerpt_more() {
 	return '<a class="btn btn-default" href="' .
 		esc_url( get_permalink( get_the_ID() ) ) .
-		'">' . __( 'Read more...', 'adznici' ) .
+		'">' . __( 'Read more...', 'adz' ) .
 		'</a>';
 }
 

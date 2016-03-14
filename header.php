@@ -17,7 +17,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/static/logo.png" alt="Brand">
+						<img src="<?php echo get_template_directory_uri(); ?>/static/logo.jpg" alt="Brand">
 						<?php echo get_bloginfo(); ?>
 					</a>
 					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo get_bloginfo( 'description' ); ?></p>
