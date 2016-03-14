@@ -6,7 +6,8 @@ get_sidebar();
 
 ?>
 <div class="page-header">
-	<h1><?php single_post_title(); ?></h1>
+	<h1><?php the_archive_title(); ?></h1>
+	<p><?php the_archive_description(); ?></p>
 </div>
 <?php if ( have_posts() ): ?>
 <div class="row">

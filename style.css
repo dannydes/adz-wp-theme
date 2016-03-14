@@ -1,12 +1,43 @@
-body { padding-top: 70px; }
+/*
+Theme Name: J. & A. Bonnici
+Description: Theme designed specifically for J. & A. Bonnici.
+Author: Daniel Desira
+Author URI: http://dannydes.github.io
+Version: 0.4
+*/
 
-.social-buttons {
-	margin-left: auto;
-	margin-right: 0;
-	width: 75px;
+/**
+ * General styling.
+ */
+
+body { padding-top: 50px; }
+body > .container { width: 75%; }
+.footer { background-color: #f5f5f5; }
+.navbar, .sidebar { opacity: 0.95; }
+.navbar-brand > img { display: inline; }
+
+/**
+ * Sidebar placement and display properties.
+ */
+.sidebar {
+	position: fixed;
+	top: 50px;
+	right: 0px;
+	z-index: 9999;
+	width: 40px;
+	max-height: 150px;
+	background-color: #00af00;
+	color: #ff0;
+	transition: width 100ms;
 }
 
-.social-buttons > a {
-	margin-right: 15px;
-	color: #ffff00;
+.sidebar:hover {
+	width: 200px;
+	height: 100%;
+	max-height: none;
 }
+
+.sidebar > .widget-area { display: none; }
+.sidebar-info { transform: rotate(270deg); }
+.sidebar:hover > .widget-area { display: inline; }
+.sidebar:hover > .sidebar-info {	display: none; }
