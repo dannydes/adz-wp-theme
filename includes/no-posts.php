@@ -1,1 +1,2 @@
-<p>No posts.</p>
+<i class="sad-face fa fa-frown-o"></i>
+<p>No posts found.</p>

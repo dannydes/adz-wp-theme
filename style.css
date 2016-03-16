@@ -3,7 +3,7 @@ Theme Name: ADZ
 Description: Theme designed specifically for ADZ following European Green Party Branding.
 Author: Daniel Desira
 Author URI: http://dannydes.github.io
-Version: 0.4
+Version: 0.5
 */
 
 /**
@@ -12,6 +12,7 @@ Version: 0.4
 
 body { padding-top: 50px; }
 body > .container { width: 75%; }
+.sad-face { font-size: 150px; }
 .footer { background-color: #f5f5f5; }
 .navbar, .sidebar { opacity: 0.95; }
 .navbar-brand > img { display: inline; }
