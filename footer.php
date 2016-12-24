@@ -30,6 +30,10 @@
 				<?php endif; ?>
 				</div>
 			</div>
+			<div class="container row">
+				<div class="col-xs-12 col-md-8"><!--<a href="">heolllo</a> | <a href="">hey</a>--></div>
+				<div class="col-xs-12 col-md-4">&copy; Copyright 2017. All rights reserved.</div>
+			</div>
 		</footer>
 		<?php wp_footer(); ?>
 	</body>
