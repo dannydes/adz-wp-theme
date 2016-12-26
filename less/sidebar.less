@@ -1,0 +1,23 @@
+.sidebar {
+	position: fixed;
+	top: 50px;
+	right: 0px;
+	z-index: 9999;
+	width: 40px;
+	background-color: @navbar-default-bg;
+	color: @navbar-default-color;
+	border-bottom-left-radius: 10px;
+	transition: all 100ms;
+	
+	.widget-area { display: none; }
+}
+
+.sidebar:hover {
+	width: 200px;
+	height: 100%;
+	
+	.widget-area { display: inline; }
+	.sidebar-info {	display: none; }
+}
+
+.sidebar-info { transform: rotate(270deg); }
