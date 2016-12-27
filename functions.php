@@ -51,6 +51,7 @@ add_filter( 'nav_menu_css_class', 'adz_menu_css_class', 10, 2 );
  */
 function adz_enqueue_scripts() {
 	wp_enqueue_style( 'base-css', get_template_directory_uri() . '/style.css', '', '0.4' );
+	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/static/bootstrap.min.js', 'jquery', '3', TRUE );
 }
 

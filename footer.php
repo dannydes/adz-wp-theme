@@ -34,7 +34,7 @@
 			</div>
 			<div class="bottom">
 				<div class="container row">
-					<div class="col-xs-12 col-md-8"><a href="">Privacy Policy</a> | <a href="">Site Map</a></div>
+					<div class="col-xs-12 col-md-8"><a href="">Privacy Policy</a> | <a href="">FAQs</a></div>
 					<div class="col-xs-12 col-md-4">&copy; Copyright 2017. All rights reserved.</div>
 				</div>
 			</div>
