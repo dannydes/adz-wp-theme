@@ -26,9 +26,9 @@
 					<?php
 						
 						wp_nav_menu( array(
-							'menu' => 'primary',
+							'theme_location' => 'primary',
 							'menu_class' => 'nav navbar-nav navbar-right',
-							'walker' => new ADZ_Nav_Menu_Walker(),
+							'walker' => new ADZ_Primary_Nav_Menu_Walker(),
 						) );
 						
 					?>

@@ -1,3 +1,4 @@
+<?php require 'includes/bottom-menu-walker.php'; ?>
 		</div>
 		<footer class="footer">
 			<div class="top">
@@ -34,7 +35,18 @@
 			</div>
 			<div class="bottom">
 				<div class="container row">
-					<div class="col-xs-12 col-md-8"><a href="">Privacy Policy</a> | <a href="">FAQs</a></div>
+					<div class="col-xs-12 col-md-8">
+					<?php
+					
+					wp_nav_menu( array(
+						'theme_location' => 'bottom',
+						'container' => '',
+						'depth' => 1,
+						'walker' => new ADZ_Bottom_Nav_Menu_Walker(),
+					) );
+					
+					?>
+					</div>
 					<div class="col-xs-12 col-md-4">&copy; Copyright 2017. All rights reserved.</div>
 				</div>
 			</div>
