@@ -56,7 +56,9 @@ class ADZ_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	
 	/**
 	 * Ends the menu item output.
-	 *
+	 * @param output The markup to be rendered.
+	 * @param depth Depth within menu.
+	 * @param args Further arguments.
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</a> | ";
