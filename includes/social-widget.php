@@ -41,6 +41,10 @@ class ADZ_Social_Widget extends WP_Widget {
 		if ( ! empty( $instance['instagram'] ) ): ?>
 			<a href="<?php echo esc_url( $instance['instagram'] ); ?>" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a>
 		<?php endif;
+		
+		if ( ! empty( $instance['youtube'] ) ): ?>
+			<a href="<?php echo esc_url( $instance['youtube'] ); ?>" title="Youtube" target="_blank"><i class="fa fa-youtube"></i></a>
+		<?php endif;
 	}
 	
 	/**
@@ -53,6 +57,7 @@ class ADZ_Social_Widget extends WP_Widget {
 		$linkedin = $instance['linkedin'];
 		$googleplus = $instance['googleplus'];
 		$instagram = $instance['instagram'];
+		$youtube = $instance['youtube'];
 		
 		?>
 		<label for="<?php echo $this->get_field_id( 'facebook' ); ?>">Facebook</label>
@@ -70,6 +75,9 @@ class ADZ_Social_Widget extends WP_Widget {
 		<label for="<?php echo $this->get_field_id( 'instagram' ); ?>">Instagram</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>"
 			value="<?php echo esc_attr( $instagram ); ?>">
+		<label for="<?php echo $this->get_field_id( 'youtube' ); ?>">Youtube</label>
+		<input type="url" id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>"
+			value="<?php echo esc_attr( $youtube ); ?>">
 		<?php
 		
 	}
@@ -86,6 +94,7 @@ class ADZ_Social_Widget extends WP_Widget {
 		$instance['linkedin'] = ( ! empty( $new_instance['linkedin'] ) ? strip_tags( $new_instance['linkedin'] ) : '' );
 		$instance['googleplus'] = ( ! empty( $new_instance['googleplus'] ) ? strip_tags( $new_instance['googleplus'] ) : '' );
 		$instance['instagram'] = ( ! empty( $new_instance['instagram'] ) ? strip_tags( $new_instance['instagram'] ) : '' );
+		$instance['youtube'] = ( ! empty( $new_instance['youtube'] ) ? strip_tags( $new_instance['youtube'] ) : '' );
 		return $instance;
 	}
 }
