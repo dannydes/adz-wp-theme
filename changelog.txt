@@ -1,0 +1,5 @@
+0.7
+---
+- Bottom menu is now customisable
+- Added Youtube support in social buttons widget
+- Sidebar now lockable
