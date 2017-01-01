@@ -36,16 +36,19 @@
 			<div class="bottom">
 				<div class="container row">
 					<div class="col-xs-12 col-md-8">
-					<?php
-					
-					wp_nav_menu( array(
-						'theme_location' => 'bottom',
-						'container' => '',
-						'depth' => 1,
-						'walker' => new ADZ_Bottom_Nav_Menu_Walker(),
-					) );
-					
-					?>
+						<nav>
+						<?php
+						
+						wp_nav_menu( array(
+							'theme_location' => 'bottom',
+							'container' => '',
+							'depth' => 1,
+							'items_wrap' => '%3$s',
+							'walker' => new ADZ_Bottom_Nav_Menu_Walker(),
+						) );
+						
+						?>
+						</nav>
 					</div>
 					<div class="col-xs-12 col-md-4">&copy; Copyright 2017. All rights reserved.</div>
 				</div>
