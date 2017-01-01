@@ -141,36 +141,3 @@ function adz_excerpt_more() {
 }
 
 add_filter( 'excerpt_more', 'adz_excerpt_more' );
-
-/**
- * Defines customizer settings.
- * @param wp_customize WP_Customize_Manager instance.
- *//*
-function adz_customize_register( $wp_customize ) {
-	$wp_customize->add_setting( 'privacy_policy_url', array(
-		'default' => '',
-	) );
-	
-	$wp_customize->add_setting( 'faqs_url', array(
-		'default' => '',
-	) );
-	
-	$wp_customize->add_section( 'adz_footer_bottom_links', array(
-		'title' => __( 'Footer bottom links', 'adz' ),
-		'priority' => 30,
-	) );
-	
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'privacy_policy_url', array(
-		'label' => __( 'Privacy Policy URL', 'adz' ),
-		'section' => 'adz_footer_bottom_links',
-		'settings' => 'privacy_policy_url',
-	) ) );
-	
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'faqs_url', array(
-		'label' => __( 'FAQs URL', 'adz' ),
-		'section' => 'adz_footer_bottom_links',
-		'settings' => 'faqs_url',
-	) ) );
-}
-
-add_action( 'customize_register', adz_customize_register );*/
