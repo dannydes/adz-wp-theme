@@ -3,6 +3,7 @@
 - Code cleanup
 - Sidebar and Bootstrap scripts now load in same tag
 - Sidebar improvements
+- Ability to share blog posts via AddThis
 
 0.7
 ---
