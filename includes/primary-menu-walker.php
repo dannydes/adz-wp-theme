@@ -18,6 +18,7 @@ class ADZ_Primary_Nav_Menu_Walker extends Walker_Nav_Menu {
 	/**
 	 * Renders menu items.
 	 * @param output The markup to be rendered.
+	 * @param item Menu item.
 	 * @param depth Depth within menu.
 	 * @param args Further arguments.
 	 * @param id Menu item ID.
