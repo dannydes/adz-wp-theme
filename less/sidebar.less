@@ -3,23 +3,26 @@
 	top: 50px;
 	right: 0px;
 	z-index: 9999;
-	width: 125px;
+	width: 135px;
 	background-color: @navbar-default-bg;
 	color: @navbar-default-color;
 	border-bottom-left-radius: 10px;
 	transition: all 100ms;
 	
-	.widget-area { display: none; }
+	.widget-area {
+		display: none;
+		margin-left: 10px;
+	}
 }
 
 .sidebar:hover, .sidebar-open {
 	width: 200px;
 	height: 100%;
 	
-	.widget-area { display: inline; }
+	.widget-area { display: block; }
 }
 
 .sidebar-toggle {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	display: block;
+	margin: 10px;
 }
