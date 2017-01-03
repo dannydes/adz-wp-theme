@@ -16,6 +16,7 @@ the_post();
 <?php endif; ?>
 <p>Filed under: <?php the_category( ' ' ); ?></p>
 <article <?php post_class(); ?>><?php the_content(); ?></article>
+<div class="addthis_native_toolbox"></div>
 <div class="well">
 	<h2>About the author: <?php the_author_link(); ?></h2>
 	<div class="media">

@@ -65,9 +65,27 @@ function adz_enqueue_scripts() {
 	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', '', '4.7' );
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'sidebar', get_template_directory_uri() . '/script.js', 'jquery', $theme_version, TRUE );
+	wp_enqueue_script( 'addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56aa8d91c91a4535', '', '', TRUE );
 }
 
 add_action( 'wp_enqueue_scripts', 'adz_enqueue_scripts' );
+
+/**
+ * Makes AddThis script non-blocking.
+ * @param tag <script> markup.
+ * @param handle Script handle.
+ * @return <script> markup.
+ */
+
+function adz_addthis_add_async( $tag, $handle ) {
+	if ( 'addthis' !== $handle ) {
+		return $tag;
+	}
+	
+	return str_replace( ' src', ' async="async" src', $tag );
+}
+
+add_filter( 'script_loader_tag', 'adz_addthis_add_async', 10, 2 );
 
 /**
  * Registers widgets and widget areas.
