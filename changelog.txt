@@ -3,6 +3,7 @@
 - Last bottom link is no longer followed by a pipe
 - Sidebar lock is now called as such (simple renaming)
 - Added fork of WP's Recent Posts widget
+- Links in sidebar are now white
 
 0.7.1
 -----
