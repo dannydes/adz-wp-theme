@@ -1,17 +1,17 @@
 (function ( $ ) {
 	'use strict';
 	
-	$( '#sidebar-toggle' ).click( toggleSidebar );
+	$( '#sidebar-lock' ).click( toggleSidebar );
 	
 	function toggleSidebar() {
-		var className = 'sidebar-open';
+		var className = 'sidebar-locked';
 		
 		if ( $( '#sidebar' ).hasClass( className ) ) {
 			$( '#sidebar' ).removeClass( className );
-			$( '#sidebar-toggle' ).removeClass( 'active' );
+			$( '#sidebar-lock' ).removeClass( 'active' );
 		} else {
 			$( '#sidebar' ).addClass( className );
-			$( '#sidebar-toggle' ).addClass( 'active' );
+			$( '#sidebar-lock' ).addClass( 'active' );
 		}
 	}
 })( jQuery );
