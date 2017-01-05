@@ -2,6 +2,7 @@
 
 require 'includes/social-widget.php';
 require 'includes/contact-widget.php';
+require 'includes/recent-posts-widget.php';
 
 /**
  * Tells WordPress to enable certain features.
@@ -93,6 +94,7 @@ add_filter( 'script_loader_tag', 'adz_addthis_add_async', 10, 2 );
 function adz_widgets_init() {
 	register_widget( 'ADZ_Contact_Widget' );
 	register_widget( 'ADZ_Social_Widget' );
+	register_widget( 'ADZ_Recent_Posts_Widget' );
 	
 	register_sidebar( array(
 		'name' => __( 'Footer Column 1', 'adz_footer_col_1' ),
