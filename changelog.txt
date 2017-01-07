@@ -1,6 +1,9 @@
 0.7.3
 -----
 - Navbar link color scheme reversed apart from logo text
+- Blogroll through old WP Links Manager
+- "Lock Sidebar" button reads "UnLock Sidebar" when activated
+- Documentation update
 
 0.7.2
 -----
