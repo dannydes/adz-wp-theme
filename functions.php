@@ -3,7 +3,6 @@
 require 'includes/social-widget.php';
 require 'includes/contact-widget.php';
 require 'includes/recent-posts-widget.php';
-require 'includes/blogroll-widget.php';
 
 /**
  * Tells WordPress to enable certain features.
@@ -96,7 +95,7 @@ function adz_widgets_init() {
 	register_widget( 'ADZ_Contact_Widget' );
 	register_widget( 'ADZ_Social_Widget' );
 	register_widget( 'ADZ_Recent_Posts_Widget' );
-	register_widget( 'ADZ_Blogroll_Widget' );
+	//register_widget( 'ADZ_Blogroll_Widget' );
 	
 	register_sidebar( array(
 		'name' => __( 'Footer Column 1', 'adz_footer_col_1' ),
@@ -164,3 +163,8 @@ function adz_excerpt_more() {
 }
 
 add_filter( 'excerpt_more', 'adz_excerpt_more' );
+
+//Hack from Eazy Enable Blogroll plugin to reenable links manager
+if( get_bloginfo( 'version' ) >= 3.5 ) {
+  add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+}
