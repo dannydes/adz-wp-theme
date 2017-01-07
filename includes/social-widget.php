@@ -17,8 +17,11 @@ class ADZ_Social_Widget extends WP_Widget {
 	
 	/**
 	 * Renders widget.
-	 * @param args Widget area args.
-	 * @param instance Widget settings.
+	 *
+	 * @access public
+	 *
+	 * @param array $args Widget area args.
+	 * @param object $instance Widget settings.
 	 */
 	public function widget( $args, $instance ) { ?>
 		<h4>Follow Us</h4>
@@ -49,7 +52,10 @@ class ADZ_Social_Widget extends WP_Widget {
 	
 	/**
 	 * Renders widget settings form.
-	 * @param instance Widget settings.
+	 *
+	 * @access public
+	 *
+	 * @param object $instance Widget settings.
 	 */
 	public function form( $instance ) {
 		$facebook = $instance['facebook'];
@@ -84,8 +90,13 @@ class ADZ_Social_Widget extends WP_Widget {
 	
 	/**
 	 * Updates widget settings.
-	 * @param new_instance New widget settings.
-	 * @param old_instance Old widget settings.
+	 *
+	 * @access public
+	 *
+	 * @param object $new_instance New widget settings.
+	 * @param object $old_instance Old widget settings.
+	 *
+	 * @return Widget settings to be saved.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();

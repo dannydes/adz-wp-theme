@@ -17,8 +17,11 @@ class ADZ_Contact_Widget extends WP_Widget {
 	
 	/**
 	 * Renders widget.
-	 * @param args Widget area args.
-	 * @param instance Widget settings.
+	 *
+	 * @access public
+	 *
+	 * @param array $args Widget area args.
+	 * @param object $instance Widget settings.
 	 */
 	public function widget( $args, $instance ) {
 		$address_line_1 = $instance['address_line_1'];
@@ -59,7 +62,10 @@ class ADZ_Contact_Widget extends WP_Widget {
 	
 	/**
 	 * Renders widget settings form.
-	 * @param instance Widget settings.
+	 *
+	 * @access public
+	 *
+	 * @param object $instance Widget settings.
 	 */
 	public function form( $instance ) {
 		$address_line_1 = $instance['address_line_1'];
@@ -94,8 +100,13 @@ class ADZ_Contact_Widget extends WP_Widget {
 	
 	/**
 	 * Updates widget settings.
-	 * @param new_instance New widget settings.
-	 * @param old_instance Old widget settings.
+	 *
+	 * @access public
+	 *
+	 * @param object $new_instance New widget settings.
+	 * @param object $old_instance Old widget settings.
+	 *
+	 * @return Widget settings to be saved.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
