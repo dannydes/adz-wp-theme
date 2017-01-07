@@ -95,8 +95,7 @@ class ADZ_Social_Widget extends WP_Widget {
 	 *
 	 * @param object $new_instance New widget settings.
 	 * @param object $old_instance Old widget settings.
-	 *
-	 * @return Widget settings to be saved.
+	 * @return array Updated settings to save.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();

@@ -7,11 +7,14 @@ class ADZ_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	
 	/**
 	 * Renders menu items.
-	 * @param output The markup to be rendered.
-	 * @param item Menu item.
-	 * @param depth Depth within menu.
-	 * @param args Further arguments.
-	 * @param id Menu item ID.
+	 *
+	 * @access public
+	 *
+	 * @param string $output The markup to be rendered.
+	 * @param object $item Menu item.
+	 * @param integer $depth Depth within menu.
+	 * @param array $args Further arguments.
+	 * @param integer $id Menu item ID.
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -56,10 +59,10 @@ class ADZ_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	
 	/**
 	 * Ends the menu item output.
-	 * @param output The markup to be rendered.
-	 * @param item Menu item.
-	 * @param depth Depth within menu.
-	 * @param args Further arguments.
+	 * @param string $output The markup to be rendered.
+	 * @param object $item Menu item.
+	 * @param integer $depth Depth within menu.
+	 * @param array $args Further arguments.
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</a></span>";

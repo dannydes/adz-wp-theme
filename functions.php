@@ -36,9 +36,10 @@ add_action( 'init', 'adz_register_menus' );
 
 /**
  * Adds CSS classes to menu items depending on needs.
- * @param classes CSS classes of current menu item.
- * @param item Current menu item.
- * @return New CSS classes.
+ *
+ * @param array $classes CSS classes of current menu item.
+ * @param string $item Current menu item.
+ * @return array New CSS classes.
  */
 function adz_menu_css_class( $classes, $item ) {
 	// Handles active menu items.
@@ -73,9 +74,10 @@ add_action( 'wp_enqueue_scripts', 'adz_enqueue_scripts' );
 
 /**
  * Makes AddThis script non-blocking.
- * @param tag <script> markup.
- * @param handle Script handle.
- * @return <script> markup.
+ *
+ * @param string $tag <script> markup.
+ * @param string $handle Script handle.
+ * @return string <script> markup.
  */
 
 function adz_addthis_add_async( $tag, $handle ) {
@@ -142,8 +144,9 @@ add_action( 'widgets_init', 'adz_widgets_init' );
 
 /**
  * Changes the excerpt length.
- * @param length Current excerpt length.
- * @return New excerpt length.
+ *
+ * @param integer $length Current excerpt length.
+ * @return integer New excerpt length.
  */
 function adz_custom_excerpt_length( $length ) {
 	return 30;
@@ -153,7 +156,7 @@ add_filter( 'excerpt_length', 'adz_custom_excerpt_length', 999 );
 
 /**
  * Renders a post excerpt's "Read more" button.
- * @return The "Read more" button.
+ * @return string The "Read more" button.
  */
 function adz_excerpt_more() {
 	return '<a class="btn btn-default" href="' .

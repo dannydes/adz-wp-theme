@@ -1,3 +1,7 @@
+0.7.4
+-----
+- Documentation update
+
 0.7.3
 -----
 - Navbar link color scheme reversed apart from logo text
