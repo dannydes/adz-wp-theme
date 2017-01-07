@@ -1,6 +1,7 @@
 0.7.4
 -----
 - Documentation update
+- Removed bullet next to "Blogroll"
 
 0.7.3
 -----
