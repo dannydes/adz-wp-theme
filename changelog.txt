@@ -1,3 +1,7 @@
+0.7.3
+-----
+- Navbar link color scheme reversed apart from logo text
+
 0.7.2
 -----
 - Last bottom link is no longer followed by a pipe
