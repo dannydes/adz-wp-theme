@@ -62,6 +62,7 @@ add_filter( 'nav_menu_css_class', 'adz_menu_css_class', 10, 2 );
  *
  * @param string $items HTML markup representing menu items.
  * @param object $args Menu arguments.
+ * @return string Markup to replace the original.
  */
 function adz_insert_sidebar_button( $items, $args ) {
 	if ( $args->theme_location !== 'primary' ) {
