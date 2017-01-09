@@ -5,6 +5,8 @@
 - Applied :hover to links in footer and sidebar
 - Sidebar is now wider
 - Sidebar is now opened through a button in menu
+- Code cleanup
+- More space between widgets in sidebar
 
 0.7.3
 -----
