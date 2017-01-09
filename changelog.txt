@@ -2,6 +2,9 @@
 -----
 - Documentation update
 - Removed bullet next to "Blogroll"
+- Applied :hover to links in footer and sidebar
+- Sidebar is now wider
+- Sidebar is now opened through a button in menu
 
 0.7.3
 -----
