@@ -58,6 +58,28 @@ function adz_menu_css_class( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'adz_menu_css_class', 10, 2 );
 
 /**
+ * Inserts sidebar button into menu.
+ *
+ * @param string $items HTML markup representing menu items.
+ * @param array $args Arguments.
+ */
+function adz_insert_sidebar_button( $items, $args ) {
+	$dom = new DOMDocument();
+	$dom->loadHTML( $items );
+	$link = $dom->createElement( 'a' );
+	$link->setAttribute( 'href', '#' );
+	$link_text = $dom->createTextNode( 'Sidebar' );
+	$link->appendChild( $link_text );
+	$li = $dom->createElement( 'li' );
+	$li->setAttribute( 'id', 'sidebar-button' );
+	$li->appendChild( $link );
+	$dom->appendChild( $li );
+	return $dom->saveHTML();
+}
+
+add_filter( 'wp_nav_menu_items', 'adz_insert_sidebar_button', 10, 2 );
+
+/**
  * Enqueues the theme's scripts and styles.
  */
 function adz_enqueue_scripts() {
