@@ -58,12 +58,16 @@ function adz_menu_css_class( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'adz_menu_css_class', 10, 2 );
 
 /**
- * Inserts sidebar button into menu.
+ * Inserts sidebar button into primary menu.
  *
  * @param string $items HTML markup representing menu items.
- * @param array $args Arguments.
+ * @param object $args Menu arguments.
  */
 function adz_insert_sidebar_button( $items, $args ) {
+	if ( $args->theme_location !== 'primary' ) {
+		return $items;
+	}
+	
 	$dom = new DOMDocument();
 	$dom->loadHTML( $items );
 	$link = $dom->createElement( 'a' );
