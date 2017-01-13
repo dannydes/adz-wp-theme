@@ -77,10 +77,10 @@ class ADZ_Social_Widget extends WP_Widget {
 			value="<?php echo esc_attr( $linkedin ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'googleplus' ); ?>">Google+</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'googleplus' ); ?>" name="<?php echo $this->get_field_name( 'googleplus' ); ?>"
-			value="<?php echo esc_attr( $googleplus ); ?>">
+			value="<?php echo esc_attr( $googleplus ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'instagram' ); ?>">Instagram</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>"
-			value="<?php echo esc_attr( $instagram ); ?>">
+			value="<?php echo esc_attr( $instagram ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'youtube' ); ?>">Youtube</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>"
 			value="<?php echo esc_attr( $youtube ); ?>">
