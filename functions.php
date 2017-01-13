@@ -3,6 +3,7 @@
 require 'includes/social-widget.php';
 require 'includes/contact-widget.php';
 require 'includes/recent-posts-widget.php';
+require 'includes/upcoming-event-widget.php';
 
 /**
  * Tells WordPress to enable certain features.
@@ -124,6 +125,7 @@ function adz_widgets_init() {
 	register_widget( 'ADZ_Contact_Widget' );
 	register_widget( 'ADZ_Social_Widget' );
 	register_widget( 'ADZ_Recent_Posts_Widget' );
+	register_widget( 'ADZUpcomingEventWidget' );
 	
 	register_sidebar( array(
 		'name' => __( 'Footer Column 1', 'adz_footer_col_1' ),
