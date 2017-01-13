@@ -64,26 +64,40 @@ class ADZ_Social_Widget extends WP_Widget {
 		$googleplus = $instance['googleplus'];
 		$instagram = $instance['instagram'];
 		$youtube = $instance['youtube'];
+		var_dump($instance['errors']);
+		$instance['errors'] = ( isset( $instance['errors'] ) ? $instance['errors'] : array() );
+		$instance['errors']['facebook'] = ( isset( $instance['errors']['facebook'] ) ? $instance['errors']['facebook'] : '' );
+		$instance['errors']['twitter'] = ( isset( $instance['errors']['twitter'] ) ? $instance['errors']['twitter'] : '' );
+		$instance['errors']['linkedin'] = ( isset( $instance['errors']['linkedin'] ) ? $instance['errors']['linkedin'] : '' );
+		$instance['errors']['googleplus'] = ( isset( $instance['errors']['googleplus'] ) ? $instance['errors']['googleplus'] : '' );
+		$instance['errors']['instagram'] = ( isset( $instance['errors']['instagram'] ) ? $instance['errors']['instagram'] : '' );
+		$instance['errors']['youtube'] = ( isset( $instance['errors']['youtube'] ) ? $instance['errors']['youtube'] : '' );
 		
 		?>
 		<label for="<?php echo $this->get_field_id( 'facebook' ); ?>">Facebook</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>"
-			value="<?php echo esc_attr( $facebook ); ?>"><br>
+			value="<?php echo esc_attr( $facebook ); ?>">
+		<p><?php echo $instance['errors']['facebook']; ?></p>
 		<label for="<?php echo $this->get_field_id( 'twitter' ); ?>">Twitter</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>"
-			value="<?php echo esc_attr( $twitter ); ?>"><br>
+			value="<?php echo esc_attr( $twitter ); ?>">
+		<p><?php echo $instance['errors']['twitter']; ?></p>
 		<label for="<?php echo $this->get_field_id( 'linkedin' ); ?>">LinkedIn</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>"
-			value="<?php echo esc_attr( $linkedin ); ?>"><br>
+			value="<?php echo esc_attr( $linkedin ); ?>">
+		<p><?php echo $instance['errors']['linkedin']; ?></p>
 		<label for="<?php echo $this->get_field_id( 'googleplus' ); ?>">Google+</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'googleplus' ); ?>" name="<?php echo $this->get_field_name( 'googleplus' ); ?>"
-			value="<?php echo esc_attr( $googleplus ); ?>"><br>
+			value="<?php echo esc_attr( $googleplus ); ?>">
+		<p><?php echo $instance['errors']['googleplus']; ?></p>
 		<label for="<?php echo $this->get_field_id( 'instagram' ); ?>">Instagram</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>"
-			value="<?php echo esc_attr( $instagram ); ?>"><br>
+			value="<?php echo esc_attr( $instagram ); ?>">
+		<p><?php echo $instance['errors']['instagram']; ?></p>
 		<label for="<?php echo $this->get_field_id( 'youtube' ); ?>">Youtube</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>"
 			value="<?php echo esc_attr( $youtube ); ?>">
+		<p><?php echo $instance['errors']['youtube']; ?></p>
 		<?php
 		
 	}
@@ -99,12 +113,44 @@ class ADZ_Social_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
+		$old_instance['errors'] = array();
+		
 		$instance['facebook'] = ( ! empty( $new_instance['facebook'] ) ? strip_tags( $new_instance['facebook'] ) : '' );
+		if ( ! empty( $new_instance['facebook'] ) && strpos( $instance['facebook'], 'facebook.com' ) === FALSE ) {
+				$instance['facebook'] = '';
+				$old_instance['errors']['facebook'] = 'Please enter a valid Facebook URL.';
+		}
+		
 		$instance['twitter'] = ( ! empty( $new_instance['twitter'] ) ? strip_tags( $new_instance['twitter'] ) : '' );
+		if ( ! empty( $new_instance['twitter'] ) && strpos( $instance['twitter'], 'twitter.com' ) === FALSE ) {
+				$instance['twitter'] = '';
+				$old_instance['errors']['twitter'] = 'Please enter a valid Twitter URL.';
+		}
+		
 		$instance['linkedin'] = ( ! empty( $new_instance['linkedin'] ) ? strip_tags( $new_instance['linkedin'] ) : '' );
+		if ( ! empty( $new_instance['linkedin'] ) && strpos( $instance['linkedin'], 'linkedin.com' ) === FALSE ) {
+				$instance['linkedin'] = '';
+				$old_instance['errors']['linkedin'] = 'Please enter a valid LinkedIn URL.';
+		}
+		
 		$instance['googleplus'] = ( ! empty( $new_instance['googleplus'] ) ? strip_tags( $new_instance['googleplus'] ) : '' );
+		if ( ! empty( $new_instance['googleplus'] ) && strpos( $instance['googleplus'], 'plus.google.com' ) === FALSE ) {
+				$instance['googleplus'] = '';
+				$old_instance['errors']['googleplus'] = 'Please enter a valid Google+ URL.';
+		}
+		
 		$instance['instagram'] = ( ! empty( $new_instance['instagram'] ) ? strip_tags( $new_instance['instagram'] ) : '' );
+		if ( ! empty( $new_instance['instagram'] ) && strpos( $instance['instagram'], 'instagram.com' ) === FALSE ) {
+				$old_instance['errors']['instagram'] = 'Please enter a valid Instagram URL.';
+				return FALSE;
+		}
+		
 		$instance['youtube'] = ( ! empty( $new_instance['youtube'] ) ? strip_tags( $new_instance['youtube'] ) : '' );
+		if ( ! empty( $new_instance['youtube'] ) && strpos( $instance['youtube'], 'youtube.com' ) === FALSE ) {
+				$instance['youtube'] = '';
+				$old_instance['errors']['youtube'] = 'Please enter a valid Youtube URL.';
+		}
+		
 		return $instance;
 	}
 }
