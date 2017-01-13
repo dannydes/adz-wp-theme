@@ -117,38 +117,38 @@ class ADZ_Social_Widget extends WP_Widget {
 		
 		$instance['facebook'] = ( ! empty( $new_instance['facebook'] ) ? strip_tags( $new_instance['facebook'] ) : '' );
 		if ( ! empty( $new_instance['facebook'] ) && strpos( $instance['facebook'], 'facebook.com' ) === FALSE ) {
-				$instance['facebook'] = '';
 				$old_instance['errors']['facebook'] = 'Please enter a valid Facebook URL.';
+				return FALSE;
 		}
 		
 		$instance['twitter'] = ( ! empty( $new_instance['twitter'] ) ? strip_tags( $new_instance['twitter'] ) : '' );
 		if ( ! empty( $new_instance['twitter'] ) && strpos( $instance['twitter'], 'twitter.com' ) === FALSE ) {
-				$instance['twitter'] = '';
 				$old_instance['errors']['twitter'] = 'Please enter a valid Twitter URL.';
+				return FALSE;
 		}
 		
 		$instance['linkedin'] = ( ! empty( $new_instance['linkedin'] ) ? strip_tags( $new_instance['linkedin'] ) : '' );
 		if ( ! empty( $new_instance['linkedin'] ) && strpos( $instance['linkedin'], 'linkedin.com' ) === FALSE ) {
-				$instance['linkedin'] = '';
 				$old_instance['errors']['linkedin'] = 'Please enter a valid LinkedIn URL.';
+				return FALSE;
 		}
 		
 		$instance['googleplus'] = ( ! empty( $new_instance['googleplus'] ) ? strip_tags( $new_instance['googleplus'] ) : '' );
 		if ( ! empty( $new_instance['googleplus'] ) && strpos( $instance['googleplus'], 'plus.google.com' ) === FALSE ) {
-				$instance['googleplus'] = '';
 				$old_instance['errors']['googleplus'] = 'Please enter a valid Google+ URL.';
+				return FALSE;
 		}
 		
 		$instance['instagram'] = ( ! empty( $new_instance['instagram'] ) ? strip_tags( $new_instance['instagram'] ) : '' );
 		if ( ! empty( $new_instance['instagram'] ) && strpos( $instance['instagram'], 'instagram.com' ) === FALSE ) {
-				$old_instance['errors']['instagram'] = 'Please enter a valid Instagram URL.';
+				$$old_instance['errors']['instagram'] = 'Please enter a valid Instagram URL.';
 				return FALSE;
 		}
 		
 		$instance['youtube'] = ( ! empty( $new_instance['youtube'] ) ? strip_tags( $new_instance['youtube'] ) : '' );
 		if ( ! empty( $new_instance['youtube'] ) && strpos( $instance['youtube'], 'youtube.com' ) === FALSE ) {
-				$instance['youtube'] = '';
 				$old_instance['errors']['youtube'] = 'Please enter a valid Youtube URL.';
+				return FALSE;
 		}
 		
 		return $instance;
