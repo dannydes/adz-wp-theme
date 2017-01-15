@@ -29,7 +29,7 @@ class ADZUpcomingEventWidget extends WP_Widget {
 		<?php echo esc_attr( $instance['date'] ); ?><br>
 		<?php echo esc_attr( $instance['venue'] ); ?>
 		<p><?php echo esc_attr( $instance['description'] ); ?></p>
-		<a href="<?php echo esc_url( $instance['facebook_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php
+		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php
 	}
 	
 	/**
@@ -50,8 +50,8 @@ class ADZUpcomingEventWidget extends WP_Widget {
 		<input type="text" id="<?php echo $this->get_field_id( 'venue' ); ?>" name="<?php echo $this->get_field_name( 'venue' ); ?>" value="<?php echo esc_attr( $instance['venue'] ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'description' ); ?>">Description</label>
 		<textarea id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo esc_attr( $instance['description'] ); ?></textarea><br>
-		<label for="<?php echo $this->get_field_id( 'facebook_url' ); ?>">Facebook URL</label>
-		<input type="url" id="<?php echo $this->get_field_id( 'facebook_url' ); ?>" name="<?php echo $this->get_field_name( 'facebook_url' ); ?>" value="<?php echo esc_attr( $instance['facebook_url'] ); ?>"><?php
+		<label for="<?php echo $this->get_field_id( 'event_url' ); ?>">Event URL</label>
+		<input type="url" id="<?php echo $this->get_field_id( 'event_url' ); ?>" name="<?php echo $this->get_field_name( 'event_url' ); ?>" value="<?php echo esc_attr( $instance['event_url'] ); ?>"><?php
 	}
 	
 	/**
@@ -70,7 +70,7 @@ class ADZUpcomingEventWidget extends WP_Widget {
 		$instance['date'] = ( ! empty( $new_instance['date'] ) ? strip_tags( $new_instance['date'] ) : '' );
 		$instance['venue'] = ( ! empty( $new_instance['venue'] ) ? strip_tags( $new_instance['venue'] ) : '' );
 		$instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
-		$instance['facebook_url'] = ( ! empty( $new_instance['facebook_url'] ) ? strip_tags( $new_instance['facebook_url'] ) : '' );
+		$instance['event_url'] = ( ! empty( $new_instance['event_url'] ) ? strip_tags( $new_instance['event_url'] ) : '' );
 		return $instance;
 	}
 }
