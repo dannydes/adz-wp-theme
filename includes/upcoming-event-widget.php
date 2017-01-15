@@ -62,6 +62,7 @@ class ADZUpcomingEventWidget extends WP_Widget {
 	 * @param object $new_instance New widget settings.
 	 * @param object $old_instance Old widget settings.
 	 * @return array Updated settings to save.
+	 * @return boolean FALSE when setting update is to be cancelled due to invalid data entry.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		if ( ( ! empty( $new_instance['time'] ) || ! empty( $new_instance['date'] ) ) && DateTime::createFromFormat( 'd-m-Y H:i', $new_instance['date'] . ' ' . $new_instance['time'] ) === FALSE ) {
