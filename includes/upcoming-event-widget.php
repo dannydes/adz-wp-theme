@@ -64,6 +64,10 @@ class ADZUpcomingEventWidget extends WP_Widget {
 	 * @return array Updated settings to save.
 	 */
 	public function update( $new_instance, $old_instance ) {
+		if ( ( ! empty( $new_instance['time'] ) || ! empty( $new_instance['date'] ) ) && DateTime::createFromFormat( 'd-m-Y H:i', $new_instance['date'] . ' ' . $new_instance['time'] ) === FALSE ) {
+			return FALSE;
+		}
+		
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '' );
 		$instance['time'] = ( ! empty( $new_instance['time'] ) ? strip_tags( $new_instance['time'] ) : '' );
