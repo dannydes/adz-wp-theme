@@ -1,17 +1,7 @@
 <div id="sidebar" class="sidebar">
+	<?php if ( is_active_sidebar( 'sidebar' ) ): ?>
 	<div class="widget-area" role="complementary">
-	<?php
-	
-	if ( is_active_sidebar( 'sidebar' ) ) {
-		dynamic_sidebar( 'sidebar' );
-	}
-	
-	wp_list_bookmarks( array(
-		'title_li' => 'Blogroll',
-		'title_before' => '<h4>',
-		'title_after' => '</h4>',
-	) );
-		
-	?>
+	<?php dynamic_sidebar( 'sidebar' );	?>
 	</div>
+	<?php endif; ?>
 </div>
