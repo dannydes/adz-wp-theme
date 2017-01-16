@@ -4,6 +4,7 @@
 - Blogroll now implemented as a widget
 - Social widget form is now checked for errors of URL placement
 - Social widget form controls now all occur in a new line
+- Code reorganisation
 
 0.7.4
 -----
