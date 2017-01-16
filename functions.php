@@ -5,6 +5,7 @@ require 'includes/widgets/contact-widget.php';
 require 'includes/widgets/recent-posts-widget.php';
 require 'includes/widgets/upcoming-event-widget.php';
 require 'includes/widgets/blogroll-widget.php';
+require 'includes/widgets/mailchimp-subscribe-widget.php';
 
 /**
  * Tells WordPress to enable certain features.
@@ -128,6 +129,7 @@ function adz_widgets_init() {
 	register_widget( 'ADZ_Recent_Posts_Widget' );
 	register_widget( 'ADZ_Upcoming_Event_Widget' );
 	register_widget( 'ADZ_Blogroll_Widget' );
+	register_widget( 'ADZ_Mailchimp_Subscribe_Widget' );
 	
 	register_sidebar( array(
 		'name' => __( 'Footer Column 1', 'adz_footer_col_1' ),
