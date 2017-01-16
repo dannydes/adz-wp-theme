@@ -3,7 +3,7 @@
 /**
  * Upcoming event widget class.
  */
-class ADZUpcomingEventWidget extends WP_Widget {
+class ADZ_Upcoming_Event_Widget extends WP_Widget {
 	/**
 	 * Widget constructor.
 	 */

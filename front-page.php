@@ -17,7 +17,7 @@ if ( $query->have_posts() ): ?>
 
 	while ( $query->have_posts() ) {
 		$query->the_post();
-		get_template_part( 'includes/post-excerpt-part' );
+		get_template_part( 'includes/blog/post-excerpt-part' );
 	}
 
 ?>

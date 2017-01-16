@@ -14,7 +14,7 @@ get_sidebar();
 
 	while ( have_posts() ) {
 		the_post();
-		get_template_part( 'includes/post-excerpt-part' );
+		get_template_part( 'includes/blog/post-excerpt-part' );
 	}
 
 ?>
@@ -26,7 +26,7 @@ get_sidebar();
 	) );
 
 else:
-	get_template_part( 'includes/no-posts' );
+	get_template_part( 'includes/blog/no-posts' );
 endif;
 
 get_footer();

@@ -1,10 +1,10 @@
 <?php
 
-require 'includes/social-widget.php';
-require 'includes/contact-widget.php';
-require 'includes/recent-posts-widget.php';
-require 'includes/upcoming-event-widget.php';
-require 'includes/blogroll-widget.php';
+require 'includes/widgets/social-widget.php';
+require 'includes/widgets/contact-widget.php';
+require 'includes/widgets/recent-posts-widget.php';
+require 'includes/widgets/upcoming-event-widget.php';
+require 'includes/widgets/blogroll-widget.php';
 
 /**
  * Tells WordPress to enable certain features.
@@ -126,7 +126,7 @@ function adz_widgets_init() {
 	register_widget( 'ADZ_Contact_Widget' );
 	register_widget( 'ADZ_Social_Widget' );
 	register_widget( 'ADZ_Recent_Posts_Widget' );
-	register_widget( 'ADZUpcomingEventWidget' );
+	register_widget( 'ADZ_Upcoming_Event_Widget' );
 	register_widget( 'ADZ_Blogroll_Widget' );
 	
 	register_sidebar( array(
