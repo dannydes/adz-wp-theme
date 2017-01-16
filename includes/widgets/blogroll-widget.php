@@ -30,4 +30,15 @@ class ADZ_Blogroll_Widget extends WP_Widget {
 			'title_after' => '</h4>',
 		) );
 	}
+	
+	/**
+	 * Renders widget settings form.
+	 *
+	 * @access public
+	 *
+	 * @param object $instance Widget settings.
+	 */
+	public function form( $instance ) {
+		?><a href="<?php echo admin_url(); ?>link-manager.php">Configure blogroll</a><?php
+	}
 }
