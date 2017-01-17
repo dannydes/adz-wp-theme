@@ -65,7 +65,7 @@ class ADZ_Upcoming_Event_Widget extends WP_Widget {
 	 * @return boolean FALSE when setting update is to be cancelled due to invalid data entry.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		if ( ( ! empty( $new_instance['time'] ) || ! empty( $new_instance['date'] ) ) && DateTime::createFromFormat( 'd-m-Y H:i', $new_instance['date'] . ' ' . $new_instance['time'] ) === FALSE ) {
+		if ( ( ! empty( $new_instance['time'] ) || ! empty( $new_instance['date'] ) ) && DateTime::createFromFormat( 'Y-m-d H:i', $new_instance['date'] . ' ' . $new_instance['time'] ) === FALSE ) {
 			return FALSE;
 		}
 		

@@ -203,3 +203,12 @@ add_filter( 'excerpt_more', 'adz_excerpt_more' );
 if( get_bloginfo( 'version' ) >= 3.5 ) {
   add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 }
+
+/**
+ * Loads backend scripts.
+ */
+function adz_admin_enqueue_scripts() {
+	wp_enqueue_script( 'admin-base-js', get_template_directory_uri() . '/js/admin-script.js', 'jquery', '', TRUE );
+}
+
+add_action( 'admin_enqueue_scripts', 'adz_admin_enqueue_scripts' );
