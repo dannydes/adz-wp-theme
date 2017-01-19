@@ -17,7 +17,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.jpg" alt="Brand">
+						<img src="<?php echo get_option( 'adz_site_logo_url' ); ?>" alt="Brand">
 						<?php echo get_bloginfo(); ?>
 					</a>
 					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo get_bloginfo( 'description' ); ?></p>

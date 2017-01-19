@@ -212,3 +212,41 @@ function adz_admin_enqueue_scripts() {
 }
 
 add_action( 'admin_enqueue_scripts', 'adz_admin_enqueue_scripts' );
+
+/**
+ * Adds theme settings fields.
+ */
+function adz_settings_api_init() {
+	add_settings_section(
+		'adz_general_section',
+		'General',
+		'adz_general_section_callback',
+		'general'
+	);
+	
+	add_settings_field(
+		'adz_site_logo_url',
+		'Site logo URL',
+		'adz_site_logo_callback',
+		'general',
+		'adz_general_section'
+	);
+	
+	register_setting( 'general', 'adz_site_logo' );
+}
+
+add_action( 'admin_init', 'adz_settings_api_init' );
+
+/**
+ * Renders general settings section start.
+ */
+function adz_general_section_callback() {
+	?><p>Settings deciding general functionality offered by the theme.</p><?php
+}
+
+/**
+ * Renders site logo setting.
+ */
+function adz_site_logo_callback() {
+	?><input name="adz_site_logo_url" id="adz_site_logo_url" type="url" value="<?php echo get_option( 'adz_site_logo_url' ); ?>"><div class="uploader"><?php
+}
