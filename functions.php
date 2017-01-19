@@ -232,7 +232,7 @@ function adz_settings_api_init() {
 		'adz_general_section'
 	);
 	
-	register_setting( 'general', 'adz_site_logo' );
+	register_setting( 'adz_general_section', 'adz_site_logo' );
 }
 
 add_action( 'admin_init', 'adz_settings_api_init' );
@@ -248,5 +248,5 @@ function adz_general_section_callback() {
  * Renders site logo setting.
  */
 function adz_site_logo_callback() {
-	?><input name="adz_site_logo_url" id="adz_site_logo_url" type="url" value="<?php echo get_option( 'adz_site_logo_url' ); ?>"><div class="uploader"><?php
+	?><input name="adz_site_logo_url" id="adz_site_logo_url" type="url" value="<?php echo get_option( 'adz_site_logo_url' ); ?>"><?php
 }
