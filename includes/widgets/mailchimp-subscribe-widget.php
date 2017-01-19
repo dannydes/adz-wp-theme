@@ -47,7 +47,6 @@ class ADZ_Mailchimp_Subscribe_Widget extends WP_Widget {
 			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_339dfe0090694d284c3a800bf_d2c9c3a5c0" tabindex="-1" value=""></div>
 			<input type="submit" class="btn btn-default" value="Subscribe">
 		</form>
-		<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 		<?php
 		
 	}

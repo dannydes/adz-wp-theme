@@ -1,4 +1,4 @@
-!function(a){"use strict";function b(){var b="open";a("#sidebar").hasClass(b)?(a("#sidebar").removeClass(b),a("#sidebar-button").removeClass("active")):(a("#sidebar").addClass(b),a("#sidebar-button").addClass("active"))}a("#sidebar-button").click(b)}(jQuery);/*!
+!function(a){"use strict";function b(){var b="open";a("#sidebar").hasClass(b)?(a("#sidebar").removeClass(b),a("#sidebar-button").removeClass("active")):(a("#sidebar").addClass(b),a("#sidebar-button").addClass("active"))}a("#sidebar-button").click(b)}(jQuery);!function(a){window.fnames=new Array,window.ftypes=new Array,fnames[0]="EMAIL",ftypes[0]="email",fnames[1]="FNAME",ftypes[1]="text",fnames[2]="LNAME",ftypes[2]="text"}(jQuery);var $mcj=jQuery.noConflict(!0);/*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
