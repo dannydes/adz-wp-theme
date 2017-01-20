@@ -251,3 +251,11 @@ function adz_general_section_callback() {
 function adz_site_logo_callback() {
 	?><input name="adz_site_logo_url" id="adz_site_logo_url" type="url" value="<?php echo get_option( 'adz_site_logo_url' ); ?>"><?php
 }
+
+function adz_get_default_options() {
+	$options = array(
+		'site_logo_url' => '',
+		'add_this_script_url' => '',
+	);
+	return $options;
+}
