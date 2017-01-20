@@ -6,6 +6,7 @@
 - Social widget form controls now all occur in a new line
 - Code reorganisation
 - Bootstrap-based pagination
+- Clicking "Sidebar" button no longer resets vertical scrollbar position
 
 0.7.4
 -----
