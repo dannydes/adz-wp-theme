@@ -75,7 +75,7 @@ function adz_insert_sidebar_button( $items, $args ) {
 	$dom = new DOMDocument();
 	$dom->loadHTML( $items );
 	$link = $dom->createElement( 'a' );
-	$link->setAttribute( 'href', '#' );
+	$link->setAttribute( 'href', '#sidebar' );
 	$link_text = $dom->createTextNode( 'Sidebar' );
 	$link->appendChild( $link_text );
 	$li = $dom->createElement( 'li' );
