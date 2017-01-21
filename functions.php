@@ -252,10 +252,47 @@ function adz_site_logo_callback() {
 	?><input name="adz_site_logo_url" id="adz_site_logo_url" type="url" value="<?php echo get_option( 'adz_site_logo_url' ); ?>"><?php
 }
 
+/**
+ * Returns theme options' default values.
+ *
+ * @return array Default values.
+ */
 function adz_get_default_options() {
 	$options = array(
 		'site_logo_url' => '',
 		'add_this_script_url' => '',
 	);
 	return $options;
+}
+
+/**
+ * Initialises global theme options variable.
+ */
+function adz_options_init() {
+	global $adz_options;
+	$adz_options = get_option( 'theme_adz_options' );
+	if ( $adz_options === FALSE ) {
+		$adz_options = adz_get_default_options();
+	}
+	update_option( 'theme_adz_options', $adz_options );
+}
+
+add_action( 'after_setup_theme', 'adz_options_init', 9 );
+
+/**
+ * Add "ADZ options" link to the "Appearance" menu.
+ */
+function adz_menu_options() {
+	add_theme_page( 'ADZ Options', 'ADZ Options', 'edit_theme_options', 'adz-settings', 'adz_admin_options_page' );
+}
+
+add_action( 'admin_menu', 'adz_menu_options' );
+
+/**
+ * Renders theme options page.
+ */
+function adz_admin_options_page() {
+	?>
+	
+	<?php
 }
