@@ -2,7 +2,7 @@
 /**
  * Class used to implement a Recent Posts widget forking WP's own Recent Posts widget.
  */
-class ADZ_Recent_Posts_Widget extends WP_Widget {
+class Ecologie_Recent_Posts_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Recent Posts widget instance.
@@ -13,7 +13,7 @@ class ADZ_Recent_Posts_Widget extends WP_Widget {
 			'description' => __( 'Your site&#8217;s most recent Posts.' ),
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'adz-recent-posts', __( 'ADZ Recent Posts' ), $widget_ops );
+		parent::__construct( 'ecologie-recent-posts', __( 'Ecologie Recent Posts' ), $widget_ops );
 		$this->alt_option_name = 'widget_recent_entries';
 	}
 

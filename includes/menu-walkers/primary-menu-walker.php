@@ -3,7 +3,7 @@
 /**
  * Custom navigation menu walker class.
  */
-class ADZ_Primary_Nav_Menu_Walker extends Walker_Nav_Menu {
+class Ecologie_Primary_Nav_Menu_Walker extends Walker_Nav_Menu {
 	/**
 	 * Renders submenu parents.
 	 *

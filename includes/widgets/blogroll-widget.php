@@ -3,13 +3,13 @@
 /**
  * Blogroll widget class.
  */
-class ADZ_Blogroll_Widget extends WP_Widget {
+class Ecologie_Blogroll_Widget extends WP_Widget {
 	/**
 	 * Widget constructor.
 	 */
 	function __construct() {
 		parent::__construct(
-			'adz_blogroll_widget',
+			'ecologie_blogroll_widget',
 			__( 'Blogroll', 'A space where to place your blogroll.' ),
 			array( 'description' => __( 'Blogroll Widget', 'A space where to place your blogroll.' ), )
 		);

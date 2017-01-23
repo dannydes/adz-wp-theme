@@ -3,13 +3,13 @@
 /**
  * Social widget class.
  */
-class ADZ_Social_Widget extends WP_Widget {
+class Ecologie_Social_Widget extends WP_Widget {
 	/**
 	 * Widget constructor.
 	 */
 	function __construct() {
 		parent::__construct(
-			'adz_social_widget',
+			'ecologie_social_widget',
 			__( 'Social Buttons', 'A place where to place your social buttons.' ),
 			array( 'description' => __( 'Social Buttons Widget', 'A place where to place your social buttons.' ), )
 		);

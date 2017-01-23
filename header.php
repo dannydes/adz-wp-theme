@@ -28,7 +28,7 @@
 						wp_nav_menu( array(
 							'theme_location' => 'primary',
 							'menu_class' => 'nav navbar-nav navbar-right',
-							'walker' => new ADZ_Primary_Nav_Menu_Walker(),
+							'walker' => new Ecologie_Primary_Nav_Menu_Walker(),
 						) );
 						
 					?>

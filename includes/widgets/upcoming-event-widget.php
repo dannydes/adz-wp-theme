@@ -3,13 +3,13 @@
 /**
  * Upcoming event widget class.
  */
-class ADZ_Upcoming_Event_Widget extends WP_Widget {
+class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	/**
 	 * Widget constructor.
 	 */
 	function __construct() {
 		parent::__construct(
-			'adz_upcoming_event_widget',
+			'ecologie_upcoming_event_widget',
 			__( 'Upcoming Event', 'A space where to place your upcoming event.' ),
 			array( 'description' => __( 'Upcoming Event Widget', 'A space where to place your upcoming event.' ), )
 		);

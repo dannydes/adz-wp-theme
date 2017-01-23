@@ -3,13 +3,13 @@
 /**
  * Upcoming event widget class.
  */
-class ADZ_Mailchimp_Subscribe_Widget extends WP_Widget {
+class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	/**
 	 * Widget constructor.
 	 */
 	function __construct() {
 		parent::__construct(
-			'adz_mailchimp_subscribe_widget',
+			'ecologie_mailchimp_subscribe_widget',
 			__( 'Mailchimp Subscribe', 'A space where to gather subscriptions.' ),
 			array( 'description' => __( 'Mailchimp Subscribe Widget', 'A space where to gather subscriptions.' ), )
 		);

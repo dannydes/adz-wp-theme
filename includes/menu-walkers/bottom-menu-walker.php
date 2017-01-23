@@ -3,7 +3,7 @@
 /**
  * Custom navigation menu walker class.
  */
-class ADZ_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
+class Ecologie_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	
 	/**
 	 * Renders menu items.

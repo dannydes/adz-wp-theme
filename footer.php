@@ -44,7 +44,7 @@
 							'container' => '',
 							'depth' => 1,
 							'items_wrap' => '%3$s',
-							'walker' => new ADZ_Bottom_Nav_Menu_Walker(),
+							'walker' => new Ecologie_Bottom_Nav_Menu_Walker(),
 						) );
 						
 						?>

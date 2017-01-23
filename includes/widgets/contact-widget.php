@@ -3,13 +3,13 @@
 /**
  * Contact widget class.
  */
-class ADZ_Contact_Widget extends WP_Widget {
+class Ecologie_Contact_Widget extends WP_Widget {
 	/**
 	 * Widget constructor.
 	 */
 	function __construct() {
 		parent::__construct(
-			'adz_contact_widget',
+			'ecologie_contact_widget',
 			__( 'Contact', 'A place where to place your contact information.' ),
 			array( 'description' => 'A place where to place your contact information.', )
 		);
