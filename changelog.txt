@@ -7,6 +7,9 @@
 - Code reorganisation
 - Bootstrap-based pagination
 - Clicking "Sidebar" button no longer resets vertical scrollbar position
+- Custom logo support
+- Rebranded to "Ecologie"
+- Updated screenshot
 
 0.7.4
 -----
