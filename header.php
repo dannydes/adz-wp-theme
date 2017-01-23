@@ -17,7 +17,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo get_option( 'adz_site_logo_url' ); ?>" alt="Brand">
+						<img src="<?php echo wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0]; ?>" alt="Brand">
 						<?php echo get_bloginfo(); ?>
 					</a>
 					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo get_bloginfo( 'description' ); ?></p>

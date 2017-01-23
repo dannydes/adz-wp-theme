@@ -21,6 +21,12 @@ function adz_setup() {
 		'caption',
 	) );
 	add_theme_support( 'title-tag' );
+	add_theme_support( 'custom-logo', array(
+		'height' => 30,
+		'width' => 30,
+		'flex-height' => false,
+		'flex-width' => false,
+	) );
 }
 
 add_action( 'after_setup_theme', 'adz_setup' );
@@ -215,52 +221,16 @@ function adz_admin_enqueue_scripts() {
 add_action( 'admin_enqueue_scripts', 'adz_admin_enqueue_scripts' );
 
 /**
- * Adds theme settings fields.
- */
-function adz_settings_api_init() {
-	add_settings_section(
-		'adz_general_section',
-		'General',
-		'adz_general_section_callback',
-		'general'
-	);
-	
-	add_settings_field(
-		'adz_site_logo_url',
-		'Site logo URL',
-		'adz_site_logo_callback',
-		'general',
-		'adz_general_section'
-	);
-	
-	register_setting( 'adz_general_section', 'adz_site_logo' );
-}
-
-add_action( 'admin_init', 'adz_settings_api_init' );
-
-/**
- * Renders general settings section start.
- */
-function adz_general_section_callback() {
-	?><p>Settings deciding general functionality offered by the theme.</p><?php
-}
-
-/**
- * Renders site logo setting.
- */
-function adz_site_logo_callback() {
-	?><input name="adz_site_logo_url" id="adz_site_logo_url" type="url" value="<?php echo get_option( 'adz_site_logo_url' ); ?>"><?php
-}
-
-/**
  * Returns theme options' default values.
  *
  * @return array Default values.
  */
 function adz_get_default_options() {
 	$options = array(
-		'site_logo_url' => '',
 		'add_this_script_url' => '',
+		'cta_block_text' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.',
+		'cta_block_btn_text' => 'Join us',
+		'cta_block_btn_url' => '#',
 	);
 	return $options;
 }
@@ -286,13 +256,13 @@ function adz_menu_options() {
 	add_theme_page( 'ADZ Options', 'ADZ Options', 'edit_theme_options', 'adz-settings', 'adz_admin_options_page' );
 }
 
-add_action( 'admin_menu', 'adz_menu_options' );
+add_action( 'admin_initnghids ', 'adz_menu_options' );
 
 /**
  * Renders theme options page.
  */
 function adz_admin_options_page() {
 	?>
-	
+	<p>Hello</p>
 	<?php
 }
