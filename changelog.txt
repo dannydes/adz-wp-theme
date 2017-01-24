@@ -10,6 +10,7 @@
 - Custom logo support
 - Rebranded to "Ecologie"
 - Updated screenshot
+- Front-page call-to-action block
 
 0.7.4
 -----
