@@ -1,5 +1,8 @@
 <?php
 
+require 'primary-menu-walker.php';
+require 'bottom-menu-walker.php';
+
 /**
  * Registers menus.
  */

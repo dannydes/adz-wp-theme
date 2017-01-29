@@ -1,4 +1,3 @@
-<?php require 'includes/menus/bottom-menu-walker.php'; ?>
 		</div>
 		<footer class="footer">
 			<div class="top">

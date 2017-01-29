@@ -1,4 +1,3 @@
-<?php require 'includes/menus/primary-menu-walker.php'; ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
