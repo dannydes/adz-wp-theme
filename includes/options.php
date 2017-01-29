@@ -51,11 +51,12 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Call for Action Button URL',
 			'section' => 'cta_block',
 		) ),
-		/*array( '', array(
+		array( 'add_this_script_url', array(
 			'type' => 'text',
-			'label' => '',
-			'section' => '',
-		) ),*/
+			'label' => 'AddThis script URL',
+			'section' => 'add_this',
+			'description' => 'Enter the <b>src</b> of the <b>script</b> given by AddThis.',
+		) ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
@@ -66,6 +67,12 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'cta_block', array(
 		'title' => __( 'Home Call to Action Block' ),
 		'description' => __( 'Configures the appearance of the home\'s call-to-action block.' ),
+		'panel' => 'ecologie',
+	) );
+	
+	$wp_customize->add_section( 'add_this', array(
+		'title' => __( 'AddThis Social Sharing Tool' ),
+		'description' => __( 'Configures the AddThis tool.' ),
 		'panel' => 'ecologie',
 	) );
 	
