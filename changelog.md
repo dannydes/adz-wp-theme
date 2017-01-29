@@ -13,6 +13,7 @@
 * Front-page call-to-action block
 * Styled image captions
 * Customizer settings for home call-to-action block and AddThis script URL
+* Excluded files not needed in production including this changelog
 
 # 0.7.4
 
