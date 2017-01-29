@@ -16,42 +16,30 @@ function ecologie_get_default_options() {
 }
 
 /**
- * Initialises global theme options variable and create database entry.
- */
-function ecologie_options_init() {
-	global $ecologie_options;
-	$ecologie_options = get_option( 'theme_ecologie_options' );
-	if ( $ecologie_options === FALSE ) {
-		$ecologie_options = ecologie_get_default_options();
-	}
-	update_option( 'theme_ecologie_options', $ecologie_options );
-}
-
-add_action( 'after_setup_theme', 'ecologie_options_init', 9 );
-
-/**
  * Attach new controls to the site customizer.
  *
  * @param object $wp_customize Instance of WP_Customize_Manager.
  */
 function ecologie_customize_register( $wp_customize ) {
+	$defaults = ecologie_get_default_options();
+	
 	$settings = array(
-		array( 'cta_block_text', array(
+		array( 'cta_block_text', $defaults['cta_block_text'], array(
 			'type' => 'text',
 			'label' => 'Call for Action Text',
 			'section' => 'cta_block',
 		) ),
-		array( 'cta_block_btn_text', array(
+		array( 'cta_block_btn_text', $defaults['cta_block_btn_text'], array(
 			'type' => 'text',
 			'label' => 'Call for Action Button Text',
 			'section' => 'cta_block',
 		) ),
-		array( 'cta_block_btn_url', array(
+		array( 'cta_block_btn_url', $defaults['cta_block_btn_url'], array(
 			'type' => 'url',
 			'label' => 'Call for Action Button URL',
 			'section' => 'cta_block',
 		) ),
-		array( 'add_this_script_url', array(
+		array( 'add_this_script_url', '', array(
 			'type' => 'text',
 			'label' => 'AddThis script URL',
 			'section' => 'add_this',
@@ -80,9 +68,10 @@ function ecologie_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( $setting[0], array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
+			'default' => $setting[1],
 		) );
 		
-		$wp_customize->add_control( $setting[0], $setting[1] );
+		$wp_customize->add_control( $setting[0], $setting[2] );
 	}
 }
 
