@@ -64,40 +64,26 @@ class Ecologie_Social_Widget extends WP_Widget {
 		$googleplus = $instance['googleplus'];
 		$instagram = $instance['instagram'];
 		$youtube = $instance['youtube'];
-		var_dump($instance['errors']);
-		$instance['errors'] = ( isset( $instance['errors'] ) ? $instance['errors'] : array() );
-		$instance['errors']['facebook'] = ( isset( $instance['errors']['facebook'] ) ? $instance['errors']['facebook'] : '' );
-		$instance['errors']['twitter'] = ( isset( $instance['errors']['twitter'] ) ? $instance['errors']['twitter'] : '' );
-		$instance['errors']['linkedin'] = ( isset( $instance['errors']['linkedin'] ) ? $instance['errors']['linkedin'] : '' );
-		$instance['errors']['googleplus'] = ( isset( $instance['errors']['googleplus'] ) ? $instance['errors']['googleplus'] : '' );
-		$instance['errors']['instagram'] = ( isset( $instance['errors']['instagram'] ) ? $instance['errors']['instagram'] : '' );
-		$instance['errors']['youtube'] = ( isset( $instance['errors']['youtube'] ) ? $instance['errors']['youtube'] : '' );
 		
 		?>
 		<label for="<?php echo $this->get_field_id( 'facebook' ); ?>">Facebook</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>"
-			value="<?php echo esc_attr( $facebook ); ?>">
-		<p><?php echo $instance['errors']['facebook']; ?></p>
+			value="<?php echo esc_attr( $facebook ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'twitter' ); ?>">Twitter</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>"
-			value="<?php echo esc_attr( $twitter ); ?>">
-		<p><?php echo $instance['errors']['twitter']; ?></p>
+			value="<?php echo esc_attr( $twitter ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'linkedin' ); ?>">LinkedIn</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>"
-			value="<?php echo esc_attr( $linkedin ); ?>">
-		<p><?php echo $instance['errors']['linkedin']; ?></p>
+			value="<?php echo esc_attr( $linkedin ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'googleplus' ); ?>">Google+</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'googleplus' ); ?>" name="<?php echo $this->get_field_name( 'googleplus' ); ?>"
-			value="<?php echo esc_attr( $googleplus ); ?>">
-		<p><?php echo $instance['errors']['googleplus']; ?></p>
+			value="<?php echo esc_attr( $googleplus ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'instagram' ); ?>">Instagram</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>"
-			value="<?php echo esc_attr( $instagram ); ?>">
-		<p><?php echo $instance['errors']['instagram']; ?></p>
+			value="<?php echo esc_attr( $instagram ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'youtube' ); ?>">Youtube</label>
 		<input type="url" id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>"
 			value="<?php echo esc_attr( $youtube ); ?>">
-		<p><?php echo $instance['errors']['youtube']; ?></p>
 		<?php
 		
 	}
