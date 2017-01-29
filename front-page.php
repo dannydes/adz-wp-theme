@@ -12,8 +12,8 @@ the_content();
 </div>
 <div class="call-to-action-block">
 	<div class="container">
-		<p></p>
-		<a href="#" role="button" class="btn btn-success">Join us</a>
+		<p><?php echo get_theme_mod( 'cta_block_text' ); ?></p>
+		<a href="<?php echo get_theme_mod( 'cta_block_btn_url' ); ?>" role="button" class="btn btn-success"><?php echo get_theme_mod( 'cta_block_btn_text' ); ?></a>
 	</div>
 </div>
 <div class="container">

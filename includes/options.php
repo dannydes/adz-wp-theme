@@ -16,7 +16,7 @@ function ecologie_get_default_options() {
 }
 
 /**
- * Initialises global theme options variable.
+ * Initialises global theme options variable and create database entry.
  */
 function ecologie_options_init() {
 	global $ecologie_options;
@@ -30,19 +30,53 @@ function ecologie_options_init() {
 add_action( 'after_setup_theme', 'ecologie_options_init', 9 );
 
 /**
- * Add "ecologie options" link to the "Appearance" menu.
+ * Attach new controls to the site customizer.
+ *
+ * @param object $wp_customize Instance of WP_Customize_Manager.
  */
-function ecologie_menu_options() {
-	add_theme_page( 'Ecologie Options', 'Ecologie Options', 'edit_theme_options', 'ecologie-settings', 'ecologie_admin_options_page' );
+function ecologie_customize_register( $wp_customize ) {
+	$settings = array(
+		array( 'cta_block_text', array(
+			'type' => 'text',
+			'label' => 'Call for Action Text',
+			'section' => 'cta_block',
+		) ),
+		array( 'cta_block_btn_text', array(
+			'type' => 'text',
+			'label' => 'Call for Action Button Text',
+			'section' => 'cta_block',
+		) ),
+		array( 'cta_block_btn_url', array(
+			'type' => 'url',
+			'label' => 'Call for Action Button URL',
+			'section' => 'cta_block',
+		) ),
+		/*array( '', array(
+			'type' => 'text',
+			'label' => '',
+			'section' => '',
+		) ),*/
+	);
+	
+	$wp_customize->add_panel( 'ecologie', array(
+		'title' => __( 'Ecologie Settings' ),
+		'description' => __( 'Settings related to Ecologie theme' ),
+	) );
+	
+	$wp_customize->add_section( 'cta_block', array(
+		'title' => __( 'Home Call to Action Block' ),
+		'description' => __( 'Configures the appearance of the home\'s call-to-action block.' ),
+		'panel' => 'ecologie',
+	) );
+	
+	foreach ( $settings as $setting ) {
+		$wp_customize->add_setting( $setting[0], array(
+			'type' => 'theme_mod',
+			'capability' => 'edit_theme_options',
+		) );
+		
+		$wp_customize->add_control( $setting[0], $setting[1] );
+	}
 }
 
-add_action( 'admin_menu', 'ecologie_menu_options' );
-
-/**
- * Renders theme options page.
- */
-function ecologie_admin_options_page() {
-	?>
-	<p>Hello</p>
-	<?php
-}
+add_action( 'customize_register', 'ecologie_customize_register' );
