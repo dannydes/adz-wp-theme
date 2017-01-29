@@ -12,6 +12,7 @@
 * Updated screenshot
 * Front-page call-to-action block
 * Styled image captions
+* Customizer settings for home call-to-action block and AddThis script URL
 
 # 0.7.4
 
