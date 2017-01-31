@@ -12,7 +12,7 @@
 * Updated screenshot
 * Front-page call-to-action block
 * Styled image captions
-* Customizer settings for home call-to-action block and AddThis script URL
+* Customizer settings for home call-to-action block, AddThis script URL and AddThis enabled checkbox
 * Excluded files not needed in production including this changelog
 
 # 0.7.4
