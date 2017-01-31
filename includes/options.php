@@ -24,22 +24,22 @@ function ecologie_customize_register( $wp_customize ) {
 	$defaults = ecologie_get_default_options();
 	
 	$settings = array(
-		array( 'cta_block_text', $defaults['cta_block_text'], array(
+		array( 'cta_block_text', array(
 			'type' => 'text',
 			'label' => 'Call for Action Text',
 			'section' => 'cta_block',
 		) ),
-		array( 'cta_block_btn_text', $defaults['cta_block_btn_text'], array(
+		array( 'cta_block_btn_text', array(
 			'type' => 'text',
 			'label' => 'Call for Action Button Text',
 			'section' => 'cta_block',
 		) ),
-		array( 'cta_block_btn_url', $defaults['cta_block_btn_url'], array(
+		array( 'cta_block_btn_url', array(
 			'type' => 'url',
 			'label' => 'Call for Action Button URL',
 			'section' => 'cta_block',
 		) ),
-		array( 'add_this_script_url', '', array(
+		array( 'add_this_script_url', array(
 			'type' => 'text',
 			'label' => 'AddThis script URL',
 			'section' => 'add_this',
@@ -68,10 +68,10 @@ function ecologie_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( $setting[0], array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' => $setting[1],
+			'default' => $defaults[$setting[0]],
 		) );
 		
-		$wp_customize->add_control( $setting[0], $setting[2] );
+		$wp_customize->add_control( $setting[0], $setting[1] );
 	}
 }
 
