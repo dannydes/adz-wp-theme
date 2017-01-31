@@ -35,7 +35,10 @@ function ecologie_enqueue_scripts() {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'mailchimp', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js', '', '', TRUE );
 	wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', array( 'jquery', 'mailchimp' ) , $theme_version, TRUE );
-	wp_enqueue_script( 'addthis', get_theme_mod( 'add_this_script_url' ), '', '', TRUE );
+	
+	if ( get_theme_mod( 'add_this_enabled', ecologie_get_default_options()['add_this_enabled'] ) ) {
+		wp_enqueue_script( 'addthis', get_theme_mod( 'add_this_script_url' ), '', '', TRUE );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'ecologie_enqueue_scripts' );

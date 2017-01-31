@@ -11,6 +11,7 @@ function ecologie_get_default_options() {
 		'cta_block_text' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.',
 		'cta_block_btn_text' => 'Join us',
 		'cta_block_btn_url' => '#',
+		'add_this_enabled' => true,
 	);
 	return $options;
 }
@@ -44,6 +45,11 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'AddThis script URL',
 			'section' => 'add_this',
 			'description' => 'Enter the <b>src</b> of the <b>script</b> given by AddThis.',
+		) ),
+		array( 'add_this_enabled', array(
+			'type' => 'checkbox',
+			'label' => 'Enable AddThis sharing buttons',
+			'section' => 'add_this',
 		) ),
 	);
 	
