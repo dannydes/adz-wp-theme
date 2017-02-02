@@ -51,7 +51,6 @@ function ecologie_insert_sidebar_button( $items, $args ) {
 	}
 	
 	$dom = new DOMDocument();
-	$dom->loadHTML( $items );
 	$link = $dom->createElement( 'a' );
 	$link->setAttribute( 'href', '#sidebar' );
 	$link_text = $dom->createTextNode( 'Sidebar' );
@@ -60,7 +59,7 @@ function ecologie_insert_sidebar_button( $items, $args ) {
 	$li->setAttribute( 'id', 'sidebar-button' );
 	$li->appendChild( $link );
 	$dom->appendChild( $li );
-	return $dom->saveHTML();
+	return $items . $dom->saveHTML();
 }
 
 add_filter( 'wp_nav_menu_items', 'ecologie_insert_sidebar_button', 10, 2 );

@@ -1,3 +1,11 @@
+# 0.8.1
+
+* Recent posts section is now still displayed when there are no posts, stating blog is empty
+* Implemented options to regulate number of recent posts and posts displayed per page
+* Fixed image scaling problem
+* Site title now turns white on hover
+* Minor code cleanup
+
 # 0.8
 
 * Upcoming Event Widget
