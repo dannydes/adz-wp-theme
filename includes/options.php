@@ -12,6 +12,8 @@ function ecologie_get_default_options() {
 		'cta_block_btn_text' => 'Join us',
 		'cta_block_btn_url' => '#',
 		'add_this_enabled' => true,
+		'blog_posts_per_page' => 10,
+		'recent_posts' => 5,
 	);
 	return $options;
 }
@@ -51,6 +53,16 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Enable AddThis sharing buttons',
 			'section' => 'add_this',
 		) ),
+		array( 'blog_posts_per_page', array(
+			'type' => 'number',
+			'label' => 'Blog posts per page',
+			'section' => 'blog',
+		) ),
+		array( 'recent_posts', array(
+			'type' => 'number',
+			'label' => 'Number of recent posts',
+			'section' => 'blog',
+		) ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
@@ -67,6 +79,12 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'add_this', array(
 		'title' => __( 'AddThis Social Sharing Tool' ),
 		'description' => __( 'Configures the AddThis tool.' ),
+		'panel' => 'ecologie',
+	) );
+	
+	$wp_customize->add_section( 'blog', array(
+		'title' => __( 'Blog' ),
+		'description' => __( 'Configures blog.' ),
 		'panel' => 'ecologie',
 	) );
 	

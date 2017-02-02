@@ -21,7 +21,7 @@ $defaults = ecologie_get_default_options();
 <div class="container">
 <?php
 
-$query = new WP_Query( 'posts_per_page=5' );
+$query = new WP_Query( 'posts_per_page=' . get_theme_mod( 'recent_posts', $defaults['recent_posts'] ) );
 
 ?>
 	<h2>Recent News</h2>
