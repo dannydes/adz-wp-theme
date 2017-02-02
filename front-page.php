@@ -23,8 +23,9 @@ $defaults = ecologie_get_default_options();
 
 $query = new WP_Query( 'posts_per_page=5' );
 
-if ( $query->have_posts() ): ?>
+?>
 	<h2>Recent News</h2>
+<?php if ( $query->have_posts() ): ?>
 	<div class="row">
 <?php
 
@@ -37,6 +38,8 @@ if ( $query->have_posts() ): ?>
 	</div>
 <?php
 
+else:
+	get_template_part( 'includes/blog/no-posts' );
 endif;
 
 wp_reset_postdata();
