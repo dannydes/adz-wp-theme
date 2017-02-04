@@ -98,3 +98,25 @@ function ecologie_pagination( $pages = '', $range = 4 ) {
 		echo "</div>";
 	}
 }
+
+/**
+ * Alternative featured image function that picks the first image in a post for posts without a featured image.
+ */
+function ecologie_featured_image() {
+	if ( has_post_thumbnail() ): ?>
+		<a href="<?php the_permalink(); ?>" class="thumbnail">
+			<?php the_post_thumbnail(); ?>
+		</a>
+	<?php else:
+		$dom = new DOMDocument();
+		$dom->loadHTML( get_the_content() );
+		$imgs = $dom->getElementsByTagName( 'img' );
+		
+		if ( $imgs->length ): ?>
+			<a href="<?php the_permalink(); ?>" class="thumbnail">
+				<img src="<?php echo $imgs->item( 0 )->getAttribute( 'src' ); ?>">
+			</a>
+	<?php
+		endif;
+	endif;
+}
