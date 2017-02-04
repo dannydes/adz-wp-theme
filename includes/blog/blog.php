@@ -1,25 +1,6 @@
 <?php
 
 /**
- * Makes AddThis script non-blocking.
- *
- * @param string $tag <script> markup.
- * @param string $handle Script handle.
- * @return string <script> markup.
- */
-
-function ecologie_addthis_add_async( $tag, $handle ) {
-	if ( 'addthis' !== $handle ) {
-		return $tag;
-	}
-	
-	return str_replace( ' src', ' async="async" src', $tag );
-}
-
-add_filter( 'script_loader_tag', 'ecologie_addthis_add_async', 10, 2 );
-
-
-/**
  * Changes the excerpt length.
  *
  * @param integer $length Current excerpt length.
