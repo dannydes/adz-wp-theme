@@ -14,6 +14,7 @@ function ecologie_get_default_options() {
 		'add_this_enabled' => true,
 		'blog_posts_per_page' => 10,
 		'recent_posts' => 5,
+		'copyright_text_addition' => '',
 	);
 	return $options;
 }
@@ -63,6 +64,11 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Number of recent posts',
 			'section' => 'blog',
 		) ),
+		array( 'copyright_text_addition', array(
+			'type' => 'text',
+			'label' => 'Text to add to copyright notice',
+			'section' => 'footer',
+		) ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
@@ -85,6 +91,12 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'blog', array(
 		'title' => __( 'Blog' ),
 		'description' => __( 'Configures blog.' ),
+		'panel' => 'ecologie',
+	) );
+	
+	$wp_customize->add_section( 'footer', array(
+		'title' => __( 'Footer' ),
+		'description' => __( 'Configures footer.' ),
 		'panel' => 'ecologie',
 	) );
 	
