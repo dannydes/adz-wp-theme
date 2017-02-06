@@ -105,6 +105,7 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' => $defaults[$setting[0]],
+			//'transport' => 'postmessage',
 		) );
 		
 		$wp_customize->add_control( $setting[0], $setting[1] );
@@ -112,3 +113,16 @@ function ecologie_customize_register( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'ecologie_customize_register' );
+
+/**
+ * Enqueue scripts to be used by customizer live preview.
+ */
+function ecologie_customizer_live_preview() {
+		wp_enqueue_script( 'theme-customize',
+			get_template_directory_uri() . '/js/theme-customize.js',
+			array( 'jquery', 'customize-preview' ),
+			wp_get_theme()->get( 'Version' ),
+			true );
+}
+
+add_action( 'customize_preview_init', 'ecologie_customizer_live_preview' );

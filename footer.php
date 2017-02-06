@@ -49,7 +49,7 @@
 						?>
 						</nav>
 					</div>
-					<div class="col-xs-12 col-md-4">&copy; Copyright 2017. All rights reserved. <?php echo get_theme_mod( 'copyright_text_addition' ); ?></div>
+					<div class="col-xs-12 col-md-4">&copy; Copyright 2017. All rights reserved. <span id="copyright-extra-text"><?php echo get_theme_mod( 'copyright_text_addition' ); ?></span></div>
 				</div>
 			</div>
 		</footer>
