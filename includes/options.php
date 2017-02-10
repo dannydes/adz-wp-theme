@@ -32,43 +32,43 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'text',
 			'label' => 'Call for Action Text',
 			'section' => 'cta_block',
-		) ),
+		), 'postMessage' ),
 		array( 'cta_block_btn_text', array(
 			'type' => 'text',
 			'label' => 'Call for Action Button Text',
 			'section' => 'cta_block',
-		) ),
+		), 'postMessage' ),
 		array( 'cta_block_btn_url', array(
 			'type' => 'url',
 			'label' => 'Call for Action Button URL',
 			'section' => 'cta_block',
-		) ),
+		), 'postMessage' ),
 		array( 'add_this_script_url', array(
 			'type' => 'text',
 			'label' => 'AddThis script URL',
 			'section' => 'add_this',
 			'description' => 'Enter the <b>src</b> of the <b>script</b> given by AddThis.',
-		) ),
+		), 'refresh' ),
 		array( 'add_this_enabled', array(
 			'type' => 'checkbox',
 			'label' => 'Enable AddThis sharing buttons',
 			'section' => 'add_this',
-		) ),
+		), 'refresh' ),
 		array( 'blog_posts_per_page', array(
 			'type' => 'number',
 			'label' => 'Blog posts per page',
 			'section' => 'blog',
-		) ),
+		), 'refresh' ),
 		array( 'recent_posts', array(
 			'type' => 'number',
 			'label' => 'Number of recent posts',
 			'section' => 'blog',
-		) ),
+		), 'refresh' ),
 		array( 'copyright_text_addition', array(
 			'type' => 'text',
 			'label' => 'Text to add to copyright notice',
 			'section' => 'footer',
-		) ),
+		), 'postMessage' ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
@@ -105,15 +105,11 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' => $defaults[$setting[0]],
+			'transport' => $setting[2],
 		) );
 		
 		$wp_customize->add_control( $setting[0], $setting[1] );
 	}
-	
-	$wp_customize->get_setting( 'cta_block_text' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'cta_block_btn_text' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'cta_block_btn_url' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'copyright_text_addition' )->transport = 'postMessage';
 }
 
 add_action( 'customize_register', 'ecologie_customize_register' );
