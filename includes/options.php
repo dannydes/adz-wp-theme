@@ -110,6 +110,9 @@ function ecologie_customize_register( $wp_customize ) {
 		$wp_customize->add_control( $setting[0], $setting[1] );
 	}
 	
+	$wp_customize->get_setting( 'cta_block_text' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'cta_block_btn_text' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'cta_block_btn_url' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'add_this_enabled' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'copyright_text_addition' )->transport = 'postMessage';
 }
