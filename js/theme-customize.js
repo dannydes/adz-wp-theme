@@ -1,5 +1,7 @@
 (function ( $ ) {
 	
+	'use strict';
+	
 	wp.customize( 'add_this_enabled', function ( value ) {
 		value.bind(function ( newVal ) {
 			if ( newVal ) {
