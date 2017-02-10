@@ -105,11 +105,12 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
 			'default' => $defaults[$setting[0]],
-			//'transport' => 'postmessage',
 		) );
 		
 		$wp_customize->add_control( $setting[0], $setting[1] );
 	}
+	
+	$wp_customize->get_setting( 'copyright_text_addition' )->transport = 'postMessage';
 }
 
 add_action( 'customize_register', 'ecologie_customize_register' );
