@@ -65,17 +65,25 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 * @return boolean FALSE when setting update is to be cancelled due to invalid data entry.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		if ( ( ! empty( $new_instance['time'] ) || ! empty( $new_instance['date'] ) ) && DateTime::createFromFormat( 'Y-m-d H:i', $new_instance['date'] . ' ' . $new_instance['time'] ) === FALSE ) {
-			return FALSE;
-		}
-		
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '' );
-		$instance['time'] = ( ! empty( $new_instance['time'] ) ? strip_tags( $new_instance['time'] ) : '' );
-		$instance['date'] = ( ! empty( $new_instance['date'] ) ? strip_tags( $new_instance['date'] ) : '' );
+		$instance['time'] = ( ! empty( $new_instance['time'] ) && self::dateFromString( $new_instance ) ? strip_tags( $new_instance['time'] ) : '' );
+		$instance['date'] = ( ! empty( $new_instance['date'] ) && self::dateFromString( $new_instance ) ? strip_tags( $new_instance['date'] ) : '' );
 		$instance['venue'] = ( ! empty( $new_instance['venue'] ) ? strip_tags( $new_instance['venue'] ) : '' );
 		$instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
 		$instance['event_url'] = ( ! empty( $new_instance['event_url'] ) ? strip_tags( $new_instance['event_url'] ) : '' );
 		return $instance;
+	}
+	
+	/**
+	 * Creates a date from the passed instance.
+	 *
+	 * @access private
+	 *
+	 * @param object $instance Widget settings.
+	 * @return DateTime Datetime.
+	 */
+	private function dateFromString( $instance ) {
+		return DateTime::createFromFormat( 'Y-m-d H:i', $instance['date'] . ' ' . $instance['time'] );
 	}
 }
