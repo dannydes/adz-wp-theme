@@ -89,13 +89,11 @@ function ecologie_featured_image() {
 			<?php the_post_thumbnail(); ?>
 		</a>
 	<?php else:
-		$dom = new DOMDocument();
-		$dom->loadHTML( get_the_content() );
-		$imgs = $dom->getElementsByTagName( 'img' );
+		$imgs = get_attached_media( 'image' );
 		
-		if ( $imgs->length ): ?>
+		if ( count( $imgs ) ): ?>
 			<a href="<?php the_permalink(); ?>" class="thumbnail">
-				<img src="<?php echo $imgs->item( 0 )->getAttribute( 'src' ); ?>">
+				<img src="<?php echo wp_get_attachment_image_url( reset( $imgs )->ID, array( 200, 300 ) ); ?>">
 			</a>
 	<?php
 		endif;
