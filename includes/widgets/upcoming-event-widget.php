@@ -5,6 +5,59 @@
  */
 class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	/**
+	 * Array holding months.
+	 */
+	const MONTHS = array(
+		array(
+			'name' => 'January',
+			'days' => 31,
+		),
+		array(
+			'name' => 'February',
+		),
+		array(
+			'name' => 'March',
+			'days' => 31,
+		),
+		array(
+			'name' => 'April',
+			'days' => 30,
+		),
+		array(
+			'name' => 'May',
+			'days' => 31,
+		),
+		array(
+			'name' => 'June',
+			'days' => 30,
+		),
+		array(
+			'name' => 'July',
+			'days' => 31,
+		),
+		array(
+			'name' => 'August',
+			'days' => 31,
+		),
+		array(
+			'name' => 'September',
+			'days' => 30,
+		),
+		array(
+			'name' => 'October',
+			'days' => 31,
+		),
+		array(
+			'name' => 'November',
+			'days' => 30,
+		),
+		array(
+			'name' => 'December',
+			'days' => 31,
+		),
+	);
+	
+	/**
 	 * Widget constructor.
 	 */
 	function __construct() {
@@ -26,8 +79,8 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		?><h4><?php echo esc_attr( $instance['title'] ); ?></h4>
 		<?php echo esc_attr( $instance['time'] ); ?><br>
-		<?php echo esc_attr( $instance['date'] ); ?><br>
-		<?php echo esc_attr( $instance['venue'] ); ?>
+		<?php echo esc_attr( $instance['day'] ); ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo esc_attr( $instance['year'] ); ?><br>
+		<?php echo esc_attr( $instance['venue'] ); var_dump($instance['month']);?>
 		<p><?php echo esc_attr( $instance['description'] ); ?></p>
 		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php
 	}
@@ -44,8 +97,14 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'time' ); ?>">Time</label>
 		<input type="time" id="<?php echo $this->get_field_id( 'time' ); ?>" name="<?php echo $this->get_field_name( 'time' ); ?>" value="<?php echo esc_attr( $instance['time'] ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'date' ); ?>">Date</label>
-		<input type="date" id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" value="<?php echo esc_attr( $instance['date'] ); ?>"><br>
+		<label for="<?php echo $this->get_field_id( 'day' ); ?>">Date</label>
+		<input type="number" id="<?php echo $this->get_field_id( 'day' ); ?>" name="<?php echo $this->get_field_name( 'day' ); ?>" value="<?php echo esc_attr( $instance['day'] ); ?>" min="1" max="31">
+		<select id="<?php echo $this->get_field_id( 'month' ); ?>" name="<?php echo $this->get_field_name( 'month' ); ?>" value="<?php echo esc_attr( $instance['month'] ); ?>">
+		<?php for ($i = 0; $i < count( self::MONTHS ); $i++): ?>
+			<option value="<?php echo $i; ?>"<?php if ( intval( $instance['month'] ) === $i ): ?> selected<?php endif; ?>><?php echo self::MONTHS[$i]['name']; ?></option>
+		<?php endfor; ?>
+		</select>
+		<input type="number" id="<?php echo $this->get_field_id( 'year' ); ?>" name="<?php echo $this->get_field_name( 'year' ); ?>" min="<?php echo date( 'Y' ); ?>" value="<?php echo esc_attr( $instance['year'] ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'venue' ); ?>">Venue</label>
 		<input type="text" id="<?php echo $this->get_field_id( 'venue' ); ?>" name="<?php echo $this->get_field_name( 'venue' ); ?>" value="<?php echo esc_attr( $instance['venue'] ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'description' ); ?>">Description</label>
@@ -65,15 +124,54 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 * @return boolean FALSE when setting update is to be cancelled due to invalid data entry.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$event_datetime = DateTime::createFromFormat( 'Y-m-d H:i', ( ! empty( $instance['date'] ) ? $instance['date'] : '1999-12-01' ) . ' ' . ( ! empty( $instance['time'] ) ? $intance['time'] : '00:00' ) );
-		
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '' );
 		$instance['time'] = ( ! empty( $new_instance['time'] ) && $event_datetime ? strip_tags( $new_instance['time'] ) : '' );
-		$instance['date'] = ( ! empty( $new_instance['date'] ) && $event_datetime && ( new DateTime() )->diff( $event_datetime ) > 0 ? strip_tags( $new_instance['date'] ) : '' );
+		$instance['day'] = ( ! empty( $new_instance['day'] ) && self::dayCorrect( $new_instance ) ? strip_tags( $new_instance['day'] ) : '' );
+		$instance['month'] = ( ! empty( $new_instance['month'] ) && ( intval( $new_instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $new_instance['year'] ) > intval( date( 'Y' ) ) ) ? strip_tags( $new_instance['month'] ) : '' );
+		$instance['year'] = ( ! empty( $new_instance['year'] ) && $new_instance['year'] >= intval( date( 'Y' ) ) ? strip_tags( $new_instance['year'] ) : '' );
 		$instance['venue'] = ( ! empty( $new_instance['venue'] ) ? strip_tags( $new_instance['venue'] ) : '' );
 		$instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
 		$instance['event_url'] = ( ! empty( $new_instance['event_url'] ) ? strip_tags( $new_instance['event_url'] ) : '' );
 		return $instance;
 	}
+	
+	/**
+	 * Utility method to check whether the date exceeds the number of days for the specified month.
+	 *
+	 * @access private
+	 *
+	 * @param $instance Widget settings.
+	 * @return boolean True if day is fine, false if not.
+	 */
+	 private function dayCorrect( $instance ) {
+		 $day = intval( $instance['day'] );
+		 
+		 // Handles day minimum value.
+		 if ( $day < 1 ) {
+			 return false;
+		 }
+		 
+		 // Handles day maximum value for February.
+		 if ( $instance['month'] === '1' ) {
+			 // Handles leap year February.
+			 if ( intval( $instance['year'] ) % 4 === 0 && $day > 29 ) {
+				 return false;
+			 }
+			 
+			 // Handles regular February.
+			 if ( $day > 28 ) {
+				 return false;
+			 }
+		 }
+		 
+		 // Handles day maximum value for all other months.
+		 foreach ( self::MONTHS as $month ) {
+			 if ( $day > $month['days']  ) {
+				 return false;
+			 }
+		 }
+		 
+		 return true;
+	 }
 }
