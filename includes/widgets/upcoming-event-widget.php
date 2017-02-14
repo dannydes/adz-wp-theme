@@ -144,34 +144,34 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 * @param $instance Widget settings.
 	 * @return boolean True if day is fine, false if not.
 	 */
-	 private function dayCorrect( $instance ) {
-		 $day = intval( $instance['day'] );
-		 
-		 // Handles day minimum value.
-		 if ( $day < 1 ) {
-			 return false;
-		 }
-		 
-		 // Handles day maximum value for February.
-		 if ( $instance['month'] === '1' ) {
-			 // Handles leap year February.
-			 if ( intval( $instance['year'] ) % 4 === 0 && $day > 29 ) {
-				 return false;
-			 }
-			 
-			 // Handles regular February.
-			 if ( $day > 28 ) {
-				 return false;
-			 }
-		 }
-		 
-		 // Handles day maximum value for all other months.
-		 foreach ( self::MONTHS as $month ) {
-			 if ( $day > $month['days']  ) {
-				 return false;
-			 }
-		 }
-		 
-		 return true;
-	 }
+	private function dayCorrect( $instance ) {
+		$day = intval( $instance['day'] );
+
+		// Handles day minimum value.
+		if ( $day < 1 ) {
+			return false;
+		}
+
+		// Handles day maximum value for February.
+		if ( $instance['month'] === '1' ) {
+			// Handles regular February.
+			if ( intval( $instance['year'] ) % 4 !== 0 && $day > 28 ) {
+				return false;
+			}
+
+			// Handles leap year February.
+			if ( $day > 29 ) {
+				return false;
+			}
+			
+			return true;
+		}
+
+		// Handles day maximum value for all other months.
+		if ( $day > self::MONTHS[$instance['month']]['days'] ) {
+			return false;
+		}
+
+		return true;
+	}
 }
