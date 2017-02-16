@@ -78,11 +78,11 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		?><h4><?php echo esc_attr( $instance['title'] ); ?></h4>
-		<?php echo esc_attr( $instance['time'] ); ?><br>
+		<?php echo esc_attr( $instance['hour'] ) . ' : ' . ( intval( $instance['minute'] ) < 10 ? '0' : '' ) . esc_attr( $instance['minute'] ) . ' ' . esc_attr( $instance['meridiem'] ); ?><br>
 		<?php echo esc_attr( $instance['day'] ); if ( $instance['day'] === '1' ): ?>st<?php elseif ( $instance['day'] === '2' ): ?>nd<?php elseif ( $instance['day'] === '3' ): ?>rd<?php else: ?>th<?php endif; ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo esc_attr( $instance['year'] ); ?><br>
 		<?php echo esc_attr( $instance['venue'] ); var_dump($instance['month']);?>
 		<p><?php echo esc_attr( $instance['description'] ); ?></p>
-		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php
+		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php var_dump(intval( $instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $instance['year'] ) > intval( date( 'Y' ) ));
 	}
 	
 	/**
@@ -95,8 +95,13 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	public function form( $instance ) {
 		?><label for="<?php echo $this->get_field_id( 'title' ); ?>">Title</label>
 		<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'time' ); ?>">Time</label>
-		<input type="time" id="<?php echo $this->get_field_id( 'time' ); ?>" name="<?php echo $this->get_field_name( 'time' ); ?>" value="<?php echo esc_attr( $instance['time'] ); ?>"><br>
+		<label for="<?php echo $this->get_field_id( 'hour' ); ?>">Time</label>
+		<input type="number" id="<?php echo $this->get_field_id( 'hour' ); ?>" name="<?php echo $this->get_field_name( 'hour' ); ?>" value="<?php echo esc_attr( $instance['hour'] ); ?>" min="0" max="12"> :
+		<input type="number" id="<?php echo $this->get_field_id( 'minute' ); ?>" name="<?php echo $this->get_field_name( 'minute' ); ?>" value="<?php echo esc_attr( $instance['minute'] ); ?>" min="0" max="59">
+		<select id="<?php echo $this->get_field_id( 'meridiem' ); ?>" name="<?php echo $this->get_field_name( 'meridiem' ); ?>">
+			<option value="AM">AM</option>
+			<option value="PM"<?php if ( $instance['meridiem'] === 'PM' ): ?> selected<?php endif; ?>>PM</option>
+		</select><br>
 		<label for="<?php echo $this->get_field_id( 'day' ); ?>">Date</label>
 		<input type="number" id="<?php echo $this->get_field_id( 'day' ); ?>" name="<?php echo $this->get_field_name( 'day' ); ?>" value="<?php echo esc_attr( $instance['day'] ); ?>" min="1" max="31">
 		<select id="<?php echo $this->get_field_id( 'month' ); ?>" name="<?php echo $this->get_field_name( 'month' ); ?>" value="<?php echo esc_attr( $instance['month'] ); ?>">
@@ -126,7 +131,9 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '' );
-		$instance['time'] = ( ! empty( $new_instance['time'] ) && $event_datetime ? strip_tags( $new_instance['time'] ) : '' );
+		$instance['hour'] = ( intval( $new_instance['hour'] ) >= 0 && intval( $new_instance['hour'] ) <= 12 ? strip_tags( $new_instance['hour'] ) : '' );
+		$instance['minute'] = ( intval( $new_instance['minute'] ) >= 0 && intval( $new_instance['minute'] ) <= 59 ? strip_tags( $new_instance['minute'] ) : '' );
+		$instance['meridiem'] = ( ! empty( $new_instance['meridiem'] ) ? strip_tags( $new_instance['meridiem'] ) : '' );
 		$instance['day'] = ( ! empty( $new_instance['day'] ) && self::dayCorrect( $new_instance ) ? strip_tags( $new_instance['day'] ) : '' );
 		$instance['month'] = ( ! empty( $new_instance['month'] ) && ( intval( $new_instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $new_instance['year'] ) > intval( date( 'Y' ) ) ) ? strip_tags( $new_instance['month'] ) : '' );
 		$instance['year'] = ( ! empty( $new_instance['year'] ) && $new_instance['year'] >= intval( date( 'Y' ) ) ? strip_tags( $new_instance['year'] ) : '' );
@@ -137,7 +144,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	}
 	
 	/**
-	 * Utility method to check whether the date exceeds the number of days for the specified month.
+	 * Utility method to check whether the date exceeds the number of days for the specified month and to make sure day is in the future.
 	 *
 	 * @access private
 	 *
@@ -169,6 +176,19 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 
 		// Handles day maximum value for all other months.
 		if ( $day > self::MONTHS[$instance['month']]['days'] ) {
+			return false;
+		}
+		
+		// Check whether day is in the future.
+		if ( intval( $instance['year'] ) > intval( date( 'Y' ) ) ) {
+		//	return true;
+		}
+		
+		if ( intval( $instance['month'] ) > intval( date( 'm' ) ) - 1 ) {
+		//	return true;
+		}
+		
+		if ( $day <= intval( date( 'd' ) ) ) {
 			return false;
 		}
 
