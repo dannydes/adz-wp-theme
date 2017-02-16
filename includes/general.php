@@ -30,15 +30,18 @@ add_action( 'after_setup_theme', 'ecologie_setup' );
 function ecologie_enqueue_scripts() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 	
+	$base_script_deps = array( 'jquery' );
+	
 	wp_enqueue_style( 'base-css', get_template_directory_uri() . '/style.css', '', $theme_version );
 	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', '', '4.7' );
 	wp_enqueue_script( 'jquery' );
 	
 	if ( is_active_widget( false, false, 'ecologie_mailchimp_subscribe_widget' ) ) {
 		wp_enqueue_script( 'mailchimp', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js', '', '', TRUE );
+		$base_script_deps[] = 'mailchimp';
 	}
 	
-	wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', array( 'jquery', 'mailchimp' ) , $theme_version, TRUE );
+	wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', $base_script_deps , $theme_version, TRUE );
 	
 	if ( get_theme_mod( 'add_this_enabled', ecologie_get_default_options()['add_this_enabled'] ) ) {
 		wp_enqueue_script( 'addthis', get_theme_mod( 'add_this_script_url' ), '', '', TRUE );
