@@ -80,9 +80,9 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		?><h4><?php echo esc_attr( $instance['title'] ); ?></h4>
 		<?php echo esc_attr( $instance['hour'] ) . ' : ' . ( intval( $instance['minute'] ) < 10 ? '0' : '' ) . esc_attr( $instance['minute'] ) . ' ' . esc_attr( $instance['meridiem'] ); ?><br>
 		<?php echo esc_attr( $instance['day'] ); if ( $instance['day'] === '1' ): ?>st<?php elseif ( $instance['day'] === '2' ): ?>nd<?php elseif ( $instance['day'] === '3' ): ?>rd<?php else: ?>th<?php endif; ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo esc_attr( $instance['year'] ); ?><br>
-		<?php echo esc_attr( $instance['venue'] ); var_dump($instance['month']);?>
+		<?php echo esc_attr( $instance['venue'] ); ?>
 		<p><?php echo esc_attr( $instance['description'] ); ?></p>
-		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php var_dump(intval( $instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $instance['year'] ) > intval( date( 'Y' ) ));
+		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php
 	}
 	
 	/**
@@ -134,8 +134,8 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		$instance['hour'] = ( intval( $new_instance['hour'] ) >= 0 && intval( $new_instance['hour'] ) <= 12 ? strip_tags( $new_instance['hour'] ) : '' );
 		$instance['minute'] = ( intval( $new_instance['minute'] ) >= 0 && intval( $new_instance['minute'] ) <= 59 ? strip_tags( $new_instance['minute'] ) : '' );
 		$instance['meridiem'] = ( ! empty( $new_instance['meridiem'] ) ? strip_tags( $new_instance['meridiem'] ) : '' );
-		$instance['day'] = ( ! empty( $new_instance['day'] ) && self::dayCorrect( $new_instance ) ? strip_tags( $new_instance['day'] ) : '' );
-		$instance['month'] = ( ! empty( $new_instance['month'] ) && ( intval( $new_instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $new_instance['year'] ) > intval( date( 'Y' ) ) ) ? strip_tags( $new_instance['month'] ) : '' );
+		$instance['day'] = ( self::dayMonthCorrect( $new_instance ) && self::dayInFuture( $new_instance ) ? strip_tags( $new_instance['day'] ) : '' );
+		$instance['month'] = ( intval( $new_instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $new_instance['year'] ) > intval( date( 'Y' ) ) ? strip_tags( $new_instance['month'] ) : '' );
 		$instance['year'] = ( ! empty( $new_instance['year'] ) && $new_instance['year'] >= intval( date( 'Y' ) ) ? strip_tags( $new_instance['year'] ) : '' );
 		$instance['venue'] = ( ! empty( $new_instance['venue'] ) ? strip_tags( $new_instance['venue'] ) : '' );
 		$instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
@@ -151,7 +151,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 * @param $instance Widget settings.
 	 * @return boolean True if day is fine, false if not.
 	 */
-	private function dayCorrect( $instance ) {
+	private function dayMonthCorrect( $instance ) {
 		$day = intval( $instance['day'] );
 
 		// Handles day minimum value.
@@ -178,20 +178,31 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		if ( $day > self::MONTHS[$instance['month']]['days'] ) {
 			return false;
 		}
-		
-		// Check whether day is in the future.
+
+		return true;
+	}
+	
+	/**
+	 * Utility method to make sure day is in the future.
+	 *
+	 * @access private
+	 *
+	 * @param $instance Widget settings.
+	 * @return boolean True if day is fine, false if not.
+	 */
+	private function dayInFuture( $instance ) {
 		if ( intval( $instance['year'] ) > intval( date( 'Y' ) ) ) {
-		//	return true;
+			return true;
 		}
 		
 		if ( intval( $instance['month'] ) > intval( date( 'm' ) ) - 1 ) {
-		//	return true;
+			return true;
 		}
 		
-		if ( $day <= intval( date( 'd' ) ) ) {
+		if ( intval( $instance['day'] ) <= intval( date( 'd' ) ) ) {
 			return false;
 		}
-
+		
 		return true;
 	}
 }
