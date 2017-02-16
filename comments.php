@@ -29,24 +29,24 @@
 				<label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
 				( $req ? '<span class="required label label-default">*</span>' : '' ) .
 				'<input class="form-control" id="author" name="author" type="text" value="' .
-				esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . '>
+				esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' placeholder="Author">
 			</div>',
 		'email' => '<div class="form-group comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
 				( $req ? '<span class="required label label-default">*</span>' : '' ) . ' (' . __( 'Will be kept anonymous.' ) . ')
 				<input class="form-control" id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-				'" size="30"' . $aria_req . ' />
+				'" size="30"' . $aria_req . ' placeholder="Email" />
 			</div>',
 		'url' => '<div class="form-group comment-form-url">
 					<label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
 					'<input class="form-control" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) .
-					'" size="30" />
+					'" size="30" placeholder="Website" />
 			</div>',
 	);
 
 	comment_form( array(
 		'comment_field' => '<div class="form-group comment-form-comment">
 				<label for="comment">' . _x( 'Comment', 'noun' ) . '</label>
-				<textarea class="form-control" id="comment" name="comment" rows="8"></textarea>
+				<textarea class="form-control" id="comment" name="comment" rows="8" placeholder="Comment"></textarea>
 			</div>',
 		'class_submit' => 'btn btn-default submit',
 		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
