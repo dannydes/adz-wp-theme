@@ -1,3 +1,16 @@
+# 0.8.2
+
+* Posts without a featured image are assigned the post's first image
+* Option to add text to Copyright notice
+* Code readability - LESS nesting review and other minor changes
+* Performance - Mailchimp script only served if Mailchimp widget detected in front-end
+* AddThis script no longer async
+* JS Customizer refresh for copyright text and call-to-action block settings
+* Social icons circular appearance
+* Upcoming Event Widget - HTML5 date input replaced by traditional HTML4 inputs
+* Upcoming Event Widget - Date format changed in front-end
+* Upcoming Event Widget - HTML5 time input replaced by traditional HTML4 inputs
+
 # 0.8.1
 
 * Recent posts section is now still displayed when there are no posts, stating blog is empty
