@@ -1,3 +1,10 @@
+# 0.8.2.1
+
+* Resolved regression - base-js not loading if mailchimp in front-end
+* Upcoming Event Widget - Some further checks to make sure date is in the future
+* Comments - Form is now checked through JavaScript
+* Comments - Form placeholders
+
 # 0.8.2
 
 * Posts without a featured image are assigned the post's first image
