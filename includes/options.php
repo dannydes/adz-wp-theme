@@ -63,7 +63,7 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'number',
 			'label' => 'Number of recent posts',
 			'section' => 'blog',
-		), 'refresh' ),
+		), 'postMessage' ),
 		array( 'copyright_text_addition', array(
 			'type' => 'text',
 			'label' => 'Text to add to copyright notice',
@@ -118,11 +118,25 @@ add_action( 'customize_register', 'ecologie_customize_register' );
  * Enqueue scripts to be used by customizer live preview.
  */
 function ecologie_customizer_live_preview() {
-		wp_enqueue_script( 'theme-customize',
-			get_template_directory_uri() . '/js/theme-customize.js',
-			array( 'jquery', 'customize-preview' ),
-			wp_get_theme()->get( 'Version' ),
-			true );
+	wp_enqueue_script( 'theme-customize',
+		get_template_directory_uri() . '/js/theme-customize.js',
+		array( 'jquery', 'customize-preview' ),
+		wp_get_theme()->get( 'Version' ),
+		true );
+
+	wp_localize_script( 'theme-customize', 'ecologie', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+	) );
 }
 
 add_action( 'customize_preview_init', 'ecologie_customizer_live_preview' );
+
+/**
+ * Responds to AJAX request to update recent posts.
+ */
+function ecologie_ajax_recent_posts() {
+	require 'blog/recent-posts.php';
+	wp_die();
+}
+
+add_action( 'wp_ajax_recent_posts', 'ecologie_ajax_recent_posts' );

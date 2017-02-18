@@ -26,4 +26,15 @@
 		});
 	});
 	
+	wp.customize( 'recent_posts', function ( value ) {
+		value.bind(function ( newVal ) {
+			$.post( ecologie.ajax_url, {
+				'action': 'recent_posts',
+				'data': value,
+			}, function ( res ) {
+				$( '#recent-posts' ).html( res );
+			});
+		});
+	});
+	
 })( jQuery );
