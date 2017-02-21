@@ -58,7 +58,7 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'number',
 			'label' => 'Blog posts per page',
 			'section' => 'blog',
-		), 'refresh' ),
+		), 'postMessage' ),
 		array( 'recent_posts', array(
 			'type' => 'number',
 			'label' => 'Number of recent posts',
@@ -140,3 +140,13 @@ function ecologie_ajax_recent_posts() {
 }
 
 add_action( 'wp_ajax_recent_posts', 'ecologie_ajax_recent_posts' );
+
+/**
+ * Responds to AJAX request to update blog posts per page.
+ */
+function ecologie_ajax_blog_posts_per_page() {
+	require 'blog/posts-list.php';
+	wp_die();
+}
+
+add_action( 'wp_ajax_blog_posts_per_page', 'ecologie_ajax_blog_posts_per_page' );
