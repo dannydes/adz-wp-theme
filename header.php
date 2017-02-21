@@ -34,7 +34,11 @@
 				</div>
 			</div>
 		</nav>
+		<noscript>
+			<div class="alert alert-warning">Your JavaScript is disabled - this might hurt your experience. Please follow these <a href="http://www.enable-javascript.com/" target="_blank">steps</a>.</div>
+		</noscript>
+		<header class="header">
+			<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>">
+		</header>
 		<div class="container">
-			<noscript>
-				<div class="alert alert-warning">Your JavaScript is disabled - this might hurt your experience. Please follow these <a href="http://www.enable-javascript.com/" target="_blank">steps</a>.</div>
-			</noscript>
+			
