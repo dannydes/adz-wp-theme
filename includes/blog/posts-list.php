@@ -22,6 +22,8 @@ if ( $the_query->have_posts() ): ?>
 <?php
 
 	ecologie_pagination( $the_query );
+	
+	wp_reset_postdata();
 
 else:
 	get_template_part( 'includes/blog/no-posts' );
