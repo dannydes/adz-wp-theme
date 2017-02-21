@@ -21,7 +21,7 @@ if ( $the_query->have_posts() ): ?>
 </div>
 <?php
 
-	ecologie_pagination();
+	ecologie_pagination( $the_query );
 
 else:
 	get_template_part( 'includes/blog/no-posts' );

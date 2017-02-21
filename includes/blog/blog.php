@@ -28,10 +28,10 @@ add_filter( 'excerpt_more', 'ecologie_excerpt_more' );
 /**
  * Alternative pagination function that outputs Bootstrap pagination from http://fellowtuts.com/wordpress/bootstrap-3-pagination-in-wordpress/.
  *
- * @param mixed $pages The pages to draw up-to.
+ * @param object $wp_query The query object.
  * @param int $range The range of page numbers to display on the sides.
  */
-function ecologie_pagination( $pages = '', $range = 4 ) {  
+function ecologie_pagination( $wp_query, $range = 4 ) {  
 	$showitems = ( $range * 2 ) + 1;
 
 	global $paged;
@@ -40,14 +40,11 @@ function ecologie_pagination( $pages = '', $range = 4 ) {
 		$paged = 1;
 	}
 
-	if( $pages == '' ) {
-		global $wp_query;
-		$pages = $wp_query->max_num_pages;
+	$pages = $wp_query->max_num_pages;
 
-		if( ! $pages ) {
-			$pages = 1;
-		}
-	}   
+	if( ! $pages ) {
+		$pages = 1;
+	}
 
 	if( 1 != $pages ) {
 		echo '<div class="text-center">'; 
