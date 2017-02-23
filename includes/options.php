@@ -100,6 +100,10 @@ function ecologie_customize_register( $wp_customize ) {
 		'panel' => 'ecologie',
 	) );
 	
+	if ( is_localhost() ) {
+		add_production_mode_setting( $wp_customize );
+	}
+	
 	foreach ( $settings as $setting ) {
 		$wp_customize->add_setting( $setting[0], array(
 			'type' => 'theme_mod',
