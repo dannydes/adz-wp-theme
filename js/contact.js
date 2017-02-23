@@ -12,8 +12,8 @@
 				'email': $( '#contact-email' ).val(),
 				'subject': $( '#contact-subject' ).val(),
 				'message': $( '#contact-message' ).val(),
-				'forward-copy': $( '#contact-copy' ).val(),
-				'to': $( '#contact-to' ).val(),
+				'forward-copy': $( '#contact-copy' ).is( ':checked' ),
+				'at': $( '#contact-at' ).val(),
 			}, function ( res ) {
 				if ( res === '1' ) {
 					$( '#contact-success' ).modal( 'show' );

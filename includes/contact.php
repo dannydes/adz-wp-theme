@@ -1,7 +1,7 @@
 <?php
 
 function contact_us_shortcode( $atts ) {
-	return ( empty( $atts['to'] ) ? '<p>Specify "to" attribute.</p>' : '' ) .
+	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
 	'<form id="contact-us" action="#" method="post">
 		<div class="form-group">
 			<label for="contact-name">Your name</label>
@@ -20,10 +20,10 @@ function contact_us_shortcode( $atts ) {
 			<textarea class="form-control" id="contact-message" name="message" placeholder="Your message"></textarea>
 		</div>
 		<div class="form-group">
-			<label for="contact-copy">Send me a copy <input type="checkbox"></label>
+			<label for="contact-copy">Send me a copy <input type="checkbox" id="contact-copy"></label>
 		</div>
 		<input type="hidden" id="contact-hidden" name="hidden">
-		<input type="hidden" id="contact-to" name="to" value="' . ( ! empty( $atts['to'] ) ? $atts['to'] : '' ) . '">
+		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
 		<button type="submit" class="btn btn-default">Send message</button>
 	</form>
 	<div id="contact-success" class="modal fade" tabindex="-1" role="dialog">
@@ -59,3 +59,17 @@ function contact_us_shortcode( $atts ) {
 }
 
 add_shortcode( 'contact-us', 'contact_us_shortcode' );
+
+function ecologie_ajax_contact_us() {
+	if ( ! empty( $_POST['hidden'] ) || empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) ) {
+		wp_die( 0 );
+	}
+
+	mail( $_POST['at'], $_POST['subject'], $_POST['message'] );
+
+	if ( $_POST['copy'] ) {
+		mail( $_POST['name'] . '<' . $_POST['email'] . '>', $_POST['subject'], $_POST['message'] );
+	}
+}
+
+add_action( 'wp_ajax_contact_us', 'ecologie_ajax_contact_us' );
