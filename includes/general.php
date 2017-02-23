@@ -21,7 +21,10 @@ function ecologie_setup() {
 		'flex-width' => false,
 	) );
 	add_theme_support( 'custom-header', array(
-		'height' => 300,
+		'height' => 1200,
+		'width' => 2000,
+		'flex-height' => true,
+		'flex-width' => true,
 	) );
 }
 
