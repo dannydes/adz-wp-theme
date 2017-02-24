@@ -48,4 +48,16 @@
 		});
 	});
 	
+	wp.customize( 'header_image_text', function ( value ) {
+		value.bind(function ( newVal ) {
+			$( '.header p' ).html( newVal );
+		});
+	});
+	
+	wp.customize( 'header_image_manifesto', function ( value ) {
+		value.bind(function ( newVal ) {
+			$( '.header a' ).attr( 'href', newVal );
+		});
+	});
+	
 })( jQuery );

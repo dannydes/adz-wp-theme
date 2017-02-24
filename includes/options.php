@@ -15,6 +15,9 @@ function ecologie_get_default_options() {
 		'blog_posts_per_page' => 10,
 		'recent_posts' => 5,
 		'copyright_text_addition' => '',
+		'header_image_text_on' => true,
+		'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
+		'header_image_manifesto' => '',
 	);
 	return $options;
 }
@@ -69,6 +72,21 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Text to add to copyright notice',
 			'section' => 'footer',
 		), 'postMessage' ),
+		array( 'header_image_text_on', array(
+			'type' => 'checkbox',
+			'label' => 'Enable header image text',
+			'section' => 'header',
+		), 'refresh' ),
+		array( 'header_image_text', array(
+			'type' => 'text',
+			'label' => 'Header image text',
+			'section' => 'header',
+		), 'postMessage' ),
+		array( 'header_image_manifesto', array(
+			'type' => 'text',
+			'label' => 'Header image Electoral Manifesto URL',
+			'section' => 'header',
+		), 'postMessage' ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
@@ -91,6 +109,12 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'blog', array(
 		'title' => __( 'Blog' ),
 		'description' => __( 'Configures blog.' ),
+		'panel' => 'ecologie',
+	) );
+	
+	$wp_customize->add_section( 'header', array(
+		'title' => __( 'Header' ),
+		'description' => __( 'Configures header image.' ),
 		'panel' => 'ecologie',
 	) );
 	
