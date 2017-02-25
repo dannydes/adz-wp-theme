@@ -61,15 +61,20 @@ function contact_us_shortcode( $atts ) {
 add_shortcode( 'contact-us', 'contact_us_shortcode' );
 
 function ecologie_ajax_contact_us() {
-	if ( ! empty( $_POST['hidden'] ) || empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) ) {
+	if ( ! empty( $_POST['hidden'] ) || empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
 		wp_die( 0 );
 	}
 
-	mail( $_POST['at'], $_POST['subject'], $_POST['message'] );
+	$success = mail( $_POST['at'], $_POST['subject'], $_POST['message'] );
 
-	if ( $_POST['copy'] ) {
+	if ( $_POST['forward-copy'] === 'true' ) {
 		mail( $_POST['name'] . '<' . $_POST['email'] . '>', $_POST['subject'], $_POST['message'] );
+	}
+	
+	if ( $success ) {
+		wp_die( 1 );
 	}
 }
 
+add_action( 'wp_ajax_nopriv_contact_us', 'ecologie_ajax_contact_us' );
 add_action( 'wp_ajax_contact_us', 'ecologie_ajax_contact_us' );

@@ -7,7 +7,7 @@
 		}
 		
 		if ( $( '#contact-name' ).val() !== '' && $( '#contact-email' ).val() !== '' && $( '#contact-message' ).val() !== '' ) {
-			$.post( 'contact-us.php', {
+			$.post( ecologie.ajax_url, {
 				'name': $( '#contact-name' ).val(),
 				'email': $( '#contact-email' ).val(),
 				'subject': $( '#contact-subject' ).val(),
