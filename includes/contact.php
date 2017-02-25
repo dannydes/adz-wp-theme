@@ -41,7 +41,7 @@ function contact_us_shortcode( $atts ) {
 			</div>
 		</div>
 	</div>
-	<div id="failure" class="modal fade" tabindex="-1" role="dialog">
+	<div id="contact-failure" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -65,10 +65,10 @@ function ecologie_ajax_contact_us() {
 		wp_die( 0 );
 	}
 
-	$success = mail( $_POST['at'], $_POST['subject'], $_POST['message'] );
+	$success = wp_mail( $_POST['at'], $_POST['subject'], $_POST['message'] );
 
 	if ( $_POST['forward-copy'] === 'true' ) {
-		mail( $_POST['name'] . '<' . $_POST['email'] . '>', $_POST['subject'], $_POST['message'] );
+		wp_mail( $_POST['name'] . '<' . $_POST['email'] . '>', $_POST['subject'], $_POST['message'] );
 	}
 	
 	if ( $success ) {
