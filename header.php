@@ -44,6 +44,7 @@
 			<div class="header-text">
 				<h1><?php echo bloginfo(); ?></h1>
 				<h3><?php echo get_bloginfo( 'description' ); ?></h3>
+				<hr>
 				<p><?php echo get_theme_mod( 'header_image_text', $defaults['header_image_text'] ); ?></p>
 				<a class="btn btn-success" role="button" href="<?php echo get_theme_mod( 'header_image_manifesto', $defaults['header_image_manifesto'] ); ?>" target="_blank">Our party's manifesto</a>
 			</div>
