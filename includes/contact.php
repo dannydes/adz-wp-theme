@@ -65,10 +65,12 @@ function ecologie_ajax_contact_us() {
 		wp_die( 0 );
 	}
 
-	$success = wp_mail( $_POST['at'], $_POST['subject'], $_POST['message'] );
+	$success = wp_mail( $_POST['at'], $_POST['subject'], $_POST['message'], array(
+		'From: ' => $_POST['name'] . ' <' . $_POST['email'] . '>',
+	) );
 
 	if ( $_POST['forward-copy'] === 'true' ) {
-		wp_mail( $_POST['name'] . '<' . $_POST['email'] . '>', $_POST['subject'], $_POST['message'] );
+		wp_mail( $_POST['name'] . ' <' . $_POST['email'] . '>', $_POST['subject'] . ' - Web message copy', $_POST['message'] );
 	}
 	
 	if ( $success ) {
