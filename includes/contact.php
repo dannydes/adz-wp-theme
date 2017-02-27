@@ -64,14 +64,16 @@ function ecologie_ajax_contact_us() {
 	if ( ! empty( $_POST['hidden'] ) || empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
 		wp_die( 0 );
 	}
-
-	$success = wp_mail( $_POST['at'], $_POST['subject'], $_POST['message'], array(
-		'From: ' => $_POST['name'] . ' <' . $_POST['email'] . '>',
-	) );
-
+	
+	$headers = array(
+		'From: ' . $_POST['name'] . ' <' . $_POST['email'] . '>',
+	);
+	
 	if ( $_POST['forward-copy'] === 'true' ) {
-		wp_mail( $_POST['name'] . ' <' . $_POST['email'] . '>', $_POST['subject'] . ' - Web message copy', $_POST['message'] );
+		$headers[] = 'Cc: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
 	}
+
+	$success = wp_mail( $_POST['at'], $_POST['subject'], $_POST['message'], $headers );
 	
 	if ( $success ) {
 		wp_die( 1 );
@@ -80,3 +82,21 @@ function ecologie_ajax_contact_us() {
 
 add_action( 'wp_ajax_nopriv_contact_us', 'ecologie_ajax_contact_us' );
 add_action( 'wp_ajax_contact_us', 'ecologie_ajax_contact_us' );
+
+/**
+ * Sets up PHPMailer for the wp_mail() function to work properly.
+ *
+ * @param object $phpmailer PHPMailer instance.
+ */
+function ecologie_setup_phpmailer( $phpmailer ) {
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'smtp.gmail.com';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->SMTPSecure = 'tls';
+	$phpmailer->Port = 587;
+	$phpmailer->Username = get_theme_mod( 'contact_sc_smtp_username' );
+	$phpmailer->Password = get_theme_mod( 'contact_sc_smtp_password' );
+	$phpmailer->SMTPDebug = 2;
+}
+
+add_action( 'phpmailer_init', 'ecologie_setup_phpmailer' );

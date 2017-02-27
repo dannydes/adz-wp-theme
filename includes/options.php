@@ -18,6 +18,8 @@ function ecologie_get_default_options() {
 		'header_image_text_on' => true,
 		'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
 		'header_image_manifesto' => '',
+		'contact_sc_smtp_username' => '',
+		'contact_sc_smtp_password' => '',
 	);
 	return $options;
 }
@@ -87,6 +89,16 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Header image Electoral Manifesto URL',
 			'section' => 'header',
 		), 'postMessage' ),
+		array( 'contact_sc_smtp_username', array(
+			'type' => 'text',
+			'label' => 'SMTP username',
+			'section' => 'contact_shortcode',
+		), 'postMessage' ),
+		array( 'contact_sc_smtp_password', array(
+			'type' => 'password',
+			'label' => 'SMTP password',
+			'section' => 'contact_shortcode',
+		), 'postMessage' ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
@@ -121,6 +133,12 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'footer', array(
 		'title' => __( 'Footer' ),
 		'description' => __( 'Configures footer.' ),
+		'panel' => 'ecologie',
+	) );
+	
+	$wp_customize->add_section( 'contact_shortcode', array(
+		'title' => __( 'Contact Shortcode' ),
+		'description' => __( 'Configures contact shortcode.' ),
 		'panel' => 'ecologie',
 	) );
 	
