@@ -1,3 +1,16 @@
+# 0.8.3
+
+* Customizer - postMessage refresh of recent posts
+* Customizer - postMessage refresh of blog posts per page
+* Updated screenshot
+* Header image enabled
+* New development mode - Development JavaScript files are served in localhost with option to serve production script
+* Restructured copyright notice
+* Fixed bug in pagination where the number of posts per page was not being reflected
+* AddThis script is now only output for posts and blog page
+* Noscript warning now takes full screen width
+* Experimental non-functional [contact-us] shortcode
+
 # 0.8.2.1
 
 * Resolved regression - base-js not loading if mailchimp in front-end
