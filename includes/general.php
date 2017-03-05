@@ -25,6 +25,7 @@ function ecologie_setup() {
 		'width' => 2000,
 		'flex-height' => true,
 		'flex-width' => true,
+		'default-image' => get_template_directory_uri() . '/img/cliff-default-header.jpg',
 	) );
 }
 
