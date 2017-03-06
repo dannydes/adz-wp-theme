@@ -35,17 +35,17 @@ function ecologie_customize_register( $wp_customize ) {
 	$settings = array(
 		array( 'cta_block_text', array(
 			'type' => 'text',
-			'label' => 'Call for Action Text',
+			'label' => 'Call to Action Text',
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'cta_block_btn_text', array(
 			'type' => 'text',
-			'label' => 'Call for Action Button Text',
+			'label' => 'Call to Action Button Text',
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'cta_block_btn_url', array(
 			'type' => 'url',
-			'label' => 'Call for Action Button URL',
+			'label' => 'Call to Action Button URL',
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'add_this_script_url', array(
