@@ -25,29 +25,31 @@ class Ecologie_Social_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) { ?>
 		<h2 class="widgettitle">Follow Us</h2>
-		<?php if ( ! empty( $instance['facebook'] ) ): ?>
-			<a href="<?php echo esc_url( $instance['facebook'] ); ?>" title="Facebook" target="_blank"><div class="social-btn"><i class="fa fa-facebook"></i></div></a>
-		<?php endif;
-		
-		if ( ! empty( $instance['twitter'] ) ): ?>
-			<a href="<?php echo esc_url( $instance['twitter'] ); ?>" title="Twitter" target="_blank"><div class="social-btn"><i class="fa fa-twitter"></i></div></a>
-		<?php endif;
-		
-		if ( ! empty( $instance['linkedin'] ) ): ?>
-			<a href="<?php echo esc_url( $instance['linkedin'] ); ?>" title="LinkedIn" target="_blank"><div class="social-btn"><i class="fa fa-linkedin"></i></div></a>
-		<?php endif;
-		
-		if ( ! empty( $instance['googleplus'] ) ): ?>
-			<a href="<?php echo esc_url( $instance['googleplus'] ); ?>" title="Google+" target="_blank"><div class="social-btn"><i class="fa fa-google-plus"></i></div></a>
-		<?php endif;
-		
-		if ( ! empty( $instance['instagram'] ) ): ?>
-			<a href="<?php echo esc_url( $instance['instagram'] ); ?>" title="Instagram" target="_blank"><div class="social-btn"><i class="fa fa-instagram"></i></div></a>
-		<?php endif;
-		
-		if ( ! empty( $instance['youtube'] ) ): ?>
-			<a href="<?php echo esc_url( $instance['youtube'] ); ?>" title="Youtube" target="_blank"><div class="social-btn"><i class="fa fa-youtube"></i></div></a>
-		<?php endif;
+		<div class="social-btns">
+			<?php if ( ! empty( $instance['facebook'] ) ): ?>
+				<a href="<?php echo esc_url( $instance['facebook'] ); ?>" title="Facebook" target="_blank"><div class="social-btn"><i class="fa fa-facebook"></i></div></a>
+			<?php endif;
+			
+			if ( ! empty( $instance['twitter'] ) ): ?>
+				<a href="<?php echo esc_url( $instance['twitter'] ); ?>" title="Twitter" target="_blank"><div class="social-btn"><i class="fa fa-twitter"></i></div></a>
+			<?php endif;
+			
+			if ( ! empty( $instance['linkedin'] ) ): ?>
+				<a href="<?php echo esc_url( $instance['linkedin'] ); ?>" title="LinkedIn" target="_blank"><div class="social-btn"><i class="fa fa-linkedin"></i></div></a>
+			<?php endif;
+			
+			if ( ! empty( $instance['googleplus'] ) ): ?>
+				<a href="<?php echo esc_url( $instance['googleplus'] ); ?>" title="Google+" target="_blank"><div class="social-btn"><i class="fa fa-google-plus"></i></div></a>
+			<?php endif;
+			
+			if ( ! empty( $instance['instagram'] ) ): ?>
+				<a href="<?php echo esc_url( $instance['instagram'] ); ?>" title="Instagram" target="_blank"><div class="social-btn"><i class="fa fa-instagram"></i></div></a>
+			<?php endif;
+			
+			if ( ! empty( $instance['youtube'] ) ): ?>
+				<a href="<?php echo esc_url( $instance['youtube'] ); ?>" title="Youtube" target="_blank"><div class="social-btn"><i class="fa fa-youtube"></i></div></a>
+			<?php endif; ?>
+		</div><?php
 	}
 	
 	/**
