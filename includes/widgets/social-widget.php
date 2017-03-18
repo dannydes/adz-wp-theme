@@ -24,7 +24,7 @@ class Ecologie_Social_Widget extends WP_Widget {
 	 * @param object $instance Widget settings.
 	 */
 	public function widget( $args, $instance ) { ?>
-		<h4>Follow Us</h4>
+		<h2 class="widgettitle">Follow Us</h2>
 		<?php if ( ! empty( $instance['facebook'] ) ): ?>
 			<a href="<?php echo esc_url( $instance['facebook'] ); ?>" title="Facebook" target="_blank"><div class="social-btn"><i class="fa fa-facebook"></i></div></a>
 		<?php endif;

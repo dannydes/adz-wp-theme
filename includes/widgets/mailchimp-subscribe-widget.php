@@ -26,7 +26,7 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		
 		?>
-		<h4>Subscribe to our newsletter</h4>
+		<h2 class="widgettitle">Subscribe to our newsletter</h2>
 		<form action="//wordpress.us14.list-manage.com/subscribe/post?u=<?php echo esc_attr( $instance['user_id'] ); ?>&amp;id=<?php echo esc_attr( $instance['form_id'] ); ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 			<div class="form-group">
 				<label for="mailchimp-name">Name</label>

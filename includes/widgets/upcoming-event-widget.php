@@ -77,7 +77,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 * @param object $instance Widget settings.
 	 */
 	public function widget( $args, $instance ) {
-		?><h4><?php echo esc_attr( $instance['title'] ); ?></h4>
+		?><h2 class="widgettitle"><?php echo esc_attr( $instance['title'] ); ?></h2>
 		<?php echo esc_attr( $instance['hour'] ) . ' : ' . ( intval( $instance['minute'] ) < 10 ? '0' : '' ) . esc_attr( $instance['minute'] ) . ' ' . esc_attr( $instance['meridiem'] ); ?><br>
 		<?php echo esc_attr( $instance['day'] ); if ( $instance['day'] === '1' ): ?>st<?php elseif ( $instance['day'] === '2' ): ?>nd<?php elseif ( $instance['day'] === '3' ): ?>rd<?php else: ?>th<?php endif; ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo esc_attr( $instance['year'] ); ?><br>
 		<?php echo esc_attr( $instance['venue'] ); ?>

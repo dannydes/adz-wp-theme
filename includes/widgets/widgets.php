@@ -2,9 +2,7 @@
 
 require 'social-widget.php';
 require 'contact-widget.php';
-require 'recent-posts-widget.php';
 require 'upcoming-event-widget.php';
-require 'blogroll-widget.php';
 require 'mailchimp-subscribe-widget.php';
 
 /**
@@ -13,9 +11,7 @@ require 'mailchimp-subscribe-widget.php';
 function ecologie_widgets_init() {
 	register_widget( 'Ecologie_Contact_Widget' );
 	register_widget( 'Ecologie_Social_Widget' );
-	register_widget( 'Ecologie_Recent_Posts_Widget' );
 	register_widget( 'Ecologie_Upcoming_Event_Widget' );
-	register_widget( 'Ecologie_Blogroll_Widget' );
 	register_widget( 'Ecologie_Mailchimp_Subscribe_Widget' );
 	
 	register_sidebar( array(

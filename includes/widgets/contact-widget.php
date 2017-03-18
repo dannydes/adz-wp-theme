@@ -32,7 +32,7 @@ class Ecologie_Contact_Widget extends WP_Widget {
 		$email = $instance['email'];
 		
 		?>
-		<h4>Contact Us</h4>
+		<h2 class="widgettitle">Contact Us</h2>
 		<?php if ( ! empty( $address_line_1 ) ||
 				! empty( $address_line_2 ) ||
 				! empty( $address_line_3 ) ||
