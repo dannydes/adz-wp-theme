@@ -51,7 +51,7 @@ function ecologie_enqueue_scripts() {
 	if ( is_localhost() && production_mode_disabled() ) {
 		enqueue_production_scripts();
 	} else {
-		wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', $base_script_deps , $theme_version, true );
+		wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', $base_script_deps, $theme_version, true );
 	}
 
 	if ( get_theme_mod( 'add_this_enabled', ecologie_get_default_options()['add_this_enabled'] ) && get_post_type() === 'post' ) {

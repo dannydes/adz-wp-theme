@@ -49,7 +49,7 @@ function production_mode_disabled() {
  */
 function enqueue_production_scripts() {
 	wp_enqueue_script( 'sidebar', get_template_directory_uri() . '/js/sidebar.js', array( 'jquery' ) , $theme_version, true );
-	wp_enqueue_script( 'mailchimp', get_template_directory_uri() . '/js/mailchimp.js', $base_script_deps , $theme_version, true );
+	wp_enqueue_script( 'mailchimp-widget', get_template_directory_uri() . '/js/mailchimp.js', array( 'jquery', 'mailchimp' ), $theme_version, true );
 	wp_enqueue_script( 'contact', get_template_directory_uri() . '/js/contact.js', array( 'jquery' ) , $theme_version, true );
 	wp_enqueue_script( 'comments', get_template_directory_uri() . '/js/comments.js', array( 'jquery' ) , $theme_version, true );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ) , $theme_version, true );
