@@ -90,10 +90,10 @@ add_action( 'wp_ajax_contact_us', 'ecologie_ajax_contact_us' );
  */
 function ecologie_setup_phpmailer( $phpmailer ) {
 	$phpmailer->isSMTP();
-	$phpmailer->Host = 'smtp.gmail.com';
+	$phpmailer->Host = get_theme_mod( 'contact_sc_smtp_host' );
 	$phpmailer->SMTPAuth = true;
-	$phpmailer->SMTPSecure = 'tls';
-	$phpmailer->Port = 587;
+	$phpmailer->SMTPSecure = get_theme_mod( 'contact_sc_smtp_secure_conn_method' );
+	$phpmailer->Port = get_theme_mod( 'contact_sc_smtp_port' );
 	$phpmailer->Username = get_theme_mod( 'contact_sc_smtp_username' );
 	$phpmailer->Password = get_theme_mod( 'contact_sc_smtp_password' );
 	$phpmailer->SMTPDebug = 2;

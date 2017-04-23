@@ -20,6 +20,7 @@ function ecologie_get_default_options() {
 		'header_image_manifesto' => '',
 		'contact_sc_smtp_username' => '',
 		'contact_sc_smtp_password' => '',
+		'contact_sc_smtp_host' => '',
 	);
 	return $options;
 }
@@ -88,6 +89,21 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'text',
 			'label' => 'Header image Electoral Manifesto URL',
 			'section' => 'header',
+		), 'postMessage' ),
+		array( 'contact_sc_smtp_host', array(
+			'type' => 'text',
+			'label' => 'SMTP host',
+			'section' => 'contact_shortcode',
+		), 'postMessage' ),
+		array( 'contact_sc_smtp_secure_conn_method', array(
+			'type' => 'text',
+			'label' => 'SMTP Secure Connection Method',
+			'section' => 'contact_shortcode',
+		), 'postMessage' ),
+		array( 'contact_sc_smtp_port', array(
+			'type' => 'text',
+			'label' => 'SMTP Port',
+			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_username', array(
 			'type' => 'text',
