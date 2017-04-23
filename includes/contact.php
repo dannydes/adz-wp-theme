@@ -100,3 +100,14 @@ function ecologie_setup_phpmailer( $phpmailer ) {
 }
 
 add_action( 'phpmailer_init', 'ecologie_setup_phpmailer' );
+
+/**
+ * Localises the contact script to make it easier to integrate AJAX calls with WP.
+ *
+ * @param string $script Script handle.
+ */
+function ecologie_localize_contact_script( $script ) {
+	wp_localize_script( $script, 'ecologie', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+	) );
+}

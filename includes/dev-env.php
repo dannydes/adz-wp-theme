@@ -54,7 +54,5 @@ function enqueue_production_scripts() {
 	wp_enqueue_script( 'comments', get_template_directory_uri() . '/js/comments.js', array( 'jquery' ) , $theme_version, true );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ) , $theme_version, true );
 	
-	wp_localize_script( 'contact', 'ecologie', array(
-		'ajax_url' => admin_url( 'admin-ajax.php' ),
-	) );
+	ecologie_localize_contact_script( 'contact' );
 }
