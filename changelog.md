@@ -1,3 +1,20 @@
+# 0.8.4
+
+* Supplied default header image
+* 404 makeover
+* Updated Bootstrap.js to 3.3.7
+* Call to Action Block: Renamed options
+* Menu logo inline style is now applied in original Bootstrap LESS
+* Renamed some LESS files to a more standard way
+* Widget following social buttons widget in same widget-area no longer starts in same line
+* Removed Blogroll and Recent Posts widgets
+* jQuery conflict resolved
+* Contact form: `` From: `` label included in message body
+* Contact form: script localization
+* Contact form: more configurable SMTP connection
+* Contact form: right modal is shown when email is sent successfully
+* Contact form: SMTP debug respects theme development/production mode
+
 # 0.8.3
 
 * Customizer - postMessage refresh of recent posts
