@@ -100,7 +100,10 @@ function ecologie_setup_phpmailer( $phpmailer ) {
 	$phpmailer->Port = get_theme_mod( 'contact_sc_smtp_port' );
 	$phpmailer->Username = get_theme_mod( 'contact_sc_smtp_username' );
 	$phpmailer->Password = get_theme_mod( 'contact_sc_smtp_password' );
-	$phpmailer->SMTPDebug = 2;
+	
+	if ( is_localhost() && production_mode_disabled() ) {
+		$phpmailer->SMTPDebug = 2;
+	}
 }
 
 add_action( 'phpmailer_init', 'ecologie_setup_phpmailer' );
