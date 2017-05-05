@@ -16,7 +16,8 @@
 				'forward-copy': $( '#contact-copy' ).is( ':checked' ),
 				'at': $( '#contact-at' ).val(),
 			}, function ( res ) {
-				if ( res === '1' ) {
+				var lines = res.split( '\n' );
+				if ( lines[lines.length - 1] === '1' ) {
 					$( '#contact-success' ).modal( 'show' );
 					$( '#contact-us input, #contact-message' ).val( '' );
 				} else {
