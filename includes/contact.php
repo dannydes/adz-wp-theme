@@ -19,8 +19,8 @@ function contact_us_shortcode( $atts ) {
 			<label for="contact-message">Your message</label>
 			<textarea class="form-control" id="contact-message" name="message" placeholder="Your message"></textarea>
 		</div>
-		<div class="form-group">
-			<label for="contact-copy">Send me a copy <input type="checkbox" id="contact-copy"></label>
+		<div class="checkbox">
+			<label for="contact-copy"><input type="checkbox" id="contact-copy"> Send me a copy</label>
 		</div>
 		<input type="hidden" id="contact-hidden" name="hidden">
 		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
