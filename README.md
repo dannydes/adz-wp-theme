@@ -22,16 +22,17 @@ These settings may be accessed by clicking `` Appearance > Customize > Ecologie 
 * Footer
   - Text to add to copyright notice
 * Contact Shortcode
-  - SMTP username
-  - SMTP password
+  - SMTP Host
+  - SMTP Secure Connection Method
+  - SMTP Port
+  - SMTP Username
+  - SMTP Password
 * Production Mode (only shows up in `` localhost `` environments)
   - Enable Production Mode
 
 ## Widgets
 The theme also adds the following widgets to the backend:
-* Blogroll
 * Contact
 * Mailchimp Subscribe
-* Ecologie Recent Posts
 * Social Buttons
 * Upcoming Event

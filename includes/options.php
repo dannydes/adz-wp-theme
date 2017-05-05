@@ -92,7 +92,7 @@ function ecologie_customize_register( $wp_customize ) {
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_host', array(
 			'type' => 'text',
-			'label' => 'SMTP host',
+			'label' => 'SMTP Host',
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_secure_conn_method', array(
@@ -107,12 +107,12 @@ function ecologie_customize_register( $wp_customize ) {
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_username', array(
 			'type' => 'text',
-			'label' => 'SMTP username',
+			'label' => 'SMTP Username',
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_password', array(
 			'type' => 'password',
-			'label' => 'SMTP password',
+			'label' => 'SMTP Password',
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 	);
