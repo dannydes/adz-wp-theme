@@ -1,10 +1,9 @@
 <?php
 
 $paged = ( get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1 );
-$defaults = ecologie_get_default_options();
 
 $the_query = new WP_Query( array(
-	'posts_per_page' => get_theme_mod( 'blog_posts_per_page', $defaults['blog_posts_per_page'] ),
+	'posts_per_page' => get_option( 'posts_per_page' ),
 	'paged' => $paged,
 ) );
 

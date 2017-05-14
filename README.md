@@ -14,7 +14,6 @@ These settings may be accessed by clicking `` Appearance > Customize > Ecologie 
   - Enable AddThis sharing buttons
 * Blog
   - Blog posts per page
-  - Number of recent posts
 * Header
   - Enable header image text
   - Header image text

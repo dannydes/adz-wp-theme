@@ -12,7 +12,6 @@ function ecologie_get_default_options() {
 		'cta_block_btn_text' => 'Join us',
 		'cta_block_btn_url' => '#',
 		'add_this_enabled' => true,
-		'blog_posts_per_page' => 10,
 		'recent_posts' => 5,
 		'copyright_text_addition' => '',
 		'header_image_text_on' => true,
@@ -60,11 +59,6 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Enable AddThis sharing buttons',
 			'section' => 'add_this',
 		), 'refresh' ),
-		array( 'blog_posts_per_page', array(
-			'type' => 'number',
-			'label' => 'Blog posts per page',
-			'section' => 'blog',
-		), 'postMessage' ),
 		array( 'recent_posts', array(
 			'type' => 'number',
 			'label' => 'Number of recent posts',
@@ -202,13 +196,3 @@ function ecologie_ajax_recent_posts() {
 }
 
 add_action( 'wp_ajax_recent_posts', 'ecologie_ajax_recent_posts' );
-
-/**
- * Responds to AJAX request to update blog posts per page.
- */
-function ecologie_ajax_blog_posts_per_page() {
-	require 'blog/posts-list.php';
-	wp_die();
-}
-
-add_action( 'wp_ajax_blog_posts_per_page', 'ecologie_ajax_blog_posts_per_page' );
