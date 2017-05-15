@@ -15,6 +15,7 @@ These settings may be accessed by clicking `` Appearance > Customize > Ecologie 
 * Blog
   - Blog posts per page
 * Header
+  - Enable header
   - Enable header image text
   - Header image text
   - Header image Electoral Manifesto URL

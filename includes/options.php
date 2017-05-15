@@ -14,6 +14,7 @@ function ecologie_get_default_options() {
 		'add_this_enabled' => true,
 		'recent_posts' => 5,
 		'copyright_text_addition' => '',
+		'header_on' => true,
 		'header_image_text_on' => true,
 		'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
 		'header_image_manifesto' => '',
@@ -69,6 +70,11 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Text to add to copyright notice',
 			'section' => 'footer',
 		), 'postMessage' ),
+		array( 'header_on', array(
+			'type' => 'checkbox',
+			'label' => 'Enable header',
+			'section' => 'header',
+		), 'refresh' ),
 		array( 'header_image_text_on', array(
 			'type' => 'checkbox',
 			'label' => 'Enable header image text',

@@ -39,6 +39,7 @@
 		<noscript>
 			<div class="alert alert-warning">Your JavaScript is disabled - this might hurt your experience. Please follow these <a href="http://www.enable-javascript.com/" target="_blank">steps</a>.</div>
 		</noscript>
+		<?php if ( get_theme_mod( 'header_on', $defaults['header_on'] ) ): ?>
 		<header class="header" style="background-image:url('<?php header_image(); ?>');max-height:<?php echo get_custom_header()->height; ?>px;max-width:<?php echo get_custom_header()->width; ?>px">
 			<?php if ( get_theme_mod( 'header_image_text_on', $defaults['header_image_text_on'] ) ): ?>
 			<div class="header-text">
@@ -50,5 +51,6 @@
 			</div>
 			<?php endif; ?>
 		</header>
+		<?php endif; ?>
 		<div class="container">
 			
