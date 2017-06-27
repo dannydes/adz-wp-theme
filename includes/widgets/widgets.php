@@ -1,10 +1,5 @@
 <?php
 
-require 'social-widget.php';
-require 'contact-widget.php';
-require 'upcoming-event-widget.php';
-require 'mailchimp-subscribe-widget.php';
-
 /**
  * Registers widgets and widget areas.
  */
