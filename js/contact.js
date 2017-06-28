@@ -17,14 +17,20 @@
 				'at': $( '#contact-at' ).val(),
 			}, function ( res ) {
 				var lines = res.split( '\n' );
+				
 				if ( lines[lines.length - 1] === '1' ) {
-					$( '#contact-success' ).modal( 'show' );
+					$( '#contact-success' ).css( 'display', 'block' ).addClass( 'in' );
 					$( '#contact-us input, #contact-message' ).val( '' );
 				} else {
-					$( '#contact-failure' ).modal( 'show' );
+					$( '#contact-failure' ).css( 'display', 'block' ).addClass( 'in' );
 				}
 			} );
 		}
 		return false;
+	});
+	
+	$( '.alert' ).on( 'closed.bs.alert', function () {
+		$( this ).removeClass( 'in' );
+		$( this ).css( 'display', 'none' );
 	});
 })( jQuery );
