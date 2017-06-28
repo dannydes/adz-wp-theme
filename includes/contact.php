@@ -2,15 +2,7 @@
 
 function contact_us_shortcode( $atts ) {
 	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
-	'<div id="contact-success" class="alert alert-success alert-dismissible fade" role="alert" style="display:none">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
-		<strong>Email sent successfully!</strong>
-	</div>
-	<div id="contact-failure" class="alert alert-warning alert-dismissible fade" role="alert" style="display:none">
-		<a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
-		<strong>Email failed!</strong>
-	</div>
-	<form id="contact-us" action="#" method="post">
+	'<form id="contact-us" action="#" method="post">
 		<div class="form-group">
 			<label for="contact-name">Your name</label>
 			<input type="text" class="form-control" id="contact-name" name="name" placeholder="Your name">

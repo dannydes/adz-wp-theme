@@ -19,18 +19,30 @@
 				var lines = res.split( '\n' );
 				
 				if ( lines[lines.length - 1] === '1' ) {
-					$( '#contact-success' ).css( 'display', 'block' ).addClass( 'in' );
+					createAlert( 'success', 'Email sent successfully!' );
 					$( '#contact-us input, #contact-message' ).val( '' );
 				} else {
-					$( '#contact-failure' ).css( 'display', 'block' ).addClass( 'in' );
+					createAlert( 'warning', 'Email failed!' );
 				}
 			} );
 		}
 		return false;
 	});
 	
-	$( '.alert' ).on( 'closed.bs.alert', function () {
-		$( this ).removeClass( 'in' );
-		$( this ).css( 'display', 'none' );
-	});
+	function createAlert(type, text) {
+		var alertDiv = document.createElement( 'div' );
+		$( alertDiv ).addClass( 'alert alert-' + type + ' alert-dismissible fade in' );
+		$( alertDiv ).attr( 'role', 'alert' );
+		var a = document.createElement( 'a' );
+		$( a ).attr( 'href', '#' );
+		$( a ).addClass( 'close' );
+		$( a ).attr( 'data-dismiss', 'alert' );
+		$( a ).attr( 'aria-label', 'close' );
+		$( a ).html( 'x' );
+		alertDiv.appendChild( a );
+		var strong = document.createElement( 'strong' );
+		$( strong ).html( text );
+		alertDiv.appendChild( strong );
+		$( '#contact-us' ).prepend( alertDiv );
+	}
 })( jQuery );
