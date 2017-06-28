@@ -25,24 +25,29 @@
 					createAlert( 'warning', 'Email failed!' );
 				}
 			} );
+		} else {
+			createAlert( 'warning', 'Please provide your name, your email and your message.' );
 		}
+		
 		return false;
 	});
 	
-	function createAlert(type, text) {
-		var alertDiv = document.createElement( 'div' );
-		$( alertDiv ).addClass( 'alert alert-' + type + ' alert-dismissible fade in' );
-		$( alertDiv ).attr( 'role', 'alert' );
-		var a = document.createElement( 'a' );
-		$( a ).attr( 'href', '#' );
-		$( a ).addClass( 'close' );
-		$( a ).attr( 'data-dismiss', 'alert' );
-		$( a ).attr( 'aria-label', 'close' );
-		$( a ).html( 'x' );
-		alertDiv.appendChild( a );
-		var strong = document.createElement( 'strong' );
-		$( strong ).html( text );
-		alertDiv.appendChild( strong );
-		$( '#contact-us' ).prepend( alertDiv );
+	function createAlert( type, text ) {
+		var $alert = $( '<div>', {
+			'class': 'alert alert-' + type + ' alert-dismissible fade in',
+			'role': 'alert'
+		} );
+		var $a = $( '<a>', {
+			'href': '#',
+			'class': 'close',
+			'data-dismiss': 'alert',
+			'aria-label': 'close'
+		} );
+		$a.html( 'x' );
+		$alert.append( $a );
+		var $strong = $( '<strong>' );
+		$strong.html( text );
+		$alert.append( $strong );
+		$( '#contact-us' ).prepend( $alert );
 	}
 })( jQuery );
