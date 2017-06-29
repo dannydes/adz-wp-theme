@@ -37,14 +37,18 @@
 			'class': 'alert alert-' + type + ' alert-dismissible fade in',
 			'role': 'alert'
 		} );
-		var $a = $( '<a>', {
-			'href': '#',
+		var $button = $( '<button>', {
+			'type': 'button',
 			'class': 'close',
 			'data-dismiss': 'alert',
 			'aria-label': 'close'
 		} );
-		$a.html( 'x' );
-		$alert.append( $a );
+		var $closeSignHolder = $( '<span>', {
+			'aria-hidden': 'true'
+		} );
+		$closeSignHolder.html( '&times;' );
+		$button.append( $closeSignHolder );
+		$alert.append( $button );
 		var $strong = $( '<strong>' );
 		$strong.html( text );
 		$alert.append( $strong );
