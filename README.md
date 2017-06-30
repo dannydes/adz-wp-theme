@@ -1,5 +1,5 @@
 # Ecologie
-Theme designed to suit European Green Parties and their related organisations supporting peace, the environment, labour and civil rights.
+Theme inspired by Green politics - the political ideology built around peace, the environment, labour and civil rights.
 
 Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 
@@ -36,3 +36,7 @@ The theme also adds the following widgets to the backend:
 * Mailchimp Subscribe
 * Social Buttons
 * Upcoming Event
+
+## Shortcodes
+The theme comes with the following shortcodes:
+* Contact us `` [contact-us at="<email-to-send-to>"] ``
