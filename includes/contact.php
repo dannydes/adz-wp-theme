@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Translates the [contact-us] shortcode into HTML.
+ * @param array $atts Shortcode attributes.
+ */
 function contact_us_shortcode( $atts ) {
 	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
 	'<form id="contact-us" action="#" method="post">
@@ -30,6 +34,9 @@ function contact_us_shortcode( $atts ) {
 
 add_shortcode( 'contact-us', 'contact_us_shortcode' );
 
+/**
+ * Handles AJAX request coming from contact form submission.
+ */
 function ecologie_ajax_contact_us() {
 	if ( ! empty( $_POST['hidden'] ) || empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
 		wp_die( 0 );
