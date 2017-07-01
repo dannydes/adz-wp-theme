@@ -95,3 +95,25 @@ function ecologie_localize_contact_script( $script ) {
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 	) );
 }
+
+/**
+ * Adds [contact-us] button to TinyMCE editor.
+ * @params array $buttons Buttons belonging to the TinyMCE editor.
+ */
+function ecologie_register_contact_us_tinymce_button( $buttons ) {
+	array_push( $buttons, 'separator', 'contact-us' );
+	return $buttons;
+}
+
+add_filter( 'mce_buttons', 'ecologie_register_contact_us_tinymce_button' );
+
+/**
+ * Load the contact-us TinyMCE plugin.
+ * @params array $plugin_array List of TinyMCE plugins.
+ */
+function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
+	$plugin_array['contact-us'] = get_template_directory_uri() . '/js/contact-us-mce-plugin.js';
+	return $plugin_array;
+}
+
+add_filter( 'mce_external_plugins', 'ecologie_register_contact_us_tinymce_js' );
