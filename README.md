@@ -39,4 +39,4 @@ The theme also adds the following widgets to the backend:
 
 ## Shortcodes
 The theme comes with the following shortcodes:
-* Contact us `` [contact-us at="<email-to-send-to>"] ``
+* Contact us `` [contact-us at="<email-to-send-to>" at-name="<name-to-send-to>"] ``
