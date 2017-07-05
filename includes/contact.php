@@ -101,14 +101,12 @@ function ecologie_localize_contact_script( $script ) {
  * @params array $buttons Buttons belonging to the TinyMCE editor.
  */
 function ecologie_register_contact_us_tinymce_button( $buttons ) {
-	array_push( $buttons, 'separator', 'contact-us' );
+	array_push( $buttons, 'contact-us' );
 	return $buttons;
 }
 
-add_filter( 'mce_buttons', 'ecologie_register_contact_us_tinymce_button' );
-
 /**
- * Load the contact-us TinyMCE plugin.
+ * Loads the contact-us TinyMCE plugin.
  * @params array $plugin_array List of TinyMCE plugins.
  */
 function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
@@ -116,4 +114,18 @@ function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
 	return $plugin_array;
 }
 
-add_filter( 'mce_external_plugins', 'ecologie_register_contact_us_tinymce_js' );
+/**
+ * Prepares for the registration the contact-us TinyMCE plugin.
+ */
+function ecologie_register_contact_us_tinymce_plugin() {
+	if ( ! current_user_can( 'edit_posts' ) || ! current_user_can( 'edit_pages' ) ) {
+		return;
+	}
+	
+	add_filter( 'mce_buttons', 'ecologie_register_contact_us_tinymce_button' );
+	add_filter( 'mce_external_plugins', 'ecologie_register_contact_us_tinymce_js' );
+}
+
+if ( is_admin() ) {
+	add_action( 'init', 'ecologie_register_contact_us_tinymce_plugin' );
+}
