@@ -3,6 +3,7 @@
 /**
  * Translates the [contact-us] shortcode into HTML.
  * @param array $atts Shortcode attributes.
+ * @return string Shortcode HTML output.
  */
 function contact_us_shortcode( $atts ) {
 	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
@@ -99,6 +100,7 @@ function ecologie_localize_contact_script( $script ) {
 /**
  * Adds [contact-us] button to TinyMCE editor.
  * @params array $buttons Buttons belonging to the TinyMCE editor.
+ * @return array Buttons to register to the TinyMCE editor.
  */
 function ecologie_register_contact_us_tinymce_button( $buttons ) {
 	array_push( $buttons, 'contact-us' );
@@ -108,6 +110,7 @@ function ecologie_register_contact_us_tinymce_button( $buttons ) {
 /**
  * Loads the contact-us TinyMCE plugin.
  * @params array $plugin_array List of TinyMCE plugins.
+ * @return array Plugins to register to the TinyMCE editor.
  */
 function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
 	$plugin_array['contact-us'] = get_template_directory_uri() . '/js/contact-us-mce-plugin.js';
