@@ -118,7 +118,7 @@ function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
  * Prepares for the registration the contact-us TinyMCE plugin.
  */
 function ecologie_register_contact_us_tinymce_plugin() {
-	if ( ! current_user_can( 'edit_posts' ) || ! current_user_can( 'edit_pages' ) ||
+	if ( ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) ||
 			get_user_option( 'rich_editing' ) !== 'true' ) {
 		return;
 	}
