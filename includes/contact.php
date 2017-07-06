@@ -116,7 +116,7 @@ function ecologie_register_contact_us_tinymce_button( $buttons ) {
  * @return array Plugins to register to the TinyMCE editor.
  */
 function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
-	$plugin_array['contact_us'] = get_template_directory_uri() . '/js/contact-us-mce-plugin.js';
+	$plugin_array['contact_us'] = get_template_directory_uri() . '/admin-static/js/contact-us-mce-plugin.js';
 	return $plugin_array;
 }
 

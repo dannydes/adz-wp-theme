@@ -181,7 +181,7 @@ add_action( 'customize_register', 'ecologie_customize_register' );
  */
 function ecologie_customizer_live_preview() {
 	wp_enqueue_script( 'theme-customize',
-		get_template_directory_uri() . '/js/theme-customize.js',
+		get_template_directory_uri() . '/admin-static/js/theme-customize.js',
 		array( 'jquery', 'customize-preview' ),
 		wp_get_theme()->get( 'Version' ),
 		true );
