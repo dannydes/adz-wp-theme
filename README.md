@@ -8,7 +8,7 @@ The theme provides two customisable menu locations, one on top and another benea
 appropriate menu location to your menu.
 
 ### Primary Menu
-The menu at the top. This will stay visible as the user scrolls through the page. A ** Sidebar ** toggling button is 
+The menu at the top. This will stay visible as the user scrolls through the page. A **Sidebar** toggling button is 
 automatically added to right of this menu.
 
 ### Footer Bottom Menu
