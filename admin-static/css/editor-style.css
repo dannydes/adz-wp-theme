@@ -1,0 +1,6 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.mce-i-contact-us:before {
+  font-family: "FontAwesome";
+  content: "\f2b6";
+}
