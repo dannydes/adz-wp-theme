@@ -49,6 +49,14 @@ The theme also adds the following widgets to the backend:
 * Social Buttons
 * Upcoming Event
 
+## Widget areas
+Now, lets talk about areas where widgets may be dropped. Ecologie provides the following:
+* Sidebar
+* Footer Column 1
+* Footer Column 2
+* Footer Column 3
+* Footer Column 4
+
 ## Shortcodes
 The theme comes with the following shortcodes:
 * Contact us `` [contact-us at="<email-to-send-to>" at-name="<name-to-send-to>"] ``
