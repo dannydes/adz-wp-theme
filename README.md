@@ -3,8 +3,20 @@ Theme inspired by Green politics - the political ideology built around peace, th
 
 Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 
+## Menus
+The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
+appropriate menu location to your menu.
+
+### Primary Menu
+The menu at the top. This will stay visible as the user scrolls through the page. A ** Sidebar ** toggling button is 
+automatically added to right of this menu.
+
+### Footer Bottom Menu
+The menu at the bottom. Only accepts a single-level menu.
+
 ## Customizer settings
-These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``. Theme offers the following settings:
+These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``. Theme offers the following 
+settings:
 * Home Call to Action Block
   - Call to Action Text
   - Call to Action Button Text
