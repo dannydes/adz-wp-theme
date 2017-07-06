@@ -27,27 +27,51 @@ class Ecologie_Social_Widget extends WP_Widget {
 		<h2 class="widgettitle">Follow Us</h2>
 		<div class="social-btns">
 			<?php if ( ! empty( $instance['facebook'] ) ): ?>
-				<a href="<?php echo esc_url( $instance['facebook'] ); ?>" title="Facebook" target="_blank"><div class="social-btn"><i class="fa fa-facebook"></i></div></a>
+				<a href="<?php echo esc_url( $instance['facebook'] ); ?>" title="Facebook" target="_blank" aria-label="Facebook">
+					<div class="social-btn">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+					</div>
+				</a>
 			<?php endif;
 			
 			if ( ! empty( $instance['twitter'] ) ): ?>
-				<a href="<?php echo esc_url( $instance['twitter'] ); ?>" title="Twitter" target="_blank"><div class="social-btn"><i class="fa fa-twitter"></i></div></a>
+				<a href="<?php echo esc_url( $instance['twitter'] ); ?>" title="Twitter" target="_blank" aria-label="Twitter">
+					<div class="social-btn">
+						<i class="fa fa-twitter" aria-hidden="true"></i>
+					</div>
+				</a>
 			<?php endif;
 			
 			if ( ! empty( $instance['linkedin'] ) ): ?>
-				<a href="<?php echo esc_url( $instance['linkedin'] ); ?>" title="LinkedIn" target="_blank"><div class="social-btn"><i class="fa fa-linkedin"></i></div></a>
+				<a href="<?php echo esc_url( $instance['linkedin'] ); ?>" title="LinkedIn" target="_blank" aria-label="LinkedIn">
+					<div class="social-btn">
+						<i class="fa fa-linkedin" aria-hidden="true"></i>
+					</div>
+				</a>
 			<?php endif;
 			
 			if ( ! empty( $instance['googleplus'] ) ): ?>
-				<a href="<?php echo esc_url( $instance['googleplus'] ); ?>" title="Google+" target="_blank"><div class="social-btn"><i class="fa fa-google-plus"></i></div></a>
+				<a href="<?php echo esc_url( $instance['googleplus'] ); ?>" title="Google+" target="_blank" aria-label="Google Plus">
+					<div class="social-btn">
+						<i class="fa fa-google-plus" aria-hidden="true"></i>
+					</div>
+				</a>
 			<?php endif;
 			
 			if ( ! empty( $instance['instagram'] ) ): ?>
-				<a href="<?php echo esc_url( $instance['instagram'] ); ?>" title="Instagram" target="_blank"><div class="social-btn"><i class="fa fa-instagram"></i></div></a>
+				<a href="<?php echo esc_url( $instance['instagram'] ); ?>" title="Instagram" target="_blank" aria-label="Instagram">
+					<div class="social-btn">
+						<i class="fa fa-instagram" aria-hidden="true"></i>
+					</div>
+				</a>
 			<?php endif;
 			
 			if ( ! empty( $instance['youtube'] ) ): ?>
-				<a href="<?php echo esc_url( $instance['youtube'] ); ?>" title="Youtube" target="_blank"><div class="social-btn"><i class="fa fa-youtube"></i></div></a>
+				<a href="<?php echo esc_url( $instance['youtube'] ); ?>" title="Youtube" target="_blank" aria-label="Youtube">
+					<div class="social-btn">
+						<i class="fa fa-youtube" aria-hidden="true"></i>
+					</div>
+				</a>
 			<?php endif; ?>
 		</div><?php
 	}
@@ -130,7 +154,7 @@ class Ecologie_Social_Widget extends WP_Widget {
 		
 		$instance['instagram'] = ( ! empty( $new_instance['instagram'] ) ? strip_tags( $new_instance['instagram'] ) : '' );
 		if ( ! empty( $new_instance['instagram'] ) && strpos( $instance['instagram'], 'instagram.com' ) === FALSE ) {
-				$$old_instance['errors']['instagram'] = 'Please enter a valid Instagram URL.';
+				$old_instance['errors']['instagram'] = 'Please enter a valid Instagram URL.';
 				return FALSE;
 		}
 		
