@@ -1,9 +1,10 @@
-(function ( tinymce ) {
+(function () {
 	'use strict';
 	
 	tinymce.PluginManager.add( 'contact-us', function ( editor, url ) {
 		editor.addButton( 'contact-us', {
-			text: 'Contact Us',
+			tooltip: 'Contact Us',
+			title: 'Contact Us',
 			icon: 'contact-us',
 			onclick: function () {
 				editor.windowManager.open({
@@ -26,5 +27,5 @@
 				});
 			}
 		} );
-	});
-})( tinymce );
+	} );
+})();

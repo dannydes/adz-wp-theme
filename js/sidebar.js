@@ -8,10 +8,12 @@
 		
 		if ( $( '#sidebar' ).hasClass( className ) ) {
 			$( '#sidebar' ).removeClass( className );
-			$( '#sidebar-button' ).removeClass( 'active' );
+			$( this ).removeClass( 'active' );
 		} else {
 			$( '#sidebar' ).addClass( className );
-			$( '#sidebar-button' ).addClass( 'active' );
+			$( this ).addClass( 'active' );
 		}
+		
+		return false;
 	}
 })( jQuery );
