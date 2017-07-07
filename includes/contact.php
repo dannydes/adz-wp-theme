@@ -41,7 +41,11 @@ add_shortcode( 'contact-us', 'contact_us_shortcode' );
  */
 function ecologie_ajax_contact_us() {
 	if ( ! empty( $_POST['hidden'] ) || empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
-		wp_die( 0 );
+		wp_die( 'Name, email and message may not be left empty.' );
+	}
+	
+	if ( ! is_email( $_POST['email'] ) || ! is_email( $_POST['at'] ) ) {
+		wp_die( 'The email you entered looks invalid. Please check its format and try again.' );
 	}
 	
 	$from = 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
@@ -61,6 +65,8 @@ function ecologie_ajax_contact_us() {
 	if ( $success ) {
 		wp_die( 1 );
 	}
+	
+	wp_die( 'Email failed!' );
 }
 
 add_action( 'wp_ajax_nopriv_contact_us', 'ecologie_ajax_contact_us' );

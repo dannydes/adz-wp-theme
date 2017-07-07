@@ -17,12 +17,13 @@
 				'at': $( '#contact-at' ).val(),
 			}, function ( res ) {
 				var lines = res.split( '\n' );
+				var status = lines[lines.length - 1];
 				
-				if ( lines[lines.length - 1] === '1' ) {
+				if ( status === '1' ) {
 					createAlert( 'success', 'Email sent successfully!' );
 					$( '#contact-us input, #contact-message' ).val( '' );
 				} else {
-					createAlert( 'warning', 'Email failed!' );
+					createAlert( 'warning', status );
 				}
 			} );
 		} else {
