@@ -109,8 +109,12 @@ class Ecologie_Contact_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['phone'] = $new_instance['phone'];
-		$instance['email'] = $new_instance['email'];
+		$instance['phone'] = ( ! empty( $new_instance['phone'] ) && is_numeric( $new_instance['phone'] ) ? strip_tags( $new_instance['phone'] ) : '' );
+		$instance['email'] = ( ! empty( $new_instance['email'] ) && is_email( $new_instance['email'] ) ? strip_tags( $new_instance['email'] ) : '' );
+		$instance['address_line_1'] = ( ! empty( $new_instance['address_line_1'] ) ? strip_tags( $new_instance['address_line_1'] ) : '' );
+		$instance['address_line_2'] = ( ! empty( $new_instance['address_line_2'] ) ? strip_tags( $new_instance['address_line_2'] ) : '' );
+		$instance['address_line_3'] = ( ! empty( $new_instance['address_line_3'] ) ? strip_tags( $new_instance['address_line_3'] ) : '' );
+		$instance['address_line_4'] = ( ! empty( $new_instance['address_line_4'] ) ? strip_tags( $new_instance['address_line_4'] ) : '' );
 		return $instance;
 	}
 }
