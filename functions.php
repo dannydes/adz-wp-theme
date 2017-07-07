@@ -64,8 +64,3 @@ require 'includes/general.php';
  * Implements contact shortcode.
  */
 require 'includes/contact.php';
-
-/**
- * Registers TinyMCE style.
- */
-require 'includes/tinymce-style.php';
