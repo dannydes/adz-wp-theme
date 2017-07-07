@@ -7,7 +7,7 @@
 			title: 'Contact Us',
 			cmd: 'contact_us',
 			icon: 'contact-us',
-			image: url + '/contact-us-btn.svg'
+			image: url + '/icon.svg'
 		} );
 		
 		editor.addCommand( 'contact_us', function () {
