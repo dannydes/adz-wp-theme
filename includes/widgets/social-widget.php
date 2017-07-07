@@ -51,6 +51,11 @@ class Ecologie_Social_Widget extends WP_Widget {
 			'code' => 'youtube',
 			'url_part' => 'youtube.com'
 		),
+		array(
+			'title' => 'Github',
+			'code' => 'github',
+			'url_part' => 'github.com'
+		),
 	);
 	
 	/**
