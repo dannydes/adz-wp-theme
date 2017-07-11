@@ -62,7 +62,7 @@ Now, lets talk about areas where widgets may be dropped. Ecologie provides the f
 This shortcode builds a contact form and has the following syntax: 
 `` [contact-us at="<email-to-send-to>" at-name="<name-to-send-to>"] ``
 
-It may also be inserted through the *Contact Us* editor button.
+It may also be inserted through the **Contact Us** editor button.
 
 ![Contact Us button](https://github.com/dannydes/ecologie/raw/master/screenshots/shortcodes/contact-us-btn.png "Contact Us button")
 
@@ -72,6 +72,6 @@ Once you click the button, the following dialog is shown:
 
 Kindly enter your email and name into the designated fields. In case your email is left out, you will get the following dialog:
 
-[Contact Us email missing dialog](https://github.com/dannydes/ecologie/raw/master/screenshots/shortcodes/contact-us-email-missing.png "Contact Us email missing dialog")
+![Contact Us email missing dialog](https://github.com/dannydes/ecologie/raw/master/screenshots/shortcodes/contact-us-email-missing.png "Contact Us email missing dialog")
 
-Please note, that currently only a single *Contact Us* form per page may be activated. However, that is subject to change in the near future.
+Please note, that currently only a single **Contact Us** form per page may be activated. However, that is subject to change in the near future.
