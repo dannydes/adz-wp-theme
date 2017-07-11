@@ -17,17 +17,17 @@
 					{
 						type: 'textbox',
 						name: 'at',
-						label: 'Email sent at'
+						label: 'Your email'
 					},
 					{
 						type: 'textbox',
 						name: 'atName',
-						label: 'Recepient name'
+						label: 'Your name'
 					}
 				],
 				onsubmit: function ( e ) {
 					if ( e.data.at === '' ) {
-						editor.windowManager.alert( '"Email sent at" cannot be left empty!' );
+						editor.windowManager.alert( '"Your email" cannot be left empty!' );
 					} else {
 						editor.insertContent( '[contact-us at="' + e.data.at + '" at-name="' + e.data.atName + '"]' );
 					}
