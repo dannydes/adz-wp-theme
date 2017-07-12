@@ -3,6 +3,16 @@ Theme inspired by Green politics - the political ideology built around peace, th
 
 Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 
+## Content
+* [Menus](#menus "Menus")
+ - [Primary Menu](#primary-menu "Primary Menu")
+ - [Footer Bottom Menu](#footer-bottom-menu "Footer Bottom Menu")
+* [Customiser Settings](#customiser-settings "Customiser Settings")
+* [Widgets](#widgets "Widgets")
+* [Widget Areas](#widget-areas "Widget Areas")
+* [Shortcodes](#shortcodes "Shortcodes")
+ - [Contact Us](#contact-us "Contact Us")
+
 ## Menus
 The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
 appropriate menu location to your menu.
@@ -14,7 +24,7 @@ automatically added to right of this menu.
 ### Footer Bottom Menu
 The menu at the bottom. Only accepts a single-level menu.
 
-## Customizer settings
+## Customiser Settings
 These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``. Theme offers the following 
 settings:
 * Home Call to Action Block
@@ -49,7 +59,7 @@ The theme also adds the following widgets to the backend:
 * Social Buttons
 * Upcoming Event
 
-## Widget areas
+## Widget Areas
 Now, lets talk about areas where widgets may be dropped. Ecologie provides the following:
 * Sidebar
 * Footer Column 1
