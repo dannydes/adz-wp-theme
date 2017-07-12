@@ -5,13 +5,13 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 
 ## Content
 * [Menus](#menus "Menus")
- - [Primary Menu](#primary-menu "Primary Menu")
- - [Footer Bottom Menu](#footer-bottom-menu "Footer Bottom Menu")
+  - [Primary Menu](#primary-menu "Primary Menu")
+  - [Footer Bottom Menu](#footer-bottom-menu "Footer Bottom Menu")
 * [Customiser Settings](#customiser-settings "Customiser Settings")
 * [Widgets](#widgets "Widgets")
 * [Widget Areas](#widget-areas "Widget Areas")
 * [Shortcodes](#shortcodes "Shortcodes")
- - [Contact Us](#contact-us "Contact Us")
+  - [Contact Us](#contact-us "Contact Us")
 
 ## Menus
 The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
