@@ -22,12 +22,12 @@ appropriate menu location to your menu.
 The menu at the top. This will stay visible as the user scrolls through the page. A **Sidebar** toggling button is 
 automatically added to right of this menu.
 
-![Primary Menu](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/primary-menu.png "Primary Menu")
+![Primary Menu](https://github.com/dannydes/ecologie/raw/master/screenshots/menus/primary-menu.png "Primary Menu")
 
 ### Footer Bottom Menu
 The menu at the bottom. Only accepts a single-level menu.
 
-![Footer Menu](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/footer-menu.png "Footer Menu")
+![Footer Menu](https://github.com/dannydes/ecologie/raw/master/screenshots/menus/footer-menu.png "Footer Menu")
 
 ## Customiser Settings
 These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``. Theme offers the following 
