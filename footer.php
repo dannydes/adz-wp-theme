@@ -52,7 +52,7 @@
 					<div class="col-xs-12 col-md-4">
 						&copy; 2016-<?php echo date( 'Y' ); ?>. <?php echo get_bloginfo(); ?> powered by 
 						<a href="https://github.com/dannydes/ecologie" title="View on Github" target="_blank">Ecologie</a>. 
-						Some rights reserved. <span id="copyright-extra-text"><?php echo get_theme_mod( 'copyright_text_addition' ); ?></span>
+						Some rights reserved. <span id="copyright-extra-text"><?php echo get_theme_mod( 'copyright_text_addition', $GLOBALS['ecologie_default_options']['copyright_text_addition'] ); ?></span>
 					</div>
 				</div>
 			</div>

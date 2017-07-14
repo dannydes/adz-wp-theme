@@ -21,9 +21,15 @@ function ecologie_get_default_options() {
 		'contact_sc_smtp_username' => '',
 		'contact_sc_smtp_password' => '',
 		'contact_sc_smtp_host' => '',
+		'sidebar_on' => true,
 	);
 	return $options;
 }
+
+/**
+ * @global array $GLOBALS['ecologie_default_options'] Theme options' default values.
+ */
+$GLOBALS['ecologie_default_options'] = ecologie_get_default_options();
 
 /**
  * Attach new controls to the site customizer.
@@ -115,6 +121,11 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'SMTP Password',
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
+		array( 'sidebar_on', array(
+			'type' => 'checkbox',
+			'label' => 'Enable sidebar',
+			'section' => 'sidebar',
+		), 'refresh' ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
@@ -155,6 +166,12 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'contact_shortcode', array(
 		'title' => __( 'Contact Shortcode' ),
 		'description' => __( 'Configures contact shortcode.' ),
+		'panel' => 'ecologie',
+	) );
+	
+	$wp_customize->add_section( 'sidebar', array(
+		'title' => __( 'Sidebar' ),
+		'description' => __( 'Configures sidebar.' ),
 		'panel' => 'ecologie',
 	) );
 	

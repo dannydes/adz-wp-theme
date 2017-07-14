@@ -43,7 +43,7 @@ add_filter( 'nav_menu_css_class', 'ecologie_menu_css_class', 10, 2 );
  * @return string Markup to replace the original.
  */
 function ecologie_insert_sidebar_button( $items, $args ) {
-	if ( $args->theme_location !== 'primary' ) {
+	if ( $args->theme_location !== 'primary' || ! get_theme_mod( 'sidebar_on', $GLOBALS['ecologie_default_options']['header_on'] ) ) {
 		return $items;
 	}
 	
