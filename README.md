@@ -12,6 +12,7 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 * [Widget Areas](#widget-areas "Widget Areas")
 * [Shortcodes](#shortcodes "Shortcodes")
   - [Contact Us](#contact-us "Contact Us")
+* [Links (Blogroll)](#links-blogroll "Links (Blogroll)")
 
 ## Menus
 The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
