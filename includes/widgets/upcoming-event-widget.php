@@ -131,7 +131,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '' );
-		$instance['hour'] = ( intval( $new_instance['hour'] ) >= 0 && intval( $new_instance['hour'] ) <= 12 ? strip_tags( $new_instance['hour'] ) : '' );
+		$instance['hour'] = ( intval( $new_instance['hour'] ) >= 0 && self::hourValid( $new_instance ) ? strip_tags( $new_instance['hour'] ) : '' );
 		$instance['minute'] = ( intval( $new_instance['minute'] ) >= 0 && self::minuteValid( $new_instance ) ? strip_tags( $new_instance['minute'] ) : '' );
 		$instance['meridiem'] = ( ! empty( $new_instance['meridiem'] ) ? strip_tags( $new_instance['meridiem'] ) : '' );
 		$instance['day'] = ( self::dayMonthCorrect( $new_instance ) && self::dayInFuture( $new_instance ) ? strip_tags( $new_instance['day'] ) : '' );
@@ -207,14 +207,14 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	}
 	
 	/**
-	 * Utility method to nake sure minute input is valid.
+	 * Utility method to nake sure minute is valid.
 	 *
 	 * @access private
 	 *
 	 * @since 0.9
 	 *
 	 * @param object $instance Widget settings.
-	 * @return boolean True is minutes input is valid, false if not.
+	 * @return boolean True if minute is valid, false if not.
 	 */
 	private function minuteValid( $instance ) {
 		$minute = intval( $instance['minute'] );
@@ -224,5 +224,21 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		}
 		
 		return $minute <= 59;
+	}
+	
+	/**
+	 * Utility method to nake sure hour is valid.
+	 *
+	 * @access private
+	 *
+	 * @since 0.9
+	 *
+	 * @param object $instance Widget settings.
+	 * @return boolean True if hour is valid, false if not.
+	 */
+	private function hourValid( $instance ) {
+		$hour = intval( $instance['hour'] );
+		
+		return $hour >= 1 && $hour <= 12;
 	}
 }
