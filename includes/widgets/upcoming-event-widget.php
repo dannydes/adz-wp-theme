@@ -79,7 +79,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		?><h2 class="widgettitle"><?php echo esc_attr( $instance['title'] ); ?></h2>
 		<?php echo intval( esc_attr( $instance['hour'] ) ) . ' : ' . ( intval( $instance['minute'] ) < 10 ? '0' : '' ) . ( $instance['minute'] !== '' ? intval( esc_attr( $instance['minute'] ) ) : '0' ) . ' ' . esc_attr( $instance['meridiem'] ); ?><br>
-		<?php echo intval( esc_attr( $instance['day'] ) ); if ( $instance['day'] === '1' ): ?>st<?php elseif ( $instance['day'] === '2' ): ?>nd<?php elseif ( $instance['day'] === '3' ): ?>rd<?php else: ?>th<?php endif; ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo intval( esc_attr( $instance['year'] ) ); ?><br>
+		<?php echo intval( esc_attr( $instance['day'] ) ) . self::dayAbbreviation( $instance ); ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo intval( esc_attr( $instance['year'] ) ); ?><br>
 		<?php echo esc_attr( $instance['venue'] ); ?>
 		<p><?php echo esc_attr( $instance['description'] ); ?></p>
 		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php
@@ -207,7 +207,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	}
 	
 	/**
-	 * Utility method to nake sure minute is valid.
+	 * Utility method to make sure minute is valid.
 	 *
 	 * @access private
 	 *
@@ -227,7 +227,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	}
 	
 	/**
-	 * Utility method to nake sure hour is valid.
+	 * Utility method to make sure hour is valid.
 	 *
 	 * @access private
 	 *
@@ -241,4 +241,34 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		
 		return $hour >= 1 && $hour <= 12;
 	}
+	
+	/**
+	 * Utility method to return the appropriate abbreviation following day.
+	 *
+	 * @access private
+	 *
+	 * @since 0.9
+	 *
+	 * @param object $instance Widget settings.
+	 * @return string The abbreviation following day.
+	 */
+	 private function dayAbbreviation( $instance ) {
+		 $day = intval( $instance['day'] );
+		 $day_in_10 = floor( $day / 10 );
+		 $day_in_10_rem = $day % 10;
+		 
+		 if ( $day_in_10 === 1.0 ) {
+			 return 'th';
+		 }
+		 
+		 if ( $day_in_10_rem === 1 ) {
+			 return 'st';
+		 } else if ( $day_in_10_rem === 2 ) {
+			 return 'nd';
+		 } else if ( $day_in_10_rem === 3 ) {
+			 return 'rd';
+		 }
+		 
+		 return 'th';
+	 }
 }
