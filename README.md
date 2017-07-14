@@ -67,6 +67,10 @@ Now, lets talk about areas where widgets may be dropped. Ecologie provides the f
 * Footer Column 3
 * Footer Column 4
 
+![Sidebar](https://github.com/dannydes/ecologie/raw/master/screenshots/widget-areas/sidebar.png "Sidebar")
+
+![Footer](https://github.com/dannydes/ecologie/raw/master/screenshots/widget-areas/footer.png "Footer")
+
 ## Shortcodes
 ### Contact Us
 This shortcode builds a contact form and has the following syntax: 
@@ -85,3 +89,6 @@ Kindly enter your email and name into the designated fields. In case your email 
 ![Contact Us email missing dialog](https://github.com/dannydes/ecologie/raw/master/screenshots/shortcodes/contact-us-email-missing.png "Contact Us email missing dialog")
 
 Please note, that currently only a single **Contact Us** form per page may be activated. However, that is subject to change in the near future.
+
+## Links (Blogroll)
+The theme enables Wordpress's Links feature. For information about how to utilise it, [read here.](https://codex.wordpress.org/Links_Manager "Links (Blogroll)")
