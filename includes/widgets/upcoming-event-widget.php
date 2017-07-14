@@ -131,8 +131,8 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '' );
-		$instance['hour'] = ( intval( $new_instance['hour'] ) >= 0 && self::hourValid( $new_instance ) ? strip_tags( $new_instance['hour'] ) : '' );
-		$instance['minute'] = ( intval( $new_instance['minute'] ) >= 0 && self::minuteValid( $new_instance ) ? strip_tags( $new_instance['minute'] ) : '' );
+		$instance['hour'] = ( self::hourValid( $new_instance ) ? strip_tags( $new_instance['hour'] ) : '' );
+		$instance['minute'] = ( self::minuteValid( $new_instance ) ? strip_tags( $new_instance['minute'] ) : '' );
 		$instance['meridiem'] = ( ! empty( $new_instance['meridiem'] ) ? strip_tags( $new_instance['meridiem'] ) : '' );
 		$instance['day'] = ( self::dayMonthCorrect( $new_instance ) && self::dayInFuture( $new_instance ) ? strip_tags( $new_instance['day'] ) : '' );
 		$instance['month'] = ( intval( $new_instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $new_instance['year'] ) > intval( date( 'Y' ) ) ? strip_tags( $new_instance['month'] ) : '' );
@@ -223,7 +223,7 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 			return false;
 		}
 		
-		return $minute <= 59;
+		return $minute >= 0 && $minute <= 59;
 	}
 	
 	/**
