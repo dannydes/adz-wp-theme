@@ -9,6 +9,10 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
   - [Footer Bottom Menu](#footer-bottom-menu "Footer Bottom Menu")
 * [Customiser Settings](#customiser-settings "Customiser Settings")
 * [Widgets](#widgets "Widgets")
+  - [Contact](#contact "Contact")
+	- [Mailchimp Subscribe](#mailchimp-subscribe "Mailchimp Subscribe")
+	- [Social Buttons](#social-buttons "Social Buttons")
+	- [Upcoming Event](#upcoming-event "Upcoming Event")
 * [Widget Areas](#widget-areas "Widget Areas")
 * [Shortcodes](#shortcodes "Shortcodes")
   - [Contact Us](#contact-us "Contact Us")
@@ -87,6 +91,8 @@ On the frontend, the user will see links for the provided social networks. Click
 ![Social Buttons widget frontend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/social-frontend.png "Social Buttons widget frontend")
 
 ### Upcoming Event
+The Upcoming Event widget is aimed at improving event exposure for visitors of the website.
+
 From the backend, the widget allows the administrator to input the event's title, time, date, venue, description and URL for event page.
 
 ![Upcoming Event widget backend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/upcoming-event-backend.png "Upcoming Event widget backend")
