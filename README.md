@@ -54,15 +54,47 @@ settings:
   - SMTP Port
   - SMTP Username
   - SMTP Password
+* Sidebar
+  - Enable sidebar
 * Production Mode (only shows up in `` localhost `` environments)
   - Enable Production Mode
 
 ## Widgets
-The theme also adds the following widgets to the backend:
-* Contact
-* Mailchimp Subscribe
-* Social Buttons
-* Upcoming Event
+### Contact
+From the backend, the widget allows the administrator to input 4 address lines, the country code, phone number and email address for 
+their organisation.
+
+![Contact widget backend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/contact-backend.png "Contact widget backend")
+
+On the frontend, the user will see the organisation's address if provided, phone number if provided and/or email address if provided.
+
+![Contact widget frontend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/contact-frontend.png "Contact widget frontend")
+
+### Mailchimp Subscribe
+From the backend, the widget allows the administrator to input the organisation's user ID and form ID (both required for the form to work).
+
+![Mailchimp Subscribe widget backend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/mailchimp-backend.png "Mailchimp Subscribe widget backend")
+
+![Mailchimp Subscribe widget frontend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/mailchimp-frontend.png "Mailchimp Subscribe widget frontend")
+
+### Social Buttons
+From the backend, the widget allows the administrator to input the URLs for the organisation's media accounts. The URLs are validated to contain the service URL.
+
+![Social Buttons widget backend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/social-backend.png "Social Buttons widget backend")
+
+On the frontend, the user will see links for the provided social networks. Clicking upon the link, opens the profile for that social network in a new tab.
+
+![Social Buttons widget frontend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/social-frontend.png "Social Buttons widget frontend")
+
+### Upcoming Event
+From the backend, the widget allows the administrator to input the event's title, time, date, venue, description and URL for event page.
+
+![Upcoming Event widget backend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/upcoming-event-backend.png "Upcoming Event widget backend")
+
+On the frontend, the user will see the event's title if provided, time if provided, date if provided, venue if provided, description if provided and the **More info...** 
+button will be linked to the appropriate URL if provided.
+
+![Upcoming Event widget frontend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/upcoming-event-frontend.png "Upcoming Event widget frontend")
 
 ## Widget Areas
 Now, lets talk about areas where widgets may be dropped. Ecologie provides the following:
