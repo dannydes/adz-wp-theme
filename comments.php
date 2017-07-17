@@ -16,7 +16,7 @@
 		?>
 	<?php endif; ?>
 	<?php if ( ! comments_open() ): ?>
-		<p><?php _e( 'Comments are closed.', 'jabonnici' ); ?></p>
+		<p><?php _e( 'Comments are closed.', 'ecologie' ); ?></p>
 	<?php endif; ?>
 	<?php
 
