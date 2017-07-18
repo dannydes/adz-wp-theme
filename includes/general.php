@@ -8,7 +8,7 @@ function ecologie_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array(
 		'search-form',
-		'comment-form',
+		//'comment-form', //HTML5 support for comment form outputs novalidate, disabling HTML5 validation.
 		'comment-list',
 		'gallery',
 		'caption',
