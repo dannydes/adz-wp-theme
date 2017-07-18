@@ -48,8 +48,8 @@ function ecologie_enqueue_scripts() {
 		$base_script_deps[] = 'mailchimp';
 	}
 	
-	if ( is_localhost() && production_mode_disabled() ) {
-		enqueue_production_scripts();
+	if ( production_mode_disabled() ) {
+		enqueue_development_scripts();
 	} else {
 		wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', $base_script_deps, $theme_version, true );
 		

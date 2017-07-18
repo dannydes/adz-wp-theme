@@ -87,7 +87,7 @@ function ecologie_setup_phpmailer( $phpmailer ) {
 	$phpmailer->Username = get_theme_mod( 'contact_sc_smtp_username' );
 	$phpmailer->Password = get_theme_mod( 'contact_sc_smtp_password' );
 	
-	if ( is_localhost() && production_mode_disabled() ) {
+	if ( production_mode_disabled() ) {
 		$phpmailer->SMTPDebug = 2;
 	}
 }

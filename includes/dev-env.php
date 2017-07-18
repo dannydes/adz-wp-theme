@@ -38,20 +38,21 @@ function add_production_mode_setting( $wp_customize ) {
 /**
  * Checks whether production mode is disabled or not.
  *
+ * @uses is_localhost()
+ *
  * @return boolean Whether production mode is disabled or not.
  */
 function production_mode_disabled() {
-	return ! get_theme_mod( 'production_mode_on', false );
+	return is_localhost() && ! get_theme_mod( 'production_mode_on', false );
 }
 
 /**
- * Enqueue production mode scripts.
+ * Enqueue development mode scripts.
  */
-function enqueue_production_scripts() {
+function enqueue_development_scripts() {
 	wp_enqueue_script( 'sidebar', get_template_directory_uri() . '/js/sidebar.js', array( 'jquery' ) , $theme_version, true );
 	wp_enqueue_script( 'mailchimp-widget', get_template_directory_uri() . '/js/mailchimp.js', array( 'jquery', 'mailchimp' ), $theme_version, true );
 	wp_enqueue_script( 'contact', get_template_directory_uri() . '/js/contact.js', array( 'jquery' ) , $theme_version, true );
-	wp_enqueue_script( 'comments', get_template_directory_uri() . '/js/comments.js', array( 'jquery' ) , $theme_version, true );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ) , $theme_version, true );
 	
 	ecologie_localize_contact_script( 'contact' );
