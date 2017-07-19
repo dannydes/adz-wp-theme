@@ -51,6 +51,7 @@
 		'class_submit' => 'btn btn-default submit',
 		'fields' => apply_filters( 'comment_form_default_fields', $fields ),
 		'label_submit' => __( 'Send' ),
+		'comment_notes_before' => '<p class="comment-notes"><span class="required label label-default">*</span> <strong>'. __( 'Asterisks denote required field.', 'ecologie' ) . '</strong></p>',
 	) );
 
 	?>

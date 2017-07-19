@@ -9,13 +9,13 @@
 function contact_us_shortcode( $atts ) {
 	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
 	'<form id="contact-us" action="#" method="post">
-		<strong>* Asterisks denote required field.</strong>
+		<strong><span class="required label label-default">*</span> Asterisks denote required field.</strong>
 		<div class="form-group">
-			<label for="contact-name">Your name*</label>
+			<label for="contact-name">Your name <span class="required label label-default">*</span></label>
 			<input type="text" class="form-control" id="contact-name" name="name" placeholder="Your name" required aria-required="true">
 		</div>
 		<div class="form-group">
-			<label for="contact-email">Your email*</label>
+			<label for="contact-email">Your email <span class="required label label-default">*</span></label>
 			<input type="email" class="form-control" id="contact-email" name="email" placeholder="Your email" required aria-required="true">
 		</div>
 		<div class="form=group">
@@ -23,7 +23,7 @@ function contact_us_shortcode( $atts ) {
 			<input type="text" class="form-control" id="contact-subject" name="subject" placeholder="Your subject">
 		</div>
 		<div class="form-group">
-			<label for="contact-message">Your message*</label>
+			<label for="contact-message">Your message <span class="required label label-default">*</span></label>
 			<textarea class="form-control" id="contact-message" name="message" placeholder="Your message" required aria-required="true"></textarea>
 		</div>
 		<div class="checkbox">
