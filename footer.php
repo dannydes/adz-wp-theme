@@ -1,4 +1,10 @@
 		</div>
+		<div class="alert alert-success alert-dismissible fade in container" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<?php _e( 'This site may store some non-confidential information about you. By continuing to use it, you agree to this.', 'ecologie' ); ?>
+		</div>
 		<footer class="footer">
 			<div class="top">
 				<div class="container row">
