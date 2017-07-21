@@ -20,39 +20,16 @@
 				var status = lines[lines.length - 1];
 				
 				if ( status === '1' ) {
-					createAlert( 'success', 'Email sent successfully!' );
+					Ecologie.createAlert( '#contact-us', 'success', 'Email sent successfully!' );
 					$( '#contact-us input, #contact-message' ).val( '' );
 				} else {
-					createAlert( 'warning', status );
+					Ecologie.createAlert( '#contact-us', 'warning', status );
 				}
 			} );
 		} else {
-			createAlert( 'warning', 'Please provide your name, your email and your message.' );
+			Ecologie.createAlert( '#contact-us', 'warning', 'Please provide your name, your email and your message.' );
 		}
 		
 		return false;
 	});
-	
-	function createAlert( type, text ) {
-		var $alert = $( '<div>', {
-			'class': 'alert alert-' + type + ' alert-dismissible fade in',
-			'role': 'alert'
-		} );
-		var $button = $( '<button>', {
-			'type': 'button',
-			'class': 'close',
-			'data-dismiss': 'alert',
-			'aria-label': 'close'
-		} );
-		var $closeSignHolder = $( '<span>', {
-			'aria-hidden': 'true'
-		} );
-		$closeSignHolder.html( '&times;' );
-		$button.append( $closeSignHolder );
-		$alert.append( $button );
-		var $strong = $( '<strong>' );
-		$strong.html( text );
-		$alert.append( $strong );
-		$( '#contact-us' ).prepend( $alert );
-	}
 })( jQuery );
