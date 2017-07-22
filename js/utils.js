@@ -1,7 +1,7 @@
-(function ( $, window ) {
+var Ecologie = (function ( $ ) {
 	'use strict';
 	
-	window.Ecologie = {
+	return {
 		createAlert: function createAlert( parent, type, text, cssClass ) {
 			var $alert = $( '<div>', {
 				'class': 'alert alert-' + type + ' alert-dismissible fade in' + ( cssClass ? ' ' + cssClass : '' ),
@@ -25,4 +25,4 @@
 			$( parent ).prepend( $alert );
 		}
 	}
-})( jQuery, window );
+})( jQuery );
