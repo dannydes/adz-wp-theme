@@ -61,6 +61,9 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	public function form( $instance ) {
 		
 		?>
+		<label for="<?php echo $this->get_field_id( 'html' ); ?>">Original Form HTML</label>
+		<p>Enter your form's generated HTML to extract User and Form IDs.</p>
+		<textarea id="<?php echo $this->get_field_id( 'html' ); ?>" name="<?php echo $this->get_field_name( 'html' ); ?>" col="150"><?php echo esc_attr( $instance['html'] ); ?></textarea><br>
 		<label for="<?php echo $this->get_field_id( 'user_id' ); ?>">User ID</label>
 		<input type="text" id="<?php echo $this->get_field_id( 'user_id' ); ?>" name="<?php echo $this->get_field_name( 'user_id' ); ?>" value="<?php echo esc_attr( $instance['user_id'] ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'form_id' ); ?>">Form ID</label>
@@ -80,8 +83,16 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['user_id'] = ( ! empty( $new_instance['user_id'] ) ? strip_tags( $new_instance['user_id'] ) : '' );
-		$instance['form_id'] = ( ! empty( $new_instance['form_id'] ) ? strip_tags( $new_instance['form_id'] ) : '' );
+		
+		if ( ! empty( $new_instance['html'] ) ) {
+			$dom = new DOMDocument();
+			$dom->loadHTML( $new_instance['html'] );
+			$form = $dom->getElementById( 'mc-embedded-subscribe-form' );
+			$action = $form->getAttribute( 'action' );
+			$instance['user_id'] = strip_tags( substr( $action, strpos( $action, 'u=' ) + 2, strpos( $action, '&' ) ) );
+			$instance['form_id'] = strip_tags( substr( $action, strpos( $action, 'id=' ) + 3 ) );
+		}
+		
 		return $instance;
 	}
 }
