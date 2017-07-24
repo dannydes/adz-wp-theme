@@ -63,7 +63,7 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 		?>
 		<label for="<?php echo $this->get_field_id( 'html' ); ?>">Original Form HTML</label>
 		<p>Enter your form's generated HTML to extract User and Form IDs.</p>
-		<textarea id="<?php echo $this->get_field_id( 'html' ); ?>" name="<?php echo $this->get_field_name( 'html' ); ?>" col="150"><?php echo esc_attr( $instance['html'] ); ?></textarea><br>
+		<textarea id="<?php echo $this->get_field_id( 'html' ); ?>" name="<?php echo $this->get_field_name( 'html' ); ?>" cols="60" rows="20"><?php echo esc_attr( $instance['html'] ); ?></textarea><br>
 		<label for="<?php echo $this->get_field_id( 'user_id' ); ?>">User ID</label>
 		<input type="text" id="<?php echo $this->get_field_id( 'user_id' ); ?>" name="<?php echo $this->get_field_name( 'user_id' ); ?>" value="<?php echo esc_attr( $instance['user_id'] ); ?>"><br>
 		<label for="<?php echo $this->get_field_id( 'form_id' ); ?>">Form ID</label>
