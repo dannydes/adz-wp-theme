@@ -61,14 +61,20 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	public function form( $instance ) {
 		
 		?>
-		<label for="<?php echo $this->get_field_id( 'html' ); ?>">Original Form HTML</label>
-		<p>Enter your form's generated HTML to extract User and Form IDs.</p>
-		<textarea id="<?php echo $this->get_field_id( 'html' ); ?>" name="<?php echo $this->get_field_name( 'html' ); ?>" cols="60" rows="20"><?php echo esc_attr( $instance['html'] ); ?></textarea>
+		<div>
+			<label for="<?php echo $this->get_field_id( 'html' ); ?>">Original Form HTML</label>
+			<p>Enter your form's generated HTML to extract User and Form IDs.</p>
+			<textarea id="<?php echo $this->get_field_id( 'html' ); ?>" name="<?php echo $this->get_field_name( 'html' ); ?>" class="widefat" rows="20"><?php echo esc_attr( $instance['html'] ); ?></textarea>
+		</div>
 		<p>Or if you know what what you're doing, enter your User and Form IDs in the fields below.</p>
-		<label for="<?php echo $this->get_field_id( 'user_id' ); ?>">User ID</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'user_id' ); ?>" name="<?php echo $this->get_field_name( 'user_id' ); ?>" value="<?php echo esc_attr( $instance['user_id'] ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'form_id' ); ?>">Form ID</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'form_id' ); ?>" name="<?php echo $this->get_field_name( 'form_id' ); ?>" value="<?php echo esc_attr( $instance['form_id'] ); ?>">
+		<p>
+			<label for="<?php echo $this->get_field_id( 'user_id' ); ?>">User ID</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'user_id' ); ?>" name="<?php echo $this->get_field_name( 'user_id' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['user_id'] ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'form_id' ); ?>">Form ID</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'form_id' ); ?>" name="<?php echo $this->get_field_name( 'form_id' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['form_id'] ); ?>">
+		</p>
 		<?php
 		
 	}

@@ -1053,30 +1053,44 @@ class Ecologie_Contact_Widget extends WP_Widget {
 		);
 		
 		?>
-		<label for="<?php echo $this->get_field_id( 'address_line_1' ); ?>">Address Line 1</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'address_line_1' ); ?>" name="<?php echo $this->get_field_name( 'address_line_1' ); ?>"
-			value="<?php echo esc_attr( $address_line_1 ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'address_line_2' ); ?>">Address Line 2</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'address_line_2' ); ?>" name="<?php echo $this->get_field_name( 'address_line_2' ); ?>"
-			value="<?php echo esc_attr( $address_line_2 ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'address_line_3' ); ?>">Address Line 3</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'address_line_3' ); ?>" name="<?php echo $this->get_field_name( 'address_line_3' ); ?>"
-			value="<?php echo esc_attr( $address_line_3 ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'address_line_4' ); ?>">Address Line 4</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'address_line_4' ); ?>" name="<?php echo $this->get_field_name( 'address_line_4' ); ?>"
-			value="<?php echo esc_attr( $address_line_4 ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'phone_country_code' ); ?>">Phone Country Code</label>
-		<select id="<?php echo $this->get_field_id( 'phone_country_code' ); ?>" name="<?php echo $this->get_field_name( 'phone_country_code' ); ?>">
-		<?php foreach ( $country_codes as $code ): ?>
-			<option value="<?php echo $code['code']; ?>"<?php if ( $code['code'] === $instance['phone_country_code'] ): ?> selected<?php endif; ?>><?php echo $code["country"]; ?></option>
-		<?php endforeach; ?>
-		</select><br>
-		<label for="<?php echo $this->get_field_id( 'phone' ); ?>">Phone</label>
-		<input type="number" id="<?php echo $this->get_field_id( 'phone' ); ?>" name="<?php echo $this->get_field_name( 'phone' ); ?>"
-			value="<?php echo esc_attr( $phone ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'email' ); ?>">Email</label>
-		<input type="email" id="<?php echo $this->get_field_id( 'email' ); ?>" name="<?php echo $this->get_field_name( 'email' ); ?>"
-			value="<?php echo esc_attr( $email ); ?>">
+		<p>
+			<label for="<?php echo $this->get_field_id( 'address_line_1' ); ?>">Address Line 1</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'address_line_1' ); ?>" name="<?php echo $this->get_field_name( 'address_line_1' ); ?>"
+				class="widefat" value="<?php echo esc_attr( $address_line_1 ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'address_line_2' ); ?>">Address Line 2</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'address_line_2' ); ?>" name="<?php echo $this->get_field_name( 'address_line_2' ); ?>"
+				class="widefat" value="<?php echo esc_attr( $address_line_2 ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'address_line_3' ); ?>">Address Line 3</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'address_line_3' ); ?>" name="<?php echo $this->get_field_name( 'address_line_3' ); ?>"
+				class="widefat" value="<?php echo esc_attr( $address_line_3 ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'address_line_4' ); ?>">Address Line 4</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'address_line_4' ); ?>" name="<?php echo $this->get_field_name( 'address_line_4' ); ?>"
+				class="widefat" value="<?php echo esc_attr( $address_line_4 ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'phone_country_code' ); ?>">Phone Country Code</label>
+			<select id="<?php echo $this->get_field_id( 'phone_country_code' ); ?>" name="<?php echo $this->get_field_name( 'phone_country_code' ); ?>" class="widefat">
+			<?php foreach ( $country_codes as $code ): ?>
+				<option value="<?php echo $code['code']; ?>"<?php if ( $code['code'] === $instance['phone_country_code'] ): ?> selected<?php endif; ?>><?php echo $code["country"]; ?></option>
+			<?php endforeach; ?>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'phone' ); ?>">Phone</label>
+			<input type="number" id="<?php echo $this->get_field_id( 'phone' ); ?>" name="<?php echo $this->get_field_name( 'phone' ); ?>"
+				class="widefat" value="<?php echo esc_attr( $phone ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'email' ); ?>">Email</label>
+			<input type="email" id="<?php echo $this->get_field_id( 'email' ); ?>" name="<?php echo $this->get_field_name( 'email' ); ?>"
+				class="widefat" value="<?php echo esc_attr( $email ); ?>">
+		</p>
 		<?php
 		
 	}

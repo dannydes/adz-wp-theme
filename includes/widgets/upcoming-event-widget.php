@@ -93,29 +93,47 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 * @param object $instance Widget settings.
 	 */
 	public function form( $instance ) {
-		?><label for="<?php echo $this->get_field_id( 'title' ); ?>">Title</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'hour' ); ?>">Time</label>
-		<input type="number" id="<?php echo $this->get_field_id( 'hour' ); ?>" name="<?php echo $this->get_field_name( 'hour' ); ?>" value="<?php echo esc_attr( $instance['hour'] ); ?>" min="0" max="12"> :
-		<input type="number" id="<?php echo $this->get_field_id( 'minute' ); ?>" name="<?php echo $this->get_field_name( 'minute' ); ?>" value="<?php echo esc_attr( $instance['minute'] ); ?>" min="0" max="59">
-		<select id="<?php echo $this->get_field_id( 'meridiem' ); ?>" name="<?php echo $this->get_field_name( 'meridiem' ); ?>">
-			<option value="AM">AM</option>
-			<option value="PM"<?php if ( $instance['meridiem'] === 'PM' ): ?> selected<?php endif; ?>>PM</option>
-		</select><br>
-		<label for="<?php echo $this->get_field_id( 'day' ); ?>">Date</label>
-		<input type="number" id="<?php echo $this->get_field_id( 'day' ); ?>" name="<?php echo $this->get_field_name( 'day' ); ?>" value="<?php echo esc_attr( $instance['day'] ); ?>" min="1" max="31">
-		<select id="<?php echo $this->get_field_id( 'month' ); ?>" name="<?php echo $this->get_field_name( 'month' ); ?>" value="<?php echo esc_attr( $instance['month'] ); ?>">
-		<?php for ($i = 0; $i < count( self::MONTHS ); $i++): ?>
-			<option value="<?php echo $i; ?>"<?php if ( intval( $instance['month'] ) === $i ): ?> selected<?php endif; ?>><?php echo self::MONTHS[$i]['name']; ?></option>
-		<?php endfor; ?>
-		</select>
-		<input type="number" id="<?php echo $this->get_field_id( 'year' ); ?>" name="<?php echo $this->get_field_name( 'year' ); ?>" min="<?php echo date( 'Y' ); ?>" value="<?php echo esc_attr( $instance['year'] ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'venue' ); ?>">Venue</label>
-		<input type="text" id="<?php echo $this->get_field_id( 'venue' ); ?>" name="<?php echo $this->get_field_name( 'venue' ); ?>" value="<?php echo esc_attr( $instance['venue'] ); ?>"><br>
-		<label for="<?php echo $this->get_field_id( 'description' ); ?>">Description</label>
-		<textarea id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo esc_attr( $instance['description'] ); ?></textarea><br>
-		<label for="<?php echo $this->get_field_id( 'event_url' ); ?>">Event URL</label>
-		<input type="url" id="<?php echo $this->get_field_id( 'event_url' ); ?>" name="<?php echo $this->get_field_name( 'event_url' ); ?>" value="<?php echo esc_attr( $instance['event_url'] ); ?>"><?php
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>">Title</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['title'] ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'hour' ); ?>">Hour (Time)</label>
+			<input type="number" id="<?php echo $this->get_field_id( 'hour' ); ?>" name="<?php echo $this->get_field_name( 'hour' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['hour'] ); ?>" min="0" max="12">
+			<label for="<?php echo $this->get_field_id( 'minute' ); ?>">Minute (Time)</label>
+			<input type="number" id="<?php echo $this->get_field_id( 'minute' ); ?>" name="<?php echo $this->get_field_name( 'minute' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['minute'] ); ?>" min="0" max="59">
+			<label for="<?php echo $this->get_field_id( 'meridiem' ); ?>">Meridiem (Time)</label>
+			<select id="<?php echo $this->get_field_id( 'meridiem' ); ?>" name="<?php echo $this->get_field_name( 'meridiem' ); ?>">
+				<option value="AM">AM</option>
+				<option value="PM"<?php if ( $instance['meridiem'] === 'PM' ): ?> selected<?php endif; ?>>PM</option>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'day' ); ?>">Day (Date)</label>
+			<input type="number" id="<?php echo $this->get_field_id( 'day' ); ?>" name="<?php echo $this->get_field_name( 'day' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['day'] ); ?>" min="1" max="31">
+			<label for="<?php echo $this->get_field_id( 'month' ); ?>">Month (Date)</label>
+			<select id="<?php echo $this->get_field_id( 'month' ); ?>" name="<?php echo $this->get_field_name( 'month' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['month'] ); ?>">
+			<?php for ($i = 0; $i < count( self::MONTHS ); $i++): ?>
+				<option value="<?php echo $i; ?>"<?php if ( intval( $instance['month'] ) === $i ): ?> selected<?php endif; ?>><?php echo self::MONTHS[$i]['name']; ?></option>
+			<?php endfor; ?>
+			</select>
+			<label for="<?php echo $this->get_field_id( 'year' ); ?>">Year (Date)</label>
+			<input type="number" id="<?php echo $this->get_field_id( 'year' ); ?>" name="<?php echo $this->get_field_name( 'year' ); ?>" class="widefat" min="<?php echo date( 'Y' ); ?>" value="<?php echo esc_attr( $instance['year'] ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'venue' ); ?>">Venue</label>
+			<input type="text" id="<?php echo $this->get_field_id( 'venue' ); ?>" name="<?php echo $this->get_field_name( 'venue' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['venue'] ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'description' ); ?>">Description</label>
+			<textarea id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" class="widefat"><?php echo esc_attr( $instance['description'] ); ?></textarea>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'event_url' ); ?>">Event URL</label>
+			<input type="url" id="<?php echo $this->get_field_id( 'event_url' ); ?>" name="<?php echo $this->get_field_name( 'event_url' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['event_url'] ); ?>">
+		</p>	
+		<?php
 	}
 	
 	/**
