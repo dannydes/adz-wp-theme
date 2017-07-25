@@ -62,11 +62,17 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 		
 		?>
 		<div>
+			<p>
+				<input type="radio" id="<?php echo $this->get_field_id( 'input_choice_html' ); ?>" name="<?php echo $this->get_field_name( 'input_choice' ); ?>" value="html" checked>
+				<label for="<?php echo $this->get_field_id( 'input_choice_html' ); ?>">Enter your form's generated HTML to extract User and Form IDs.</label>
+			</p>
 			<label for="<?php echo $this->get_field_id( 'html' ); ?>">Original Form HTML</label>
-			<p>Enter your form's generated HTML to extract User and Form IDs.</p>
 			<textarea id="<?php echo $this->get_field_id( 'html' ); ?>" name="<?php echo $this->get_field_name( 'html' ); ?>" class="widefat" rows="20"><?php echo esc_attr( $instance['html'] ); ?></textarea>
 		</div>
-		<p>Or if you know what what you're doing, enter your User and Form IDs in the fields below.</p>
+		<p>
+			<input type="radio" id="<?php echo $this->get_field_id( 'input_choice_ids' ); ?>" name="<?php echo $this->get_field_name( 'input_choice' ); ?>" value="ids">
+			<label for="<?php echo $this->get_field_id( 'input_choice_ids' ); ?>">Or if you know what what you're doing, enter your User and Form IDs in the fields below.</label>
+		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'user_id' ); ?>">User ID</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'user_id' ); ?>" name="<?php echo $this->get_field_name( 'user_id' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['user_id'] ); ?>">
@@ -91,17 +97,17 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		
-		if ( ! empty( $new_instance['html'] ) ) {
+		if ( $new_instance['input_choice'] === 'html' && ! empty( $new_instance['html'] ) ) {
 			$dom = new DOMDocument();
 			$dom->loadHTML( $new_instance['html'] );
 			$form = $dom->getElementById( 'mc-embedded-subscribe-form' );
 			$action = $form->getAttribute( 'action' );
 			$instance['user_id'] = strip_tags( substr( $action, strpos( $action, 'u=' ) + 2, strpos( $action, '&' ) ) );
 			$instance['form_id'] = strip_tags( substr( $action, strpos( $action, 'id=' ) + 3 ) );
+		} elseif ( $new_instance['input_choice'] === 'ids' ) {
+			$instance['user_id'] = ( ! empty( $new_instance['user_id'] ) ? strip_tags( $new_instance['user_id'] ) : '' );
+			$instance['form_id'] = ( ! empty( $new_instance['form_id'] ) ? strip_tags( $new_instance['form_id'] ) : '' );
 		}
-		
-		$instance['user_id'] = ( ! empty( $new_instance['user_id'] ) ? strip_tags( $new_instance['user_id'] ) : '' );
-		$instance['form_id'] = ( ! empty( $new_instance['form_id'] ) ? strip_tags( $new_instance['form_id'] ) : '' );
 		
 		return $instance;
 	}
