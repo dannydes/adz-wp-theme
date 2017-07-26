@@ -60,15 +60,15 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 		
-		?>
-		<div>
-			<p>
-				<input type="radio" id="<?php echo $this->get_field_id( 'input_choice_html' ); ?>" name="<?php echo $this->get_field_name( 'input_choice' ); ?>" value="html" checked>
-				<label for="<?php echo $this->get_field_id( 'input_choice_html' ); ?>">Enter your form's generated HTML to extract User and Form IDs.</label>
-			</p>
+		if ( ! empty( $instance['error'] ) ): ?><p style="color:#f00"><?php echo $instance['error']; ?></p><?php endif; ?>
+		<p>
+			<input type="radio" id="<?php echo $this->get_field_id( 'input_choice_html' ); ?>" name="<?php echo $this->get_field_name( 'input_choice' ); ?>" value="html" checked>
+			<label for="<?php echo $this->get_field_id( 'input_choice_html' ); ?>">Enter your form's generated HTML to extract User and Form IDs.</label>
+		</p>
+		<p>
 			<label for="<?php echo $this->get_field_id( 'html' ); ?>">Original Form HTML</label>
 			<textarea id="<?php echo $this->get_field_id( 'html' ); ?>" name="<?php echo $this->get_field_name( 'html' ); ?>" class="widefat" rows="20"><?php echo esc_attr( $instance['html'] ); ?></textarea>
-		</div>
+		</p>
 		<p>
 			<input type="radio" id="<?php echo $this->get_field_id( 'input_choice_ids' ); ?>" name="<?php echo $this->get_field_name( 'input_choice' ); ?>" value="ids">
 			<label for="<?php echo $this->get_field_id( 'input_choice_ids' ); ?>">Or if you know what what you're doing, enter your User and Form IDs in the fields below.</label>
@@ -97,18 +97,52 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		
+		$instance['error'] = '';
+		
 		if ( $new_instance['input_choice'] === 'html' && ! empty( $new_instance['html'] ) ) {
 			$dom = new DOMDocument();
 			$dom->loadHTML( $new_instance['html'] );
 			$form = $dom->getElementById( 'mc-embedded-subscribe-form' );
+			if ( $form === null ) {
+				return self::updateError( $old_instance, 'Original HTML: Mailchimp form not found!' );
+			}
 			$action = $form->getAttribute( 'action' );
-			$instance['user_id'] = strip_tags( substr( $action, strpos( $action, 'u=' ) + 2, strpos( $action, '&' ) ) );
-			$instance['form_id'] = strip_tags( substr( $action, strpos( $action, 'id=' ) + 3 ) );
+			
+			$user_id_param_pos = strpos( $action, 'u=' );
+			$form_id_param_pos = strpos( $action, 'id=' );
+			
+			if ( $user_id_param_pos === false || $form_id_param_pos === false ) {
+				return self::updateError( $old_instance, 'Original HTML: User ID or Form ID not found!' );
+			}
+			
+			$instance['user_id'] = strip_tags( substr( $action, $user_id_param_pos + 2, strpos( $action, '&' ) - $user_id_param_pos - 2 ) );
+			$instance['form_id'] = strip_tags( substr( $action, $form_id_param_pos + 3 ) );
 		} elseif ( $new_instance['input_choice'] === 'ids' ) {
 			$instance['user_id'] = ( ! empty( $new_instance['user_id'] ) ? strip_tags( $new_instance['user_id'] ) : '' );
 			$instance['form_id'] = ( ! empty( $new_instance['form_id'] ) ? strip_tags( $new_instance['form_id'] ) : '' );
+		} else {
+			return self::updateError( $old_instance, 'Original HTML: Cannot be left blank if selected!' );
 		}
 		
+		return $instance;
+	}
+	
+	/**
+	 * Helper method to insert errors within the form $instance.
+	 *
+	 * @access private
+	 *
+	 * @since 0.9
+	 *
+	 * @param array $old_instance Old widget settings.
+	 * @param string $error Instance error.
+	 * @return array New widget settings.
+	 */
+	private function updateError( $old_instance, $error ) {
+		$instance = array();
+		$instance['user_id'] = $old_instance['user_id'];
+		$instance['form_id'] = $old_instance['form_id'];
+		$instance['error'] = $error;
 		return $instance;
 	}
 }
