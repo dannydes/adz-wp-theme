@@ -1083,13 +1083,23 @@ class Ecologie_Contact_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'phone' ); ?>">Phone</label>
-			<input type="number" id="<?php echo $this->get_field_id( 'phone' ); ?>" name="<?php echo $this->get_field_name( 'phone' ); ?>"
+			<input type="text" id="<?php echo $this->get_field_id( 'phone' ); ?>" name="<?php echo $this->get_field_name( 'phone' ); ?>"
 				class="widefat" value="<?php echo esc_attr( $phone ); ?>">
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['phone'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['phone']; ?>
+			</span>
+			<?php endif; ?>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'email' ); ?>">Email</label>
 			<input type="email" id="<?php echo $this->get_field_id( 'email' ); ?>" name="<?php echo $this->get_field_name( 'email' ); ?>"
 				class="widefat" value="<?php echo esc_attr( $email ); ?>">
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['email'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['email']; ?>
+			</span>
+			<?php endif; ?>
 		</p>
 		<?php
 		
@@ -1106,13 +1116,30 @@ class Ecologie_Contact_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['phone'] = ( ! empty( $new_instance['phone'] ) && is_numeric( $new_instance['phone'] ) ? strip_tags( $new_instance['phone'] ) : '' );
+		
+		$instance['errors'] = array();
+		
+		if ( ! empty( $new_instance['phone'] ) && is_numeric( $new_instance['phone'] ) ) {
+			$instance['phone'] = strip_tags( $new_instance['phone'] );
+		} elseif ( ! empty( $new_instance['phone'] ) ) {
+			$instance['phone'] = $old_instance['phone'];
+			$instance['errors']['phone'] = 'Phone is not a number!';
+		}
+		
 		$instance['phone_country_code'] = ( ! empty( $new_instance['phone_country_code'] ) ? strip_tags( $new_instance['phone_country_code'] ) : '' );
-		$instance['email'] = ( ! empty( $new_instance['email'] ) && is_email( $new_instance['email'] ) ? strip_tags( $new_instance['email'] ) : '' );
+		
+		if ( ! empty( $new_instance['email'] ) && is_email( $new_instance['email'] ) ) {
+			$instance['email'] = strip_tags( $new_instance['email'] );
+		} elseif ( ! empty( $new_instance['email'] ) ) {
+			$instance['email'] = $old_instance['email'];
+			$instance['errors']['email'] = 'Email format incorrect!';
+		}
+		
 		$instance['address_line_1'] = ( ! empty( $new_instance['address_line_1'] ) ? strip_tags( $new_instance['address_line_1'] ) : '' );
 		$instance['address_line_2'] = ( ! empty( $new_instance['address_line_2'] ) ? strip_tags( $new_instance['address_line_2'] ) : '' );
 		$instance['address_line_3'] = ( ! empty( $new_instance['address_line_3'] ) ? strip_tags( $new_instance['address_line_3'] ) : '' );
 		$instance['address_line_4'] = ( ! empty( $new_instance['address_line_4'] ) ? strip_tags( $new_instance['address_line_4'] ) : '' );
+		
 		return $instance;
 	}
 }

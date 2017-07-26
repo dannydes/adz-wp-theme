@@ -94,6 +94,11 @@ class Ecologie_Social_Widget extends WP_Widget {
 				<label for="<?php echo $this->get_field_id( $network['code'] ); ?>"><?php echo $network['title']; ?></label>
 				<input type="url" id="<?php echo $this->get_field_id( $network['code'] ); ?>" name="<?php echo $this->get_field_name( $network['code'] ); ?>"
 					class="widefat" value="<?php echo esc_attr( $instance[$network['code']] ); ?>">
+				<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors'][$network['code']] ) ): ?>
+				<span style="color:#f00">
+					<?php echo $instance['errors'][$network['code']]; ?>
+				</span>
+				<?php endif; ?>
 			</p>
 		<?php endforeach;
 	}
@@ -106,17 +111,17 @@ class Ecologie_Social_Widget extends WP_Widget {
 	 * @param object $new_instance New widget settings.
 	 * @param object $old_instance Old widget settings.
 	 * @return array Updated settings to save.
-	 * @return boolean FALSE when setting update is to be cancelled due to invalid data entry.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$old_instance['errors'] = array();
+		$instance['errors'] = array();
 		
 		foreach ( self::SOCIAL_NETWORKS as $network ) {
-			$instance[$network['code']] = ( ! empty( $new_instance[$network['code']] ) ? strip_tags( $new_instance[$network['code']] ) : '' );
-			if ( ! empty( $new_instance[$network['code']] ) && strpos( $instance[$network['code']], $network['url_part'] ) === FALSE ) {
-				$old_instance['errors'][$network['code']] = 'Please enter a valid Facebook URL.';
-				return FALSE;
+			if ( ! empty( $new_instance[$network['code']] ) && strpos( $new_instance[$network['code']], $network['url_part'] ) === false ) {
+				$instance[$network['code']] = $old_instance[$network['code']];
+				$instance['errors'][$network['code']] = 'Please enter a valid ' . $network['title'] . ' URL.' ;
+			} elseif ( ! empty( $new_instance[$network['code']] ) ) {
+				$instance[$network['code']] = strip_tags( $new_instance[$network['code']] );
 			}
 		}
 		
