@@ -100,8 +100,18 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'hour' ); ?>">Hour (Time)</label>
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['hour'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['hour']; ?>
+			</span>
+			<?php endif; ?>
 			<input type="number" id="<?php echo $this->get_field_id( 'hour' ); ?>" name="<?php echo $this->get_field_name( 'hour' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['hour'] ); ?>" min="0" max="12">
 			<label for="<?php echo $this->get_field_id( 'minute' ); ?>">Minute (Time)</label>
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['minute'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['minute']; ?>
+			</span>
+			<?php endif; ?>
 			<input type="number" id="<?php echo $this->get_field_id( 'minute' ); ?>" name="<?php echo $this->get_field_name( 'minute' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['minute'] ); ?>" min="0" max="59">
 			<label for="<?php echo $this->get_field_id( 'meridiem' ); ?>">Meridiem (Time)</label>
 			<select id="<?php echo $this->get_field_id( 'meridiem' ); ?>" name="<?php echo $this->get_field_name( 'meridiem' ); ?>">
@@ -111,14 +121,29 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'day' ); ?>">Day (Date)</label>
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['day'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['day']; ?>
+			</span>
+			<?php endif; ?>
 			<input type="number" id="<?php echo $this->get_field_id( 'day' ); ?>" name="<?php echo $this->get_field_name( 'day' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['day'] ); ?>" min="1" max="31">
 			<label for="<?php echo $this->get_field_id( 'month' ); ?>">Month (Date)</label>
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['month'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['month']; ?>
+			</span>
+			<?php endif; ?>
 			<select id="<?php echo $this->get_field_id( 'month' ); ?>" name="<?php echo $this->get_field_name( 'month' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['month'] ); ?>">
 			<?php for ($i = 0; $i < count( self::MONTHS ); $i++): ?>
 				<option value="<?php echo $i; ?>"<?php if ( intval( $instance['month'] ) === $i ): ?> selected<?php endif; ?>><?php echo self::MONTHS[$i]['name']; ?></option>
 			<?php endfor; ?>
 			</select>
 			<label for="<?php echo $this->get_field_id( 'year' ); ?>">Year (Date)</label>
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['year'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['year']; ?>
+			</span>
+			<?php endif; ?>
 			<input type="number" id="<?php echo $this->get_field_id( 'year' ); ?>" name="<?php echo $this->get_field_name( 'year' ); ?>" class="widefat" min="<?php echo date( 'Y' ); ?>" value="<?php echo esc_attr( $instance['year'] ); ?>">
 		</p>
 		<p>
@@ -127,10 +152,15 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'description' ); ?>">Description</label>
-			<textarea id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" class="widefat"><?php echo esc_attr( $instance['description'] ); ?></textarea>
+			<textarea id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" class="widefat" rows="10"><?php echo esc_attr( $instance['description'] ); ?></textarea>
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'event_url' ); ?>">Event URL</label>
+			<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors']['event_url'] ) ): ?>
+			<span style="color:#f00">
+				<?php echo $instance['errors']['event_url']; ?>
+			</span>
+			<?php endif; ?>
 			<input type="url" id="<?php echo $this->get_field_id( 'event_url' ); ?>" name="<?php echo $this->get_field_name( 'event_url' ); ?>" class="widefat" value="<?php echo esc_attr( $instance['event_url'] ); ?>">
 		</p>	
 		<?php
@@ -148,16 +178,58 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
+		
+		$instance['errors'] = array();
+		
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '' );
-		$instance['hour'] = ( self::hourValid( $new_instance ) ? strip_tags( $new_instance['hour'] ) : '' );
-		$instance['minute'] = ( self::minuteValid( $new_instance ) ? strip_tags( $new_instance['minute'] ) : '' );
+		
+		if ( self::hourValid( $new_instance ) ) {
+			$instance['hour'] = strip_tags( $new_instance['hour'] );
+		} else {
+			$instance['hour'] = $old_instance['hour'];
+			$instance['errors']['hour'] = 'Hour invalid!';
+		}
+		
+		if ( self::minuteValid( $new_instance ) ) {
+			$instance['minute'] = strip_tags( $new_instance['minute'] );
+		} else {
+			$instance['minute'] = $old_instance['minute'];
+			$instance['errors']['minute'] = 'Minute invalid!';
+		}
+		
 		$instance['meridiem'] = ( ! empty( $new_instance['meridiem'] ) ? strip_tags( $new_instance['meridiem'] ) : '' );
-		$instance['day'] = ( self::dayMonthCorrect( $new_instance ) && self::dayInFuture( $new_instance ) ? strip_tags( $new_instance['day'] ) : '' );
-		$instance['month'] = ( intval( $new_instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $new_instance['year'] ) > intval( date( 'Y' ) ) ? strip_tags( $new_instance['month'] ) : '' );
-		$instance['year'] = ( ! empty( $new_instance['year'] ) && $new_instance['year'] >= intval( date( 'Y' ) ) ? strip_tags( $new_instance['year'] ) : '' );
+		
+		if ( self::dayMonthCorrect( $new_instance ) && self::dayInFuture( $new_instance ) ) {
+			$instance['day'] = strip_tags( $new_instance['day'] );
+		} else {
+			$instance['day'] = $old_instance['day'];
+			$instance['errors']['day'] = 'Day invalid!';
+		}
+		
+		if ( intval( $new_instance['month'] ) >= intval( date( 'm' ) ) - 1 || intval( $new_instance['year'] ) > intval( date( 'Y' ) ) ) {
+			$instance['month'] = strip_tags( $new_instance['month'] );
+		} else {
+			$instance['month'] = $old_instance['month'];
+			$instance['errors']['month'] = 'Month invalid!';
+		}
+		
+		if ( ! empty( $new_instance['year'] ) && $new_instance['year'] >= intval( date( 'Y' ) ) ) {
+			$instance['year'] = strip_tags( $new_instance['year'] );
+		} else {
+			$instance['year'] = $old_instance['year'];
+			$instance['errors']['year'] = 'Year invalid!';
+		}
+		
 		$instance['venue'] = ( ! empty( $new_instance['venue'] ) ? strip_tags( $new_instance['venue'] ) : '' );
 		$instance['description'] = ( ! empty( $new_instance['description'] ) ? strip_tags( $new_instance['description'] ) : '' );
-		$instance['event_url'] = ( ! empty( $new_instance['event_url'] ) ? strip_tags( $new_instance['event_url'] ) : '' );
+		
+		if ( ! empty( $new_instance['event_url'] ) && filter_var( $new_instance['event_url'], FILTER_VALIDATE_URL ) ) {
+			$instance['event_url'] = strip_tags( $new_instance['event_url'] );
+		} elseif ( ! empty( $new_instance['event_url'] ) ) {
+			$instance['event_url'] = $old_instance['event_url'];
+			$instance['errors']['event_url'] = 'URL invalid!';
+		}
+		
 		return $instance;
 	}
 	
