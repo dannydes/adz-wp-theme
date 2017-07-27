@@ -75,7 +75,17 @@ On the frontend, the user will see the organisation's address if provided, phone
 ![Contact widget frontend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/contact-frontend.png "Contact widget frontend")
 
 ### Mailchimp Subscribe
-From the backend, the widget allows the administrator to input the organisation's user ID and form ID (both required for the form to work).
+From the backend, the widget allows the administrator to input either the form's original HTML for user ID and form ID to be extracted or directly input the organisation's 
+user ID and form ID (both required for the form to work).
+
+The first option is the most straight-forward since it consists of merely copying the form's HTML. In order to access the HTML for the Mailchimp form you would like to 
+embed, kindly log in to your **Mailchimp** account, click **Lists**, locate the list to link to the form, click the down arrow beside it and then select **Signup Forms**. 
+Finally, click **Embedded forms** and copy the form's HTML to clipboard. On switching to your site's backend, paste the markup to a **Mailchimp Subscribe** widget 
+instance. Upon clicking **Save**, you should notice that the **User ID** and **Form ID** fields are populated.
+
+![Mailchimp get form HTML](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/mailchimp-get-form-html.png "Mailchimp get form HTML")
+
+On the other hand, in case Mailchimp change their markup and the extraction mechanism fails, you would need to manually st the **User ID** and **Form ID**.
 
 ![Mailchimp Subscribe widget backend](https://github.com/dannydes/ecologie/raw/master/screenshots/widgets/mailchimp-backend.png "Mailchimp Subscribe widget backend")
 

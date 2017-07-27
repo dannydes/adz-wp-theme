@@ -61,6 +61,9 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	public function form( $instance ) {
 		
 		if ( ! empty( $instance['error'] ) ): ?><p style="color:#f00"><?php echo $instance['error']; ?></p><?php endif; ?>
+		<a href="https://github.com/dannydes/ecologie/blob/master/README.md#mailchimp-subscribe" title="Mailchimp Subscribe documentation" target="_blank">
+			<?php _e( 'I\'m unsure of what to do. Please explain further.', 'ecologie' ); ?>
+		</a>
 		<p>
 			<input type="radio" id="<?php echo $this->get_field_id( 'input_choice_html' ); ?>" name="<?php echo $this->get_field_name( 'input_choice' ); ?>" value="html" checked>
 			<label for="<?php echo $this->get_field_id( 'input_choice_html' ); ?>">Enter your form's generated HTML to extract User and Form IDs.</label>
