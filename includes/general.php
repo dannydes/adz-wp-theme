@@ -56,7 +56,8 @@ function ecologie_enqueue_scripts() {
 	}
 
 	if ( get_theme_mod( 'add_this_enabled', $GLOBALS['ecologie_default_options']['add_this_enabled'] ) && get_post_type() === 'post' ) {
-		wp_enqueue_script( 'addthis', get_theme_mod( 'add_this_script_url', $GLOBALS['ecologie_default_options']['add_this_script_url'] ), '', '', true );
+		$add_this_profile_id = get_theme_mod( 'add_this_profile_id', $GLOBALS['ecologie_default_options']['add_this_profile_id'] );
+		wp_enqueue_script( 'addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=' . $add_this_profile_id, '', '', true );
 	}
 }
 

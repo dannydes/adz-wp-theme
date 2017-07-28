@@ -1,13 +1,10 @@
 <?php
 
 /**
- * Returns theme options' default values.
- *
- * @return array Default values.
+ * @global array $GLOBALS['ecologie_default_options'] Theme options' default values.
  */
-function ecologie_get_default_options() {
-	$options = array(
-		'add_this_script_url' => '',
+$GLOBALS['ecologie_default_options'] = array(
+		'add_this_profile_id' => '',
 		'cta_block_text' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.',
 		'cta_block_btn_text' => 'Join us',
 		'cta_block_btn_url' => '#',
@@ -23,13 +20,6 @@ function ecologie_get_default_options() {
 		'contact_sc_smtp_host' => '',
 		'sidebar_on' => true,
 	);
-	return $options;
-}
-
-/**
- * @global array $GLOBALS['ecologie_default_options'] Theme options' default values.
- */
-$GLOBALS['ecologie_default_options'] = ecologie_get_default_options();
 
 /**
  * Attach new controls to the site customizer.
@@ -37,7 +27,7 @@ $GLOBALS['ecologie_default_options'] = ecologie_get_default_options();
  * @param object $wp_customize Instance of WP_Customize_Manager.
  */
 function ecologie_customize_register( $wp_customize ) {
-	$defaults = ecologie_get_default_options();
+	$defaults = $GLOBALS['ecologie_default_options'];
 	
 	$settings = array(
 		array( 'cta_block_text', array(
@@ -55,11 +45,11 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Call to Action Button URL',
 			'section' => 'cta_block',
 		), 'postMessage' ),
-		array( 'add_this_script_url', array(
+		array( 'add_this_profile_id', array(
 			'type' => 'text',
-			'label' => 'AddThis script URL',
+			'label' => 'AddThis Profile ID',
 			'section' => 'add_this',
-			'description' => 'Enter the <b>src</b> of the <b>script</b> given by AddThis.',
+			'description' => 'Enter the <b>Profile ID</b> given by AddThis.',
 		), 'refresh' ),
 		array( 'add_this_enabled', array(
 			'type' => 'checkbox',
