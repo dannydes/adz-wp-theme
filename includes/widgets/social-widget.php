@@ -24,37 +24,37 @@ class Ecologie_Social_Widget extends WP_Widget {
 		array(
 			'title' => 'Facebook',
 			'code' => 'facebook',
-			'url_part' => 'facebook.com'
+			'url_format' => 'https://www.facebook.com/'
 		),
 		array(
 			'title' => 'Twitter',
 			'code' => 'twitter',
-			'url_part' => 'twitter.com'
+			'url_format' => 'https://www.twitter.com/'
 		),
 		array(
 			'title' => 'LinkedIn',
 			'code' => 'linkedin',
-			'url_part' => 'linkedin.com'
+			'url_format' => 'https://www.linkedin.com/in/'
 		),
 		array(
 			'title' => 'Google Plus',
 			'code' => 'google-plus',
-			'url_part' => 'plus.google.com'
+			'url_format' => 'https://plus.google.com/'
 		),
 		array(
 			'title' => 'Instagram',
 			'code' => 'instagram',
-			'url_part' => 'instagram.com'
+			'url_format' => 'https://www.instagram.com/'
 		),
 		array(
 			'title' => 'Youtube',
 			'code' => 'youtube',
-			'url_part' => 'youtube.com'
+			'url_format' => 'https://www.youtube.com/channel/'
 		),
 		array(
 			'title' => 'Github',
 			'code' => 'github',
-			'url_part' => 'github.com'
+			'url_format' => 'https://www.github.com/'
 		),
 	);
 	
@@ -71,7 +71,7 @@ class Ecologie_Social_Widget extends WP_Widget {
 		<div class="social-btns">
 			<?php foreach ( self::SOCIAL_NETWORKS as $network ): ?>
 				<?php if ( ! empty( $instance[$network['code']] ) ): ?>
-					<a href="<?php echo esc_url( $instance[$network['code']] ); ?>" title="<?php echo $network['title']; ?>" target="_blank" aria-label="<?php echo $network['title']; ?>">
+					<a href="<?php echo esc_url( $network['url_format'] . $instance[$network['code']] ); ?>" title="<?php echo $network['title']; ?>" target="_blank" aria-label="<?php echo $network['title']; ?>">
 						<div class="social-btn">
 							<i class="fa fa-<?php echo $network['code']; ?>" aria-hidden="true"></i>
 						</div>
@@ -91,14 +91,10 @@ class Ecologie_Social_Widget extends WP_Widget {
 	public function form( $instance ) {
 		foreach ( self::SOCIAL_NETWORKS as $network ): ?>
 			<p>
-				<label for="<?php echo $this->get_field_id( $network['code'] ); ?>"><?php echo $network['title']; ?></label>
+				<label for="<?php echo $this->get_field_id( $network['code'] ); ?>"><?php echo $network['title']; ?></label><br>
+				<span><?php echo $network['url_format']; ?></span>
 				<input type="url" id="<?php echo $this->get_field_id( $network['code'] ); ?>" name="<?php echo $this->get_field_name( $network['code'] ); ?>"
 					class="widefat" value="<?php echo esc_attr( $instance[$network['code']] ); ?>">
-				<?php if ( ! empty( $instance['errors'] ) && ! empty( $instance['errors'][$network['code']] ) ): ?>
-				<span style="color:#f00">
-					<?php echo $instance['errors'][$network['code']]; ?>
-				</span>
-				<?php endif; ?>
 			</p>
 		<?php endforeach;
 	}
@@ -114,15 +110,9 @@ class Ecologie_Social_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['errors'] = array();
 		
 		foreach ( self::SOCIAL_NETWORKS as $network ) {
-			if ( ! empty( $new_instance[$network['code']] ) && strpos( $new_instance[$network['code']], $network['url_part'] ) === false ) {
-				$instance[$network['code']] = $old_instance[$network['code']];
-				$instance['errors'][$network['code']] = 'Please enter a valid ' . $network['title'] . ' URL.' ;
-			} elseif ( ! empty( $new_instance[$network['code']] ) ) {
-				$instance[$network['code']] = strip_tags( $new_instance[$network['code']] );
-			}
+			$instance[$network['code']] = ( ! empty( $new_instance[$network['code']] ) ? strip_tags( $new_instance[$network['code']] ) : '' );
 		}
 		
 		return $instance;
