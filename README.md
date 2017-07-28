@@ -41,7 +41,7 @@ settings:
   - Call to Action Button Text
   - Call to Action Button URL
 * AddThis Social Sharing Tool
-  - AddThis script URL
+  - AddThis Profile ID
   - Enable AddThis sharing buttons
 * Blog
   - Blog posts per page
