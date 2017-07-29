@@ -77,13 +77,15 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 *
 	 * @access public
 	 *
+	 * @uses self::dayOrdinalIndicator( array $instance )
+	 *
 	 * @param array $args Widget area args.
 	 * @param array $instance Widget instance settings.
 	 */
 	public function widget( $args, $instance ) {
 		?><h2 class="widgettitle"><?php echo esc_attr( $instance['title'] ); ?></h2>
 		<?php echo intval( esc_attr( $instance['hour'] ) ) . ' : ' . ( intval( $instance['minute'] ) < 10 ? '0' : '' ) . ( $instance['minute'] !== '' ? intval( esc_attr( $instance['minute'] ) ) : '0' ) . ' ' . esc_attr( $instance['meridiem'] ); ?><br>
-		<?php echo intval( esc_attr( $instance['day'] ) ) . self::dayAbbreviation( $instance ); ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo intval( esc_attr( $instance['year'] ) ); ?><br>
+		<?php echo intval( esc_attr( $instance['day'] ) ) . self::dayOrdinalIndicator( $instance ); ?> <?php echo self::MONTHS[$instance['month']]['name'] ?> <?php echo intval( esc_attr( $instance['year'] ) ); ?><br>
 		<?php echo esc_attr( $instance['venue'] ); ?>
 		<p><?php echo esc_attr( $instance['description'] ); ?></p>
 		<a href="<?php echo esc_url( $instance['event_url'] ); ?>" target="_blank" role="button" class="btn btn-default">More info...</a><?php
@@ -337,16 +339,16 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	}
 	
 	/**
-	 * Utility method to return the appropriate abbreviation following day.
+	 * Utility method to return the ordinal indicator following day.
 	 *
 	 * @access private
 	 *
 	 * @since 0.9
 	 *
 	 * @param array $instance Widget instance settings.
-	 * @return string The abbreviation following day.
+	 * @return string The ordinal indicator following day.
 	 */
-	 private function dayAbbreviation( $instance ) {
+	 private function dayOrdinalIndicator( $instance ) {
 		 $day = intval( $instance['day'] );
 		 $day_in_10 = floor( $day / 10 );
 		 $day_in_10_rem = $day % 10;
