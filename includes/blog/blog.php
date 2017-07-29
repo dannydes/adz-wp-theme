@@ -14,6 +14,7 @@ add_filter( 'excerpt_length', 'ecologie_custom_excerpt_length', 999 );
 
 /**
  * Renders a post excerpt's "Read more" button.
+ *
  * @return string The "Read more" button.
  */
 function ecologie_excerpt_more() {

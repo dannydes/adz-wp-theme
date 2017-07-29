@@ -2,6 +2,8 @@
 
 /**
  * Contact widget class.
+ *
+ * @extends WP_Widget
  */
 class Ecologie_Contact_Widget extends WP_Widget {
 	/**
@@ -21,7 +23,7 @@ class Ecologie_Contact_Widget extends WP_Widget {
 	 * @access public
 	 *
 	 * @param array $args Widget area args.
-	 * @param object $instance Widget settings.
+	 * @param array $instance Widget instance settings.
 	 */
 	public function widget( $args, $instance ) {
 		$address_line_1 = $instance['address_line_1'];
@@ -66,7 +68,7 @@ class Ecologie_Contact_Widget extends WP_Widget {
 	 *
 	 * @access public
 	 *
-	 * @param object $instance Widget settings.
+	 * @param array $instance Widget instance settings.
 	 */
 	public function form( $instance ) {
 		$address_line_1 = $instance['address_line_1'];
@@ -1110,9 +1112,9 @@ class Ecologie_Contact_Widget extends WP_Widget {
 	 *
 	 * @access public
 	 *
-	 * @param object $new_instance New widget settings.
-	 * @param object $old_instance Old widget settings.
-	 * @return string Updated settings to save.
+	 * @param array $new_instance New widget instance settings.
+	 * @param array $old_instance Old widget instance settings.
+	 * @return array Updated settings to save.
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();

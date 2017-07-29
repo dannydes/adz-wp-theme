@@ -2,6 +2,8 @@
 
 /**
  * Custom navigation menu walker class.
+ *
+ * @extends Walker_Nav_Menu
  */
 class Ecologie_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	
@@ -59,6 +61,9 @@ class Ecologie_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	
 	/**
 	 * Ends the menu item output.
+	 *
+	 * @access public
+	 *
 	 * @param string $output The markup to be rendered.
 	 * @param object $item Menu item.
 	 * @param integer $depth Depth within menu.

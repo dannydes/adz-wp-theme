@@ -37,9 +37,9 @@
 				'" size="30"' . $html_req . ' placeholder="Email" />
 			</div>',
 		'url' => '<div class="form-group comment-form-url">
-					<label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
-					'<input class="form-control" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) .
-					'" size="30" placeholder="Website" />
+				<label for="url">' . __( 'Website', 'domainreference' ) . '</label>' .
+				'<input class="form-control" id="url" name="url" type="url" value="' . esc_attr( $commenter['comment_author_url'] ) .
+				'" size="30" placeholder="Website" />
 			</div>',
 	);
 

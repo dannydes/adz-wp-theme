@@ -2,6 +2,8 @@
 
 /**
  * Upcoming event widget class.
+ *
+ * @extends WP_Widget
  */
 class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	/**
@@ -21,7 +23,7 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	 * @access public
 	 *
 	 * @param array $args Widget area args.
-	 * @param object $instance Widget settings.
+	 * @param array $instance Widget instance settings.
 	 */
 	public function widget( $args, $instance ) {
 		
@@ -56,7 +58,7 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	 *
 	 * @access public
 	 *
-	 * @param object $instance Widget settings.
+	 * @param array $instance Widget instance settings.
 	 */
 	public function form( $instance ) {
 		
@@ -93,8 +95,8 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	 *
 	 * @access public
 	 *
-	 * @param object $new_instance New widget settings.
-	 * @param object $old_instance Old widget settings.
+	 * @param array $new_instance New widget instance settings.
+	 * @param array $old_instance Old widget instance settings.
 	 * @return array Updated settings to save.
 	 */
 	public function update( $new_instance, $old_instance ) {
@@ -137,7 +139,7 @@ class Ecologie_Mailchimp_Subscribe_Widget extends WP_Widget {
 	 *
 	 * @since 0.9
 	 *
-	 * @param array $old_instance Old widget settings.
+	 * @param array $old_instance Old widget instance settings.
 	 * @param string $error Instance error.
 	 * @return array New widget settings.
 	 */
