@@ -47,6 +47,12 @@ function ecologie_enqueue_scripts() {
 		$base_script_deps[] = 'mailchimp';
 	}*/
 	
+	global $post;
+	if ( has_shortcode( $post->post_content, 'contact-us' ) ) {
+		wp_enqueue_script( 'gmail-api', 'https://apis.google.com/js/client.js?onload=handleClientLoad', null, null, true );
+		$base_script_deps[] = 'gmail-api';
+	}
+	
 	if ( production_mode_disabled() ) {
 		enqueue_development_scripts();
 	} else {

@@ -1,6 +1,10 @@
 (function ( $ ) {
 	'use strict';
 	
+	var clientId = '260323786335-qeqqbp3bd8l81d50lhtv68s6khm0f948.apps.googleusercontent.com';
+	var apiKey = 'AIzaSyAKEhlNQid8LbMwXc5HmGN1gRIYefM-Pnk';
+	var scopes = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send';
+	
 	$( '#contact-us' ).submit(function () {
 		if ( $( '#contact-hidden' ).val() !== '' ) {
 			return false;
