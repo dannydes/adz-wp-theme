@@ -86,6 +86,15 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => 'Header image Electoral Manifesto URL',
 			'section' => 'header',
 		), 'postMessage' ),
+		array( 'contact_sc_conn_method', array(
+			'type' => 'radio',
+			'label' => __( 'Contact Email Connection Method', 'ecologie' ),
+			'section' => 'contact_shortcode',
+			'choices' => array(
+				'smtp' => __( 'SMTP (Simple Mail Transfer Protocol)', 'ecologie' ),
+				'google_auth' => __( 'Google Authentication (Gmail only)', 'ecologie' ),
+			),
+		), 'postMessage' ),
 		array( 'contact_sc_smtp_host', array(
 			'type' => 'text',
 			'label' => 'SMTP Host',
@@ -109,6 +118,11 @@ function ecologie_customize_register( $wp_customize ) {
 		array( 'contact_sc_smtp_password', array(
 			'type' => 'password',
 			'label' => 'SMTP Password',
+			'section' => 'contact_shortcode',
+		), 'postMessage' ),
+		array( 'contact_sc_gmail_auth', array(
+			'type' => 'hidden',
+			'description' => __( '<h2>Gmail Authentication</h2><a href="#">Authenticate with Gmail.</a>', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'sidebar_on', array(

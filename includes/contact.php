@@ -143,3 +143,10 @@ function ecologie_register_contact_us_tinymce_plugin() {
 if ( is_admin() ) {
 	add_action( 'init', 'ecologie_register_contact_us_tinymce_plugin' );
 }
+
+/**
+ * Authenticates our site with Google.
+ */
+function google_auth() {
+	
+}
