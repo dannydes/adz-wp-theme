@@ -32,58 +32,58 @@ function ecologie_customize_register( $wp_customize ) {
 	$settings = array(
 		array( 'cta_block_text', array(
 			'type' => 'text',
-			'label' => 'Call to Action Text',
+			'label' => __( 'Call to Action Text', 'ecologie' ),
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'cta_block_btn_text', array(
 			'type' => 'text',
-			'label' => 'Call to Action Button Text',
+			'label' => __( 'Call to Action Button Text', 'ecologie' ),
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'cta_block_btn_url', array(
 			'type' => 'url',
-			'label' => 'Call to Action Button URL',
+			'label' => __( 'Call to Action Button URL', 'ecologie' ),
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'add_this_profile_id', array(
 			'type' => 'text',
-			'label' => 'AddThis Profile ID',
+			'label' => __( 'AddThis Profile ID', 'ecologie' ),
 			'section' => 'add_this',
-			'description' => 'Enter the <b>Profile ID</b> given by AddThis.',
+			'description' => __( 'Enter the <b>Profile ID</b> given by AddThis.', 'ecologie' ),
 		), 'refresh' ),
 		array( 'add_this_enabled', array(
 			'type' => 'checkbox',
-			'label' => 'Enable AddThis sharing buttons',
+			'label' => __( 'Enable AddThis sharing buttons', 'ecologie' ),
 			'section' => 'add_this',
 		), 'refresh' ),
 		array( 'recent_posts', array(
 			'type' => 'number',
-			'label' => 'Number of recent posts',
+			'label' => __( 'Number of recent posts', 'ecologie' ),
 			'section' => 'blog',
 		), 'postMessage' ),
 		array( 'copyright_text_addition', array(
 			'type' => 'text',
-			'label' => 'Text to add to copyright notice',
+			'label' => __( 'Text to add to copyright notice', 'ecologie' ),
 			'section' => 'footer',
 		), 'postMessage' ),
 		array( 'header_on', array(
 			'type' => 'checkbox',
-			'label' => 'Enable header',
+			'label' => __( 'Enable header', 'ecologie' ),
 			'section' => 'header',
 		), 'refresh' ),
 		array( 'header_image_text_on', array(
 			'type' => 'checkbox',
-			'label' => 'Enable header image text',
+			'label' => __( 'Enable header image text', 'ecologie' ),
 			'section' => 'header',
 		), 'refresh' ),
 		array( 'header_image_text', array(
 			'type' => 'text',
-			'label' => 'Header image text',
+			'label' => __( 'Header image text', 'ecologie' ),
 			'section' => 'header',
 		), 'postMessage' ),
 		array( 'header_image_manifesto', array(
 			'type' => 'text',
-			'label' => 'Header image Electoral Manifesto URL',
+			'label' => __( 'Header image Electoral Manifesto URL', 'ecologie' ),
 			'section' => 'header',
 		), 'postMessage' ),
 		array( 'contact_sc_conn_method', array(
@@ -97,27 +97,27 @@ function ecologie_customize_register( $wp_customize ) {
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_host', array(
 			'type' => 'text',
-			'label' => 'SMTP Host',
+			'label' => __( 'SMTP Host', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_secure_conn_method', array(
 			'type' => 'text',
-			'label' => 'SMTP Secure Connection Method',
+			'label' => __( 'SMTP Secure Connection Method', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_port', array(
 			'type' => 'text',
-			'label' => 'SMTP Port',
+			'label' => __( 'SMTP Port', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_username', array(
 			'type' => 'text',
-			'label' => 'SMTP Username',
+			'label' => __( 'SMTP Username', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_password', array(
 			'type' => 'password',
-			'label' => 'SMTP Password',
+			'label' => __( 'SMTP Password', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_gmail_auth', array(
@@ -127,55 +127,55 @@ function ecologie_customize_register( $wp_customize ) {
 		), 'postMessage' ),
 		array( 'sidebar_on', array(
 			'type' => 'checkbox',
-			'label' => 'Enable sidebar',
+			'label' => __( 'Enable sidebar', 'ecologie' ),
 			'section' => 'sidebar',
 		), 'refresh' ),
 	);
 	
 	$wp_customize->add_panel( 'ecologie', array(
-		'title' => __( 'Ecologie Settings' ),
-		'description' => __( 'Settings related to Ecologie theme' ),
+		'title' => __( 'Ecologie Settings', 'ecologie' ),
+		'description' => __( 'Settings related to Ecologie theme', 'ecologie' ),
 	) );
 	
 	$wp_customize->add_section( 'cta_block', array(
-		'title' => __( 'Home Call to Action Block' ),
-		'description' => __( 'Configures the appearance of the home\'s call-to-action block.' ),
+		'title' => __( 'Home Call to Action Block', 'ecologie' ),
+		'description' => __( 'Configures the appearance of the home\'s call-to-action block.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'add_this', array(
-		'title' => __( 'AddThis Social Sharing Tool' ),
-		'description' => __( 'Configures the AddThis tool.' ),
+		'title' => __( 'AddThis Social Sharing Tool', 'ecologie' ),
+		'description' => __( 'Configures the AddThis tool.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'blog', array(
-		'title' => __( 'Blog' ),
-		'description' => __( 'Configures blog.' ),
+		'title' => __( 'Blog', 'ecologie' ),
+		'description' => __( 'Configures blog.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'header', array(
-		'title' => __( 'Header' ),
-		'description' => __( 'Configures header image.' ),
+		'title' => __( 'Header', 'ecologie' ),
+		'description' => __( 'Configures header image.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'footer', array(
-		'title' => __( 'Footer' ),
-		'description' => __( 'Configures footer.' ),
+		'title' => __( 'Footer', 'ecologie' ),
+		'description' => __( 'Configures footer.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'contact_shortcode', array(
-		'title' => __( 'Contact Shortcode' ),
-		'description' => __( 'Configures contact shortcode.' ),
+		'title' => __( 'Contact Shortcode', 'ecologie' ),
+		'description' => __( 'Configures contact shortcode.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'sidebar', array(
-		'title' => __( 'Sidebar' ),
-		'description' => __( 'Configures sidebar.' ),
+		'title' => __( 'Sidebar', 'ecologie' ),
+		'description' => __( 'Configures sidebar.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	

@@ -16,8 +16,8 @@ function is_localhost() {
  */
 function add_production_mode_setting( $wp_customize ) {
 	$wp_customize->add_section( 'production_mode', array(
-		'title' => __( 'Production Mode' ),
-		'description' => __( 'Configures production mode. Only available on localhost' ),
+		'title' => __( 'Production Mode', 'ecologie' ),
+		'description' => __( 'Configures production mode. Only available on localhost', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
@@ -30,7 +30,7 @@ function add_production_mode_setting( $wp_customize ) {
 	
 	$wp_customize->add_control( 'production_mode_on', array(
 		'type' => 'checkbox',
-		'label' => 'Enable Production Mode',
+		'label' => __( 'Enable Production Mode', 'ecologie' ),
 		'section' => 'production_mode',
 	) );
 }
