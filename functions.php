@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Includes Google APIs Client Library from the local Composer installation.
+ */
+require_once 'vendor/autoload.php';
+
+/**
  * Implements primary menu walker class.
  */
 require 'includes/menus/primary-menu-walker.php';

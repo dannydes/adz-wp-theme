@@ -148,5 +148,17 @@ if ( is_admin() ) {
  * Authenticates our site with Google.
  */
 function google_auth() {
+	$client_id = '260323786335-qeqqbp3bd8l81d50lhtv68s6khm0f948.apps.googleusercontent.com';
 	
+	$state = sha1( openssl_random_pseudo_bytes( 1024 ) );
+	$app['session']->set( 'state', $state );
+	$rendering = $app['twig']->render( 'index.html', array(
+		'CLIENT_ID' => $client_id,
+		'STATE' => $state,
+		'APPLICATION_NAME' => 'Ecologie Gmail Connect',
+	) );
+	
+	wp_redirect( 'https://accounts.google.com/o/oauth2/v2/auth?client_id=' . $client_id .
+		'&response_type=code&scope=openid%20email' );
+	exit;
 }
