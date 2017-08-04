@@ -6,6 +6,8 @@
 			return false;
 		}
 		
+		$( '#contact-sending-message' ).addClass( 'loading' );
+		
 		$.post( ecologie.ajax_url, {
 			'action': 'contact_us',
 			'name': $( '#contact-name' ).val(),
@@ -15,6 +17,8 @@
 			'forward-copy': $( '#contact-copy' ).is( ':checked' ),
 			'at': $( '#contact-at' ).val(),
 		}, function ( res ) {
+			$( '#contact-sending-message' ).removeClass( 'loading' );
+			
 			var lines = res.split( '\n' );
 			var status = lines[lines.length - 1];
 			
