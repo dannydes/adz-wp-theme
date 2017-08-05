@@ -1,6 +1,3 @@
-@loading-sonar-max-size: 1em;
-@loading-sonar-min-size: 0.1em;
-
 @keyframes sonar {
 	from {
 		width: @loading-sonar-min-size;
@@ -17,7 +14,7 @@
 
 .loading {
 	display: inline-block;
-	border: solid 0.3em #000;
+	border: solid 0.3em @black;
 	padding: auto;
 	animation: 1s ease-out sonar infinite;
 }
