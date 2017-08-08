@@ -11,6 +11,7 @@ $GLOBALS['ecologie_default_options'] = array(
 		'add_this_enabled' => true,
 		'recent_posts' => 5,
 		'copyright_text_addition' => '',
+		'copyright_text_on' => true,
 		'header_on' => true,
 		'header_image_text_on' => true,
 		'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
@@ -66,6 +67,11 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => __( 'Text to add to copyright notice', 'ecologie' ),
 			'section' => 'footer',
 		), 'postMessage' ),
+		array( 'copyright_text_on', array(
+			'type' => 'checkbox',
+			'label' => __( 'Enable copyright notice', 'ecologie' ),
+			'section' => 'footer',
+		), 'refresh' ),
 		array( 'header_on', array(
 			'type' => 'checkbox',
 			'label' => __( 'Enable header', 'ecologie' ),
