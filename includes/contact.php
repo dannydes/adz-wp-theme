@@ -31,8 +31,7 @@ function contact_us_shortcode( $atts ) {
 		</div>
 		<input type="hidden" id="contact-hidden" name="hidden">
 		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
-		<button type="submit" class="btn btn-default">Send message</button>
-		<div class="loading-container"><div id="contact-sending-message"></div></div>
+		<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
 	</form>';
 }
 

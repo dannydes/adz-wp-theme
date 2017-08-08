@@ -6,7 +6,7 @@
 			return false;
 		}
 		
-		$( '#contact-sending-message' ).addClass( 'loading' );
+		$( '#contact-sending-message' ).addClass( 'fa-spinner fa-spin' );
 		
 		$.post( ecologie.ajax_url, {
 			'action': 'contact_us',
@@ -17,7 +17,7 @@
 			'forward-copy': $( '#contact-copy' ).is( ':checked' ),
 			'at': $( '#contact-at' ).val(),
 		}, function ( res ) {
-			$( '#contact-sending-message' ).removeClass( 'loading' );
+			$( '#contact-sending-message' ).removeClass( 'fa-spinner fa-spin' );
 			
 			var lines = res.split( '\n' );
 			var status = lines[lines.length - 1];
