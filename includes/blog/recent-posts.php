@@ -1,6 +1,6 @@
 <?php
 
-$query = new WP_Query( 'posts_per_page=' . get_theme_mod( 'recent_posts', $GLOBALS['ecologie_default_options']['recent_posts'] ) );
+$query = new WP_Query( 'posts_per_page=' . get_theme_mod_or_default( 'recent_posts' ) );
 
 ?>
 	<h2>Recent News</h2>

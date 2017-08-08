@@ -16,7 +16,7 @@ the_post();
 <?php endif; ?>
 <p>Filed under: <?php the_category( ' ' ); ?></p>
 <article <?php post_class(); ?>><?php the_content(); ?></article>
-<?php if ( get_theme_mod( 'add_this_enabled', $GLOBALS['ecologie_default_options']['add_this_enabled'] ) ): ?><div class="addthis_native_toolbox"></div><?php endif; ?>
+<?php if ( get_theme_mod_or_default( 'add_this_enabled' ) ): ?><div class="addthis_native_toolbox"></div><?php endif; ?>
 <div class="well">
 	<h2>About the author: <?php the_author_link(); ?></h2>
 	<div class="media">

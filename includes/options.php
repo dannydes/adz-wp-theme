@@ -1,9 +1,15 @@
 <?php
 
 /**
- * @global array $GLOBALS['ecologie_default_options'] Theme options' default values.
+ * Get theme mod or the default value for specified key.
+ *
+ * @since 0.9
+ *
+ * @param string $key Theme mod key.
+ * @return Theme mod or the default value for specified key.
  */
-$GLOBALS['ecologie_default_options'] = array(
+function get_theme_mod_or_default( $key ) {
+	$default = array(
 		'add_this_profile_id' => '',
 		'cta_block_text' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.',
 		'cta_block_btn_text' => 'Join us',
@@ -21,6 +27,9 @@ $GLOBALS['ecologie_default_options'] = array(
 		'contact_sc_smtp_host' => '',
 		'sidebar_on' => true,
 	);
+	
+	return get_theme_mod( $key, $default[$key] );
+}
 
 /**
  * Attach new controls to the site customizer.
