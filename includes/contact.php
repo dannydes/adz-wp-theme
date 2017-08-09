@@ -108,6 +108,8 @@ function ecologie_localize_contact_script( $script ) {
 /**
  * Adds [contact-us] button to TinyMCE editor.
  *
+ * @since 0.9
+ *
  * @params array $buttons Buttons belonging to the TinyMCE editor.
  * @return array Buttons to register to the TinyMCE editor.
  */
@@ -119,6 +121,8 @@ function ecologie_register_contact_us_tinymce_button( $buttons ) {
 /**
  * Loads the contact-us TinyMCE plugin.
  *
+ * @since 0.9
+ *
  * @params array $plugin_array List of TinyMCE plugins.
  * @return array Plugins to register to the TinyMCE editor.
  */
@@ -129,6 +133,9 @@ function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
 
 /**
  * Prepares for the registration the contact-us TinyMCE plugin.
+ *
+ * @since 0.9
+ *
  */
 function ecologie_register_contact_us_tinymce_plugin() {
 	if ( ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) ||
@@ -143,6 +150,12 @@ function ecologie_register_contact_us_tinymce_plugin() {
 if ( is_admin() ) {
 	add_action( 'init', 'ecologie_register_contact_us_tinymce_plugin' );
 }
+
+/**
+ * 
+ * @since 0.9 
+ * 
+ */
 
 /**
  * Authenticates our site with Google.
@@ -161,4 +174,5 @@ function google_auth() {
 	wp_redirect( 'https://accounts.google.com/o/oauth2/v2/auth?client_id=' . $client_id .
 		'&response_type=code&scope=openid%20email' );
 	exit;
+}
 }
