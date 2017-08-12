@@ -152,27 +152,27 @@ if ( is_admin() ) {
 }
 
 /**
- * 
+ * Gets the Google client ID for the theme.
+ *
  * @since 0.9 
- * 
+ *
+ * @return The Google client ID for the theme.
  */
+function ecologie_get_google_client_id() {
+	return '260323786335-qeqqbp3bd8l81d50lhtv68s6khm0f948.apps.googleusercontent.com';
+}
 
 /**
  * Authenticates our site with Google.
+ *
+ * @since 0.9
  */
-function google_auth() {
-	$client_id = '260323786335-qeqqbp3bd8l81d50lhtv68s6khm0f948.apps.googleusercontent.com';
-	
+function ecologie_google_auth_anti_forgery_token() {
 	$state = sha1( openssl_random_pseudo_bytes( 1024 ) );
 	$app['session']->set( 'state', $state );
-	$rendering = $app['twig']->render( 'index.html', array(
-		'CLIENT_ID' => $client_id,
+	return $app['twig']->render( 'index.html', array(
+		'CLIENT_ID' => get_google_client_id(),
 		'STATE' => $state,
 		'APPLICATION_NAME' => 'Ecologie Gmail Connect',
 	) );
-	
-	wp_redirect( 'https://accounts.google.com/o/oauth2/v2/auth?client_id=' . $client_id .
-		'&response_type=code&scope=openid%20email' );
-	exit;
-}
 }
