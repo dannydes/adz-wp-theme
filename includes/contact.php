@@ -80,12 +80,12 @@ add_action( 'wp_ajax_contact_us', 'ecologie_ajax_contact_us' );
  */
 function ecologie_setup_phpmailer( $phpmailer ) {
 	$phpmailer->isSMTP();
-	$phpmailer->Host = get_theme_mod_or_default( 'contact_sc_smtp_host' );
+	$phpmailer->Host = ecologie_get_theme_mod_or_default( 'contact_sc_smtp_host' );
 	$phpmailer->SMTPAuth = true;
-	$phpmailer->SMTPSecure = get_theme_mod_or_default( 'contact_sc_smtp_secure_conn_method' );
-	$phpmailer->Port = get_theme_mod_or_default( 'contact_sc_smtp_port' );
-	$phpmailer->Username = get_theme_mod_or_default( 'contact_sc_smtp_username' );
-	$phpmailer->Password = get_theme_mod_or_default( 'contact_sc_smtp_password' );
+	$phpmailer->SMTPSecure = ecologie_get_theme_mod_or_default( 'contact_sc_smtp_secure_conn_method' );
+	$phpmailer->Port = ecologie_get_theme_mod_or_default( 'contact_sc_smtp_port' );
+	$phpmailer->Username = ecologie_get_theme_mod_or_default( 'contact_sc_smtp_username' );
+	$phpmailer->Password = ecologie_get_theme_mod_or_default( 'contact_sc_smtp_password' );
 	
 	if ( production_mode_disabled() ) {
 		$phpmailer->SMTPDebug = 2;
@@ -163,9 +163,12 @@ function ecologie_get_google_client_id() {
 }
 
 /**
- * Authenticates our site with Google.
+ * Produces an anti-forgery token for Google authentication.
  *
  * @since 0.9
+ * @uses get_google_client_id()
+ *
+ * @return View with an embedded anti-forgery token for Google authentication.
  */
 function ecologie_google_auth_anti_forgery_token() {
 	$state = sha1( openssl_random_pseudo_bytes( 1024 ) );

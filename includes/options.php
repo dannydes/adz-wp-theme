@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Get theme mod or the default value for specified key.
+ * Gets theme mod or the default value for specified key.
  *
  * @since 0.9
  *
  * @param string $key Theme mod key.
  * @return Theme mod or the default value for specified key.
  */
-function get_theme_mod_or_default( $key ) {
+function ecologie_get_theme_mod_or_default( $key ) {
 	$default = array(
 		'add_this_profile_id' => '',
 		'cta_block_text' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.',
@@ -32,7 +32,7 @@ function get_theme_mod_or_default( $key ) {
 }
 
 /**
- * Attach new controls to the site customizer.
+ * Attaches new controls to the site customizer.
  *
  * @param object $wp_customize Instance of WP_Customize_Manager.
  */
@@ -214,7 +214,7 @@ function ecologie_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'ecologie_customize_register' );
 
 /**
- * Enqueue scripts to be used by customizer live preview.
+ * Enqueues scripts to be used by customizer live preview.
  */
 function ecologie_customizer_live_preview() {
 	wp_enqueue_script( 'theme-customize',
