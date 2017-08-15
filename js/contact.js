@@ -2,9 +2,6 @@
 	'use strict';
 	
 	$( '#contact-us' ).submit(function () {
-		if ( $( '#contact-hidden' ).val() !== '' ) {
-			return false;
-		}
 		
 		$( '#contact-sending-message' ).addClass( 'fa-spinner fa-spin' );
 		

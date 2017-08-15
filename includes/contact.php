@@ -3,10 +3,14 @@
 /**
  * Translates the [contact-us] shortcode into HTML.
  *
+ * @uses ecologie_generate_arithmetic_captcha()
+ *
  * @param array $atts Shortcode attributes.
  * @return string Shortcode HTML output.
  */
 function contact_us_shortcode( $atts ) {
+	$arithmetic_captcha = ecologie_generate_arithmetic_captcha();
+	
 	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
 	'<form id="contact-us" action="#" method="post">
 		<strong><span class="required label label-default">*</span> Asterisks denote required field.</strong>
@@ -29,10 +33,14 @@ function contact_us_shortcode( $atts ) {
 		<div class="checkbox">
 			<label for="contact-copy"><input type="checkbox" id="contact-copy"> Send me a copy</label>
 		</div>
-		<input type="hidden" id="contact-hidden" name="hidden">
+		<div class="form-inline">
+			<label for="contact-arithmetic-captcha">' . $arithmetic_captcha . ' = <span class="required label label-default">*</span></label>
+			<input type="text" class="form-control" id="contact-arithmetic-captcha" name="arithmetic-captcha" placeholder="Your answer" required aria-required="true"></textarea>
+		</div>
+		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">
 		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
 		<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
-	</form>';
+	</form>'.var_dump(eval('return ' . $arithmetic_captcha . ';'));
 }
 
 add_shortcode( 'contact-us', 'contact_us_shortcode' );
@@ -41,8 +49,12 @@ add_shortcode( 'contact-us', 'contact_us_shortcode' );
  * Handles AJAX request coming from contact form submission.
  */
 function ecologie_ajax_contact_us() {
-	if ( ! empty( $_POST['hidden'] ) || empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
+	if ( empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
 		wp_die( 'Name, email and message may not be left empty.' );
+	}
+	
+	if ( ! ecologie_validate_arithmetic_captcha_answer( $_POST['hidden-arithmetic-captcha'], $_POST['arithmetic-captcha'] ) ) {
+		wp_die( __( 'Incorrect answer to arithmetic CAPTCHA.', 'ecologie' ) );
 	}
 	
 	if ( ! is_email( $_POST['email'] ) || ! is_email( $_POST['at'] ) ) {
@@ -178,4 +190,47 @@ function ecologie_google_auth_anti_forgery_token() {
 		'STATE' => $state,
 		'APPLICATION_NAME' => 'Ecologie Gmail Connect',
 	) );
+}
+
+/**
+ * Generates a random arithmetic CAPTCHA.
+ *
+ * @since 0.9
+ *
+ * @return Arithmetic CAPTCHA.
+ */
+function ecologie_generate_arithmetic_captcha() {
+	$n1 = rand( 1, 9 );
+	$n2 = rand( 1, 9 );
+	$operand = rand( 1, 4 );
+	
+	switch ( $operand ) {
+		case 1:
+			$operand_str = '+';
+			break;
+		case 2:
+			$operand_str = '-';
+			break;
+		case 3:
+			$operand_str = '*';
+			break;
+		case 4:
+			$operand_str = '/';
+			break;
+	}
+	
+	return $n1 . ' ' . $operand_str . ' ' . $n2;
+}
+
+/**
+ * Validates answer to arithmetic CAPTCHA against hidden CAPTCHA field value.
+ *
+ * @since 0.9
+ *
+ * @param string $sum CAPTCHA sum to be worked out.
+ * @param string $answer Answer to CAPTCHA.
+ * @return Flag representing validity of CAPTCHA answer.
+ */
+function ecologie_validate_arithmetic_captcha_answer( $sum, $answer ) {var_dump($sum, $answer);
+	return eval( 'return ' . $sum . ';' ) === intval( $answer );
 }
