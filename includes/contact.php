@@ -35,9 +35,9 @@ function contact_us_shortcode( $atts ) {
 		</div>
 		<div class="form-inline">
 			<label for="contact-arithmetic-captcha">' . $arithmetic_captcha . ' = <span class="required label label-default">*</span></label>
-			<input type="text" class="form-control" id="contact-arithmetic-captcha" name="arithmetic-captcha" placeholder="Your answer" required aria-required="true"></textarea>
+			<input type="text" class="form-control" id="contact-arithmetic-captcha" name="arithmetic_captcha" placeholder="Your answer" required aria-required="true"></textarea>
 		</div>
-		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">
+		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden_arithmetic_captcha" value="' . $arithmetic_captcha . '">
 		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
 		<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
 	</form>'.var_dump(eval('return ' . $arithmetic_captcha . ';'));
@@ -50,15 +50,15 @@ add_shortcode( 'contact-us', 'contact_us_shortcode' );
  */
 function ecologie_ajax_contact_us() {
 	if ( empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
-		wp_die( 'Name, email and message may not be left empty.' );
+		wp_die( __( 'Name, email and message may not be left empty.', 'ecologie' ) );
 	}
 	
-	if ( ! ecologie_validate_arithmetic_captcha_answer( $_POST['hidden-arithmetic-captcha'], $_POST['arithmetic-captcha'] ) ) {
+	if ( ! ecologie_validate_arithmetic_captcha_answer( $_POST['hidden_arithmetic_captcha'], $_POST['arithmetic_captcha'] ) ) {
 		wp_die( __( 'Incorrect answer to arithmetic CAPTCHA.', 'ecologie' ) );
 	}
 	
 	if ( ! is_email( $_POST['email'] ) || ! is_email( $_POST['at'] ) ) {
-		wp_die( 'The email you entered looks invalid. Please check its format and try again.' );
+		wp_die( __( 'The email you entered looks invalid. Please check its format and try again.', 'ecologie' ) );
 	}
 	
 	$from = 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
@@ -79,7 +79,7 @@ function ecologie_ajax_contact_us() {
 		wp_die( 1 );
 	}
 	
-	wp_die( 'Email failed!' );
+	wp_die( __( 'Email failed!', 'ecologie' ) );
 }
 
 add_action( 'wp_ajax_nopriv_contact_us', 'ecologie_ajax_contact_us' );
