@@ -52,12 +52,15 @@ settings:
   - Header image Electoral Manifesto URL
 * Footer
   - Text to add to copyright notice
+  - Enable copyright notice
 * Contact Shortcode
+  - Contact Email Connection Method
   - SMTP Host
   - SMTP Secure Connection Method
   - SMTP Port
   - SMTP Username
   - SMTP Password
+  - Authenticate with Gmail.
 * Sidebar
   - Enable sidebar
 * Production Mode (only shows up in `` localhost `` environments)
