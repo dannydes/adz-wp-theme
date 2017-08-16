@@ -7,6 +7,8 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 * [Menus](#menus "Menus")
   - [Primary Menu](#primary-menu "Primary Menu")
   - [Footer Bottom Menu](#footer-bottom-menu "Footer Bottom Menu")
+* [Custom Header Image](#custom-header-image "Custom Header Image")
+* [Custom Logo](#custom-logo "Custom Logo")
 * [Customiser Settings](#customiser-settings "Customiser Settings")
 * [Widgets](#widgets "Widgets")
   - [Contact](#contact "Contact")
@@ -32,6 +34,14 @@ automatically added to right of this menu.
 The menu at the bottom. Only accepts a single-level menu.
 
 ![Footer Menu](https://github.com/dannydes/ecologie/raw/master/screenshots/menus/footer-menu.png "Footer Menu")
+
+## Custom Header Image
+The header image is customisable through the standard Wordpress UI. In order to change it, click 
+`` Apperance > Header `` and follow instructions.
+
+## Custom Logo
+The site logo is customisable through the standard Wordpress UI. In order to change it, click 
+`` Appearance > Customizer > Site Identity `` and follow instructions in the logo section.
 
 ## Customiser Settings
 These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``. Theme offers the following 
