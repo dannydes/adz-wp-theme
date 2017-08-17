@@ -31,13 +31,13 @@ function contact_us_shortcode( $atts ) {
 			<textarea class="form-control" id="contact-message" name="message" placeholder="Your message" required aria-required="true"></textarea>
 		</div>
 		<div class="checkbox">
-			<label for="contact-copy"><input type="checkbox" id="contact-copy"> Send me a copy</label>
+			<label for="contact-copy"><input type="checkbox" id="contact-copy" name="forward-copy" value="on"> Send me a copy</label>
 		</div>
 		<div class="form-inline">
 			<label for="contact-arithmetic-captcha">' . $arithmetic_captcha . ' = <span class="required label label-default">*</span></label>
-			<input type="text" class="form-control" id="contact-arithmetic-captcha" name="arithmetic_captcha" placeholder="Your answer" required aria-required="true"></textarea>
+			<input type="text" class="form-control" id="contact-arithmetic-captcha" name="captcha-answer" placeholder="Your answer" required aria-required="true"></textarea>
 		</div>
-		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden_arithmetic_captcha" value="' . $arithmetic_captcha . '">
+		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">
 		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
 		<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
 	</form>';
@@ -67,7 +67,7 @@ function ecologie_ajax_contact_us() {
 		$from,
 	);
 	
-	if ( $_POST['forward-copy'] === 'true' ) {
+	if ( $_POST['forward-copy'] === 'on' ) {
 		$headers[] = 'Cc: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
 	}
 	

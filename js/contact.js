@@ -5,17 +5,7 @@
 		
 		$( '#contact-sending-message' ).addClass( 'fa-spinner fa-spin' );
 		
-		$.post( ecologie.ajax_url, {
-			'action': 'contact_us',
-			'name': $( '#contact-name' ).val(),
-			'email': $( '#contact-email' ).val(),
-			'subject': $( '#contact-subject' ).val(),
-			'message': $( '#contact-message' ).val(),
-			'forward-copy': $( '#contact-copy' ).is( ':checked' ),
-			'at': $( '#contact-at' ).val(),
-			'captcha-answer': $( '#contact-arithmetic-captcha' ).val(),
-			'hidden-arithmetic-captcha': $( '#contact-hidden-arithmetic-captcha' ).val(),
-		}, function ( res ) {
+		$.post( ecologie.ajax_url, $( this ).serialize() + '&action=contact_us', function ( res ) {
 			$( '#contact-sending-message' ).removeClass( 'fa-spinner fa-spin' );
 			
 			var lines = res.split( '\n' );
