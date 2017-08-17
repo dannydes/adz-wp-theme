@@ -13,6 +13,8 @@
 			'message': $( '#contact-message' ).val(),
 			'forward-copy': $( '#contact-copy' ).is( ':checked' ),
 			'at': $( '#contact-at' ).val(),
+			'captcha-answer': $( '#contact-arithmetic-captcha' ).val(),
+			'hidden-arithmetic-captcha': $( '#contact-hidden-arithmetic-captcha' ).val(),
 		}, function ( res ) {
 			$( '#contact-sending-message' ).removeClass( 'fa-spinner fa-spin' );
 			

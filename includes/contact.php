@@ -40,7 +40,7 @@ function contact_us_shortcode( $atts ) {
 		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden_arithmetic_captcha" value="' . $arithmetic_captcha . '">
 		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
 		<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
-	</form>'.var_dump(eval('return ' . $arithmetic_captcha . ';'));
+	</form>';
 }
 
 add_shortcode( 'contact-us', 'contact_us_shortcode' );
@@ -53,7 +53,7 @@ function ecologie_ajax_contact_us() {
 		wp_die( __( 'Name, email and message may not be left empty.', 'ecologie' ) );
 	}
 	
-	if ( ! ecologie_validate_arithmetic_captcha_answer( $_POST['hidden_arithmetic_captcha'], $_POST['arithmetic_captcha'] ) ) {
+	if ( ! ecologie_validate_arithmetic_captcha_answer() ) {
 		wp_die( __( 'Incorrect answer to arithmetic CAPTCHA.', 'ecologie' ) );
 	}
 	
@@ -202,7 +202,7 @@ function ecologie_google_auth_anti_forgery_token() {
 function ecologie_generate_arithmetic_captcha() {
 	$n1 = rand( 1, 9 );
 	$n2 = rand( 1, 9 );
-	$operand = rand( 1, 4 );
+	$operand = rand( 1, 3 );
 	
 	switch ( $operand ) {
 		case 1:
@@ -214,9 +214,6 @@ function ecologie_generate_arithmetic_captcha() {
 		case 3:
 			$operand_str = '*';
 			break;
-		case 4:
-			$operand_str = '/';
-			break;
 	}
 	
 	return $n1 . ' ' . $operand_str . ' ' . $n2;
@@ -227,10 +224,8 @@ function ecologie_generate_arithmetic_captcha() {
  *
  * @since 0.9
  *
- * @param string $sum CAPTCHA sum to be worked out.
- * @param string $answer Answer to CAPTCHA.
  * @return Flag representing validity of CAPTCHA answer.
  */
-function ecologie_validate_arithmetic_captcha_answer( $sum, $answer ) {var_dump($sum, $answer);
-	return eval( 'return ' . $sum . ';' ) === intval( $answer );
+function ecologie_validate_arithmetic_captcha_answer() {
+	return eval( 'return ' . $_POST['hidden-arithmetic-captcha'] . ';' ) === intval( $_POST['captcha-answer'] );
 }
