@@ -227,5 +227,6 @@ function ecologie_generate_arithmetic_captcha() {
  * @return Flag representing validity of CAPTCHA answer.
  */
 function ecologie_validate_arithmetic_captcha_answer() {
-	return eval( 'return ' . $_POST['hidden-arithmetic-captcha'] . ';' ) === intval( $_POST['captcha-answer'] );
+	$arithmetic_captcha = $_POST['hidden-arithmetic-captcha'];
+	return strlen( $arithmetic_captcha ) === 5 && eval( 'return ' . $arithmetic_captcha . ';' ) === intval( $_POST['captcha-answer'] );
 }
