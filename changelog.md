@@ -1,3 +1,37 @@
+# 0.9 ([Release Date])
+
+* Header: Option to enable/disable
+* Blog pagination: Pagination now reflecting specified number of blog posts per page
+* Sidebar: Option to enable/disable
+* Sidebar: Clicking the toggling button no longer hashes the URL
+* Contact Shortcode: Button to generate shortcode in editor
+* Contact Shortcode: HTML required/aria-required being used for client-side validation
+* Contact Shortcode: Simple arithmetic CAPTCHA
+* Contact Shortcode: Throbber while awaiting response
+* Contact Shortcode: Quite alerts replacing dialogs on success/error
+* Contact Shortcode: Email validation
+* Blog post comments: HTML required/aria-required being used for client-side validation
+* Blog post comments: Indentation for replies up to level 5
+* Footer: Changed copyright message
+* Footer: Option to enable/disable copyright message
+* Widgets: Backend validation errors are now displayed
+* Social Buttons Widget: Added Github
+* Social Buttons Widget: Added aria support
+* Social Buttons Widget: Vertical spacing
+* Social Buttons Widget: URL inputs on the backend swapped for username inputs
+* Upcoming Event Widget: Fixed a lot of date/time issues
+* Upcoming Event Widget: More info URL validation
+* Contact Widget: Added address lines and phone country code fields at backend
+* Contact Widget: Email validation
+* Mailchimp Subscribe Widget: Option to enter User and Form ID via embed HTML
+* AddThis sharing buttons: Profile ID setting in place of script URL setting
+* Notice in menu header when Development Mode is enabled
+* General code cleanup, reorganisation, refactoring and documentation updates
+
+## Known Issues
+
+* Due to a conflict with Bootstrap.js & jQuery, the Mailchimp script has been removed resulting in no front-end interaction
+
 # 0.8.4
 
 * Supplied default header image
