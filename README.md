@@ -10,6 +10,36 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 * [Custom Header Image](#custom-header-image "Custom Header Image")
 * [Custom Logo](#custom-logo "Custom Logo")
 * [Customiser Settings](#customiser-settings "Customiser Settings")
+  - [Home Call to Action Block](#home-call-to-action-block "Home Call to Action Block")
+    - [Call to Action Text](#call-to-action-text "Call to Action Text")
+    - [Call to Action Button Text](#call-to-action-button-text "Call to Action Button Text")
+    - [Call to Action Button URL](#call-to-action-button-url "Call to Action Button URL")
+  - [AddThis Social Sharing Tool](#addthis-social-sharing-tool "AddThis Social Sharing Tool")
+    - [AddThis Profile ID](#addthis-profile-id "AddThis Profile ID")
+    - [Enable AddThis sharing buttons](#enable-addthis-sharing-buttons "Enable AddThis sharing buttons")
+  - [Blog](#blog "Blog")
+    
+  - [Header](#header "Header")
+        Enable header
+        Enable header image text
+        Header image text
+        Header image Electoral Manifesto URL
+  - [Footer](#footer "Footer")
+        Text to add to copyright notice
+        Enable copyright notice
+  - [Contact Shortcode](#contact-shortcode "Contact Shortcode")
+        Contact Email Connection Method
+        SMTP Host
+        SMTP Secure Connection Method
+        SMTP Port
+        SMTP Username
+        SMTP Password
+        Authenticate with Gmail.
+  - [Sidebar](#sidebar "Sidebar")
+        Enable sidebar
+  - [Production Mode](#production-mode "Production Mode")
+        Enable Production Mode
+
 * [Widgets](#widgets "Widgets")
   - [Contact](#contact "Contact")
   - [Mailchimp Subscribe](#mailchimp-subscribe "Mailchimp Subscribe")
@@ -44,37 +74,99 @@ The site logo is customisable through the standard Wordpress UI. In order to cha
 `` Appearance > Customizer > Site Identity `` and follow instructions in the logo section.
 
 ## Customiser Settings
-These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``. Theme offers the following 
-settings:
-* Home Call to Action Block
-  - Call to Action Text
-  - Call to Action Button Text
-  - Call to Action Button URL
-* AddThis Social Sharing Tool
-  - AddThis Profile ID
-  - Enable AddThis sharing buttons
-* Blog
-  - Blog posts per page
-* Header
-  - Enable header
-  - Enable header image text
-  - Header image text
-  - Header image Electoral Manifesto URL
-* Footer
-  - Text to add to copyright notice
-  - Enable copyright notice
-* Contact Shortcode
-  - Contact Email Connection Method
-  - SMTP Host
-  - SMTP Secure Connection Method
-  - SMTP Port
-  - SMTP Username
-  - SMTP Password
-  - Authenticate with Gmail.
-* Sidebar
-  - Enable sidebar
-* Production Mode (only shows up in `` localhost `` environments)
-  - Enable Production Mode
+These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``.
+
+## Home Call to Action Block
+This section contains settings related to the call-to-action in the front page.
+
+### Call to Action Text
+Paragraph to display in the call-to-action.
+
+## Call to Action Button Text
+Call-to-action button caption.
+
+## Call to Action Button URL
+Call-to-action button link URL.
+
+## AddThis Social Sharing Tool
+This section contains settings related to AddThis social sharing in blog posts.
+
+### AddThis Profile ID
+Profile ID of AddThis account to integrate.
+
+### Enable AddThis sharing buttons
+Enable/disable AddThis sharing.
+
+## Blog
+This section contains settings related to the blog.
+
+### Number of recent posts
+Number of recent posts to display on front page.
+
+## Header
+This section contains settings related to the header.
+
+### Enable header
+Enable/disable header.
+
+### Enable header image text
+Show/hide text to display on header image.
+
+### Header image text
+Paragraph to be displayed upon header image.
+
+### Header image Electoral Manifesto URL
+URL for the Electoral Manifesto link displayed upon header image.
+
+## Footer
+This section contains settings related to the footer.
+
+### Text to add to copyright notice
+Text to be displayed near the copyright notice in the footer.
+
+### Enable copyright notice
+Show/hide copyright notice.
+
+## Contact Shortcode
+This section contains settings related to the Contact shortcode.
+
+### Contact Email Connection Method
+Whether you would like emails to be send through SMTP or the Gmail API. In case you'll be attaching a Gmail account, the latter 
+is recommended.
+
+### SMTP Host
+Internet address of your SMTP host of choice.
+
+### SMTP Secure Connection Method
+Secure connection method of your preference or provided by your SMTP host of choice.
+
+### SMTP Port
+Port accessible at your SMTP host of choice.
+
+### SMTP Username
+SMTP username for your organisation's email account.
+
+### SMTP Password
+SMTP password for your organisation's email account.
+
+### Authenticate with Gmail.
+Link to Google authentication for your contact forms.
+
+## Sidebar
+This section contains settings related to the sidebar.
+
+### Enable sidebar
+Enable/disable sidebar.
+
+## Production Mode
+This section only shows up in `` localhost `` environments and contains settings to ease theme development. If you see this on 
+your site's backend, then it's probably a bug.
+
+### Enable Production Mode
+Toggle between production mode (when enabled) and development mode (when disabled). When disabled and consequently development 
+mode is on, you should see a notice in the front-end menu header. When development mode is on, you should be able to debug 
+the theme's development JavaScript files and view debug information about contact form shortcode requests from your browser's 
+dev tools network panel.
 
 ## Widgets
 ### Contact
