@@ -26,6 +26,7 @@
 * Mailchimp Subscribe Widget: Option to enter User and Form ID via embed HTML
 * AddThis sharing buttons: Profile ID setting in place of script URL setting
 * Notice in menu header when Development Mode is enabled
+* Notice for first-time visitors about cookie storage
 * General code cleanup, reorganisation, refactoring and documentation updates
 
 ## Known Issues
