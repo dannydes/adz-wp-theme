@@ -18,27 +18,27 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
     - [AddThis Profile ID](#addthis-profile-id "AddThis Profile ID")
     - [Enable AddThis sharing buttons](#enable-addthis-sharing-buttons "Enable AddThis sharing buttons")
   - [Blog](#blog "Blog")
-    
+    - [Number of recent posts](#number-of-recent-posts "Number of recent posts")
   - [Header](#header "Header")
-        Enable header
-        Enable header image text
-        Header image text
-        Header image Electoral Manifesto URL
+    - [Enable header](#enable-header "Enable header")
+    - [Enable header image text](#enable-header-image-text "Enable header image text")
+    - [Header image text](#header-image-text "Header image text")
+    - [Header image Electoral Manifesto URL](#header-image-electoral-manifesto-url "Header image Electoral Manifesto URL")
   - [Footer](#footer "Footer")
-        Text to add to copyright notice
-        Enable copyright notice
+    - [Text to add to copyright notice](#text-to-add-to-copyright-notice "Text to add to copyright notice")
+    - [Enable copyright notice](#enable-copyright-notice "Enable copyright notice")
   - [Contact Shortcode](#contact-shortcode "Contact Shortcode")
-        Contact Email Connection Method
-        SMTP Host
-        SMTP Secure Connection Method
-        SMTP Port
-        SMTP Username
-        SMTP Password
-        Authenticate with Gmail.
+    - [Contact Email Connection Method](#contact-email-connection-method "Contact Email Connection Method")
+    - [SMTP Host](#smtp-host "SMTP Host")
+    - [SMTP Secure Connection Method](#smtp-secure-connection-method "SMTP Secure Connection Method")
+    - [SMTP Port](#smtp-port "SMTP Port")
+    - [SMTP Username](#smtp-username "SMTP Username")
+    - [SMTP Password](#smtp-password "SMTP Password")
+    - [Authenticate with Gmail.](#authenticate-with-gmail "Authenticate with Gmail.")
   - [Sidebar](#sidebar "Sidebar")
-        Enable sidebar
+    - [Enable sidebar](#enable-sidebar "Enable sidebar")
   - [Production Mode](#production-mode "Production Mode")
-        Enable Production Mode
+    - [Enable Production Mode](#enable-production-mode "Enable Production Mode")
 
 * [Widgets](#widgets "Widgets")
   - [Contact](#contact "Contact")
