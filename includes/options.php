@@ -43,67 +43,79 @@ function ecologie_customize_register( $wp_customize ) {
 		array( 'cta_block_text', array(
 			'type' => 'text',
 			'label' => __( 'Call to Action Text', 'ecologie' ),
+			'description' => __( 'Paragraph to display in the call-to-action.', 'ecologie' ),
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'cta_block_btn_text', array(
 			'type' => 'text',
 			'label' => __( 'Call to Action Button Text', 'ecologie' ),
+			'description' => __( 'Call-to-action button caption.', 'ecologie' ),
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'cta_block_btn_url', array(
 			'type' => 'url',
 			'label' => __( 'Call to Action Button URL', 'ecologie' ),
+			'description' => __( 'Call-to-action button link URL.', 'ecologie' ),
 			'section' => 'cta_block',
 		), 'postMessage' ),
 		array( 'add_this_profile_id', array(
 			'type' => 'text',
 			'label' => __( 'AddThis Profile ID', 'ecologie' ),
+			'description' => __( 'Profile ID of AddThis account to integrate.', 'ecologie' ),
 			'section' => 'add_this',
-			'description' => __( 'Enter the <b>Profile ID</b> given by AddThis.', 'ecologie' ),
 		), 'refresh' ),
 		array( 'add_this_enabled', array(
 			'type' => 'checkbox',
 			'label' => __( 'Enable AddThis sharing buttons', 'ecologie' ),
+			'description' => __( 'Enable/disable AddThis sharing.', 'ecologie' ),
 			'section' => 'add_this',
 		), 'refresh' ),
 		array( 'recent_posts', array(
 			'type' => 'number',
 			'label' => __( 'Number of recent posts', 'ecologie' ),
+			'description' => __( 'Number of recent posts to display on front page.', 'ecologie' ),
 			'section' => 'blog',
 		), 'postMessage' ),
 		array( 'copyright_text_addition', array(
 			'type' => 'text',
 			'label' => __( 'Text to add to copyright notice', 'ecologie' ),
+			'description' => __( 'Text to be displayed near the copyright notice in the footer.', 'ecologie' ),
 			'section' => 'footer',
 		), 'postMessage' ),
 		array( 'copyright_text_on', array(
 			'type' => 'checkbox',
 			'label' => __( 'Enable copyright notice', 'ecologie' ),
+			'description' => __( 'Show/hide copyright notice.', 'ecologie' ),
 			'section' => 'footer',
 		), 'refresh' ),
 		array( 'header_on', array(
 			'type' => 'checkbox',
 			'label' => __( 'Enable header', 'ecologie' ),
+			'description' => __( 'Enable/disable header.', 'ecologie' ),
 			'section' => 'header',
 		), 'refresh' ),
 		array( 'header_image_text_on', array(
 			'type' => 'checkbox',
 			'label' => __( 'Enable header image text', 'ecologie' ),
+			'description' => __( 'Show/hide text to display on header image.', 'ecologie' ),
 			'section' => 'header',
 		), 'refresh' ),
 		array( 'header_image_text', array(
 			'type' => 'text',
 			'label' => __( 'Header image text', 'ecologie' ),
+			'description' => __( 'Paragraph to be displayed upon header image.', 'ecologie' ),
 			'section' => 'header',
 		), 'postMessage' ),
 		array( 'header_image_manifesto', array(
 			'type' => 'text',
 			'label' => __( 'Header image Electoral Manifesto URL', 'ecologie' ),
+			'description' => __( 'URL for the Electoral Manifesto link displayed upon header image.', 'ecologie' ),
 			'section' => 'header',
 		), 'postMessage' ),
 		array( 'contact_sc_conn_method', array(
 			'type' => 'radio',
 			'label' => __( 'Contact Email Connection Method', 'ecologie' ),
+			'description' => __( 'Whether you would like emails to be send through SMTP or the Gmail API. In case you\'ll be attaching a Gmail account, the latter is recommended.', 'ecologie' ),
 			'section' => 'contact_shortcode',
 			'choices' => array(
 				'smtp' => __( 'SMTP (Simple Mail Transfer Protocol)', 'ecologie' ),
@@ -113,26 +125,31 @@ function ecologie_customize_register( $wp_customize ) {
 		array( 'contact_sc_smtp_host', array(
 			'type' => 'text',
 			'label' => __( 'SMTP Host', 'ecologie' ),
+			'description' => __( 'Internet address of your SMTP host of choice.', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_secure_conn_method', array(
 			'type' => 'text',
 			'label' => __( 'SMTP Secure Connection Method', 'ecologie' ),
+			'description' => __( 'Secure connection method of your preference or provided by your SMTP host of choice.', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_port', array(
 			'type' => 'text',
 			'label' => __( 'SMTP Port', 'ecologie' ),
+			'description' => __( 'Port accessible at your SMTP host of choice.', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_username', array(
 			'type' => 'text',
 			'label' => __( 'SMTP Username', 'ecologie' ),
+			'description' => __( 'SMTP username for your organisation\'s email account.', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_password', array(
 			'type' => 'password',
 			'label' => __( 'SMTP Password', 'ecologie' ),
+			'description' => __( 'SMTP password for your organisation\'s email account.', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_gmail_auth', array(
@@ -144,6 +161,7 @@ function ecologie_customize_register( $wp_customize ) {
 		array( 'sidebar_on', array(
 			'type' => 'checkbox',
 			'label' => __( 'Enable sidebar', 'ecologie' ),
+			'description' => __( 'Enable/disable sidebar.', 'ecologie' ),
 			'section' => 'sidebar',
 		), 'refresh' ),
 	);
@@ -155,43 +173,43 @@ function ecologie_customize_register( $wp_customize ) {
 	
 	$wp_customize->add_section( 'cta_block', array(
 		'title' => __( 'Home Call to Action Block', 'ecologie' ),
-		'description' => __( 'Configures the appearance of the home\'s call-to-action block.', 'ecologie' ),
+		'description' => __( 'This section contains settings related to the call-to-action in the front page.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'add_this', array(
 		'title' => __( 'AddThis Social Sharing Tool', 'ecologie' ),
-		'description' => __( 'Configures the AddThis tool.', 'ecologie' ),
+		'description' => __( 'This section contains settings related to AddThis social sharing in blog posts.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'blog', array(
 		'title' => __( 'Blog', 'ecologie' ),
-		'description' => __( 'Configures blog.', 'ecologie' ),
+		'description' => __( 'This section contains settings related to the blog.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'header', array(
 		'title' => __( 'Header', 'ecologie' ),
-		'description' => __( 'Configures header image.', 'ecologie' ),
+		'description' => __( 'This section contains settings related to the header.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'footer', array(
 		'title' => __( 'Footer', 'ecologie' ),
-		'description' => __( 'Configures footer.', 'ecologie' ),
+		'description' => __( 'This section contains settings related to the footer.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'contact_shortcode', array(
 		'title' => __( 'Contact Shortcode', 'ecologie' ),
-		'description' => __( 'Configures contact shortcode.', 'ecologie' ),
+		'description' => __( 'This section contains settings related to the Contact shortcode.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'sidebar', array(
 		'title' => __( 'Sidebar', 'ecologie' ),
-		'description' => __( 'Configures sidebar.', 'ecologie' ),
+		'description' => __( 'This section contains settings related to the sidebar.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	

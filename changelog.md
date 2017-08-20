@@ -27,6 +27,7 @@
 * AddThis sharing buttons: Profile ID setting in place of script URL setting
 * Notice in menu header when Development Mode is enabled
 * Notice for first-time visitors about cookie storage
+* Customiser: Description for [nearly] every setting
 * General code cleanup, reorganisation, refactoring and documentation updates
 
 ## Known Issues
