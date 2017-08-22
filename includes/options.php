@@ -1,6 +1,28 @@
 <?php
 
 /**
+ * @global $default Default setting values.
+ */
+$default = array(
+	'add_this_profile_id' => '',
+	'cta_block_text' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.',
+	'cta_block_btn_text' => 'Join us',
+	'cta_block_btn_url' => '#',
+	'add_this_enabled' => true,
+	'recent_posts' => 5,
+	'copyright_text_addition' => '',
+	'copyright_text_on' => true,
+	'header_on' => true,
+	'header_image_text_on' => true,
+	'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
+	'header_image_manifesto' => '',
+	'contact_sc_smtp_username' => '',
+	'contact_sc_smtp_password' => '',
+	'contact_sc_smtp_host' => '',
+	'sidebar_on' => true,
+);
+
+/**
  * Gets theme mod or the default value for specified key.
  *
  * @since 0.9
@@ -9,25 +31,7 @@
  * @return Theme mod or the default value for specified key.
  */
 function ecologie_get_theme_mod_or_default( $key ) {
-	$default = array(
-		'add_this_profile_id' => '',
-		'cta_block_text' => 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.',
-		'cta_block_btn_text' => 'Join us',
-		'cta_block_btn_url' => '#',
-		'add_this_enabled' => true,
-		'recent_posts' => 5,
-		'copyright_text_addition' => '',
-		'copyright_text_on' => true,
-		'header_on' => true,
-		'header_image_text_on' => true,
-		'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
-		'header_image_manifesto' => '',
-		'contact_sc_smtp_username' => '',
-		'contact_sc_smtp_password' => '',
-		'contact_sc_smtp_host' => '',
-		'sidebar_on' => true,
-	);
-	
+	global $default;
 	return get_theme_mod( $key, $default[$key] );
 }
 
