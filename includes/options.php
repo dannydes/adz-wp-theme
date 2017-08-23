@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @since 0.9
  * @global $default Default setting values.
  */
 $default = array(
@@ -41,8 +42,6 @@ function ecologie_get_theme_mod_or_default( $key ) {
  * @param object $wp_customize Instance of WP_Customize_Manager.
  */
 function ecologie_customize_register( $wp_customize ) {
-	$defaults = $GLOBALS['ecologie_default_options'];
-	
 	$settings = array(
 		array( 'cta_block_text', array(
 			'type' => 'text',
@@ -221,11 +220,12 @@ function ecologie_customize_register( $wp_customize ) {
 		add_production_mode_setting( $wp_customize );
 	}
 	
+	global $default;
 	foreach ( $settings as $setting ) {
 		$wp_customize->add_setting( $setting[0], array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' => $defaults[$setting[0]],
+			'default' => $default[$setting[0]],
 			'transport' => $setting[2],
 		) );
 		
