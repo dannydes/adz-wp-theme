@@ -15,6 +15,7 @@
 * Footer: Changed copyright message
 * Footer: Option to enable/disable copyright message
 * Widgets: Backend validation errors are now displayed
+* Widgets: Backend fields now have the standard look and feel
 * Social Buttons Widget: Added Github
 * Social Buttons Widget: Added aria support
 * Social Buttons Widget: Vertical spacing
