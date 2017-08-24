@@ -17,6 +17,7 @@ $default = array(
 	'header_image_text_on' => true,
 	'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
 	'header_image_manifesto' => '',
+	'contact_sc_conn_method' => 'smtp',
 	'contact_sc_smtp_username' => '',
 	'contact_sc_smtp_password' => '',
 	'contact_sc_smtp_host' => '',
