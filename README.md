@@ -99,7 +99,7 @@ Call-to-action button link URL.
 ## AddThis Social Sharing Tool
 This section contains settings related to AddThis social sharing in blog posts.
 
-![AddThis Social Sharing Tool](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/addthis-social-sharing.png "AddThis Social Sharing Tool)
+![AddThis Social Sharing Tool](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/addthis-social-sharing.png "AddThis Social Sharing Tool")
 
 ### AddThis Profile ID
 Profile ID of AddThis account to integrate.
