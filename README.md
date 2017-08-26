@@ -49,6 +49,7 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 * [Shortcodes](#shortcodes "Shortcodes")
   - [Contact Us](#contact-us "Contact Us")
 * [Links (Blogroll)](#links-blogroll "Links (Blogroll)")
+* [Uninstall](#uninstall "Uninstall")
 
 ## Menus
 The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
@@ -292,3 +293,19 @@ Please note, that currently only a single **Contact Us** form per page may be ac
 
 ## Links (Blogroll)
 The theme enables Wordpress's Links feature. For information about how to utilise it, [read here.](https://codex.wordpress.org/Links_Manager "Links (Blogroll)")
+
+## Uninstall
+In order to uninstall Ecologie follow the official instructions on how to [manage themes.](https://codex.wordpress.org/Appearance_Themes_Screen#Manage_Themes "Manage themes")
+
+However, deleting Ecologie does not remove the entries that the theme creates in the wp-options table. To remove ths data, 
+launch your favourite MYSQL shell (such as PHPMyAdmin), select the database connected to your site and run the following query:
+
+```sql
+
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_contact_widget';
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_social_widget';
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_upcoming_event_widget';
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_mailchimp_subscribe_widget';
+DELETE FROM wp-options WHERE option_name = 'theme_mods_ecologie';
+
+```
