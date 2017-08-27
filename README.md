@@ -49,6 +49,7 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 * [Shortcodes](#shortcodes "Shortcodes")
   - [Contact Us](#contact-us "Contact Us")
 * [Links (Blogroll)](#links-blogroll "Links (Blogroll)")
+* [Uninstall](#uninstall "Uninstall")
 
 ## Menus
 The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
@@ -79,17 +80,27 @@ These settings may be accessed by clicking `` Appearance > Customize > Ecologie 
 ## Home Call to Action Block
 This section contains settings related to the call-to-action in the front page.
 
+![Home Call to Action Block](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/home-cta-block.png "Home Call to Action Block")
+
 ### Call to Action Text
 Paragraph to display in the call-to-action.
+
+**Default value:** Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.
 
 ## Call to Action Button Text
 Call-to-action button caption.
 
+**Default value:** Join us
+
 ## Call to Action Button URL
 Call-to-action button link URL.
 
+**Default value:** #
+
 ## AddThis Social Sharing Tool
 This section contains settings related to AddThis social sharing in blog posts.
+
+![AddThis Social Sharing Tool](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/addthis-social-sharing.png "AddThis Social Sharing Tool")
 
 ### AddThis Profile ID
 Profile ID of AddThis account to integrate.
@@ -97,23 +108,39 @@ Profile ID of AddThis account to integrate.
 ### Enable AddThis sharing buttons
 Enable/disable AddThis sharing.
 
+**Default value:** Enabled
+
+**N.B.:** AddThis sharing buttons will not appear unless an existing profile ID is entered.
+
 ## Blog
 This section contains settings related to the blog.
+
+![Blog](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/blog.png "Blog")
 
 ### Number of recent posts
 Number of recent posts to display on front page.
 
+**Default value:** 5
+
 ## Header
 This section contains settings related to the header.
+
+![Header](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/header.png "Header")
 
 ### Enable header
 Enable/disable header.
 
+**Default value:** Enabled
+
 ### Enable header image text
 Show/hide text to display on header image.
 
+**Default value:** Enabled
+
 ### Header image text
 Paragraph to be displayed upon header image.
+
+**Default value:** Social justice, civil rights and environmental sustainability.
 
 ### Header image Electoral Manifesto URL
 URL for the Electoral Manifesto link displayed upon header image.
@@ -121,18 +148,26 @@ URL for the Electoral Manifesto link displayed upon header image.
 ## Footer
 This section contains settings related to the footer.
 
+![Footer](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/footer.png "Footer")
+
 ### Text to add to copyright notice
 Text to be displayed near the copyright notice in the footer.
 
 ### Enable copyright notice
 Show/hide copyright notice.
 
+**Default value:** Enabled
+
 ## Contact Shortcode
 This section contains settings related to the Contact shortcode.
+
+![Contact Shortcode](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/contact-shortcode.png "Contact Shortcode")
 
 ### Contact Email Connection Method
 Whether you would like emails to be send through SMTP or the Gmail API. In case you'll be attaching a Gmail account, the latter 
 is recommended.
+
+**Default value:** SMTP (Simple Mail Transfer Protocol)
 
 ### SMTP Host
 Internet address of your SMTP host of choice.
@@ -155,18 +190,26 @@ Link to Google authentication for your contact forms.
 ## Sidebar
 This section contains settings related to the sidebar.
 
+![Sidebar](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/sidebar.png "Sidebar")
+
 ### Enable sidebar
 Enable/disable sidebar.
+
+**Default value:** Enabled
 
 ## Production Mode
 This section only shows up in `` localhost `` environments and contains settings to ease theme development. If you see this on 
 your site's backend, then it's probably a bug.
+
+![Production Mode](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/production-mode.png "Production Mode")
 
 ### Enable Production Mode
 Toggle between production mode (when enabled) and development mode (when disabled). When disabled and consequently development 
 mode is on, you should see a notice in the front-end menu header. When development mode is on, you should be able to debug 
 the theme's development JavaScript files and view debug information about contact form shortcode requests from your browser's 
 dev tools network panel.
+
+**Default value:** Disabled
 
 ## Widgets
 ### Contact
@@ -250,3 +293,19 @@ Please note, that currently only a single **Contact Us** form per page may be ac
 
 ## Links (Blogroll)
 The theme enables Wordpress's Links feature. For information about how to utilise it, [read here.](https://codex.wordpress.org/Links_Manager "Links (Blogroll)")
+
+## Uninstall
+In order to uninstall Ecologie follow the official instructions on how to [manage themes.](https://codex.wordpress.org/Appearance_Themes_Screen#Manage_Themes "Manage themes")
+
+However, deleting Ecologie does not remove the entries that the theme creates in the wp-options table. To remove ths data, 
+launch your favourite MYSQL shell (such as PHPMyAdmin), select the database connected to your site and run the following query:
+
+```sql
+
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_contact_widget';
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_social_widget';
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_upcoming_event_widget';
+DELETE FROM wp-options WHERE option_name = 'widget_ecologie_mailchimp_subscribe_widget';
+DELETE FROM wp-options WHERE option_name = 'theme_mods_ecologie';
+
+```
