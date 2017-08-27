@@ -70,9 +70,13 @@ The menu at the bottom. Only accepts a single-level menu.
 The header image is customisable through the standard Wordpress UI. In order to change it, click 
 `` Apperance > Header `` and follow instructions.
 
+![Custom Header Image](https://github.com/dannydes/ecologie/raw/master/screenshots/custom-header-image/custom-header-image.png "Custom Header Image")
+
 ## Custom Logo
 The site logo is customisable through the standard Wordpress UI. In order to change it, click 
 `` Appearance > Customizer > Site Identity `` and follow instructions in the logo section.
+
+![Custom Logo](https://github.com/dannydes/ecologie/raw/master/screenshots/custom-logo/custom-logo.png "Custom Logo")
 
 ## Customiser Settings
 These settings may be accessed by clicking `` Appearance > Customize > Ecologie Settings ``.
