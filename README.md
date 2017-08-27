@@ -215,6 +215,8 @@ dev tools network panel.
 
 **Default value:** Disabled
 
+![Development Mode Indicator](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/development-mode-indicator.png "Development Mode Indicator")
+
 ## Widgets
 ### Contact
 From the backend, the widget allows the administrator to input 4 address lines, the country code, phone number and email address for 
