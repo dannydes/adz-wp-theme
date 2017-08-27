@@ -180,17 +180,19 @@ function ecologie_get_google_client_id() {
  * @since 0.9
  * @uses get_google_client_id()
  *
- * @return View with an embedded anti-forgery token for Google authentication.
+ * @return 
  */
-function ecologie_google_auth_anti_forgery_token() {
-	$state = sha1( openssl_random_pseudo_bytes( 1024 ) );
-	$app['session']->set( 'state', $state );
-	return $app['twig']->render( 'index.html', array(
-		'CLIENT_ID' => get_google_client_id(),
-		'STATE' => $state,
-		'APPLICATION_NAME' => 'Ecologie Gmail Connect',
-	) );
+function ecologie_google_auth() {
+	$client = new Google_Client();
+	$client->setAuthConfig( get_template_directory() . '/includes/google-auth/client_secret.json' );
+	$client->addScope( Google_Service_Gmail::GMAIL_SEND );
+	$client->setRedirectUri( admin_url( 'customize.php' ) );
+	if ( isset( $_GET['code'] ) ) {
+		$token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+	}
 }
+
+add_action( 'init', 'ecologie_google_auth' );
 
 /**
  * Generates a random arithmetic CAPTCHA.
