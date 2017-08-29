@@ -11,7 +11,7 @@ the_content();
 ?>
 </div>
 <div class="call-to-action-block">
-	<div class="container">
+	<div class="container text-center">
 		<p><?php echo ecologie_get_theme_mod_or_default( 'cta_block_text' ); ?></p>
 		<a href="<?php echo ecologie_get_theme_mod_or_default( 'cta_block_btn_url' ); ?>" role="button" class="btn btn-success">
 			<?php echo ecologie_get_theme_mod_or_default( 'cta_block_btn_text' ); ?>
