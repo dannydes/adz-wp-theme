@@ -308,10 +308,10 @@ launch your favourite MYSQL shell (such as PHPMyAdmin), select the database conn
 
 ```sql
 
-DELETE FROM wp-options WHERE option_name = 'widget_ecologie_contact_widget';
-DELETE FROM wp-options WHERE option_name = 'widget_ecologie_social_widget';
-DELETE FROM wp-options WHERE option_name = 'widget_ecologie_upcoming_event_widget';
-DELETE FROM wp-options WHERE option_name = 'widget_ecologie_mailchimp_subscribe_widget';
-DELETE FROM wp-options WHERE option_name = 'theme_mods_ecologie';
+DELETE FROM wp_options WHERE option_name = 'widget_ecologie_contact_widget';
+DELETE FROM wp_options WHERE option_name = 'widget_ecologie_social_widget';
+DELETE FROM wp_options WHERE option_name = 'widget_ecologie_upcoming_event_widget';
+DELETE FROM wp_options WHERE option_name = 'widget_ecologie_mailchimp_subscribe_widget';
+DELETE FROM wp_options WHERE option_name = 'theme_mods_ecologie';
 
 ```
