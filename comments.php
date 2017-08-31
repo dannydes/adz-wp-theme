@@ -11,7 +11,7 @@
 			'style' => 'div',
 		) );
 		
-		the_comments_navigation();
+		paginate_comments_links();
 		
 		?>
 	<?php endif; ?>

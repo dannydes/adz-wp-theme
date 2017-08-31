@@ -12,6 +12,7 @@
 * Contact Shortcode: Email validation
 * Blog post comments: HTML required/aria-required being used for client-side validation
 * Blog post comments: Indentation for replies up to level 5
+* Blog post comments: Changed pagination style to numbered
 * Footer: Changed copyright message
 * Footer: Option to enable/disable copyright message
 * Widgets: Backend validation errors are now displayed
