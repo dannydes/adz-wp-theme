@@ -6,7 +6,7 @@
 		
 		wp_list_comments( array(
 			'avatar_size' => 40,
-			'per_page' => 5,
+			'per_page' => get_option( 'comments_per_page' ),
 			'short_ping' => TRUE,
 			'style' => 'div',
 		) );
