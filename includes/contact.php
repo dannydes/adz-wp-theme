@@ -175,12 +175,10 @@ function ecologie_get_google_client_id() {
 }
 
 /**
- * Produces an anti-forgery token for Google authentication.
+ * Authenticates with Google.
  *
  * @since 0.9
- * @uses get_google_client_id()
  *
- * @return 
  */
 function ecologie_google_auth() {
 	$client = new Google_Client();
@@ -188,7 +186,7 @@ function ecologie_google_auth() {
 	$client->addScope( Google_Service_Gmail::GMAIL_SEND );
 	$client->setRedirectUri( admin_url( 'customize.php' ) );
 	if ( isset( $_GET['code'] ) ) {
-		$token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+		$token = $client->fetchAccessTokenWithAuthCode( $_GET['code'] );
 	}
 }
 
