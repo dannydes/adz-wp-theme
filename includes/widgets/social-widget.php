@@ -70,17 +70,15 @@ class Ecologie_Social_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) { ?>
 		<h2 class="widgettitle">Follow Us</h2>
-		<div class="social-btns">
-			<?php foreach ( self::SOCIAL_NETWORKS as $network ): ?>
-				<?php if ( ! empty( $instance[$network['code']] ) ): ?>
-					<a href="<?php echo esc_url( $network['url_format'] . $instance[$network['code']] ); ?>" title="<?php echo $network['title']; ?>" target="_blank" aria-label="<?php echo $network['title']; ?>">
-						<div class="social-btn pull-left">
-							<i class="fa fa-<?php echo $network['code']; ?>" aria-hidden="true"></i>
-						</div>
-					</a>
-				<?php endif; ?>
-			<?php endforeach; ?>
-		</div><?php
+		<?php foreach ( self::SOCIAL_NETWORKS as $network ): ?>
+			<?php if ( ! empty( $instance[$network['code']] ) ): ?>
+				<a href="<?php echo esc_url( $network['url_format'] . $instance[$network['code']] ); ?>" title="<?php echo $network['title']; ?>" target="_blank" aria-label="<?php echo $network['title']; ?>">
+					<div class="social-btn pull-left">
+						<i class="fa fa-<?php echo $network['code']; ?>" aria-hidden="true"></i>
+					</div>
+				</a>
+			<?php endif; ?>
+		<?php endforeach;
 	}
 	
 	/**
