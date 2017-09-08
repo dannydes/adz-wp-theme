@@ -188,6 +188,7 @@ function ecologie_google_auth() {
 	if ( isset( $_GET['code'] ) ) {
 		$token = $client->fetchAccessTokenWithAuthCode( $_GET['code'] );
 	}
+	
 }
 
 add_action( 'init', 'ecologie_google_auth' );
