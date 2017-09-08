@@ -1,7 +1,8 @@
 # 0.9 ([Release Date])
 
 * Header: Option to enable/disable
-* Blog pagination: Pagination now reflecting specified number of blog posts per page
+* Blog: Pagination now reflecting specified number of blog posts per page
+* Blog: Blog post listings' background changed to light green
 * Sidebar: Option to enable/disable
 * Sidebar: Clicking the toggling button no longer hashes the URL
 * Contact Shortcode: Button to generate shortcode in editor
@@ -15,6 +16,7 @@
 * Blog post comments: Changed pagination style to numbered
 * Footer: Changed copyright message
 * Footer: Option to enable/disable copyright message
+* Footer: Upper part's background changed to light green
 * Widgets: Backend validation errors are now displayed
 * Widgets: Backend fields now have the standard look and feel
 * Social Buttons Widget: Added Github
