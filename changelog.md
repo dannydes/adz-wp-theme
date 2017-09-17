@@ -32,6 +32,7 @@
 * Notice in menu header when Development Mode is enabled
 * Notice for first-time visitors about cookie storage
 * Customiser: Description for [nearly] every setting
+* .form-control now has a green border
 * General code cleanup, reorganisation, refactoring and documentation updates
 
 ## Known Issues
