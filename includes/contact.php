@@ -171,7 +171,7 @@ if ( is_admin() ) {
  * @return The Google client ID for the theme.
  */
 function ecologie_get_google_client_id() {
-	return '260323786335-qeqqbp3bd8l81d50lhtv68s6khm0f948.apps.googleusercontent.com';
+	return ecologie_get_theme_mod_or_default( 'contact_sc_gapi_clientid' );
 }
 
 /**
@@ -191,7 +191,7 @@ function ecologie_google_auth() {
 	
 	$service = new Google_Service_Gmail( $client );
 	$user = 'me';
-$results = $service->users_labels->listUsersLabels($user);
+/*	$results = $service->users_labels->listUsersLabels($user);
 
 	if (count($results->getLabels()) == 0) {
 		print "No labels found.\n";
@@ -200,7 +200,7 @@ $results = $service->users_labels->listUsersLabels($user);
 		foreach ($results->getLabels() as $label) {
 			printf("- %s\n", $label->getName());
 		}
-	}
+	}*/
 }
 
 add_action( 'admin_init', 'ecologie_google_auth' );

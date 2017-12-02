@@ -21,6 +21,7 @@ $default = array(
 	'contact_sc_smtp_username' => '',
 	'contact_sc_smtp_password' => '',
 	'contact_sc_smtp_host' => '',
+	'contact_sc_gapi_clientid' => '',
 	'sidebar_on' => true,
 );
 
@@ -154,6 +155,12 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'password',
 			'label' => __( 'SMTP Password', 'ecologie' ),
 			'description' => __( 'SMTP password for your organisation\'s email account.', 'ecologie' ),
+			'section' => 'contact_shortcode',
+		), 'postMessage' ),
+		array( 'contact_sc_gapi_clientid', array(
+			'type' => 'text',
+			'label' => __( 'Google API Client ID', 'ecologie' ),
+			'description' => __( 'Client ID for authentication with Google', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_gmail_auth', array(
