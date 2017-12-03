@@ -203,7 +203,10 @@ function ecologie_google_auth() {
 	}*/
 }
 
-add_action( 'admin_init', 'ecologie_google_auth' );
+// In case admin wants to use Google API, authenticate with it.
+if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_auth' ) {
+	add_action( 'admin_init', 'ecologie_google_auth' );
+}
 
 /**
  * Generates a random arithmetic CAPTCHA.
