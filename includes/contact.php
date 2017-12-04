@@ -185,7 +185,7 @@ function ecologie_google_auth() {
 	$client->setClientId( ecologie_get_google_client_id() );
 	$client->setClientSecret( ecologie_get_theme_mod_or_default( 'contact_sc_gapi_client_secret' ) );
 	$client->addScope( Google_Service_Gmail::GMAIL_SEND );
-	$client->setRedirectUri( admin_url( 'customize.php' ) );
+	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
 	if ( isset( $_GET['code'] ) ) {
 		$token = $client->fetchAccessTokenWithAuthCode( $_GET['code'] );
 	}
