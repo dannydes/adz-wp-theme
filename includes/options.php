@@ -170,12 +170,6 @@ function ecologie_customize_register( $wp_customize ) {
 			'description' => __( 'Client Secret for authentication with Google.', 'ecologie' ),
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
-		array( 'contact_sc_gmail_auth', array(
-			'type' => 'hidden',
-			'description' => __( '<h2>Gmail Authentication</h2><a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=' . ecologie_get_google_client_id() .
-				'&response_type=code&scope=openid%20email&redirect_uri=' . admin_url( 'customize.php' ) . '">Authenticate with Gmail.</a>', 'ecologie' ),
-			'section' => 'contact_shortcode',
-		), 'postMessage' ),
 		array( 'sidebar_on', array(
 			'type' => 'checkbox',
 			'label' => __( 'Enable sidebar', 'ecologie' ),
@@ -183,6 +177,15 @@ function ecologie_customize_register( $wp_customize ) {
 			'section' => 'sidebar',
 		), 'refresh' ),
 	);
+	
+	if ( get_theme_mod( 'contact_sc_gapi_clientid' ) && get_theme_mod( 'contact_sc_gapi_client_secret' ) ) {
+		$settings[] = array( 'contact_sc_gmail_auth', array(
+				'type' => 'hidden',
+				'description' => __( '<h2>Gmail Authentication</h2><a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=' . ecologie_get_google_client_id() .
+					'&response_type=code&scope=openid%20email&redirect_uri=' . admin_url( 'customize.php' ) . '">Authenticate with Gmail.</a>', 'ecologie' ),
+				'section' => 'contact_shortcode',
+			), 'postMessage' );
+	}
 	
 	$wp_customize->add_panel( 'ecologie', array(
 		'title' => __( 'Ecologie Settings', 'ecologie' ),
