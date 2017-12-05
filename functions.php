@@ -66,6 +66,13 @@ require 'includes/options.php';
 require 'includes/general.php';
 
 /**
+ * Handles Google authentication and communication with API.
+ *
+ * @since 0.9
+ */
+require 'includes/gmail-auth.php';
+
+/**
  * Implements contact shortcode.
  */
 require 'includes/contact.php';
