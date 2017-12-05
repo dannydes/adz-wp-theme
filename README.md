@@ -34,6 +34,8 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
     - [SMTP Port](#smtp-port "SMTP Port")
     - [SMTP Username](#smtp-username "SMTP Username")
     - [SMTP Password](#smtp-password "SMTP Password")
+	- [Google API Client ID](#google-api-client-id "Google API Client ID")
+	- [Google API Client Secret](#google-api-client-secret "Google API Client Secret")
     - [Authenticate with Gmail.](#authenticate-with-gmail "Authenticate with Gmail.")
   - [Sidebar](#sidebar "Sidebar")
     - [Enable sidebar](#enable-sidebar "Enable sidebar")
@@ -187,6 +189,12 @@ SMTP username for your organisation's email account.
 
 ### SMTP Password
 SMTP password for your organisation's email account.
+
+### Google API Client ID
+Client ID for authentication with Google.
+
+### Google API Client Secret
+Client Secret for authentication with Google.
 
 ### Authenticate with Gmail.
 Link to Google authentication for your contact forms.
