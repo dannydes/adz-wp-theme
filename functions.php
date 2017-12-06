@@ -66,13 +66,27 @@ require 'includes/options.php';
 require 'includes/general.php';
 
 /**
+ * Includes built-in PHPMailer class.
+ *
+ * @since 0.9
+ */
+require ABSPATH . WPINC . '/class-phpmailer.php';
+
+/**
+ * Extends built-in PHPMailer class with Gmail Auth functionality.
+ *
+ * @since 0.9
+ */
+require 'includes/contact/class.gmailauthphpmailer.php';
+
+/**
  * Handles Google authentication and communication with API.
  *
  * @since 0.9
  */
-require 'includes/gmail-auth.php';
+require 'includes/contact/gmail-auth.php';
 
 /**
  * Implements contact shortcode.
  */
-require 'includes/contact.php';
+require 'includes/contact/contact.php';
