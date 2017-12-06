@@ -8,85 +8,85 @@ require_once 'vendor/autoload.php';
 /**
  * Implements primary menu walker class.
  */
-require 'includes/menus/primary-menu-walker.php';
+require_once 'includes/menus/class.primary-menu-walker.php';
 
 /**
  * Implements bottom menu walker class.
  */
-require 'includes/menus/bottom-menu-walker.php';
+require_once 'includes/menus/class.bottom-menu-walker.php';
 
 /**
  * Implements social widget class.
  */
-require 'includes/widgets/social-widget.php';
+require_once 'includes/widgets/class.social-widget.php';
 
 /**
  * Implements contact widget class.
  */
-require 'includes/widgets/contact-widget.php';
+require_once 'includes/widgets/class.contact-widget.php';
 
 /**
  * Implements upcoming event widget class.
  */
-require 'includes/widgets/upcoming-event-widget.php';
+require_once 'includes/widgets/class.upcoming-event-widget.php';
 
 /**
  * Implements Mailchimp subscribe widget class.
  */
-require 'includes/widgets/mailchimp-subscribe-widget.php';
+require_once 'includes/widgets/class.mailchimp-subscribe-widget.php';
 
 /**
  * Registers widgets and widget areas.
  */
-require 'includes/widgets/widgets.php';
+require_once 'includes/widgets/widgets.php';
 
 /**
  * Registers and renders menus.
  */
-require 'includes/menus/menus.php';
+require_once 'includes/menus/menus.php';
 
 /**
  * Tackles features related to the blog.
  */
-require 'includes/blog/blog.php';
+require_once 'includes/blog/blog.php';
 
 /**
  * Introduces development mode on localhost.
  */
-require 'includes/dev-env.php';
+require_once 'includes/dev-env.php';
 
 /**
  * Registers customiser sections, settings and options.
  */
-require 'includes/options.php';
+require_once 'includes/options.php';
 
 /**
  * Implements general functionality.
  */
-require 'includes/general.php';
+require_once 'includes/general.php';
 
 /**
  * Includes built-in PHPMailer class.
  *
  * @since 0.9
  */
-require ABSPATH . WPINC . '/class-phpmailer.php';
+require_once ABSPATH . WPINC . '/class-phpmailer.php';
 
 /**
  * Extends built-in PHPMailer class with Gmail Auth functionality.
  *
  * @since 0.9
  */
-require 'includes/contact/class.gmailauthphpmailer.php';
+require_once 'includes/contact/class.gmailauthphpmailer.php';
 
 /**
  * Handles Google authentication and communication with API.
  *
  * @since 0.9
  */
-require 'includes/contact/gmail-auth.php';
+require_once 'includes/contact/gmail-auth.php';
 
 /**
  * Implements contact shortcode.
  */
-require 'includes/contact/contact.php';
+require_once 'includes/contact/contact.php';
