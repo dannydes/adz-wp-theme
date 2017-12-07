@@ -147,7 +147,6 @@ function ecologie_register_contact_us_tinymce_js( $plugin_array ) {
  * Prepares for the registration the contact-us TinyMCE plugin.
  *
  * @since 0.9
- *
  */
 function ecologie_register_contact_us_tinymce_plugin() {
 	if ( ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) ||
