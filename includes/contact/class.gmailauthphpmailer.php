@@ -19,6 +19,20 @@ class GmailAuthPHPMailer extends PHPMailer {
 	 * @return bool Connection success.
 	 */
 	public function smtpConnect($options = array()) {
+		if ( is_null( $this->smtp ) ) {
+			$this->smtp = $this->getSMTPInstance();
+		}
+		
+		if ( $this->smtp->connected() ) {
+			return true;
+		}
+		
+		$this->smtp->setTimeout( $this->Timeout );
+		$this->smtp->setDebugLevel( $this->SMTPDebug );
+		$this->smtp->setDebugOutput( $this->DebugOutput );
+		$this->smtp->setVerp( $this->do_verp );
+		
+		
 		return false;
 	}
 }

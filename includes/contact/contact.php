@@ -73,7 +73,11 @@ function ecologie_ajax_contact_us() {
 	
 	$message = $from . "\n\n" . $_POST['message'];
 
-	$success = wp_mail( $_POST['at'], $_POST['subject'], $message, $headers );
+	if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'smtp' ) {
+		$success = wp_mail( $_POST['at'], $_POST['subject'], $message, $headers );
+	} else {
+		// To do: Send email using Google API.
+	}
 	
 	if ( $success ) {
 		wp_die( 1 );
