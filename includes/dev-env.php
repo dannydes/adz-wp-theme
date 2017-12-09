@@ -3,10 +3,10 @@
 /**
  * Checks whether the site is installed locally.
  *
- * @return boolean Whether URL starts with "http[s]//localhost/" or not.
+ * @return boolean Whether URL starts with "http[s]://localhost[:port]/" or not.
  */
 function is_localhost() {
-	return preg_match( '/http(s)?:\/\/localhost\/.*/', get_site_url() ) === 1;
+	return preg_match( '/http(s)?:\/\/localhost(:[\d]+)?\/.*/', get_site_url() ) === 1;
 }
 
 /**

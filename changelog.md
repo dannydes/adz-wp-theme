@@ -34,6 +34,7 @@
 * Customiser: Description for [nearly] every setting
 * .form-control now has a green border
 * General code cleanup, reorganisation, refactoring and documentation updates
+* Development environment: localhost:(port) URLs are now detected
 
 ## Known Issues
 
