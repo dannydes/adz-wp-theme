@@ -135,10 +135,14 @@ function ecologie_customize_register( $wp_customize ) {
 			'section' => 'contact_shortcode',
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_secure_conn_method', array(
-			'type' => 'text',
+			'type' => 'radio',
 			'label' => __( 'SMTP Secure Connection Method', 'ecologie' ),
 			'description' => __( 'Secure connection method of your preference or provided by your SMTP host of choice.', 'ecologie' ),
 			'section' => 'contact_shortcode',
+			'choices' => array(
+				'ssl' => __( 'SSL', 'ecologie' ),
+				'tls' => __( 'TLS', 'ecologie' ),
+			),
 		), 'postMessage' ),
 		array( 'contact_sc_smtp_port', array(
 			'type' => 'text',

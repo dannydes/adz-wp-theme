@@ -11,6 +11,7 @@
 * Contact Shortcode: Throbber while awaiting response
 * Contact Shortcode: Quite alerts replacing dialogs on success/error
 * Contact Shortcode: Email validation
+* Contact Shortcode: Secure Connection Mode is now a radio option rather than free text
 * Blog post comments: HTML required/aria-required being used for client-side validation
 * Blog post comments: Indentation for replies up to level 5
 * Blog post comments: Changed pagination style to numbered
