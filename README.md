@@ -175,11 +175,19 @@ is recommended.
 
 **Default value:** SMTP (Simple Mail Transfer Protocol)
 
+**Available options:**
+* SMTP (Simple Mail Transfer Protocol)
+* Google Authentication (Gmail only)
+
 ### SMTP Host
 Internet address of your SMTP host of choice.
 
 ### SMTP Secure Connection Method
 Secure connection method of your preference or provided by your SMTP host of choice.
+
+**Available options:**
+* SSL
+* TLS
 
 ### SMTP Port
 Port accessible at your SMTP host of choice.
