@@ -25,23 +25,12 @@ function ecologie_google_client() {
 	$client->setScopes( 'https://mail.google.com/' );
 	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
 	$client->setAccessType( 'offline' );
+	
 	if ( isset( $_GET['code'] ) ) {
 		$token = $client->fetchAccessTokenWithAuthCode( $_GET['code'] );
 	}
 	
 	return $client;
-	//$service = new Google_Service_Gmail( $client );
-	//$user = 'me';
-	/*$results = $service->users_labels->listUsersLabels($user);
-
-	if (count($results->getLabels()) == 0) {
-		print "No labels found.\n";
-	} else {
-		print "Labels:\n";
-		foreach ($results->getLabels() as $label) {
-			printf("- %s\n", $label->getName());
-		}
-	}*/
 }
 
 /**
@@ -75,4 +64,14 @@ function ecologie_google_auth() {
 // In case admin wants to use Google API, authenticate with it.
 if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_auth' ) {
 	add_action( 'admin_init', 'ecologie_google_auth' );
+}
+
+/**
+ * Sends email using Google API.
+ *
+ * @since 0.9
+ * @uses ecologie_google_client()
+ */
+function ecologie_send_email_via_gapi() {
+	
 }
