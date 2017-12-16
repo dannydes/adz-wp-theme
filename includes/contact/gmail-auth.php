@@ -34,14 +34,14 @@ function ecologie_google_client() {
 }
 
 /**
- * Authenticates to Google.
+ * Gets access token.
  *
  * @since 0.9
  * @uses ecologie_google_client()
  *
  * @return Google access token.
  */
-function ecologie_google_auth() {
+function ecologie_get_access_token() {
 	$client = ecologie_google_client();
 	$access_token = get_theme_mod( 'contact_sc_gapi_access_token' );
 	if ( ! $access_token ) {
@@ -53,17 +53,23 @@ function ecologie_google_auth() {
 	// Refresh token, if expired.
 	if ( $client->isAccessTokenExpired() ) {
 		$client->refreshToken( $client->getRefreshToken() );
-		$new_access_token = $client->getAccessToken();
+		$new_access_token = $client->getAccessToken();var_dump($new_access_token);
 		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $new_access_token ) );
 		return json_decode( $new_access_token, true );
-	}
+	}var_dump($access_token);
 	
 	return json_decode( $access_token, true );
 }
 
 // In case admin wants to use Google API, authenticate with it.
-if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_auth' ) {
+if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_auth' && ! empty( $_GET['code'] ) ) {
 	add_action( 'admin_init', 'ecologie_google_auth' );
+	add_action( 'admin_init', 'ecologie_get_access_token' );
+}
+
+function ecologie_google_auth() {var_dump($_GET['code']);
+	set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $_GET['code'] ) );
+	//$client->setAccessToken( $_GET['code'] );
 }
 
 /**
@@ -73,5 +79,6 @@ if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_a
  * @uses ecologie_google_client()
  */
 function ecologie_send_email_via_gapi() {
+	$message = new Google_Service_Gmail_Message();
 	
 }
