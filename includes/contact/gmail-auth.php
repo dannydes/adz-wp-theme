@@ -67,6 +67,12 @@ if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_a
 	add_action( 'admin_init', 'ecologie_get_access_token' );
 }
 
+/**
+ * Handles authentication with Google upon returning from the Google auth/permission page.
+ *
+ * @since 0.9
+ * @uses ecologie_google_client()
+ */
 function ecologie_google_auth() {
 	$client = ecologie_google_client();
 	$access_token = $client->authenticate( $_GET['code'] );var_dump($access_token);

@@ -186,7 +186,8 @@ function ecologie_customize_register( $wp_customize ) {
 		$settings[] = array( 'contact_sc_gmail_auth', array(
 				'type' => 'hidden',
 				'description' => __( '<a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=' . ecologie_get_google_client_id() .
-					'&response_type=code&scope=openid%20email&redirect_uri=' . admin_url( 'customize.php' ) . '">Authenticate with Gmail.</a>', 'ecologie' ),
+					'&response_type=code&scope=openid%20email&redirect_uri=' . admin_url( 'customize.php' ) .
+					'&access_type=offline">Authenticate with Gmail.</a>', 'ecologie' ),
 				'section' => 'contact_shortcode',
 			), 'postMessage' );
 	}
