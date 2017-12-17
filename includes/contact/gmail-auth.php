@@ -43,7 +43,7 @@ function ecologie_google_client() {
  */
 function ecologie_get_access_token() {
 	$client = ecologie_google_client();
-	$access_token = get_theme_mod( 'contact_sc_gapi_access_token' );
+	$access_token = get_theme_mod( 'contact_sc_gapi_access_token' );var_dump($access_token);
 	if ( ! $access_token ) {
 		return array( 'authorization_uri' => $client->createAuthUrl() );
 	}
@@ -56,7 +56,7 @@ function ecologie_get_access_token() {
 		$new_access_token = $client->getAccessToken();var_dump($new_access_token);
 		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $new_access_token ) );
 		return json_decode( $new_access_token, true );
-	}var_dump($access_token);
+	}
 	
 	return json_decode( $access_token, true );
 }
@@ -67,9 +67,13 @@ if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_a
 	add_action( 'admin_init', 'ecologie_get_access_token' );
 }
 
-function ecologie_google_auth() {var_dump($_GET['code']);
-	set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $_GET['code'] ) );
-	//$client->setAccessToken( $_GET['code'] );
+function ecologie_google_auth() {
+	$client = ecologie_google_client();
+	$access_token = $client->authenticate( $_GET['code'] );var_dump($access_token);
+	
+	if ( ! empty( $access_token ) ) {
+		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $access_token ) );
+	}
 }
 
 /**
