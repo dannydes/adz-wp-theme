@@ -1,17 +1,6 @@
 <?php
 
 /**
- * Gets the Google client ID for the theme.
- *
- * @since 0.9 
- *
- * @return The Google client ID for the theme.
- */
-function ecologie_get_google_client_id() {
-	return ecologie_get_theme_mod_or_default( 'contact_sc_gapi_clientid' );
-}
-
-/**
  * Prepare Google client to get SMTP details.
  *
  * @since 0.9
@@ -20,7 +9,7 @@ function ecologie_get_google_client_id() {
  */
 function ecologie_google_client() {
 	$client = new Google_Client();
-	$client->setClientId( ecologie_get_google_client_id() );
+	$client->setClientId( ecologie_get_theme_mod_or_default( 'contact_sc_gapi_clientid' ) );
 	$client->setClientSecret( ecologie_get_theme_mod_or_default( 'contact_sc_gapi_client_secret' ) );
 	$client->setScopes( 'https://mail.google.com/' );
 	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
