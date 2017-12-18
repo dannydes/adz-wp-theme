@@ -15,10 +15,6 @@ function ecologie_google_client() {
 	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
 	$client->setAccessType( 'offline' );
 	
-	if ( isset( $_GET['code'] ) ) {
-		$token = $client->fetchAccessTokenWithAuthCode( $_GET['code'] );
-	}
-	
 	return $client;
 }
 
@@ -32,7 +28,7 @@ function ecologie_google_client() {
  */
 function ecologie_get_access_token() {
 	$client = ecologie_google_client();
-	$access_token = get_theme_mod( 'contact_sc_gapi_access_token' );var_dump($access_token);
+	$access_token = get_theme_mod( 'contact_sc_gapi_access_token' );
 	if ( ! $access_token ) {
 		return array( 'authorization_uri' => $client->createAuthUrl() );
 	}
@@ -57,14 +53,14 @@ if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_a
 }
 
 /**
- * Handles authentication with Google upon returning from the Google auth/permission page.
+ * Handles authentication with Google upon returning from the Google authentication/authorisation page.
  *
  * @since 0.9
  * @uses ecologie_google_client()
  */
 function ecologie_google_auth() {
 	$client = ecologie_google_client();
-	$access_token = $client->authenticate( $_GET['code'] );var_dump($access_token);
+	$access_token = $client->authenticate( $_GET['code'] );
 	
 	if ( ! empty( $access_token ) ) {
 		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $access_token ) );
