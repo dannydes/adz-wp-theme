@@ -38,7 +38,7 @@ function ecologie_get_access_token() {
 	// Refresh token, if expired.
 	if ( $client->isAccessTokenExpired() ) {
 		$client->refreshToken( $client->getRefreshToken() );
-		$new_access_token = $client->getAccessToken();var_dump($new_access_token);
+		$new_access_token = $client->getAccessToken();
 		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $new_access_token ) );
 		return json_decode( $new_access_token, true );
 	}
@@ -64,6 +64,10 @@ function ecologie_google_auth() {
 	
 	if ( ! empty( $access_token ) ) {
 		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $access_token ) );
+		
+		// If access token is retrieved and stored successfully, redirect to prevent sending the same
+		// authorisation code in case user reloads page.
+		wp_redirect( admin_url( 'customize.php' ) );
 	}
 }
 
