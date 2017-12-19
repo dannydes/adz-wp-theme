@@ -76,8 +76,31 @@ function ecologie_google_auth() {
  *
  * @since 0.9
  * @uses ecologie_google_client()
+ *
+ * @param $recipient string Recipient email address.
+ * @param $sender string Sender email address.
+ * @param $senderName string Sender name.
+ * @param $subject string Email subject.
+ * @param $body string Email body.
+ * @return Message success.
  */
-function ecologie_send_email_via_gapi() {
-	$message = new Google_Service_Gmail_Message();
+function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subject, $body ) {
+	$gmail = new Google_Service_Gmail( ecologie_google_client() );
 	
+	$raw_message = 'To: <' . $recipient . ">\r\n";
+	$raw_message .= 'From: ' . $senderName . '<' . $sender . ">\r\n";
+	$raw_message .= 'Subject: ' . $subject . "\r\n";
+	$raw_message .= "MIME-Version: 1.0\r\n";
+	$raw_message .= "Content-Type: text/html; Charset=utf-8\r\n";
+	$raw_message .= $body . "\r\n";
+	
+	try {
+		$message = new Google_Service_Gmail_Message();
+		$message->setMime( rtrim( strtr( base64_decode( $raw_message ), '+/', '-=' ), '=' ) );
+		$gmail->users_messages->send( $message );
+		
+		return true;
+	} catch ( Exception $ex ) {
+		return false;
+	}
 }

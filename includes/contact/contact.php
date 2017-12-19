@@ -78,7 +78,7 @@ function ecologie_ajax_contact_us() {
 	} else {
 		// To do: Send email using Google API.
 		// Use code from https://stackoverflow.com/questions/41580290/sending-emails-from-php-using-gmail-api
-		ecologie_send_email_via_gapi();
+		$success = ecologie_send_email_via_gapi( $_POST['at'], $_POST['email'], $_POST['name'], $_POST['subject'], $message );
 	}
 	
 	if ( $success ) {
