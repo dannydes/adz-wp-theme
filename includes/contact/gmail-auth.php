@@ -87,16 +87,21 @@ function ecologie_google_auth() {
 function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subject, $body ) {
 	$gmail = new Google_Service_Gmail( ecologie_google_client() );
 	
-	$raw_message = 'To: <' . $recipient . ">\r\n";
-	$raw_message .= 'From: ' . $senderName . '<' . $sender . ">\r\n";
-	$raw_message .= 'Subject: ' . $subject . "\r\n";
-	$raw_message .= "MIME-Version: 1.0\r\n";
-	$raw_message .= "Content-Type: text/html; Charset=utf-8\r\n";
-	$raw_message .= $body . "\r\n";
-	
 	try {
 		$message = new Google_Service_Gmail_Message();
-		$message->setMime( rtrim( strtr( base64_decode( $raw_message ), '+/', '-=' ), '=' ) );
+		
+		$mail = new PHPMailer();
+		$mail->Charset = 'UTF-8';
+		$mail->From = $sender;
+		$mail->FromName = $senderName;
+		$mail->AddAddress( $recipient );
+		$mail->AddReplyTo( $sender, $senderName );
+		$mail->Subject = $subject;
+		$mail->Body = $body;
+		$mail->preSend();
+		$mime = $mail->getSentMIMEMessage();var_dump($mime);
+		
+		$message->setMime( str_replace( array( '+', '/', '=' ), array( '-', '_', '' ), base64_encode( $mime ) ) );var_dump(1);
 		$gmail->users_messages->send( $message );
 		
 		return true;
