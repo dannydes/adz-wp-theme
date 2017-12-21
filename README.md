@@ -23,6 +23,7 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
     - [Enable header](#enable-header "Enable header")
     - [Enable header image text](#enable-header-image-text "Enable header image text")
     - [Header image text](#header-image-text "Header image text")
+	- [Enable header image Manifesto link](#enable-header-image-manifesto-link "Enable header image Manifesto link")
     - [Header image Electoral Manifesto URL](#header-image-electoral-manifesto-url "Header image Electoral Manifesto URL")
   - [Footer](#footer "Footer")
     - [Text to add to copyright notice](#text-to-add-to-copyright-notice "Text to add to copyright notice")
@@ -147,6 +148,11 @@ Show/hide text to display on header image.
 Paragraph to be displayed upon header image.
 
 **Default value:** Social justice, civil rights and environmental sustainability.
+
+### Enable header image Manifesto link
+Show/hide Manifesto link on header image.
+
+**Default value:** Enabled
 
 ### Header image Electoral Manifesto URL
 URL for the Electoral Manifesto link displayed upon header image.

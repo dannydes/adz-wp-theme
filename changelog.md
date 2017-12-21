@@ -1,6 +1,7 @@
 # 0.9 ([Release Date])
 
 * Header: Option to enable/disable
+* Header: Option to enable/disable Manifesto link
 * Blog: Pagination now reflecting specified number of blog posts per page
 * Blog: Blog post listings' background changed to light green
 * Sidebar: Option to enable/disable

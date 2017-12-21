@@ -16,6 +16,7 @@ $default = array(
 	'header_on' => true,
 	'header_image_text_on' => true,
 	'header_image_text' => 'Social justice, civil rights and environmental sustainability at heart.',
+	'header_image_manifesto_on' => true,
 	'header_image_manifesto' => '',
 	'contact_sc_conn_method' => 'smtp',
 	'contact_sc_smtp_username' => '',
@@ -112,6 +113,12 @@ function ecologie_customize_register( $wp_customize ) {
 			'description' => __( 'Paragraph to be displayed upon header image.', 'ecologie' ),
 			'section' => 'header',
 		), 'postMessage' ),
+		array( 'header_image_manifesto_on', array(
+			'type' => 'checkbox',
+			'label' => __ ( 'Enable header image Manifesto link', 'ecologie' ),
+			'description' => __( 'Show/hide Manifesto link on header image.', 'ecologie' ),
+			'section' => 'header',
+		), 'refresh' ),
 		array( 'header_image_manifesto', array(
 			'type' => 'text',
 			'label' => __( 'Header image Electoral Manifesto URL', 'ecologie' ),

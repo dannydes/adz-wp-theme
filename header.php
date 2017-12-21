@@ -46,7 +46,9 @@
 				<h3><?php echo get_bloginfo( 'description' ); ?></h3>
 				<hr>
 				<p><?php echo ecologie_get_theme_mod_or_default( 'header_image_text' ); ?></p>
-				<a class="btn btn-success" role="button" href="<?php echo ecologie_get_theme_mod_or_default( 'header_image_manifesto' ); ?>" target="_blank">Our party's manifesto</a>
+				<?php if ( ecologie_get_theme_mod_or_default( 'header_image_manifesto_on' ) ): ?>
+					<a class="btn btn-success" role="button" href="<?php echo ecologie_get_theme_mod_or_default( 'header_image_manifesto' ); ?>" target="_blank">Our party's manifesto</a>
+				<?php endif; ?>
 			</div>
 			<?php endif; ?>
 		</header>
