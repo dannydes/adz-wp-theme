@@ -4,6 +4,7 @@
  * Prepare Google client to get SMTP details.
  *
  * @since 0.9
+ * @uses ecologie_get_access_token()
  *
  * @return The Google client.
  */
@@ -14,6 +15,7 @@ function ecologie_google_client() {
 	$client->setScopes( 'https://mail.google.com/' );
 	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
 	$client->setAccessType( 'offline' );
+	ecologie_get_access_token( $client );var_dump(90);
 	
 	return $client;
 }
@@ -22,12 +24,11 @@ function ecologie_google_client() {
  * Gets access token.
  *
  * @since 0.9
- * @uses ecologie_google_client()
  *
+ * @param $client object Google_Client instance.
  * @return Google access token.
  */
-function ecologie_get_access_token() {
-	$client = ecologie_google_client();
+function ecologie_get_access_token( $client ) {
 	$access_token = get_theme_mod( 'contact_sc_gapi_access_token' );
 	if ( ! $access_token ) {
 		return array( 'authorization_uri' => $client->createAuthUrl() );
@@ -36,10 +37,9 @@ function ecologie_get_access_token() {
 	$client->setAccessToken( $access_token );
 	
 	// Refresh token, if expired.
-	if ( $client->isAccessTokenExpired() ) {
-		$client->refreshToken( $client->getRefreshToken() );
-		$new_access_token = $client->getAccessToken();
-		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $new_access_token ) );
+	if ( $client->isAccessTokenExpired() ) {var_dump($access_token);var_dump($client->getRefreshToken());
+		$new_access_token = $client->refreshToken( $client->getRefreshToken() );var_dump(false);
+		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $new_access_token ) );var_dump($new_access_token);
 		return json_decode( $new_access_token, true );
 	}
 	
@@ -49,7 +49,6 @@ function ecologie_get_access_token() {
 // In case admin wants to use Google API, authenticate with it.
 if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_auth' && ! empty( $_GET['code'] ) ) {
 	add_action( 'admin_init', 'ecologie_google_auth' );
-	add_action( 'admin_init', 'ecologie_get_access_token' );
 }
 
 /**
@@ -85,7 +84,7 @@ function ecologie_google_auth() {
  * @return Message success.
  */
 function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subject, $body ) {
-	$gmail = new Google_Service_Gmail( ecologie_google_client() );
+	$gmail = new Google_Service_Gmail( ecologie_google_client() );var_dump(1);
 	
 	try {
 		$message = new Google_Service_Gmail_Message();
@@ -99,10 +98,10 @@ function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subjec
 		$mail->Subject = $subject;
 		$mail->Body = $body;
 		$mail->preSend();
-		$mime = $mail->getSentMIMEMessage();var_dump($mime);
+		$mime = $mail->getSentMIMEMessage();
 		
-		$message->setMime( str_replace( array( '+', '/', '=' ), array( '-', '_', '' ), base64_encode( $mime ) ) );var_dump(1);
-		$gmail->users_messages->send( $message );
+		$message->setRaw( str_replace( array( '+', '/', '=' ), array( '-', '_', '' ), base64_encode( $mime ) ) );
+		$gmail->users_messages->send( 'me', $message );
 		
 		return true;
 	} catch ( Exception $ex ) {
