@@ -48,7 +48,7 @@ add_shortcode( 'contact-us', 'contact_us_shortcode' );
 /**
  * Handles AJAX request coming from contact form submission.
  */
-function ecologie_ajax_contact_us() {
+function ecologie_ajax_contact_us() {var_dump(empty( $_POST['at'] ));
 	if ( empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
 		wp_die( __( 'Name, email and message may not be left empty.', 'ecologie' ) );
 	}
