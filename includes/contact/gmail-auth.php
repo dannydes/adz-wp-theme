@@ -15,6 +15,7 @@ function ecologie_google_client() {
 	$client->setScopes( 'https://mail.google.com/' );
 	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
 	$client->setAccessType( 'offline' );
+	$client->setApprovalPrompt( 'force' );
 	ecologie_get_access_token( $client );var_dump(90);
 	
 	return $client;
