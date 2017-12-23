@@ -13,7 +13,7 @@
 			
 			if ( status === '1' ) {
 				Ecologie.createAlert( '#contact-us', 'success', 'Email sent successfully!' );
-				$( '#contact-us input, #contact-message' ).val( '' );
+				$( '#contact-us input:not(type=hidden), #contact-message' ).val( '' );
 			} else {
 				Ecologie.createAlert( '#contact-us', 'warning', status );
 			}
