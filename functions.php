@@ -73,13 +73,6 @@ require_once 'includes/general.php';
 require_once ABSPATH . WPINC . '/class-phpmailer.php';
 
 /**
- * Extends built-in PHPMailer class with Gmail Auth functionality.
- *
- * @since 0.9
- */
-require_once 'includes/contact/class.gmailauthphpmailer.php';
-
-/**
  * Handles Google authentication and communication with API.
  *
  * @since 0.9
