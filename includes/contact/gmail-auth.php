@@ -16,7 +16,7 @@ function ecologie_google_client() {
 	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
 	$client->setAccessType( 'offline' );
 	$client->setApprovalPrompt( 'force' );
-	ecologie_get_access_token( $client );var_dump(90);
+	ecologie_get_access_token( $client );
 	
 	return $client;
 }
@@ -82,10 +82,11 @@ function ecologie_google_auth() {
  * @param $senderName string Sender name.
  * @param $subject string Email subject.
  * @param $body string Email body.
+ * @param $wantCopy bool Whether user wants a copy.
  * @return Message success.
  */
-function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subject, $body ) {
-	$gmail = new Google_Service_Gmail( ecologie_google_client() );var_dump(1);
+function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subject, $body, $wantCopy ) {
+	$gmail = new Google_Service_Gmail( ecologie_google_client() );
 	
 	try {
 		$message = new Google_Service_Gmail_Message();
@@ -95,6 +96,9 @@ function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subjec
 		$mail->From = $sender;
 		$mail->FromName = $senderName;
 		$mail->AddAddress( $recipient );
+		if ( $wantCopy ) {
+			$mail->AddCC( $sender );
+		}
 		$mail->AddReplyTo( $sender, $senderName );
 		$mail->Subject = $subject;
 		$mail->Body = $body;

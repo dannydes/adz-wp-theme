@@ -48,7 +48,7 @@ add_shortcode( 'contact-us', 'contact_us_shortcode' );
 /**
  * Handles AJAX request coming from contact form submission.
  */
-function ecologie_ajax_contact_us() {var_dump(empty( $_POST['at'] ));
+function ecologie_ajax_contact_us() {
 	if ( empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
 		wp_die( __( 'Name, email and message may not be left empty.', 'ecologie' ) );
 	}
@@ -63,20 +63,20 @@ function ecologie_ajax_contact_us() {var_dump(empty( $_POST['at'] ));
 	
 	$from = 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
 	
-	$headers = array(
-		$from,
-	);
-	
-	if ( $_POST['forward-copy'] === 'on' ) {
-		$headers[] = 'Cc: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
-	}
-	
 	$message = $from . "\n\n" . $_POST['message'];
 
 	if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'smtp' ) {
+		$headers = array(
+			$from,
+		);
+		
+		if ( $_POST['forward-copy'] === 'on' ) {
+			$headers[] = 'Cc: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
+		}
+		
 		$success = wp_mail( $_POST['at'], $_POST['subject'], $message, $headers );
 	} else {
-		$success = ecologie_send_email_via_gapi( $_POST['at'], $_POST['email'], $_POST['name'], $_POST['subject'], $message );
+		$success = ecologie_send_email_via_gapi( $_POST['at'], $_POST['email'], $_POST['name'], $_POST['subject'], $message, $_POST['forward-copy'] === 'on' );
 	}
 	
 	if ( $success ) {
