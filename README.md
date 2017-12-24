@@ -1,9 +1,10 @@
 # Ecologie
-Theme inspired by Green politics - the political ideology built around peace, the environment, labour and civil rights.
+WordPress theme inspired by Green politics - the political ideology built around peace, the environment, labour and civil rights.
 
 Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 
 ## Content
+* [Install](#install "Install")
 * [Menus](#menus "Menus")
   - [Primary Menu](#primary-menu "Primary Menu")
   - [Footer Bottom Menu](#footer-bottom-menu "Footer Bottom Menu")
@@ -42,7 +43,6 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
     - [Enable sidebar](#enable-sidebar "Enable sidebar")
   - [Production Mode](#production-mode "Production Mode")
     - [Enable Production Mode](#enable-production-mode "Enable Production Mode")
-
 * [Widgets](#widgets "Widgets")
   - [Contact](#contact "Contact")
   - [Mailchimp Subscribe](#mailchimp-subscribe "Mailchimp Subscribe")
@@ -53,6 +53,9 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
   - [Contact Us](#contact-us "Contact Us")
 * [Links (Blogroll)](#links-blogroll "Links (Blogroll)")
 * [Uninstall](#uninstall "Uninstall")
+
+## Install
+<< Coming soon >>
 
 ## Menus
 The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
