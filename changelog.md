@@ -14,6 +14,7 @@
 * Contact Shortcode: Email validation
 * Contact Shortcode: Secure Connection Mode is now a radio option rather than free text
 * Contact Shortcode: Fixed issue where hidden fields are cleared on successfully sending feedback causing subsequent calls to be rejected
+* Contact Shortcode: Organisation email is now stored in session rather than as a hidden field
 * Blog post comments: HTML required/aria-required being used for client-side validation
 * Blog post comments: Indentation for replies up to level 5
 * Blog post comments: Changed pagination style to numbered

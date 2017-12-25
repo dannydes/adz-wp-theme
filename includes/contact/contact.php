@@ -9,6 +9,9 @@
  * @return string Shortcode HTML output.
  */
 function contact_us_shortcode( $atts ) {
+	$_SESSION['ecologie_cs_at'] = ( ! empty( $atts['at'] ) ? $atts['at'] : '' );
+	$_SESSION['ecologie_cs_atName'] = ( ! empty( $atts['atName'] ) ? $atts['atName'] : '' );
+	
 	$arithmetic_captcha = ecologie_generate_arithmetic_captcha();
 	
 	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
@@ -38,7 +41,6 @@ function contact_us_shortcode( $atts ) {
 			<input type="text" class="form-control" id="contact-arithmetic-captcha" name="captcha-answer" placeholder="Your answer" required aria-required="true"></textarea>
 		</div>
 		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">
-		<input type="hidden" id="contact-at" name="at" value="' . ( ! empty( $atts['at'] ) ? $atts['at'] : '' ) . '">
 		<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
 	</form>';
 }
@@ -49,7 +51,9 @@ add_shortcode( 'contact-us', 'contact_us_shortcode' );
  * Handles AJAX request coming from contact form submission.
  */
 function ecologie_ajax_contact_us() {
-	if ( empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_POST['at'] ) ) {
+	session_start();
+	
+	if ( empty( $_POST['name'] ) || empty( $_POST['email'] ) || empty( $_POST['message'] ) || empty( $_SESSION['ecologie_cs_at'] ) ) {
 		wp_die( __( 'Name, email and message may not be left empty.', 'ecologie' ) );
 	}
 	
@@ -57,7 +61,7 @@ function ecologie_ajax_contact_us() {
 		wp_die( __( 'Incorrect answer to arithmetic CAPTCHA.', 'ecologie' ) );
 	}
 	
-	if ( ! is_email( $_POST['email'] ) || ! is_email( $_POST['at'] ) ) {
+	if ( ! is_email( $_POST['email'] ) || ! is_email( $_SESSION['ecologie_cs_at'] ) ) {
 		wp_die( __( 'The email you entered looks invalid. Please check its format and try again.', 'ecologie' ) );
 	}
 	
@@ -74,9 +78,9 @@ function ecologie_ajax_contact_us() {
 			$headers[] = 'Cc: ' . $_POST['name'] . ' <' . $_POST['email'] . '>';
 		}
 		
-		$success = wp_mail( $_POST['at'], $_POST['subject'], $message, $headers );
+		$success = wp_mail( $_SESSION['ecologie_cs_at'], $_POST['subject'], $message, $headers );
 	} else {
-		$success = ecologie_send_email_via_gapi( $_POST['at'], $_POST['email'], $_POST['name'], $_POST['subject'], $message, $_POST['forward-copy'] === 'on' );
+		$success = ecologie_send_email_via_gapi( $_SESSION['ecologie_cs_at'], $_POST['email'], $_POST['name'], $_POST['subject'], $message, $_POST['forward-copy'] === 'on' );
 	}
 	
 	if ( $success ) {
@@ -204,3 +208,17 @@ function ecologie_validate_arithmetic_captcha_answer() {
 	$arithmetic_captcha = $_POST['hidden-arithmetic-captcha'];
 	return strlen( $arithmetic_captcha ) === 5 && eval( 'return ' . $arithmetic_captcha . ';' ) === intval( $_POST['captcha-answer'] );
 }
+
+/**
+ * Starts session for pages containing [contact-us].
+ *
+ * @since 0.9
+ */
+function ecologie_cs_start_session() {
+	$post = get_post( url_to_postid( $_SERVER['REQUEST_URI'] ) );
+	if ( has_shortcode( $post->post_content, 'contact-us' ) ) {
+		session_start();
+	}
+}
+
+add_action( 'send_headers', 'ecologie_cs_start_session' );
