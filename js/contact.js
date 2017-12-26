@@ -17,6 +17,9 @@
 			} else {
 				Ecologie.createAlert( '#contact-us', 'warning', status );
 			}
+		} ).fail( function () {
+			$( '#contact-sending-message' ).removeClass( 'fa-spinner fa-spin' );
+			Ecologie.createAlert( '#contact-us', 'danger', 'Internal error. Please try later or contact site administrator.' );
 		} );
 		
 		return false;
