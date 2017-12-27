@@ -1,4 +1,4 @@
-# 0.9 ([Release Date])
+# 0.9 (27-12-2017)
 
 * Header: Option to enable/disable
 * Header: Option to enable/disable Manifesto link
@@ -16,6 +16,7 @@
 * Contact Shortcode: Fixed issue where hidden fields are cleared on successfully sending feedback causing subsequent calls to be rejected
 * Contact Shortcode: Organisation email is now stored in session rather than as a hidden field
 * Contact Shortcode: Internal server errors (500) are now reported to the user
+* Contact Shortcode: Integration with Google API
 * Blog post comments: HTML required/aria-required being used for client-side validation
 * Blog post comments: Indentation for replies up to level 5
 * Blog post comments: Changed pagination style to numbered
@@ -40,6 +41,7 @@
 * .form-control now has a green border
 * General code cleanup, reorganisation, refactoring and documentation updates
 * Development environment: localhost:(port) URLs are now detected
+* Updated theme description
 
 ## Known Issues
 

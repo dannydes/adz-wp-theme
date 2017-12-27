@@ -48,7 +48,7 @@ function ecologie_get_access_token( $client ) {
 	return json_decode( $access_token, true );
 }
 
-// In case admin wants to use Google API, authenticate with it.
+// In case admin wants to use Google API and this is a redirect from Google Authorisation screen, perform authentication.
 if ( ecologie_get_theme_mod_or_default( 'contact_sc_conn_method' ) === 'google_auth' && ! empty( $_GET['code'] ) ) {
 	add_action( 'admin_init', 'ecologie_google_auth' );
 }
