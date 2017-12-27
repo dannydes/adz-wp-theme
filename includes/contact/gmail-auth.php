@@ -38,10 +38,11 @@ function ecologie_get_access_token( $client ) {
 	$client->setAccessToken( $access_token );
 	
 	// Refresh token, if expired.
-	if ( $client->isAccessTokenExpired() ) {var_dump($access_token);var_dump($client->getRefreshToken());
-		$new_access_token = $client->refreshToken( $client->getRefreshToken() );var_dump(false);
-		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $new_access_token ) );var_dump($new_access_token);
-		return json_decode( $new_access_token, true );
+	if ( $client->isAccessTokenExpired() ) {
+		$client->refreshToken( get_theme_mod( 'contact_sc_gapi_refresh_token' ) );
+		$new_access_token = $client->getAccessToken();
+		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $new_access_token ) );
+		return $new_access_token;
 	}
 	
 	return json_decode( $access_token, true );
@@ -64,6 +65,7 @@ function ecologie_google_auth() {
 	
 	if ( ! empty( $access_token ) ) {
 		set_theme_mod( 'contact_sc_gapi_access_token', json_encode( $access_token ) );
+		set_theme_mod( 'contact_sc_gapi_refresh_token', json_encode( $client->getRefreshToken() ) );
 		
 		// If access token is retrieved and stored successfully, redirect to prevent sending the same
 		// authorisation code in case user reloads page.
