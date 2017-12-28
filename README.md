@@ -178,6 +178,8 @@ This section contains settings related to the Contact shortcode.
 
 ![Contact Shortcode](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/contact-shortcode.png "Contact Shortcode")
 
+![Contact Shortcode](https://github.com/dannydes/ecologie/raw/master/screenshots/customiser-settings/contact-shortcode2.png "Contact Shortcode")
+
 ### Contact Email Connection Method
 Whether you would like emails to be send through SMTP or the Gmail API. In case you'll be attaching a Gmail account, the latter 
 is recommended.
