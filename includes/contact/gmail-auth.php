@@ -10,8 +10,8 @@
  */
 function ecologie_google_client() {
 	$client = new Google_Client();
-	$client->setClientId( ecologie_get_theme_mod_or_default( 'contact_sc_gapi_clientid' ) );
-	$client->setClientSecret( ecologie_get_theme_mod_or_default( 'contact_sc_gapi_client_secret' ) );
+	$client->setClientId( get_theme_mod( 'contact_sc_gapi_clientid' ) );
+	$client->setClientSecret( get_theme_mod( 'contact_sc_gapi_client_secret' ) );
 	$client->setScopes( 'https://mail.google.com/' );
 	$client->setRedirectUri( admin_url( 'customize.php?action=google_auth_grant' ) );
 	$client->setAccessType( 'offline' );
