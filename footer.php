@@ -53,7 +53,7 @@
 					</div>
 					<div class="col-xs-12 col-md-4">
 					<?php if ( ecologie_get_theme_mod_or_default( 'copyright_text_on' ) ): ?>
-						&copy; 2016-<?php echo date( 'Y' ); ?>. <?php echo get_bloginfo(); ?> powered by 
+						&copy; 2016-<?php echo date( 'Y' ); ?>. <?php echo substr( get_bloginfo(), 0, 40 ); ?> powered by 
 						<a href="https://github.com/dannydes/ecologie" title="View on Github" target="_blank">Ecologie</a>. 
 						Some rights reserved. <span id="copyright-extra-text"><?php echo get_theme_mod( 'copyright_text_addition' ); ?></span>
 					<?php endif; ?>

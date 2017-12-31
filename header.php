@@ -17,9 +17,9 @@
 					</button>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<img src="<?php echo wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0]; ?>" alt="Brand">
-						<?php echo get_bloginfo(); ?>
+						<?php echo substr( get_bloginfo(), 0, 40 ); ?>
 					</a>
-					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo get_bloginfo( 'description' ); ?></p>
+					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo substr( get_bloginfo( 'description' ), 0, 120 ); ?></p>
 				</div>
 				<?php if ( production_mode_disabled() ): ?><span class="pull-right navbar-text"> | Theme in development mode</span><?php endif; ?>
 				<div class="collapse navbar-collapse" id="main-menu">
