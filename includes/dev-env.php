@@ -3,7 +3,7 @@
 /**
  * Checks whether the site is installed locally.
  *
- * @return boolean Whether URL starts with "http[s]://localhost[:port]/" or not.
+ * @return bool Whether URL starts with "http[s]://localhost[:port]/" or not.
  */
 function is_localhost() {
 	return preg_match( '/http(s)?:\/\/localhost(:[\d]+)?\/.*/', get_site_url() ) === 1;
@@ -40,7 +40,7 @@ function add_production_mode_setting( $wp_customize ) {
  *
  * @uses is_localhost()
  *
- * @return boolean Whether production mode is disabled or not.
+ * @return bool Whether production mode is disabled or not.
  */
 function production_mode_disabled() {
 	return is_localhost() && ! get_theme_mod( 'production_mode_on', false );

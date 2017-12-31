@@ -14,9 +14,9 @@ class Ecologie_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	 *
 	 * @param string $output The markup to be rendered.
 	 * @param object $item Menu item.
-	 * @param integer $depth Depth within menu.
+	 * @param int $depth Depth within menu.
 	 * @param array $args Further arguments.
-	 * @param integer $id Menu item ID.
+	 * @param int $id Menu item ID.
 	 */
 	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -66,7 +66,7 @@ class Ecologie_Bottom_Nav_Menu_Walker extends Walker_Nav_Menu {
 	 *
 	 * @param string $output The markup to be rendered.
 	 * @param object $item Menu item.
-	 * @param integer $depth Depth within menu.
+	 * @param int $depth Depth within menu.
 	 * @param array $args Further arguments.
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = array() ) {

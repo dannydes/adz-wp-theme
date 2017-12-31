@@ -3,8 +3,8 @@
 /**
  * Changes the excerpt length.
  *
- * @param integer $length Current excerpt length.
- * @return integer New excerpt length.
+ * @param int $length Current excerpt length.
+ * @return int New excerpt length.
  */
 function ecologie_custom_excerpt_length( $length ) {
 	return 30;

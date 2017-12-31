@@ -6,7 +6,7 @@
  * @since 0.9
  * @uses ecologie_get_access_token()
  *
- * @return The Google client.
+ * @return object The Google client.
  */
 function ecologie_google_client() {
 	$client = new Google_Client();
@@ -27,7 +27,7 @@ function ecologie_google_client() {
  * @since 0.9
  *
  * @param $client object Google_Client instance.
- * @return Google access token.
+ * @return array Google access token.
  */
 function ecologie_get_access_token( $client ) {
 	$access_token = get_theme_mod( 'contact_sc_gapi_access_token' );
@@ -85,7 +85,7 @@ function ecologie_google_auth() {
  * @param $subject string Email subject.
  * @param $body string Email body.
  * @param $wantCopy bool Whether user wants a copy.
- * @return Message success.
+ * @return bool Message success.
  */
 function ecologie_send_email_via_gapi( $recipient, $sender, $senderName, $subject, $body, $wantCopy ) {
 	$gmail = new Google_Service_Gmail( ecologie_google_client() );

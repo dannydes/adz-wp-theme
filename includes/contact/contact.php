@@ -175,7 +175,7 @@ if ( is_admin() ) {
  *
  * @since 0.9
  *
- * @return Arithmetic CAPTCHA.
+ * @return string Arithmetic CAPTCHA.
  */
 function ecologie_generate_arithmetic_captcha() {
 	$n1 = rand( 1, 9 );
@@ -202,7 +202,7 @@ function ecologie_generate_arithmetic_captcha() {
  *
  * @since 0.9
  *
- * @return Flag representing validity of CAPTCHA answer.
+ * @return bool Flag representing validity of CAPTCHA answer.
  */
 function ecologie_validate_arithmetic_captcha_answer() {
 	$arithmetic_captcha = $_POST['hidden-arithmetic-captcha'];

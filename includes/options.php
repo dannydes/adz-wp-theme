@@ -25,7 +25,7 @@ $default = array(
  * @since 0.9
  *
  * @param string $key Theme mod key.
- * @return Theme mod or the default value for specified key.
+ * @return mixed Theme mod or the default value for specified key.
  */
 function ecologie_get_theme_mod_or_default( $key ) {
 	global $default;
