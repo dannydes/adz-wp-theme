@@ -38,13 +38,15 @@
 						<nav>
 						<?php
 						
-						wp_nav_menu( array(
-							'theme_location' => 'bottom',
-							'container' => '',
-							'depth' => 1,
-							'items_wrap' => '%3$s',
-							'walker' => new Ecologie_Bottom_Nav_Menu_Walker(),
-						) );
+						if ( has_nav_menu( 'bottom' ) ) {
+							wp_nav_menu( array(
+								'theme_location' => 'bottom',
+								'container' => '',
+								'depth' => 1,
+								'items_wrap' => '%3$s',
+								'walker' => new Ecologie_Bottom_Nav_Menu_Walker(),
+							) );
+						}
 						
 						?>
 						</nav>

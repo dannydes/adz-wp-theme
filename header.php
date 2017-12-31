@@ -25,11 +25,13 @@
 				<div class="collapse navbar-collapse" id="main-menu">
 					<?php
 						
-						wp_nav_menu( array(
-							'theme_location' => 'primary',
-							'menu_class' => 'nav navbar-nav navbar-right',
-							'walker' => new Ecologie_Primary_Nav_Menu_Walker(),
-						) );
+						if ( has_nav_menu( 'primary' ) ) {
+							wp_nav_menu( array(
+								'theme_location' => 'primary',
+								'menu_class' => 'nav navbar-nav navbar-right',
+								'walker' => new Ecologie_Primary_Nav_Menu_Walker(),
+							) );
+						}
 						
 					?>
 				</div>
