@@ -348,23 +348,23 @@ class Ecologie_Upcoming_Event_Widget extends WP_Widget {
 	 * @param array $instance Widget instance settings.
 	 * @return string The ordinal indicator following day.
 	 */
-	 private function dayOrdinalIndicator( $instance ) {
-		 $day = intval( $instance['day'] );
-		 $day_in_10 = floor( $day / 10 );
-		 $day_in_10_rem = $day % 10;
+	private function dayOrdinalIndicator( $instance ) {
+		$day = intval( $instance['day'] );
+		$day_in_10 = floor( $day / 10 );
+		$day_in_10_rem = $day % 10;
+		
+		if ( $day_in_10 === 1.0 ) {
+			return 'th';
+		}
 		 
-		 if ( $day_in_10 === 1.0 ) {
-			 return 'th';
-		 }
+		if ( $day_in_10_rem === 1 ) {
+			return 'st';
+		} else if ( $day_in_10_rem === 2 ) {
+			return 'nd';
+		} else if ( $day_in_10_rem === 3 ) {
+			return 'rd';
+		}
 		 
-		 if ( $day_in_10_rem === 1 ) {
-			 return 'st';
-		 } else if ( $day_in_10_rem === 2 ) {
-			 return 'nd';
-		 } else if ( $day_in_10_rem === 3 ) {
-			 return 'rd';
-		 }
-		 
-		 return 'th';
-	 }
+		return 'th';
+	}
 }
