@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* Default buttons gone greenish
 * Mailchimp Subscribe Widget: Fixed regression with interaction
 * Contact Widget: Country codes now fetched through restcountries.eu
 * Contact Widget: Calling codes now visible in dropdown options
