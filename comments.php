@@ -11,7 +11,10 @@
 			'style' => 'div',
 		) );
 		
-		paginate_comments_links();
+		paginate_comments_links( array(
+			'prev_text' => '←',
+			'next_text' => '→',
+		) );
 		
 		?>
 	<?php endif; ?>
