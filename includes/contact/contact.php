@@ -35,13 +35,15 @@ function contact_us_shortcode( $atts ) {
 		</div>
 		<div class="checkbox">
 			<label for="contact-copy"><input type="checkbox" id="contact-copy" name="forward-copy" value="on"> Send me a copy</label>
-		</div>
-		<div class="form-inline">
-			<label for="contact-arithmetic-captcha">' . $arithmetic_captcha . ' = <span class="required label label-default">*</span></label>
-			<input type="text" class="form-control" id="contact-arithmetic-captcha" name="captcha-answer" placeholder="Your answer" required aria-required="true"></textarea>
-		</div>
-		<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">
-		<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
+		</div>' .
+		( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) ?
+			'<div class="form-inline">
+				<label for="contact-arithmetic-captcha">' . $arithmetic_captcha . ' = <span class="required label label-default">*</span></label>
+				<input type="text" class="form-control" id="contact-arithmetic-captcha" name="captcha-answer" placeholder="Your answer" required aria-required="true"></textarea>
+			</div>
+			<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">' :
+			'' ) .
+		'<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
 	</form>';
 }
 
@@ -57,7 +59,7 @@ function ecologie_ajax_contact_us() {
 		wp_die( __( 'Name, email and message may not be left empty.', 'ecologie' ) );
 	}
 	
-	if ( ! ecologie_validate_arithmetic_captcha_answer() ) {
+	if ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) && ! ecologie_validate_arithmetic_captcha_answer() ) {
 		wp_die( __( 'Incorrect answer to arithmetic CAPTCHA.', 'ecologie' ) );
 	}
 	

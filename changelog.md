@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* Contact Shortcode: Option to enable/disable captcha
 * Comment navigation arrows
 * Mailchimp Subscribe Widget: Fixed regression with interaction
 * Contact Widget: Country codes now fetched through restcountries.eu
