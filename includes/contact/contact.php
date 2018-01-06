@@ -3,16 +3,12 @@
 /**
  * Translates the [contact-us] shortcode into HTML.
  *
- * @uses ecologie_generate_arithmetic_captcha()
- *
  * @param array $atts Shortcode attributes.
  * @return string Shortcode HTML output.
  */
 function contact_us_shortcode( $atts ) {
 	$_SESSION['ecologie_cs_at'] = ( ! empty( $atts['at'] ) ? $atts['at'] : '' );
 	$_SESSION['ecologie_cs_atName'] = ( ! empty( $atts['atName'] ) ? $atts['atName'] : '' );
-	
-	$arithmetic_captcha = ecologie_generate_arithmetic_captcha();
 	
 	return ( empty( $atts['at'] ) ? '<p>Specify "at" attribute.</p>' : '' ) .
 	'<form id="contact-us" action="#" method="post">
@@ -35,15 +31,8 @@ function contact_us_shortcode( $atts ) {
 		</div>
 		<div class="checkbox">
 			<label for="contact-copy"><input type="checkbox" id="contact-copy" name="forward-copy" value="on"> Send me a copy</label>
-		</div>' .
-		( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) ?
-			'<div class="form-inline">
-				<label for="contact-arithmetic-captcha">' . $arithmetic_captcha . ' = <span class="required label label-default">*</span></label>
-				<input type="text" class="form-control" id="contact-arithmetic-captcha" name="captcha-answer" placeholder="Your answer" required aria-required="true"></textarea>
-			</div>
-			<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">' :
-			'' ) .
-		'<button type="submit" class="btn btn-default' . ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) ? ' g-recaptcha"
+		</div>
+		<button type="submit" class="btn btn-default' . ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) ? ' g-recaptcha"
 				data-sitekey="' . get_theme_mod( 'contact_sc_recaptcha_site_key' ) . '" data-callback="submitContactForm"' : '"' ) . '">
 			Send message <i id="contact-sending-message" class="fa"></i>
 		</button>
@@ -54,6 +43,8 @@ add_shortcode( 'contact-us', 'contact_us_shortcode' );
 
 /**
  * Handles AJAX request coming from contact form submission.
+ *
+ * @uses ecologie_get_theme_mod_or_default(), ecologie_validate_invisible_recaptcha()
  */
 function ecologie_ajax_contact_us() {
 	session_start();
@@ -173,45 +164,6 @@ function ecologie_register_contact_us_tinymce_plugin() {
 
 if ( is_admin() ) {
 	add_action( 'init', 'ecologie_register_contact_us_tinymce_plugin' );
-}
-
-/**
- * Generates a random arithmetic CAPTCHA.
- *
- * @since 0.9
- *
- * @return string Arithmetic CAPTCHA.
- */
-function ecologie_generate_arithmetic_captcha() {
-	$n1 = rand( 1, 9 );
-	$n2 = rand( 1, 9 );
-	$operand = rand( 1, 3 );
-	
-	switch ( $operand ) {
-		case 1:
-			$operand_str = '+';
-			break;
-		case 2:
-			$operand_str = '-';
-			break;
-		case 3:
-			$operand_str = '*';
-			break;
-	}
-	
-	return $n1 . ' ' . $operand_str . ' ' . $n2;
-}
-
-/**
- * Validates answer to arithmetic CAPTCHA against hidden CAPTCHA field value.
- *
- * @since 0.9
- *
- * @return bool Flag representing validity of CAPTCHA answer.
- */
-function ecologie_validate_arithmetic_captcha_answer() {
-	$arithmetic_captcha = $_POST['hidden-arithmetic-captcha'];
-	return strlen( $arithmetic_captcha ) === 5 && eval( 'return ' . $arithmetic_captcha . ';' ) === intval( $_POST['captcha-answer'] );
 }
 
 /**
