@@ -3,6 +3,8 @@
 /**
  * Translates the [contact-us] shortcode into HTML.
  *
+ * @uses ecologie_get_theme_mod_or_default()
+ *
  * @param array $atts Shortcode attributes.
  * @return string Shortcode HTML output.
  */
