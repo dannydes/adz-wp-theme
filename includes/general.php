@@ -64,5 +64,5 @@ add_action( 'wp_enqueue_scripts', 'ecologie_enqueue_scripts' );
 
 //Hack from Eazy Enable Blogroll plugin to reenable links manager
 if( get_bloginfo( 'version' ) >= 3.5 ) {
-  add_filter( 'pre_option_link_manager_enabled', '__return_true' );
+	add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 }
