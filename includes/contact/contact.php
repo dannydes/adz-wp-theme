@@ -62,8 +62,8 @@ function ecologie_ajax_contact_us() {
 		wp_die( __( 'Name, email and message may not be left empty.', 'ecologie' ) );
 	}
 	
-	if ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) && ! ecologie_validate_arithmetic_captcha_answer() ) {
-		wp_die( __( 'Incorrect answer to arithmetic CAPTCHA.', 'ecologie' ) );
+	if ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) && ! ecologie_validate_invisible_recaptcha() ) {
+		wp_die( __( 'reCAPTCHA incorrect.', 'ecologie' ) );
 	}
 	
 	if ( ! is_email( $_POST['email'] ) || ! is_email( $_SESSION['ecologie_cs_at'] ) ) {
@@ -237,4 +237,28 @@ add_action( 'send_headers', 'ecologie_cs_start_session' );
 function ecologie_page_has_contact_shortcode() {
 	$post = get_post( url_to_postid( $_SERVER['REQUEST_URI'] ) );
 	return has_shortcode( $post->post_content, 'contact-us' );
+}
+
+/**
+ * Validates invisible reCAPTCHA.
+ *
+ * @since 0.9.1
+ *
+ * @return bool reCAPTCHA validity.
+ */
+function ecologie_validate_invisible_recaptcha() {
+	$req = wp_safe_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+		'body' => array(
+			'secret' => get_theme_mod( 'contact_sc_recaptcha_secret_key' ),
+			'response' => $_POST['g-recaptcha-response'],
+		),
+	) );
+	
+	if ( is_wp_error( $req ) ) {
+		return false;
+	}
+	
+	$body = wp_remote_retrieve_body( $req );
+	
+	return json_decode( $body )->success;
 }
