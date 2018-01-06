@@ -43,7 +43,10 @@ function contact_us_shortcode( $atts ) {
 			</div>
 			<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">' :
 			'' ) .
-		'<button type="submit" class="btn btn-default">Send message <i id="contact-sending-message" class="fa"></i></button>
+		'<button type="submit" class="btn btn-default' . ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) ? ' g-recaptcha"
+				data-sitekey="6Ldblj8UAAAAAARoI-7f4hjj4jfqOZRw6tkS5mqS" data-callback=""' : '"' ) . '">
+			Send message <i id="contact-sending-message" class="fa"></i>
+		</button>
 	</form>';
 }
 
@@ -217,10 +220,21 @@ function ecologie_validate_arithmetic_captcha_answer() {
  * @since 0.9
  */
 function ecologie_cs_start_session() {
-	$post = get_post( url_to_postid( $_SERVER['REQUEST_URI'] ) );
-	if ( has_shortcode( $post->post_content, 'contact-us' ) ) {
+	if ( ecologie_page_has_contact_shortcode() ) {
 		session_start();
 	}
 }
 
 add_action( 'send_headers', 'ecologie_cs_start_session' );
+
+/**
+ * Checks whether the current page contains a [contact-us] shortcode.
+ *
+ * @since 0.9.1
+ *
+ * @return bool True if page has a [contact-us] shortcode. False otherwise.
+ */
+function ecologie_page_has_contact_shortcode() {
+	$post = get_post( url_to_postid( $_SERVER['REQUEST_URI'] ) );
+	return has_shortcode( $post->post_content, 'contact-us' );
+}

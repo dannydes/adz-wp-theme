@@ -47,6 +47,10 @@ function ecologie_enqueue_scripts() {
 		$base_script_deps[] = 'mailchimp';
 	}*/
 	
+	if ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) && ecologie_page_has_contact_shortcode() ) {
+		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', '', '', true );
+	}
+	
 	if ( production_mode_disabled() ) {
 		enqueue_development_scripts();
 	} else {
