@@ -1,8 +1,7 @@
-(function ( $ ) {
+(function ( $, window ) {
 	'use strict';
 	
 	$( '#contact-us' ).submit(function () {
-		
 		$( '#contact-sending-message' ).addClass( 'fa-spinner fa-spin' );
 		
 		$.post( ecologie.ajax_url, $( this ).serialize() + '&action=contact_us', function ( res ) {
@@ -24,4 +23,8 @@
 		
 		return false;
 	});
-})( jQuery );
+	
+	window.submitContactForm = function () {
+		$( '#contact-us' ).submit();
+	}
+})( jQuery, window );

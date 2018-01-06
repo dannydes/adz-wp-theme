@@ -44,7 +44,7 @@ function contact_us_shortcode( $atts ) {
 			<input type="hidden" id="contact-hidden-arithmetic-captcha" name="hidden-arithmetic-captcha" value="' . $arithmetic_captcha . '">' :
 			'' ) .
 		'<button type="submit" class="btn btn-default' . ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) ? ' g-recaptcha"
-				data-sitekey="6Ldblj8UAAAAAARoI-7f4hjj4jfqOZRw6tkS5mqS" data-callback=""' : '"' ) . '">
+				data-sitekey="6Ldblj8UAAAAAARoI-7f4hjj4jfqOZRw6tkS5mqS" data-callback="submitContactForm"' : '"' ) . '">
 			Send message <i id="contact-sending-message" class="fa"></i>
 		</button>
 	</form>';
