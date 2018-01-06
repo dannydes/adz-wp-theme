@@ -42,11 +42,6 @@ function ecologie_enqueue_scripts() {
 	wp_enqueue_style( 'base-css', get_template_directory_uri() . '/style.css', '', $theme_version );
 	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', '', '4.7' );
 	
-	/*if ( is_active_widget( false, false, 'ecologie_mailchimp_subscribe_widget' ) ) {
-		wp_enqueue_script( 'mailchimp', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js', '', '', true );
-		$base_script_deps[] = 'mailchimp';
-	}*/
-	
 	if ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) && ecologie_page_has_contact_shortcode() ) {
 		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', '', '', true );
 	}
