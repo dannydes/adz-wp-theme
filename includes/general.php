@@ -37,8 +37,6 @@ add_action( 'after_setup_theme', 'ecologie_setup' );
 function ecologie_enqueue_scripts() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 	
-	$base_script_deps = array( 'jquery' );
-	
 	wp_enqueue_style( 'base-css', get_template_directory_uri() . '/style.css', '', $theme_version );
 	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', '', '4.7' );
 	
@@ -49,7 +47,7 @@ function ecologie_enqueue_scripts() {
 	if ( production_mode_disabled() ) {
 		enqueue_development_scripts();
 	} else {
-		wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', $base_script_deps, $theme_version, true );
+		wp_enqueue_script( 'base-js', get_template_directory_uri() . '/script.js', array( 'jquery' ), $theme_version, true );
 		
 		ecologie_localize_contact_script( 'base-js' );
 	}
