@@ -7,6 +7,7 @@
 		$.post( ecologie.ajax_url, $( this ).serialize() + '&action=contact_us', function ( res ) {
 			$( '#contact-sending-message' ).removeClass( 'fa-spinner fa-spin' );
 			
+			// Parse output to get last line.
 			var lines = res.split( '\n' );
 			var status = lines[lines.length - 1];
 			
@@ -24,6 +25,7 @@
 		return false;
 	});
 	
+	// Callback for Google hidden reCAPTCHA.
 	window.submitContactForm = function () {
 		$( '#contact-us' ).submit();
 	}
