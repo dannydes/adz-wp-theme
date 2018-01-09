@@ -10,12 +10,13 @@
 	padding: 0.55em;
 	border-radius: 0.5em;
 	display: none;
-	transition: width 0.5s ease-in,
-		height 0.5s ease-in;
+	transition: opacity 0.5s ease-in;
 	
 	&.show {
-		height: 3em;
-		width: 3em;
 		display: block;
+	}
+	
+	&:hover {
+		opacity: 0.9;
 	}
 }
