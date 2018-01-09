@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* Contact Shortcode: Upon authentication with Google, the link to authenticate is changed to text reading "Authenticated!"
 * Contact Shortcode: Option to enable/disable captcha
 * Comment navigation arrows
 * Default buttons gone greenish

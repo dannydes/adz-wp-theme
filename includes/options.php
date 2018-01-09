@@ -203,7 +203,8 @@ function ecologie_customize_register( $wp_customize ) {
 	if ( get_theme_mod( 'contact_sc_gapi_clientid' ) && get_theme_mod( 'contact_sc_gapi_client_secret' ) ) {
 		$settings[] = array( 'contact_sc_gmail_auth', array(
 				'type' => 'hidden',
-				'description' => __( '<a href="' . ecologie_google_client()->createAuthUrl() . '">Authenticate with Gmail.</a>', 'ecologie' ),
+				'description' => __( get_theme_mod( 'contact_sc_gapi_access_token' ) ?
+					'Authenticated!' : '<a href="' . ecologie_google_client()->createAuthUrl() . '">Authenticate with Gmail.</a>', 'ecologie' ),
 				'section' => 'contact_shortcode',
 			), 'postMessage' );
 	}
