@@ -1,4 +1,7 @@
 		</div>
+		<a id="top" href="#" title="Back to top">
+			<i class="fa fa-2x fa-arrow-up" aria-hidden="true"></i>
+		</a>
 		<footer class="footer">
 			<div class="top">
 				<div class="container row">

@@ -1,0 +1,21 @@
+#top {
+	position: fixed;
+	bottom: 3em;
+	left: 3em;
+	height: 3em;
+	width: 3em;
+	color: #fff;
+	background-color: @navbar-default-bg;
+	opacity: 0.7;
+	text-align: center;
+	border-radius: 0.5em;
+	display: none;
+	transition: width 0.5s ease-in,
+		height 0.5s ease-in;
+	
+	&.show {
+		height: 3em;
+		width: 3em;
+		display: block;
+	}
+}
