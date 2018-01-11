@@ -7,14 +7,13 @@
 	width: 3em;
 	color: #fff;
 	background-color: @navbar-default-bg;
-	opacity: 0.7;
+	opacity: 0;
 	padding: 0.55em;
 	border-radius: 0.5em;
-	display: none;
 	transition: opacity 0.5s ease-in;
 	
 	&.show {
-		display: block;
+		opacity: 0.7;
 	}
 	
 	&:hover {
