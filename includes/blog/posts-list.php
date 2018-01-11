@@ -2,9 +2,12 @@
 
 $paged = ( get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1 );
 
+$s = get_search_query();
+
 $the_query = new WP_Query( array(
 	'posts_per_page' => get_option( 'posts_per_page' ),
 	'paged' => $paged,
+	's' => ( empty( $s ) ? null : $s ),
 ) );
 
 if ( $the_query->have_posts() ): ?>

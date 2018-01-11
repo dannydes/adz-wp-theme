@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* Custom search page
 * Back to top button
 * Contact Shortcode: Invisible reCAPTCHA replacing arithmetic captcha
 * Contact Shortcode: Redirect URL field in Customiser
