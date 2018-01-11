@@ -21,6 +21,9 @@
 			$( '#contact-sending-message' ).removeClass( 'fa-spinner fa-spin' );
 			Ecologie.createAlert( '#contact-us', 'danger', 'Internal error. Please try later or contact site administrator.' );
 		} );
+				
+		// Reset reCAPTCHA for reuse.
+		grecaptcha.reset();
 		
 		return false;
 	});
