@@ -17,6 +17,7 @@ $default = array(
 	'header_image_manifesto_on' => true,
 	'contact_sc_captcha_on' => true,
 	'contact_sc_conn_method' => 'smtp',
+	'contact_sc_gapi_redirect_url' => admin_url( 'customize.php?action=google_auth_grant' ),
 	'sidebar_on' => true,
 );
 
@@ -191,6 +192,15 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => __( 'Google API Client Secret', 'ecologie' ),
 			'description' => __( 'Client Secret for authentication with Google.', 'ecologie' ),
 			'section' => 'contact_shortcode',
+		), 'postMessage' ),
+		array( 'contact_sc_gapi_redirect_url', array(
+			'type' => 'text',
+			'label' => __( 'Google API Redirect URL', 'ecologie' ),
+			'description' => __( 'Redirection URL for Google authentication.', 'ecologie' ),
+			'section' => 'contact_shortcode',
+			'input_attrs' => array(
+				'readonly' => true,
+			),
 		), 'postMessage' ),
 		array( 'sidebar_on', array(
 			'type' => 'checkbox',

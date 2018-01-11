@@ -1,6 +1,7 @@
 # 0.9.1 ([Release date])
 
 * Back to top button
+* Contact Shortcode: Redirect URL field in Customiser
 * Contact Shortcode: Upon authentication with Google, the link to authenticate is changed to text reading "Authenticated!"
 * Contact Shortcode: Option to enable/disable captcha
 * Comment navigation arrows
