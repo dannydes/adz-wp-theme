@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* Front page: Bigger font for call-to-action block
 * Custom search page
 * Back to top button
 * Contact Shortcode: Invisible reCAPTCHA replacing arithmetic captcha
