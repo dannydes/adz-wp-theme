@@ -64,3 +64,21 @@ add_action( 'wp_enqueue_scripts', 'ecologie_enqueue_scripts' );
 if( get_bloginfo( 'version' ) >= 3.5 ) {
 	add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 }
+
+/**
+ * Gets up to the first 40 characters of the site title.
+ *
+ * @return string Shortened site title.
+ */
+function ecologie_shortened_site_title() {
+	return substr( get_bloginfo(), 0, 40 );
+}
+
+/**
+ * Gets up to the first 120 characters of the site description.
+ *
+ * @return string Shortened site description.
+ */
+function ecologie_shortened_site_description() {
+	return substr( get_bloginfo( 'description' ), 0, 120 );
+}

@@ -17,9 +17,9 @@
 					</button>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<img src="<?php echo wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0]; ?>" alt="Brand">
-						<?php echo substr( get_bloginfo(), 0, 40 ); ?>
+						<?php echo ecologie_shortened_site_title(); ?>
 					</a>
-					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo substr( get_bloginfo( 'description' ), 0, 120 ); ?></p>
+					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo ecologie_shortened_site_description(); ?></p>
 				</div>
 				<?php if ( production_mode_disabled() ): ?><span class="pull-right navbar-text"> | Theme in development mode</span><?php endif; ?>
 				<div class="collapse navbar-collapse" id="main-menu">
@@ -44,8 +44,8 @@
 		<header class="header" style="background-image:url('<?php header_image(); ?>');max-height:<?php echo get_custom_header()->height; ?>px;max-width:<?php echo get_custom_header()->width; ?>px">
 			<?php if ( ecologie_get_theme_mod_or_default( 'header_image_text_on' ) ): ?>
 			<div class="header-text">
-				<h1><?php echo bloginfo(); ?></h1>
-				<h3><?php echo get_bloginfo( 'description' ); ?></h3>
+				<h1><?php echo ecologie_shortened_site_title(); ?></h1>
+				<h3><?php echo ecologie_shortened_site_description(); ?></h3>
 				<hr>
 				<p><?php echo ecologie_get_theme_mod_or_default( 'header_image_text' ); ?></p>
 				<?php if ( ecologie_get_theme_mod_or_default( 'header_image_manifesto_on' ) ): ?>
