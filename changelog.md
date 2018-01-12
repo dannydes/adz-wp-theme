@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* Customiser: Set lower limit for "Number of recent posts" to 1
 * Front page: Bigger font for call-to-action block
 * Custom search page
 * Back to top button

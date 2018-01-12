@@ -76,6 +76,9 @@ function ecologie_customize_register( $wp_customize ) {
 			'label' => __( 'Number of recent posts', 'ecologie' ),
 			'description' => __( 'Number of recent posts to display on front page.', 'ecologie' ),
 			'section' => 'blog',
+			'input_attrs' => array(
+				'min' => 1,
+			),
 		), 'postMessage' ),
 		array( 'copyright_text_addition', array(
 			'type' => 'text',
