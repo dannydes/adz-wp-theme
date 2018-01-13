@@ -1,7 +1,9 @@
 		</div>
+		<?php if ( ecologie_get_theme_mod_or_default( 'back_to_top_on' ) ): ?>
 		<a id="top" href="#" title="Back to top">
 			<i class="fa fa-2x fa-arrow-up" aria-hidden="true"></i>
 		</a>
+		<?php endif; ?>
 		<footer class="footer">
 			<div class="top">
 				<div class="container row">

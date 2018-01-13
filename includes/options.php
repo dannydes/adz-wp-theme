@@ -19,6 +19,7 @@ $default = array(
 	'contact_sc_conn_method' => 'smtp',
 	'contact_sc_gapi_redirect_url' => admin_url( 'customize.php?action=google_auth_grant' ),
 	'sidebar_on' => true,
+	'back_to_top_on' => true,
 );
 
 /**
@@ -209,7 +210,13 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'checkbox',
 			'label' => __( 'Enable sidebar', 'ecologie' ),
 			'description' => __( 'Enable/disable sidebar.', 'ecologie' ),
-			'section' => 'sidebar',
+			'section' => 'general',
+		), 'refresh' ),
+		array( 'back_to_top_on', array(
+			'type' => 'checkbox',
+			'label' => __( 'Enable back to top', 'ecologie' ),
+			'description' => __( 'Enable/disable back to top', 'ecologie' ),
+			'section' => 'general',
 		), 'refresh' ),
 	);
 	
@@ -225,6 +232,12 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_panel( 'ecologie', array(
 		'title' => __( 'Ecologie Settings', 'ecologie' ),
 		'description' => __( 'Settings related to Ecologie theme', 'ecologie' ),
+	) );
+	
+	$wp_customize->add_section( 'general', array(
+		'title' => __( 'General', 'ecologie' ),
+		'description' => __( 'This section contains settings related to general features of the theme.', 'ecologie' ),
+		'panel' => 'ecologie',
 	) );
 	
 	$wp_customize->add_section( 'cta_block', array(
@@ -260,12 +273,6 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'contact_shortcode', array(
 		'title' => __( 'Contact Shortcode', 'ecologie' ),
 		'description' => __( 'This section contains settings related to the Contact shortcode.', 'ecologie' ),
-		'panel' => 'ecologie',
-	) );
-	
-	$wp_customize->add_section( 'sidebar', array(
-		'title' => __( 'Sidebar', 'ecologie' ),
-		'description' => __( 'This section contains settings related to the sidebar.', 'ecologie' ),
 		'panel' => 'ecologie',
 	) );
 	
