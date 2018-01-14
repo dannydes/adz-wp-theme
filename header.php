@@ -4,6 +4,18 @@
 		<meta charset="<?php echo get_bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
+		<?php if ( get_theme_mod( 'main_color' ) ): ?>
+		<style>
+			.call-to-action-block, .footer > .bottom, .navbar, .sidebar {
+				background-color: <?php echo get_theme_mod( 'main_color' ); ?>;
+				border-color: <?php echo get_theme_mod( 'main_color' ); ?>;
+			}
+			
+			.navbar .active {
+				// To-do: darken current background-color by 6.5%
+			}
+		</style>
+		<?php endif; ?>
 	</head>
 	<body <?php body_class(); ?>>
 		<nav class="navbar navbar-default navbar-fixed-top">

@@ -291,6 +291,21 @@ function ecologie_customize_register( $wp_customize ) {
 		
 		$wp_customize->add_control( $setting[0], $setting[1] );
 	}
+	
+	$wp_customize->add_setting( 'main_color', array(
+		'type' => 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'transport' => 'refresh',
+	) );
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control(
+		$wp_customize,
+		'main_color',
+		array(
+			'label' => __( 'Main Colour', 'ecologie' ),
+			'section' => 'general',
+			'settings' => 'main_color',
+		) ) );
 }
 
 add_action( 'customize_register', 'ecologie_customize_register' );

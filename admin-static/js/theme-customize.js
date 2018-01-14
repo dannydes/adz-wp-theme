@@ -49,4 +49,6 @@
 		});
 	});
 	
+	// To-do: limit 'main_color' to range of green shades
+	
 })( jQuery );
