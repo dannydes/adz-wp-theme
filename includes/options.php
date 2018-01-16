@@ -295,7 +295,7 @@ function ecologie_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'main_color', array(
 		'type' => 'theme_mod',
 		'capability' => 'edit_theme_options',
-		'transport' => 'refresh',
+		'transport' => 'postMessage',
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control(

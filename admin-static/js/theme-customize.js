@@ -49,6 +49,15 @@
 		});
 	});
 	
+	wp.customize( 'main_color', function ( value ) {
+		value.bind(function ( newVal ) {
+			$( '.call-to-action-block, .footer > .bottom, .navbar, .sidebar' ).css( { backgroundColor: newVal } );
+			$( '.navbar' ).css( { borderColor: newVal } );
+			
+			//To-do: darken current backgroundColor by 6.5%
+		});
+	});
+	
 	// To-do: limit 'main_color' to range of green shades
 	
 })( jQuery );
