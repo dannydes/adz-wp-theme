@@ -68,6 +68,8 @@ if( get_bloginfo( 'version' ) >= 3.5 ) {
 /**
  * Gets up to the first 40 characters of the site title.
  *
+ * @since 0.9.1
+ *
  * @return string Shortened site title.
  */
 function ecologie_shortened_site_title() {
@@ -76,6 +78,8 @@ function ecologie_shortened_site_title() {
 
 /**
  * Gets up to the first 120 characters of the site description.
+ *
+ * @since 0.9.1
  *
  * @return string Shortened site description.
  */
