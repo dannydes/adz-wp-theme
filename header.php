@@ -11,7 +11,7 @@
 				border-color: <?php echo get_theme_mod( 'main_color' ); ?>;
 			}
 			
-			.navbar-default .navbar-nav > .active > a {
+			.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover {
 				background-color: <?php echo ecologie_darken_color( get_theme_mod( 'main_color' ), 0.065 ); ?>
 			}
 		</style>
