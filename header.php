@@ -11,8 +11,8 @@
 				border-color: <?php echo get_theme_mod( 'main_color' ); ?>;
 			}
 			
-			.navbar .active {
-				// To-do: darken current background-color by 6.5%
+			.navbar-default .navbar-nav > .active > a {
+				background-color: <?php echo ecologie_darken_color( get_theme_mod( 'main_color' ), 0.065 ); ?>
 			}
 		</style>
 		<?php endif; ?>
