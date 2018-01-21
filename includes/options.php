@@ -336,3 +336,35 @@ function ecologie_ajax_recent_posts() {
 }
 
 add_action( 'wp_ajax_recent_posts', 'ecologie_ajax_recent_posts' );
+
+/**
+ * Customises color pickers.
+ *
+ * @since 0.9.1
+ */
+function ecologie_color_picker() {
+	?>
+	<script>
+		jQuery( document ).ready( function ( $ ) {
+			$( '.wp-picker-container' ).iris({
+				mode: 'hex',
+				controls: {
+					horiz: 's',
+					vert: 's',
+					strip: 's',
+				},
+				palettes: ['#81D742'],
+			});
+			
+			$( '.wp-color-picker' ).wpColorPicker({
+				change: function ( event, ui ) {
+					var color = ui.color.toString();console.log(color);
+					$( '.color-picker-hex' ).val( color );
+				},
+			});
+		} );
+	</script>
+	<?php
+}
+
+add_action( 'customize_controls_print_footer_scripts', 'ecologie_color_picker' );
