@@ -8,6 +8,7 @@ $the_query = new WP_Query( array(
 	'posts_per_page' => get_option( 'posts_per_page' ),
 	'paged' => $paged,
 	's' => ( empty( $s ) ? null : $s ),
+	'post_type' => ( empty( $s ) ? 'post' : 'any' ),
 ) );
 
 if ( $the_query->have_posts() ): ?>
