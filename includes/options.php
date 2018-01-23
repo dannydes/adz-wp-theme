@@ -343,28 +343,11 @@ add_action( 'wp_ajax_recent_posts', 'ecologie_ajax_recent_posts' );
  * @since 0.9.1
  */
 function ecologie_color_picker() {
-	?>
-	<script>
-		jQuery( document ).ready( function ( $ ) {
-			$( '.wp-picker-container' ).iris({
-				mode: 'hex',
-				controls: {
-					horiz: 's',
-					vert: 's',
-					strip: 's',
-				},
-				palettes: ['#81D742'],
-			});
-			
-			$( '.wp-color-picker' ).wpColorPicker({
-				change: function ( event, ui ) {
-					var color = ui.color.toString();console.log(color);
-					$( '.color-picker-hex' ).val( color );
-				},
-			});
-		} );
-	</script>
-	<?php
+	wp_enqueue_script( 'theme-customize',
+		get_template_directory_uri() . '/admin-static/js/color-picker.js',
+		array( 'jquery', 'iris' ),
+		wp_get_theme()->get( 'Version' ),
+		true );
 }
 
 add_action( 'customize_controls_print_footer_scripts', 'ecologie_color_picker' );
