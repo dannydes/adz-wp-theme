@@ -2,6 +2,8 @@
 
 get_header();
 
+get_sidebar();
+
 ?>
 </div>
 <div class="_404" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/coal-plant-404.jpg')">

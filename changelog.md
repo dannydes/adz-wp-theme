@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* 404: Sidebar is now usable
 * Customiser: Moved "Sidebar" section to newly added "General" section
 * Customiser: Set lower limit for "Number of recent posts" to 1
 * Front page: Bigger font for call-to-action block
