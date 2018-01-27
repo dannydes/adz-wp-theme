@@ -1,5 +1,6 @@
 # 0.9.1 ([Release date])
 
+* Default logo shown in case no logo is provided by user
 * 404: Sidebar is now usable
 * Customiser: Added options to show/hide site title and description in primary menu (title hidden by default)
 * Customiser: Moved "Sidebar" section to newly added "General" section
