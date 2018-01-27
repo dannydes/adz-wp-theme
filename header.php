@@ -34,9 +34,15 @@
 					</button>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<img src="<?php echo wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0]; ?>" alt="Brand">
-						<?php echo ecologie_shortened_site_title(); ?>
+						<?php
+						
+						if ( get_theme_mod( 'site_title_primary_menu_on' ) ) {
+							echo ecologie_shortened_site_title();
+						}
+						
+						?>
 					</a>
-					<p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo ecologie_shortened_site_description(); ?></p>
+					<?php if ( ecologie_get_theme_mod_or_default( 'site_description_primary_menu_on' ) ): ?><p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo ecologie_shortened_site_description(); ?></p><?php endif; ?>
 				</div>
 				<?php if ( production_mode_disabled() ): ?><span class="pull-right navbar-text"> | Theme in development mode</span><?php endif; ?>
 				<div class="collapse navbar-collapse" id="main-menu">

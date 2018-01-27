@@ -20,6 +20,7 @@ $default = array(
 	'contact_sc_gapi_redirect_url' => admin_url( 'customize.php?action=google_auth_grant' ),
 	'sidebar_on' => true,
 	'back_to_top_on' => true,
+	'site_description_primary_menu_on' => true,
 );
 
 /**
@@ -216,6 +217,18 @@ function ecologie_customize_register( $wp_customize ) {
 			'type' => 'checkbox',
 			'label' => __( 'Enable back to top', 'ecologie' ),
 			'description' => __( 'Enable/disable back to top', 'ecologie' ),
+			'section' => 'general',
+		), 'refresh' ),
+		array( 'site_title_primary_menu_on', array(
+			'type' => 'checkbox',
+			'label' => __( 'Show site title in primary menu', 'ecologie' ),
+			'description' => __( 'Show/hide site title in primary menu', 'ecologie' ),
+			'section' => 'general',
+		), 'refresh' ),
+		array( 'site_description_primary_menu_on', array(
+			'type' => 'checkbox',
+			'label' => __( 'Show site description in primary menu', 'ecologie' ),
+			'description' => __( 'Show/hide site description in primary menu', 'ecologie' ),
 			'section' => 'general',
 		), 'refresh' ),
 	);
