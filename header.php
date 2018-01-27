@@ -17,7 +17,7 @@
 					.navbar-default .navbar-nav > .open > a,
 					.navbar-default .navbar-nav > .open > a:hover,
 					.navbar-default .navbar-nav > .open > a:focus {
-				background-color: <?php echo ecologie_darken_color( get_theme_mod( 'main_color' ), 0.065 ); ?>
+				backgrou nd-color: <?php echo ecologie_darken_color( get_theme_mod( 'main_color' ), 0.065 ); ?>
 			}
 		</style>
 		<?php endif; ?>
@@ -33,7 +33,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0]; ?>" alt="<?php echo ecologie_shortened_site_title(); ?> logo">
+						<img src="<?php echo has_custom_logo() ? wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' )[0] : get_template_directory_uri() . '/img/logo.png'; ?>" alt="<?php echo ecologie_shortened_site_title(); ?> logo">
 						<?php
 						
 						if ( get_theme_mod( 'site_title_primary_menu_on' ) ) {
