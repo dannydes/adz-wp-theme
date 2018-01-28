@@ -101,7 +101,7 @@ class Ecologie_Social_Widget extends WP_Widget {
 			<p>
 				<label for="<?php echo $this->get_field_id( $network['code'] ); ?>"><?php echo $network['title']; ?></label><br>
 				<strong><?php echo $network['url_format']; ?></strong>
-				<input type="url" id="<?php echo $this->get_field_id( $network['code'] ); ?>" name="<?php echo $this->get_field_name( $network['code'] ); ?>"
+				<input type="text" id="<?php echo $this->get_field_id( $network['code'] ); ?>" name="<?php echo $this->get_field_name( $network['code'] ); ?>"
 					class="widefat" value="<?php echo esc_attr( $instance[$network['code']] ); ?>">
 			</p>
 		<?php endforeach; ?>
