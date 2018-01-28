@@ -77,8 +77,16 @@ class Ecologie_Social_Widget extends WP_Widget {
 						<i class="fa fa-<?php echo $network['code']; ?>" aria-hidden="true"></i>
 					</div>
 				</a>
-			<?php endif; ?>
-		<?php endforeach;
+			<?php endif;
+		endforeach;
+		if ( $instance['rss_on'] ): ?>
+			<a href="<?php echo get_feed_link(); ?>" title="RSS Feed" target="_blank" aria-label="RSS Feed">
+				<div class="social-btn pull-left">
+					<i class="fa fa-rss" aria-hidden="true"></i>
+				</div>
+			</a>
+		<?php
+		endif;
 	}
 	
 	/**
@@ -96,7 +104,13 @@ class Ecologie_Social_Widget extends WP_Widget {
 				<input type="url" id="<?php echo $this->get_field_id( $network['code'] ); ?>" name="<?php echo $this->get_field_name( $network['code'] ); ?>"
 					class="widefat" value="<?php echo esc_attr( $instance[$network['code']] ); ?>">
 			</p>
-		<?php endforeach;
+		<?php endforeach; ?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'rss_on' ); ?>">Show RSS</label><br>
+			<input type="checkbox" id="<?php echo $this->get_field_id( 'rss_on' ); ?>" name="<?php echo $this->get_field_name( 'rss_on' ); ?>"
+				class="widefat"<?php if ( $instance['rss_on'] ): ?> checked<?php endif; ?>>
+		</p>
+		<?php
 	}
 	
 	/**
@@ -114,6 +128,8 @@ class Ecologie_Social_Widget extends WP_Widget {
 		foreach ( self::SOCIAL_NETWORKS as $network ) {
 			$instance[$network['code']] = ( ! empty( $new_instance[$network['code']] ) ? strip_tags( $new_instance[$network['code']] ) : '' );
 		}
+		
+		$instance['rss_on'] = $new_instance['rss_on'];
 		
 		return $instance;
 	}
