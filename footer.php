@@ -5,38 +5,41 @@
 		</a>
 		<?php endif; ?>
 		<footer class="footer">
-			<div class="top">
-				<div class="container row">
-					<div class="col-xs-6 col-md-3">
-					<?php if ( is_active_sidebar( 'footer-col-1' ) ): ?>
-						<div class="widget-area" role="complementary">
-							<?php dynamic_sidebar( 'footer-col-1' ); ?>
+			<?php if ( is_active_sidebar( 'footer-col-1' ) || is_active_sidebar( 'footer-col-2' ) || is_active_sidebar( 'footer-col-3' )
+					|| is_active_sidebar( 'footer-col-4' ) ): ?>
+				<div class="top">
+					<div class="container row">
+						<div class="col-xs-6 col-md-3">
+						<?php if ( is_active_sidebar( 'footer-col-1' ) ): ?>
+							<div class="widget-area" role="complementary">
+								<?php dynamic_sidebar( 'footer-col-1' ); ?>
+							</div>
+						<?php endif; ?>
 						</div>
-					<?php endif; ?>
-					</div>
-					<div class="col-xs-12 col-md-3">
-					<?php if ( is_active_sidebar( 'footer-col-2' ) ): ?>
-						<div class="widget-area" role="complementary">
-							<?php dynamic_sidebar( 'footer-col-2' ); ?>
+						<div class="col-xs-12 col-md-3">
+						<?php if ( is_active_sidebar( 'footer-col-2' ) ): ?>
+							<div class="widget-area" role="complementary">
+								<?php dynamic_sidebar( 'footer-col-2' ); ?>
+							</div>
+						<?php endif; ?>
 						</div>
-					<?php endif; ?>
-					</div>
-					<div class="col-xs-12 col-md-3">
-					<?php if ( is_active_sidebar( 'footer-col-3' ) ): ?>
-						<div class="widget-area" role="complementary">
-							<?php dynamic_sidebar( 'footer-col-3' ); ?>
+						<div class="col-xs-12 col-md-3">
+						<?php if ( is_active_sidebar( 'footer-col-3' ) ): ?>
+							<div class="widget-area" role="complementary">
+								<?php dynamic_sidebar( 'footer-col-3' ); ?>
+							</div>
+						<?php endif; ?>
 						</div>
-					<?php endif; ?>
-					</div>
-					<div class="col-xs-12 col-md-3">
-					<?php if ( is_active_sidebar( 'footer-col-4' ) ): ?>
-						<div class="widget-area" role="complementary">
-							<?php dynamic_sidebar( 'footer-col-4' ); ?>
+						<div class="col-xs-12 col-md-3">
+						<?php if ( is_active_sidebar( 'footer-col-4' ) ): ?>
+							<div class="widget-area" role="complementary">
+								<?php dynamic_sidebar( 'footer-col-4' ); ?>
+							</div>
+						<?php endif; ?>
 						</div>
-					<?php endif; ?>
 					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 			<div class="bottom">
 				<div class="container row">
 					<div class="col-xs-12 col-md-8">
