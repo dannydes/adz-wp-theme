@@ -1,4 +1,4 @@
-# 0.9.1 ([Release date])
+# 0.9.1 (25-2-2018)
 
 * Social Widget: Added option to add link to site's primary RSS feed
 * Default logo shown in case no logo is provided by user
