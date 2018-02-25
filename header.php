@@ -44,7 +44,7 @@
 					</a>
 					<?php if ( ecologie_get_theme_mod_or_default( 'site_description_primary_menu_on' ) ): ?><p class="navbar-text hidden-md hidden-sm hidden-xs"><?php echo ecologie_shortened_site_description(); ?></p><?php endif; ?>
 				</div>
-				<?php if ( production_mode_disabled() ): ?><span class="pull-right navbar-text"> | Theme in development mode</span><?php endif; ?>
+				<?php if ( production_mode_disabled() ): ?><span class="pull-right navbar-text"> | Dev mode</span><?php endif; ?>
 				<div class="collapse navbar-collapse" id="main-menu">
 					<?php
 						

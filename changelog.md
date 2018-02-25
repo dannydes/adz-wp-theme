@@ -20,6 +20,7 @@
 * Contact Widget: Calling codes now visible in dropdown options
 * Navigation Menus: No bullets/separators if no menu is yet set for location
 * Site title and description in header and footer are now limited to the first 40 and 120 characters respectively
+* Shortened text shown in header for development mode to just " | Dev mode"
 * Code cleanup and documentation changes
 
 # 0.9 (27-12-2017)
