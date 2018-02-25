@@ -190,7 +190,7 @@ add_action( 'send_headers', 'ecologie_cs_start_session' );
  */
 function ecologie_page_has_contact_shortcode() {
 	$post = get_post( url_to_postid( $_SERVER['REQUEST_URI'] ) );
-	return has_shortcode( $post->post_content, 'contact-us' );
+	return $post !== null ? has_shortcode( $post->post_content, 'contact-us' ) : false;
 }
 
 /**

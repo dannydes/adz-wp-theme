@@ -50,6 +50,8 @@ function production_mode_disabled() {
  * Enqueue development mode scripts.
  */
 function enqueue_development_scripts() {
+	$theme_version = wp_get_theme()->get( 'Version' );
+	
 	wp_enqueue_script( 'sidebar', get_template_directory_uri() . '/js/sidebar.js', array( 'jquery' ) , $theme_version, true );
 	wp_enqueue_script( 'mailchimp', get_template_directory_uri() . '/js/mc-validate.js', array( 'jquery' ), $theme_version, true );
 	wp_enqueue_script( 'mailchimp-widget', get_template_directory_uri() . '/js/mailchimp.js', array( 'jquery', 'mailchimp' ), $theme_version, true );
