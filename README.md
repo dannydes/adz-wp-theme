@@ -57,6 +57,10 @@ Originally designed for ADZ - Alternattiva Demokratika Żgħażagħ.
 ## Install
 << Coming soon >>
 
+## Site Title and Description
+In this theme, only the first 40 characters (including letters, numbers and symbols) are shown for the site title, while the first 120 characters are 
+shown for the site description.
+
 ## Menus
 The theme provides two customisable menu locations, one on top and another beneat the footer. Remember to assign the 
 appropriate menu location to your menu.
