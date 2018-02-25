@@ -311,14 +311,14 @@ function ecologie_customize_register( $wp_customize ) {
 		'transport' => 'postMessage',
 	) );
 	
-	$wp_customize->add_control( new WP_Customize_Color_Control(
+	/*$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
 		'main_color',
 		array(
 			'label' => __( 'Main Colour', 'ecologie' ),
 			'section' => 'general',
 			'settings' => 'main_color',
-		) ) );
+		) ) ); */
 }
 
 add_action( 'customize_register', 'ecologie_customize_register' );
