@@ -2,6 +2,7 @@
 
 * Sidebar button now shows as icon
 * Sidebar button now has accessible/visible hover popups
+* Veritically centered site logo
 * Corrected some notices
 
 # 0.9.1 (25-2-2018)
