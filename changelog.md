@@ -1,7 +1,8 @@
-# 0.9.2
+# 0.9.2 ([Release date here])
 
 * Sidebar button now shows as icon
 * Sidebar button now has accessible/visible hover popups
+* Corrected some notices
 
 # 0.9.1 (25-2-2018)
 
