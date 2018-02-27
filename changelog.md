@@ -1,3 +1,8 @@
+# 0.9.2
+
+* Sidebar button now shows as icon
+* Sidebar button now has accessible/visible hover popups
+
 # 0.9.1 (25-2-2018)
 
 * Social Widget: Added option to add link to site's primary RSS feed

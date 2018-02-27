@@ -49,9 +49,15 @@ function ecologie_insert_sidebar_button( $items, $args ) {
 	
 	$dom = new DOMDocument();
 	$link = $dom->createElement( 'a' );
+	$link->setAttribute( 'type', 'button' );
 	$link->setAttribute( 'href', '#sidebar' );
-	$link_text = $dom->createTextNode( 'Sidebar' );
-	$link->appendChild( $link_text );
+	$link->setAttribute( 'class', 'btn btn-default' );
+	$link->setAttribute( 'aria-label', __( 'Toggle sidebar', 'ecologie' ) );
+	$link->setAttribute( 'title', __( 'Toggle sidebar', 'ecologie' ) );
+	$icon = $dom->createElement( 'i' );
+	$icon->setAttribute( 'class', 'fa fa-arrow-left' );
+	$icon->setAttribute( 'aria-hidden', 'true' );
+	$link->appendChild( $icon );
 	$li = $dom->createElement( 'li' );
 	$li->setAttribute( 'id', 'sidebar-button' );
 	$li->appendChild( $link );
