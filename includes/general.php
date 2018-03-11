@@ -38,7 +38,7 @@ function ecologie_enqueue_scripts() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 	
 	wp_enqueue_style( 'base-css', get_template_directory_uri() . '/style.css', '', $theme_version );
-	wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', '', '4.7' );
+	wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.8/js/all.js', '', '5.0.8' );
 	
 	if ( ecologie_get_theme_mod_or_default( 'contact_sc_captcha_on' ) && ecologie_page_has_contact_shortcode() ) {
 		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', '', '', true );
