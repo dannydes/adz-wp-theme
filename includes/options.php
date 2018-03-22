@@ -33,7 +33,7 @@ $default = array(
  */
 function ecologie_get_theme_mod_or_default( $key ) {
 	global $default;
-	return get_theme_mod( $key, $default[$key] );
+	return get_theme_mod( $key, ( isset( $default[$key] ) ? $default[$key] : null ) );
 }
 
 /**
