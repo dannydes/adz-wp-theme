@@ -1,2 +1,2 @@
-<i class="sad-face fa fa-frown-o"></i>
+<i class="sad-face far fa-frown"></i>
 <p>No posts found.</p>
