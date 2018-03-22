@@ -1,5 +1,6 @@
 # 0.9.2 ([Release date here])
 
+* Contact widget address is now shown in a block
 * Upgraded to Font Awesome 5
 * Sidebar button now shows as icon
 * Sidebar button now has accessible/visible hover popups

@@ -42,10 +42,12 @@ class Ecologie_Contact_Widget extends WP_Widget {
 				! empty( $address_line_4 ) ): ?>
 		<p>
 			<i class="fa fa-map-marker"></i>
-			<?php echo esc_attr( $address_line_1 ); ?>,<br>
-			<?php echo esc_attr( $address_line_2 ); ?>,<br>
-			<?php echo esc_attr( $address_line_3 ); ?>,<br>
-			<?php echo esc_attr( $address_line_4 ); ?>.
+			<span class="contact-widget-address">
+				<?php echo esc_attr( $address_line_1 ); ?>,<br>
+				<?php echo esc_attr( $address_line_2 ); ?>,<br>
+				<?php echo esc_attr( $address_line_3 ); ?>,<br>
+				<?php echo esc_attr( $address_line_4 ); ?>.
+			</span>
 		</p>
 		<?php endif;
 		
