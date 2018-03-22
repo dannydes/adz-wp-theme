@@ -1,5 +1,6 @@
 # 0.9.2 ([Release date here])
 
+* Upgraded to Font Awesome 5
 * Sidebar button now shows as icon
 * Sidebar button now has accessible/visible hover popups
 * Veritically centered site logo

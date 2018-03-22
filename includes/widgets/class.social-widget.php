@@ -74,7 +74,7 @@ class Ecologie_Social_Widget extends WP_Widget {
 			<?php if ( ! empty( $instance[$network['code']] ) ): ?>
 				<a href="<?php echo esc_url( $network['url_format'] . $instance[$network['code']] ); ?>" title="<?php echo $network['title']; ?>" target="_blank" aria-label="<?php echo $network['title']; ?>">
 					<div class="social-btn pull-left">
-						<i class="fa fa-<?php echo $network['code']; ?>" aria-hidden="true"></i>
+						<i class="fab fa-<?php echo $network['code']; ?>" aria-hidden="true"></i>
 					</div>
 				</a>
 			<?php endif;
