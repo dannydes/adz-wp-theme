@@ -42,7 +42,7 @@ class Ecologie_Contact_Widget extends WP_Widget {
 				! empty( $address_line_4 ) ): ?>
 		<p>
 			<i class="fa fa-map-marker"></i>
-			<span class="contact-widget-address">
+			<span class="contact-widget-text">
 				<?php echo esc_attr( $address_line_1 ); ?>,<br>
 				<?php echo esc_attr( $address_line_2 ); ?>,<br>
 				<?php echo esc_attr( $address_line_3 ); ?>,<br>
@@ -53,13 +53,13 @@ class Ecologie_Contact_Widget extends WP_Widget {
 		
 		if ( ! empty( $phone ) ): ?>
 		<p>
-			<a href="tel:+<?php echo esc_attr( $phone_country_code . $phone ); ?>"><i class="fa fa-phone"></i> +<?php echo esc_attr( $phone_country_code ); ?> <?php echo esc_attr( $phone ); ?></a>
+			<a href="tel:+<?php echo esc_attr( $phone_country_code . $phone ); ?>"><i class="fa fa-phone"></i> <span class="contact-widget-text">+<?php echo esc_attr( $phone_country_code ); ?> <?php echo esc_attr( $phone ); ?></span></a>
 		</p>
 		<?php endif;
 		
 		if ( ! empty( $email ) ): ?>
 		<p>
-			<a href="mailto:<?php echo esc_attr( $email ); ?>"><i class="fa fa-envelope"></i> <?php echo esc_attr( $email ); ?></a>
+			<a href="mailto:<?php echo esc_attr( $email ); ?>"><i class="fa fa-envelope"></i> <span class="contact-widget-text"><?php echo esc_attr( $email ); ?></span></a>
 		</p>
 		<?php endif;
 		
