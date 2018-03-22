@@ -31,8 +31,8 @@ class Ecologie_Contact_Widget extends WP_Widget {
 		$address_line_3 = $instance['address_line_3'];
 		$address_line_4 = $instance['address_line_4'];
 		$phone_country_code = $instance['phone_country_code'];
-		$phone = $instance['phone'];
-		$email = $instance['email'];
+		$phone = ( isset( $instance['phone'] ) ? $instance['phone'] : null );
+		$email = ( isset( $instance['email'] ) ? $instance['email'] : null );
 		
 		?>
 		<h2 class="widgettitle">Contact Us</h2>
