@@ -298,7 +298,7 @@ function ecologie_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( $setting[0], array(
 			'type' => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'default' => $default[$setting[0]],
+			'default' => ( isset( $default[$setting[0]] ) ? $default[$setting[0]] : null ),
 			'transport' => $setting[2],
 		) );
 		
