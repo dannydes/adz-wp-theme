@@ -661,3 +661,12 @@
     }
   }
 }
+
+// Hack to enable multi-level dropdowns
+.dropdown:hover {
+  > .dropdown-menu {
+    display: block;
+    left: 1em;
+    opacity: 0.8;
+  }
+}
