@@ -8,6 +8,7 @@
 * Veritically centered site logo
 * Corrected some notices
 * Enabled multi-level dropdowns in primary menu
+* Introduced Search widget
 
 # 0.9.1 (25-2-2018)
 
