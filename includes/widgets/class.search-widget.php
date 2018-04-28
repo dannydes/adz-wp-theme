@@ -27,10 +27,14 @@ class Ecologie_Search_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		?><form action="<?php echo esc_url( get_site_url() ); ?>" method="get">
-			<input class="form-control" type="text" name="s" placeholder="Search" />
-			<button class="btn btn-default" type="submit">
-				<i class="fa fa-search"></i>
-			</button>
+			<div class="input-group">
+				<input class="form-control" type="text" name="s" placeholder="Search" />
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="fa fa-search"></i>
+					</button>
+				</span>
+			</div>
 		</form><?php
 	}
 }
