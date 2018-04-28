@@ -8,6 +8,7 @@ function ecologie_widgets_init() {
 	register_widget( 'Ecologie_Social_Widget' );
 	register_widget( 'Ecologie_Upcoming_Event_Widget' );
 	register_widget( 'Ecologie_Mailchimp_Subscribe_Widget' );
+	register_widget( 'Ecologie_Search_Widget' );
 	
 	register_sidebar( array(
 		'name' => __( 'Footer Column 1', 'ecologie_footer_col_1' ),

@@ -36,6 +36,13 @@ require_once 'includes/widgets/class.upcoming-event-widget.php';
 require_once 'includes/widgets/class.mailchimp-subscribe-widget.php';
 
 /**
+ * Implements Ecologie search widget class.
+ *
+ * @since 0.9.2
+ */
+require_once 'includes/widgets/class.search-widget.php';
+
+/**
  * Registers widgets and widget areas.
  */
 require_once 'includes/widgets/widgets.php';
