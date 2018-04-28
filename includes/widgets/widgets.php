@@ -11,6 +11,14 @@ function ecologie_widgets_init() {
 	register_widget( 'Ecologie_Search_Widget' );
 	
 	register_sidebar( array(
+		'name' => __( 'Header', 'ecologie_header' ),
+		'id' => 'header',
+		'description' => __( 'Header.', 'ecologie' ),
+		'before_widget' => '',
+		'after_widget' => '',
+	) );
+	
+	register_sidebar( array(
 		'name' => __( 'Footer Column 1', 'ecologie_footer_col_1' ),
 		'id' => 'footer-col-1',
 		'description' => '1st footer column.',

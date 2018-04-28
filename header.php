@@ -56,6 +56,11 @@
 							) );
 						}
 						
+						if ( is_active_sidebar( 'header' ) ): ?>
+							<div class="widget-area pull-right" role="complementary">
+								<?php dynamic_sidebar( 'header' ); ?>
+							</div>
+						<?php endif;
 					?>
 				</div>
 			</div>
