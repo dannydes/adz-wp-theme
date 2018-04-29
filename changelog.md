@@ -9,6 +9,7 @@
 * Corrected some notices
 * Enabled multi-level dropdowns in primary menu
 * Introduced Search widget
+* Introduced widget area in header
 
 # 0.9.1 (25-2-2018)
 
